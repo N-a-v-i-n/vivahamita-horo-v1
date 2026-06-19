@@ -1,0 +1,10 @@
+{
+  "name": "vivahamitra",
+  "description": "Premium High-Precision Vedic Astrological and Matchmaking Computation REST API for Marriage Compatibility (Nirayana Longitudes, Kundali Matching, Panchang, and Muhurta).",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
