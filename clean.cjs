@@ -705,9 +705,9 @@ const newMethodCode = `// Ashta Koota Matching & Porutham Matching
       : lang === "hi"
       ? \`वैदिक कुंडली मिलान पूरा हो गया है। 36 में से \${totalObtained} अंक प्राप्त हुए। कुल मिलान दर \${percentage}% है। \${totalObtained >= 18 ? "विवाह अनुकूल है और अनुशंसित है।" : "कम मिलान अंकों के कारण सावधानीपूर्वक उपचार और ज्योतिषी से परामर्श की आवश्यकता है।"}\`
       : lang === "ta"
-      ? \`வேத ஜாதக பொருத்தம் காண்கிறது. 36க்கு \${totalObtained} புள்ளிகள் கிடைத்துள்ளது. மொத்தப் பொருத்தம் \underline{\${percentage}}%. \${totalObtained >= 18 ? "மணவாழ்க்கை மிகவும் உகந்தது மற்றும் பரிந்துரைக்கப்படுகிறது." : "குறைவான புள்ளிகள் என்பதால் முறையான பரிகாரம் மற்றும் ஜோதிட ஆலோசனை அவசியம்."}\`
+      ? \`வேத ஜாதக பொருத்தம் காண்கிறது. 36க்கு \${totalObtained} புள்ளிகள் கிடைத்துள்ளது. மொத்தப் பொருத்தம் \${percentage}%. \${totalObtained >= 18 ? "மணவாழ்க்கை மிகவும் உகந்தது மற்றும் பரிந்துரைக்கப்படுகிறது." : "குறைவான புள்ளிகள் என்பதால் முறையான பரிகாரம் மற்றும் ஜோதிட ஆலோசனை அவசியம்."}\`
       : lang === "kn"
-      ? \`ವೇದ ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ. 36ಕ್ಕೆ \${totalObtained} ಅಂಕಗಳು ಬಂದಿವೆ. ಒಟ್ಟು ಹೊಂದಾಣಿಕೆ ದರ \underline{\${percentage}}%. \underline{\${totalObtained >= 18 ? "ವಿವಾಹಕ್ಕೆ ಅತ್ಯಂತ ಯೋಗ್ಯವಾಗಿದೆ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ." : "ಕಡಿಮೆ ಹೊಂದಾಣಿಕೆ ಅಂಕಗಳಿರುವ ಕಾರಣ ಸೂಕ್ತ ಆಧ್ಯಾತ್ಮಿಕ ಪರಿಹಾರಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯರ ಸಲಹೆ ಅಗತ್ಯವಿದೆ."}}\`
+      ? \`ವೇದ ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ. 36ಕ್ಕೆ \${totalObtained} ಅಂಕಗಳು ಬಂದಿವೆ. ಒಟ್ಟು ಹೊಂದಾಣಿಕೆ ದರ \${percentage}%. \${totalObtained >= 18 ? "ವಿವಾಹಕ್ಕೆ ಅತ್ಯಂತ ಯೋಗ್ಯವಾಗಿದೆ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ." : "ಕಡಿಮೆ ಹೊಂದಾಣಿಕೆ ಅಂಕಗಳಿರುವ ಕಾರಣ ಸೂಕ್ತ ಆಧ್ಯಾತ್ಮಿಕ ಪರಿಹಾರಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯರ ಸಲಹೆ ಅಗತ್ಯವಿದೆ."}\`
       : \`Vedic kundali matching has been completed. Obtained \${totalObtained} out of 36 points. Overall match rate is \${percentage}%. \${totalObtained >= 18 ? "Marriage is compatible and recommended." : "Requires careful remediation and astrologer consulting due to low matching points."}\`;
 
     return {

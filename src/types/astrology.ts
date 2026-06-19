@@ -178,6 +178,28 @@ export interface MatchingResult {
     isCancelled: boolean;
     cancellationDetails?: string;
   };
+  mandatory_failures?: string[];
+  mandatoryFailures?: string[];
+  children_score_insight?: { value: string; nature: string };
+  childrenScoreInsight?: { value: string; nature: string };
+  health_score_insight?: { value: string; nature: string };
+  healthScoreInsight?: { value: string; nature: string };
+  finance_score_insight?: { value: string; nature: string };
+  financeScoreInsight?: { value: string; nature: string };
+  longevity_score_insight?: { value: string; nature: string };
+  longevityScoreInsight?: { value: string; nature: string };
+  paapa_samyam?: {
+    boy_points: number;
+    girl_points: number;
+    total_points: number;
+    description: string;
+  };
+  paapaSamyam?: {
+    boyPoints: number;
+    girlPoints: number;
+    total_points: number;
+    description: string;
+  };
   report: string;
 }
 
