@@ -41,13 +41,14 @@ horoscopeV2Router.post("/", async (req: Request, res: Response) => {
         fileName: pdfData.fileName,
         generatedAt: new Date().toISOString()
       };
-    } catch (pdfErr) {
+    } catch (pdfErr: any) {
       console.warn("Failed to generate PDF, continuing without it.", pdfErr);
       response.pdf = {
         generated: false,
-        url: "",
+        base64: "",
         fileName: "",
-        generatedAt: new Date().toISOString()
+        generatedAt: new Date().toISOString(),
+        error: pdfErr.message || String(pdfErr)
       };
     }
     // Run strict localization validator before sending response
