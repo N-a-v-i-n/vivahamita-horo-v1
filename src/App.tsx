@@ -171,6 +171,7 @@ const ENDPOINTS: EndpointDoc[] = [
     }
   }
   /*
+  ,
   {
     path: "/api/dasha",
     method: "POST",
@@ -245,6 +246,7 @@ const ENDPOINTS: EndpointDoc[] = [
       cases: 105
     }
   }
+  */
 ];
 
 export default function App() {
