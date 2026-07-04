@@ -98,13 +98,23 @@ matchingV2Router.post("/", async (req: Request, res: Response) => {
 
     // 4. Generate the PDF
     if (input.pdfRequested) {
-      const pdfData = await PdfMatchingService.generateMatchingPdf(responseData, lang);
-      response.pdf = {
-        generated: true,
-        url: pdfData.url,
-        fileName: pdfData.fileName,
-        generatedAt: new Date().toISOString()
-      };
+      try {
+        const pdfData = await PdfMatchingService.generateMatchingPdf(responseData, lang);
+        response.pdf = {
+          generated: true,
+          url: pdfData.url,
+          fileName: pdfData.fileName,
+          generatedAt: new Date().toISOString()
+        };
+      } catch (pdfErr) {
+        console.warn("Failed to generate PDF, continuing without it.", pdfErr);
+        response.pdf = {
+          generated: false,
+          url: "",
+          fileName: "",
+          generatedAt: new Date().toISOString()
+        };
+      }
     }
 
     // Run strict localization validator before sending response

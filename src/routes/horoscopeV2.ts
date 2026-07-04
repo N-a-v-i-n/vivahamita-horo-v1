@@ -31,17 +31,25 @@ horoscopeV2Router.post("/", async (req: Request, res: Response) => {
     const lang = (req.query.lang as string) || 'en';
     const response = AstrologyV2Service.generateHoroscope(input, lang);
     
-    // Generate PDF via Puppeteer
-    const pdfData = await PdfService.generateHoroscopePdf(response.data, lang);
-    
-    response.pdf = {
-      generated: true,
-      url: pdfData.url,
-      fileName: pdfData.fileName,
-      generatedAt: new Date().toISOString()
-    };
-    
-    
+    // Generate PDF via Puppeteer (wrap in try-catch for Vercel serverless limits)
+    try {
+      const pdfData = await PdfService.generateHoroscopePdf(response.data, lang);
+      
+      response.pdf = {
+        generated: true,
+        url: pdfData.url,
+        fileName: pdfData.fileName,
+        generatedAt: new Date().toISOString()
+      };
+    } catch (pdfErr) {
+      console.warn("Failed to generate PDF, continuing without it.", pdfErr);
+      response.pdf = {
+        generated: false,
+        url: "",
+        fileName: "",
+        generatedAt: new Date().toISOString()
+      };
+    }
     // Run strict localization validator before sending response
     validateLocalization(response, lang);
 
