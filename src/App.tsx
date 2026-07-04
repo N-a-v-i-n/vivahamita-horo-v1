@@ -29,6 +29,7 @@ interface EndpointDoc {
 }
 
 const ENDPOINTS: EndpointDoc[] = [
+  /*
   {
     path: "/api/panchang",
     method: "POST",
@@ -64,6 +65,7 @@ const ENDPOINTS: EndpointDoc[] = [
       ayanamsa: "Lahiri"
     }
   },
+  */
   {
     path: "/horoscope-v2",
     method: "POST",
@@ -84,6 +86,7 @@ const ENDPOINTS: EndpointDoc[] = [
       placeOfBirth: "Hyderabad"
     }
   },
+  /*
   {
     path: "/api/chart",
     method: "POST",
@@ -133,6 +136,7 @@ const ENDPOINTS: EndpointDoc[] = [
       }
     }
   },
+  */
   {
     path: "/matching-v2",
     method: "POST",
@@ -165,7 +169,8 @@ const ENDPOINTS: EndpointDoc[] = [
       },
       pdfRequested: true
     }
-  },
+  }
+  /*
   {
     path: "/api/dasha",
     method: "POST",

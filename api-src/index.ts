@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // Mount the core astrological matching router directly
-app.use("/api", astrologyRouter);
+// app.use("/api", astrologyRouter);
 app.use("/horoscope-v2", horoscopeV2Router);
 app.use("/matching-v2", matchingV2Router);
 
