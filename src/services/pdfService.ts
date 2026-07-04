@@ -35,7 +35,7 @@ export class PdfService {
            <span style="font-weight: bold; font-size: 12px;">
               www.<span style="color: #b4366f;">vivaha</span><span style="color: #2196f3;">mitra</span>.in
            </span>
-           <span>Generated On: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}</span>
+           <span>Generated On: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
         </div>
       `,
       margin: {
@@ -278,10 +278,10 @@ export class PdfService {
             height: 75px;
             text-align: center;
             vertical-align: middle;
-            font-size: 10pt;
+            font-size: 8pt;
+            line-height: 1.2;
             padding: 2px;
-            word-wrap: break-word;
-            overflow: hidden;
+            word-break: break-word;
           }
           .chart-center {
             font-size: 11pt !important;

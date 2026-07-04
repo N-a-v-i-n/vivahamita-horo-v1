@@ -31,7 +31,7 @@ export class PdfMatchingService {
            <span style="font-weight: bold; font-size: 12px;">
               www.<span style="color: #b4366f;">vivaha</span><span style="color: #2196f3;">mitra</span>.in
            </span>
-           <span>Generated On: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}</span>
+           <span>Generated On: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
         </div>
       `,
       margin: {
@@ -297,7 +297,17 @@ export class PdfMatchingService {
           .chart-container { width: 45%; page-break-inside: avoid; }
           .chart-title { text-align: center; font-size: 12pt; font-weight: bold; margin-bottom: 8px; }
           .chart-table { width: 100%; table-layout: fixed; border-collapse: collapse; border: 3px solid #000; }
-          .chart-table td { border: 1px solid #000; width: 25%; height: 75px; text-align: center; vertical-align: middle; font-size: 10pt; padding: 2px; word-wrap: break-word; overflow: hidden; }
+          .chart-table td {
+            border: 1px solid #000;
+            width: 25%;
+            height: 75px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 8pt;
+            line-height: 1.2;
+            padding: 2px;
+            word-break: break-word;
+          }
           .chart-center { font-size: 11pt !important; font-weight: bold; color: #333; }
           
           .dasha-balance-box { border: 2px solid #000; padding: 15px; text-align: center; margin-bottom: 30px; page-break-inside: avoid; }
