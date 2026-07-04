@@ -1,0 +1,5 @@
+Kalachakra dasa depends on Moon’s navamsa. Navamsa shows one’s adherence of dharma or duty and throws light on the inner self. So the focus in Kalachakra dasa is state of the inner self and the sense of connectedness in one’s mind. It shows how _connected_ one is with respect to the events in one’s life. For example, a political leader may be running D-10 Narayana dasa of a yogakaraka rasi and he may land political power. He may be running the Vimsottari dasa of Sun who may be exalted in D-10 and so he may be feeling powerful. However, if Kalachakra dasa of a weak and afflicted house in D-10 runs at the same time, his inner self may not feel connected with the events in his career and he may feel a void. On the other hand, if Kalachakra dasa rasi is strong and occupied by benefics in D-10, then one may be successfully involved in activities that keep his inner self engaged. 
+
+Part 2: Dasa Analysis 
+
+309

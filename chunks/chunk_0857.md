@@ -1,0 +1,5 @@
+We may test this principle against as many examples as we want and we will find it to be satisfied in 100% cases. Does that mean that this is an excellent principle? 
+
+No! This is _not_ a meaningful or useful principle at all. Why? The list given covers the entire zodiac. Ta and Li are own signs of Venus. Ge, Vi, Cp and Aq are friendly signs. Cn, Sc and Pi are watery signs. Ar, Le and Sg are trines from the 7<sup>th</sup> house for any person with lagna in an airy sign. If you count the signs, you will find that all the twelve signs are covered! So the principle indirectly means, “someone born in an airy sign gets married when Venus transits in one of the 12 signs”. Of course, Venus transits one of the 12 signs always and this is a trivially correct statement. So it will be satisfied in the case of all people with lagna in an airy sign. 
+
+But, can we use it to make any predictions? If we get the chart of someone with lagna in an airy sign, can we predict using this principle when he will get married? No!

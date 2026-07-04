@@ -1,0 +1,5 @@
+**Vajra Yoga:** If lagna and the 7<sup>th</sup> houses are occupied by natural benefics and the 4<sup>th</sup> and 10<sup>th</sup> houses are occupied by natural malefics, this yoga is formed. One born with this yoga is happy in the early and late parts of life. He has valour. He is not fortunate, but he has no desires either. He fights. Vajra means a diamond. 
+
+**Yava Yoga:** If lagna and the 7<sup>th</sup> houses are occupied by natural malefics and the 4<sup>th</sup> and 10<sup>th</sup> houses are occupied by natural benefics, this yoga is formed. One born with this yoga observes religious rules. He is happy in the middle part of life. He has wealth and good children. He is charitable. He is strong-minded. Yava means a grain among other things. 
+
+**Kamala Yoga:** If all the planets are in quadrants from lagna, this yoga is formed. One born with this yoga becomes a king. He has a strong character. He is famous and long-lived. He is pure and performs many good deeds. Kamala means a lotus.

@@ -1,0 +1,5 @@
+If we take the birthtime above 13Cp45, lagna in D-24 changes from Ta to Ge. Then the 4<sup>th</sup> house is in Vi, aspected by Mercury, Moon and Jupiter. Mercury and Virgo can give education in computer science. Jupiter is in own house. He aspects the 4<sup>th</sup> house and joins 4<sup>th</sup> lord Mercury. So his dasa can give education. A4 is in Ge and Sun occupies it. So he may study at a popular college of engineering or science. 
+
+To get lagna in D-24 in Ge instead of Ta, lagna needs to be above 13Cp45. So the final rectified birthtime window after looking at the four divisional charts is 13Cp4515Cp00. To narrow down further, we need to look at D-40, D-45 and D-60. We can also use Kalachakra dasa. 
+
+With a birthtime of 10:36 am, we have lagna at 13Cp16 and Kalachakra dasa of Ta runs from 1987 to 2003. The native got married at the end of 1996. Ta dasa makes sense because navamsa lagna is in Ta. We should look at antardasa now. Pi antardasa starts in May 1995, Ar antardasa in April 1997 and Ta antardasa in Aug 1998.

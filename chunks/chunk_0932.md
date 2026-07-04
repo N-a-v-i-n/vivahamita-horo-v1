@@ -1,0 +1,3 @@
+Just as one who does not exercise accumulates a lot of body fat which is a liability, a greedy person accumulates a lot of sin which becomes a liability in the cycle of life, death and rebirth. On the other hand, an austere person who punishes himself by denying comforts burns away the sins of past lives, just as one who troubles his body with regular exercise burns the body fat. So a wise person doesn’t run after material possessions and tries to be austere. 
+
+An austere Jyotishi who serves humanity with his/her divine knowledge of Jyotisha burns away past sins and gets closer and closer to liberation from the cycle of life, death and rebirth.

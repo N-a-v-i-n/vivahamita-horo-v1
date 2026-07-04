@@ -1,0 +1,5 @@
+Here Saturn and Ketu are together in Virgo and exalted Venus aspects them from Pisces. This gives Tapaswi yoga. Tapaswi yoga is particularly powerful when formed with a planet in the 8<sup>th</sup> house (hard-work, research, discovery and occult knowledge). Here Venus is in the 8<sup>th</sup> house. AK is also involved in Tapaswi yoga. 
+
+So this native is likely to be a renunciate who did tapas in something and dedicated his life to it. His soul is likely to have found its purpose in his tapas. However, at the same time, there is a powerful rajayoga involving lagna lord and GL lord in the 7<sup>th</sup> from AL. That yoga cannot go waste. So this native must’ve enjoyed some power and influence in the society. 
+
+Let us consider his D-20 now (see Chart 13). D-20 shows religious and spiritual activities. Lagna is in Pisces and lord Jupiter is in the 9<sup>th</sup> house. This shows religiousness and also being guided by a brilliant guru/parampara. GL in D-20 is in Sc and Jupiter occupies it. It shows a powerful position in religion.

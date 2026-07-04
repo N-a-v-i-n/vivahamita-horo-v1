@@ -1,0 +1,3 @@
+#### **18.6 Sub-divisions of Narayana Dasa** 
+
+Narayana dasa is a versatile rasi dasa. It is a general purpose phalita dasa. It can be computed separately for each divisional chart for precise timing of events related to the matters associated with that divisional chart. We can go down to the precision of a day or an hour by using fine sub-divisions of dasas. As in Example 71, we can divide each antardasa into 12 equal pratyantardasas. This is done in the same manner as each dasa is divided into 12 equal antardasas. In the same manner, we can divide each pratyantardasa into 12 equal sookshma-antardasas (or simply sookshma dasas), each sookshma-antardasa into 12 equal praana-antardasas (or simply praana dasas) and each praana-antardasa into 12 equal deha-antardasas.

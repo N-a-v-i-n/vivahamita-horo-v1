@@ -1,0 +1,5 @@
+If someone studied at IIT (a top engineering institute of India), people may think that he is very knowledgable. If someone studied at an obscure university, people may not get the same impression. But it is possible that people’s perceptions are wrong and the person who studied at IIT is less knowledgable. 
+
+So A4 in D-24 shows the school or university and the environment in which one’s learning takes place. Usually that decides what impression people form about one’s learning. 
+
+Similarly, A10 in D-10 shows the maya associated with one’s karma (action – career). We form an impression about one’s career based on the place and environment where one’s work takes place. So A10 in D-10 shows one’s workplace. One with Mars in A10 in D-10 may work at dynamic places or engineering companies. One with Jupiter in A10 in D-10 may work at a university or college or a court of law or a temple.

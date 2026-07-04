@@ -1,0 +1,5 @@
+#### **32.3 A Practical Approach** 
+
+It is a good idea to first determine the correct D-9 lagna or D-10 lagna and then go to the other divisional charts. We should first determine that the birthtime is between 9:05 and 9:15. Then we can determine that it is between 9:07 and 9:11. Then we can use a more precise criterion and narrow down further. Thus we narrow down further and further with each criterion. 
+
+If one’s marriage has already taken place, we can use D-9 to see it and fix D-9 lagna. If not, we can see one’s general sense of duty, one’s basic skills and one’s interaction with others and fix D-9 lagna based on them. Then we can go to a higher divisional chart. However, in reality, sometimes it may become necessary to come back to D-9. For example, suppose someone can have lagna in D-9 in Li or Sc. Suppose we think that Li is also a good candidate but Sc is better. Then the candidates for D-24 lagna that we get with this choice may not make sense. It may make sense to place lagna in D-24 in another rasi and that may require lagna in D-9 to be in Li. In that case, we can revisit D-9 and change the lagna.

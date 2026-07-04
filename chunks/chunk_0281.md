@@ -1,0 +1,5 @@
+**Trilochana Yoga:** If Sun, Moon and Mars are in mutual trines, then this yoga is present. One born with this yoga is wealthy, intelligent, long-lived and victorious over enemies. He achieves everything without many obstacles. Trilochana means “one  with three eyes”. It is another name of Lord Siva, who has a hidden eye in His forehead. 
+
+**Gouri Yoga:** If the lord of the sign occupied in navamsa by the 10<sup>th</sup> lord is exalted in the 10<sup>th</sup> house and lagna lord joins him, then this yoga is present. One born with this yoga is from a respectable family and he is religious and virtuous. He is blessed with happiness from family. Gouri is a form of Parvati – Lord Siva’s wife. She is an epitome of marital bliss and purity. 
+
+**Chandikaa Yoga:** If (1) lagna is in a fixed sign aspected by 6<sup>th</sup> lord and (2) Sun joins the lords of the signs occupied in navamsa by 6<sup>th</sup> and 9<sup>th</sup> lords, then this yoga is present. One born with this yoga is aggressive, charitable, wealthy, famous and longlived. Chandika is an aggressive form of Parvati. She kills demons mercilessly.

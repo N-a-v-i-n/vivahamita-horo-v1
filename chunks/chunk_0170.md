@@ -1,0 +1,1 @@
+the 5<sup>th</sup> , 8<sup>th</sup> , 12<sup>th</sup> and 1<sup>st</sup> houses are the upachayas from the 3<sup>rd</sup> house. The 8<sup>th</sup> , 10<sup>th</sup> and 2<sup>nd</sup> houses are the dusthanas from the 3<sup>rd</sup> house. Thus we can find trines, quadrants _etc_ from any house.

@@ -1,0 +1,5 @@
+#### **23.2 Computation** 
+
+Find the stronger of lagna and the 7<sup>th</sup> house. Dasas start there and _always_ go in the regular zodiacal order. For example, if lagna is in Sc and Ta is stronger than Sc, dasas go as Ta, Ge, Cn, Le _etc_ . If lagna is in Le and Aq is stronger than Le, dasas go as Aq, Pi, Ar, Ta _etc_ . Each dasa is of 9 years. Each dasa is divided into 12 equal antardasas. Antardasas are found using the same rules as dasas, but treating dasa rasi as lagna. If Cn dasa is running and Cn is stronger than Cp, then antardasas go as Cn, Le, Vi, Li _etc_ and each antardasa will last 9 months. 
+
+Human beings live in the womb for an average of 9 months. For animals with an average of gestation period of _n_ months, each dasa and antardasa will be of _n_ years and _n_ months respectively.

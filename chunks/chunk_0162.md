@@ -1,0 +1,5 @@
+Success in competition is related to the illusions and perceptions of the world and so the most appropriate reference is arudha lagna. The 5<sup>th</sup> house from arudha lagna shows success in competition. Scholarship is not a measurable attribute of the physical existence. It is a property of one’s true personality and one’s conceptual self. So the 5<sup>th</sup> from lagna shows scholarship. If we take the self that exists physically and take its part as applicable to the area of life shown by D-24 ( _i.e._ learning), memory is a direct attribute of that self. Memory is a property of one’s self that physically exists. So the 5<sup>th</sup> house from paaka lagna shows memory the best. 
+
+Saturn’s transit<sup>13</sup> over the rasi containing one’s lagna may throw obstructions and hamper one’s activities. Saturn’s transit over the rasi containing one’s Chandra lagna may create frustration and mental depression. Saturn’s transit over the rasi containing one’s paaka lagna may leave one feeling sick all the time and attack the physical vitality. 
+
+###### **7.3.6** **_Karakamsa Lagna_**

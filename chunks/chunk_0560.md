@@ -1,0 +1,5 @@
+Let us find antardasas in Ar dasa. Ar is stronger than Li, as its lord Mars aspects it. Antardasas start from Mars in Le and go as Le, Vi, Le, Sc _etc_ . Each antardasa is of 7 months as Ar dasa is of 7 years. Nov 1982-June 1983 is the first antardasa of Le. June 1983-Jan 1984 is the second antardasaof Vi. Jan 1984-Aug 1984 is the third antardasa of Li. The fourth antardasa of Sc runs during Aug 1984-Mar 1985. This is the one that brought death. 
+
+Sc is the 8<sup>th</sup> from dasa rasi Ar. So the first antardasa principle we described is correct. Ketu owns the the 8<sup>th</sup> from Ar and he is in Cp in navamsa. Sc aspects Cp and the second principle is also satisfied. 
+
+**Example 87:** Let us consider the rasi chart of a male given in Chart 40. He expired towards the end of 1949. Antardasa at the time of death does not follow the principles explained here, but dasa follows the Trishoola principle. Let us verify it.

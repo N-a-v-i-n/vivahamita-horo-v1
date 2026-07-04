@@ -1,0 +1,5 @@
+**Vasumati Yoga:** If benefics occupy upachayas, then this yoga is present. For it to give full results, malefics should not occupy upachayas and the benefics occupying upachayas should be strong. One born with this yoga has abundant wealth. Vasumati means earth. 
+
+**Gandharva Yoga:** If (1) the 10<sup>th</sup> lord is in a trine from the 7<sup>th</sup> house, (2) lagna lord is conjoined or aspected by Jupiter, (3) Sun is exalted and strong, and, (4) Moon is in the 9<sup>th</sup> house, then this yoga is present. One born with this yoga is skillful and famous in fine arts. Gandharvas are a class of gods with excellent skills in singing and other fine arts. 
+
+**Go Yoga:** If (1) Jupiter is strong in his moolatrikona, (2) the lord of the 2<sup>nd</sup> house is with Jupiter, and, (3) lagna lord is exalted, then this yoga is present. One born with this yoga is from a respectable family. He is wealthy and resepcted by all. Go means a cow.

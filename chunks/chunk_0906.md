@@ -1,0 +1,5 @@
+For this reason, believers choose an auspicious time when starting new ventures. The time when a new task is undertaken is called “muhurta”. One can select a good muhurta for a variety of tasks – getting married, joining a new job, swearing-in ceremonies (in the case of political leaders), starting a new company, starting a kid’s formal education, giving cooked rice to a baby for the first time, buying a vehicle, buying a house, housewarming, babyshowers _etc_ . The list is endless. In India, old people choose a good muhurta even for getting a haircut or for cutting nails. 
+
+The topic of muhurta has a lot of controversies. Different guidelines are given in different classics and different conventions are in vogue in different regions of India. Out of the modern books on muhurta in English language, the one by Dr. B.V. Raman is very good. 
+
+#### **36.2 Definition of Muhurta**

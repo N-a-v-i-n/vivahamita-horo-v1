@@ -1,0 +1,3 @@
+As it has been emphasized many times in this book, Vedic astrology has a rich variety of parameters, tools and techniques. Attempting to use various techniques in an interchangable manner only leads to confusion. One should strive to understand the meanings of various parameters and tools and use the right set of parameters and tools for the occasion. Though we have different ways of measuring a planet’s strength, their meanings are different and accordingly they are used for different purposes. We will learn the most common ones in this chapter. 
+
+#### **15.3 Shadbala and Astakavarga Bala**

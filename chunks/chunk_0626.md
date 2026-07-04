@@ -1,0 +1,3 @@
+###### **Exercise 36:** 
+
+Let us take navamsa. Ge contains A7 in navamsa and can show a relationship. It contains the 3<sup>rd</sup> from UL (upapada lagna) and can show the start of a marriage. It is the 7<sup>th</sup> house from Venus. It is the 4<sup>th</sup> house of harmony and bliss from lagna. Its lord Mercury is exalted in the 7<sup>th</sup> house. Ge has 33 rekhas in SAV. For all these reasons, Ge can be the antardasa. The 7<sup>th</sup> house Vi is also a candidate, but it is very weak with only 22 rekhas in SAV.

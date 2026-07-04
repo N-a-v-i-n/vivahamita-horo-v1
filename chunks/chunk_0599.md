@@ -1,0 +1,5 @@
+**Example 97:** Let us find the antardasa sequences in the 1<sup>st</sup> , 2<sup>nd</sup> , 3<sup>rd</sup> and 4<sup>th</sup> dasas in Example 95. 
+
+The 1<sup>st</sup> dasa is Sc (from the 2<sup>nd</sup> pada of Apasavya-1 constellations). We should start from Sc and find 9 rasis. After Sc, we have Li and the 9 rasis corresponding to the 2<sup>nd</sup> pada end there (see Table 46). So the next 7 rasis should be taken from the 9 rasis corresponding to the next pada, _i.e._ 3<sup>rd</sup> pada. So we get antardasas in Sc dasa as Sc, Li, Vi, Le, Cn, Ge, Ta, Ar, Sg.<sup>66</sup> 
+
+Similarly, one can see that antardasas in Li dasa (2<sup>nd</sup> dasa) go as Li, Vi, Le, Cn, Ge, Ta, Ar, Sg, Cp. Antardasas in Vi dasa (3<sup>rd</sup> dasa) go as Vi, Le, Cn, Ge, Ta, Ar, Sg, Cp, Aq. Antardasas in Le dasa (4<sup>th</sup> dasa) go as Le, Cn, Ge, Ta, Ar, Sg, Cp, Aq, Pi.

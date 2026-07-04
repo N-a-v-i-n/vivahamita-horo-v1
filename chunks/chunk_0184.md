@@ -1,0 +1,5 @@
+_Jupiter_ : Husband, sons, paternal grandparents and other paternal relatives (uncles and aunts) 
+
+_Venus_ : Wife, father-in-law, mother-in-law & maternal grandparents _Saturn_ : Elder siblings<sup>27</sup> 
+
+The use of sthira karakas has already been explained. They are presided by Shiva and they are used in the timing of death of the above relatives. They should not be used in general predictive astrology in the place of naisargika karakas. For example, some astrologers use the 7<sup>th</sup> from Jupiter instead of the 7<sup>th</sup> from Venus to predict marriage. However, Venus is the natural significator of marriage and the 7<sup>th</sup> from Venus should be used for predicting marriage, both in male and female charts. When predicting the death of spouse, we use Jupiter in female charts and Venus in male charts.<sup>28</sup>

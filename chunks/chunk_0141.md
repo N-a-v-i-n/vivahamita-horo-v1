@@ -1,0 +1,5 @@
+We should remember which planets, rasis and houses show a particular matter and find links between them in the divisional chart of interest. 
+
+Suppose we want to see when one would go abroad. It is related to residence and fortune and we should analyze one’s chaturthamsa (D-4). The 9<sup>th</sup> and 12<sup>th</sup> houses show foreign residence. Rahu signifies foreign residence. We should now look for links. If 12<sup>th</sup> lord is with Rahu in the 9<sup>th</sup> house in D-4, it can suggest that one would live abroad, probably during the periods of Rahu or 12<sup>th</sup> lord or 9<sup>th</sup> house. 
+
+Suppose we want to see when one would get a promotion at the office. Because D-10 shows one’s career and achievements, we should analyze D-10. Because GL (ghati lagna) shows power and authority, planets or rasis giving a promotion are usually connected with GL. They are in GL or aspect GL. Because AL shows status, planets associating with AL or the5th or the 10<sup>th</sup> from it are favorable. If the lord of AL is in the 10<sup>th</sup> from it and aspects GL, probably his period will give a promotion.

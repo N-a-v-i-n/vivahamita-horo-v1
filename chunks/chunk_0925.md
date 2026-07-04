@@ -1,0 +1,5 @@
+- (3) Hora of Jupiter runs at the time of muhurta. Jupiter occupies the 2<sup>nd</sup> house of speech in this author’s natal chart. In his natal D-24, Jupiter occupies Pi (10<sup>th</sup> house) and shows saattwik activities in society related to fine knowledge. A3 is in Pi in natal D-10 and Jupiter owns it. From A3 in D-24, he is the 2<sup>nd</sup> and 5<sup>th</sup> lord and occupies the 5<sup>th</sup> house (in own rasi). So Jupiter’s hora is very favorable for starting astrological writing. 
+
+- (4) More importantly, the Navamsa chart is strong. 
+
+If one’s aim in writing a textbook on Vedic astrology is to contribute to a renaissance in Vedic astrology and to serve astrology researchers, then Navamsa is more important than Rasi. Navamsa is the chart that shows how one follows one’s dharma (duty). So the strength of Navamsa is very important.

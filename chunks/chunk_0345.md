@@ -1,0 +1,1 @@
+one value without affecting the meter used in the verses. With Parasara’s indirect approach, consistent changes in multiple places are required for a single value change. So Parasara’s indirect approach is superior in corruption resistance. We will follow Parasara in this book.

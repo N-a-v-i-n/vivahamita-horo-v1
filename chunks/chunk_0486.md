@@ -1,0 +1,6 @@
+|**Le**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Le, Cp, Ge, Sc, Ar, Vi, Aq, Cn, Sg, Ta, Li, Pi<br>Le, Vi, Li, Sc, Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn<br>Le,Pi,Li,Ta,Sg,Cn,Aq,Vi,Ar,Sc,Ge,Cp|
+|**Vi**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Vi, Cp, Ta, Ge, Li, Aq, Pi, Cn, Sc, Sg, Ar, Le<br>Vi, Li, Sc, Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le<br>Vi,Ta,Cp,Sg,Le,Ar,Pi,Sc,Cn,Ge,Aq,Li|
+|**Li**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Li, Sc, Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi<br>Li, Sc, Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi<br>Li,Vi,Le,Cn,Ge,Ta,Ar,Pi,Aq,Cp,Sg,Sc|
+|**Sc**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Sc, Ge, Cp, Le, Pi, Li, Ta, Sg, Cn, Aq, Vi, Ar<br>Sc, Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi, Li<br>Sc,Ar,Vi,Aq,Cn,Sg,Ta,Li,Pi,Le,Cp,Ge|
+|**Sg**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Sg, Le, Ar, Pi, Sc, Cn, Ge, Aq, Li, Vi, Ta, Cp<br>Sg, Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi, Li, Sc<br>Sg,Ar,Le,Vi,Cp,Ta,Ge,Li,Aq,Pi,Cn,Sc|
+|**Cp**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Cp, Sg, Sc, Li, Vi, Le, Cn, Ge, Ta, Ar, Pi, Aq<br>Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi, Li, Sc, Sg<br>Cp,Aq,Pi,Ar,Ta,Ge,Cn,Le,Vi,Li,Sc,Sg|

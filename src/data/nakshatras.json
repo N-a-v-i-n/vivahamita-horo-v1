@@ -1,0 +1,272 @@
+{
+  "ashwini": {
+    "id": "ashwini",
+    "name": {
+      "en": "Ashwini",
+      "te": "అశ్విని",
+      "ta": "அஸ்வினி",
+      "kn": "ಅಶ್ವಿನಿ",
+      "ml": "അശ്വതി"
+    }
+  },
+  "bharani": {
+    "id": "bharani",
+    "name": {
+      "en": "Bharani",
+      "te": "భరణి",
+      "ta": "பரணி",
+      "kn": "ಭರಣಿ",
+      "ml": "ഭരണി"
+    }
+  },
+  "krittika": {
+    "id": "krittika",
+    "name": {
+      "en": "Krittika",
+      "te": "కృత్తిక",
+      "ta": "கிருத்திகை",
+      "kn": "ಕೃತ್ತಿಕಾ",
+      "ml": "കാർത്തിക"
+    }
+  },
+  "rohini": {
+    "id": "rohini",
+    "name": {
+      "en": "Rohini",
+      "te": "రోహిణి",
+      "ta": "ரோகிணி",
+      "kn": "ರೋಹಿಣಿ",
+      "ml": "രോഹിണി"
+    }
+  },
+  "mrigashira": {
+    "id": "mrigashira",
+    "name": {
+      "en": "Mrigashira",
+      "te": "మృగశిర",
+      "ta": "மிருகசீரிடம்",
+      "kn": "ಮೃಗಶಿರ",
+      "ml": "മകയിരം"
+    }
+  },
+  "ardra": {
+    "id": "ardra",
+    "name": {
+      "en": "Ardra",
+      "te": "ఆరుద్ర",
+      "ta": "திருவாதிரை",
+      "kn": "ಆರ್ದ್ರಾ",
+      "ml": "തിരുവാതിര"
+    }
+  },
+  "punarvasu": {
+    "id": "punarvasu",
+    "name": {
+      "en": "Punarvasu",
+      "te": "పునర్వసు",
+      "ta": "புனர்பூசம்",
+      "kn": "ಪುನರ್ವಸು",
+      "ml": "പുണർതം"
+    }
+  },
+  "pushya": {
+    "id": "pushya",
+    "name": {
+      "en": "Pushya",
+      "te": "పుష్యమి",
+      "ta": "பூசம்",
+      "kn": "ಪುಷ್ಯ",
+      "ml": "പൂയം"
+    }
+  },
+  "ashlesha": {
+    "id": "ashlesha",
+    "name": {
+      "en": "Ashlesha",
+      "te": "ఆశ్లేష",
+      "ta": "ஆயில்யம்",
+      "kn": "ಆಶ್ಲೇಷಾ",
+      "ml": "ആയില്യം"
+    }
+  },
+  "magha": {
+    "id": "magha",
+    "name": {
+      "en": "Magha",
+      "te": "మఖ",
+      "ta": "மகம்",
+      "kn": "ಮಘಾ",
+      "ml": "മകം"
+    }
+  },
+  "purvaphalguni": {
+    "id": "purvaphalguni",
+    "name": {
+      "en": "Purva Phalguni",
+      "te": "పూర్వ ఫల్గుణి",
+      "ta": "பூரம்",
+      "kn": "ಪೂರ್ವ ಫಲ್ಗುಣಿ",
+      "ml": "പൂരം"
+    }
+  },
+  "uttaraphalguni": {
+    "id": "uttaraphalguni",
+    "name": {
+      "en": "Uttara Phalguni",
+      "te": "ఉత్తర ఫల్గుణి",
+      "ta": "உத்திரம்",
+      "kn": "ಉತ್ತರ ಫಲ್ಗುಣಿ",
+      "ml": "ഉത്രം"
+    }
+  },
+  "hasta": {
+    "id": "hasta",
+    "name": {
+      "en": "Hasta",
+      "te": "హస్త",
+      "ta": "அஸ்தம்",
+      "kn": "ಹಸ್ತ",
+      "ml": "അത്തം"
+    }
+  },
+  "chitra": {
+    "id": "chitra",
+    "name": {
+      "en": "Chitra",
+      "te": "చిత్త",
+      "ta": "சித்திரை",
+      "kn": "ಚಿತ್ರಾ",
+      "ml": "ചിത്തിര"
+    }
+  },
+  "swati": {
+    "id": "swati",
+    "name": {
+      "en": "Swati",
+      "te": "స్వాతి",
+      "ta": "சுவாதி",
+      "kn": "ಸ್ವಾತಿ",
+      "ml": "ചോതി"
+    }
+  },
+  "vishakha": {
+    "id": "vishakha",
+    "name": {
+      "en": "Vishakha",
+      "te": "విశాఖ",
+      "ta": "விசாகம்",
+      "kn": "ವಿಶಾಖಾ",
+      "ml": "വിശാഖം"
+    }
+  },
+  "anuradha": {
+    "id": "anuradha",
+    "name": {
+      "en": "Anuradha",
+      "te": "అనూరాధ",
+      "ta": "அனுஷம்",
+      "kn": "ಅನುರಾಧಾ",
+      "ml": "അനിഴം"
+    }
+  },
+  "jyeshtha": {
+    "id": "jyeshtha",
+    "name": {
+      "en": "Jyeshtha",
+      "te": "జ్యేష్ఠ",
+      "ta": "கேட்டை",
+      "kn": "ಜ್ಯೇಷ್ಠಾ",
+      "ml": "തൃക്കേട്ട"
+    }
+  },
+  "mula": {
+    "id": "mula",
+    "name": {
+      "en": "Mula",
+      "te": "మూల",
+      "ta": "மூலம்",
+      "kn": "ಮೂಲಾ",
+      "ml": "മൂലം"
+    }
+  },
+  "purvashadha": {
+    "id": "purvashadha",
+    "name": {
+      "en": "Purvashadha",
+      "te": "పూర్వాషాఢ",
+      "ta": "பூராடம்",
+      "kn": "ಪೂರ್ವಾಷಾಢ",
+      "ml": "പൂരാടം"
+    }
+  },
+  "uttarashadha": {
+    "id": "uttarashadha",
+    "name": {
+      "en": "Uttarashadha",
+      "te": "ఉత్తరాషాఢ",
+      "ta": "உத்திராடம்",
+      "kn": "ಉತ್ತರಾಷಾಢ",
+      "ml": "ഉത്രാടം"
+    }
+  },
+  "shravana": {
+    "id": "shravana",
+    "name": {
+      "en": "Shravana",
+      "te": "శ్రవణం",
+      "ta": "திருவோணம்",
+      "kn": "ಶ್ರವಣ",
+      "ml": "തിരുവോണം"
+    }
+  },
+  "dhanishta": {
+    "id": "dhanishta",
+    "name": {
+      "en": "Dhanishta",
+      "te": "ధనిష్ఠ",
+      "ta": "அவிட்டம்",
+      "kn": "ಧನಿಷ್ಠಾ",
+      "ml": "അവിട്ടം"
+    }
+  },
+  "shatabhisha": {
+    "id": "shatabhisha",
+    "name": {
+      "en": "Shatabhisha",
+      "te": "శతభిషం",
+      "ta": "சதயம்",
+      "kn": "ಶತಭಿಷಾ",
+      "ml": "ചതയം"
+    }
+  },
+  "purvabhadra": {
+    "id": "purvabhadra",
+    "name": {
+      "en": "Purvabhadrapada",
+      "te": "పూర్వాభాద్ర",
+      "ta": "பூரட்டாதி",
+      "kn": "ಪೂರ್ವಾಭಾದ್ರ",
+      "ml": "പൂരുരുട്ടാതി"
+    }
+  },
+  "uttarabhadra": {
+    "id": "uttarabhadra",
+    "name": {
+      "en": "Uttarabhadrapada",
+      "te": "ఉత్తరాభాద్ర",
+      "ta": "உத்திரட்டாதி",
+      "kn": "ಉತ್ತರಾಭಾದ್ರ",
+      "ml": "ഉത്രട്ടാതി"
+    }
+  },
+  "revati": {
+    "id": "revati",
+    "name": {
+      "en": "Revati",
+      "te": "రేవతి",
+      "ta": "ரேவதி",
+      "kn": "ರೇವತಿ",
+      "ml": "രേവതി"
+    }
+  }
+}

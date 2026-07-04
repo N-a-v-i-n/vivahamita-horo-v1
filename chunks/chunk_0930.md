@@ -1,0 +1,5 @@
+One should give this knowledge to worthy, honest and god-fearing students who have great respect for their teacher and who speak truth always. In Indian culture, one’s relationship with a giver of knowledge is that of a servant with one’s master. Just as a servant obeys each command of his master, a student obeys each command of his teacher. A wealthy man may give his servant only some money, but a teacher gives his students knowledge and knowledge is considered to be the most valuable asset in Indian culture. So teachers are treated with utmost respect. This may be tough to understand and appreciate, for readers from western cultures where knowledge is a commodity with a limited value. 
+
+Maharshis advised that one benefits by teaching Jyotisha to god-fearing students who treat their teacher with utmost respect and speak truth. On the other hand, one becomes sad everyday by teaching Jyotisha to atheists, liars and deceitful people. 
+
+In Kali Yuga, it may be difficult to find ideal students for this subject. Nevertheless, one should not teach this subject to unwilling people and unbelievers. This knowledge should be given only to the worthy students.

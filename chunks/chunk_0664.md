@@ -1,0 +1,5 @@
+To find out whether Venus is benefic with respect to Jupiter in Sc or not, we can look at the Prastaara Ashtakavarga (PAV) of Venus. If we find that Venus is benefic with respect to Jupiter in Sc, we say that the PAV of Venus has a rekha in the kakshya of Jupiter in Sc. Each rasi has eight kakshyas and a kakshya has a rekha in a planet’s PAV if that planet is benefic in that rasi with respect to the kakshya lord. 
+
+A popular method of delineating favorable and unfavorable days is to look at the number of planets that are in a kakshya with a rekha. If too many or too few planets are in a kakshya with a rekha, favorable or unfavorable results may be expected (respectively). However, one should not use this principle in vacuum. It should be used only in conjunction with dasas, Tajaka charts and other transit analysis techniques. This principle can only be used to fine-tune a prediction to a few days. 
+
+**Example 110:** Let us consider Indira Gandhi’s assassination. Her chart and the transit chart at the time of her assassination is given in Chart 61.

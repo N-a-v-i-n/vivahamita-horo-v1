@@ -1,0 +1,3 @@
+Apart from the 2<sup>nd</sup> , 4<sup>th</sup> and 11<sup>th</sup> houses from a house, the 5<sup>th</sup> house from a house has a _secondary_ argala on it. In the case of learning, argala of 8<sup>th</sup> house on 4<sup>th</sup> (8<sup>th</sup> is the 5<sup>th</sup> from 4<sup>th</sup> ) shows the influence of hard work in learning. Hard work is another decider. In the case of journey, argala of 7<sup>th</sup> house on 3<sup>rd</sup> house (7<sup>th</sup> is the 5<sup>th</sup> from 3<sup>rd</sup> ) shows the influence of partners in a journey. 
+
+#### **10.6 Virodhargala (Obstruction)**

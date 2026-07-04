@@ -1,0 +1,5 @@
+**Example 67:** Suppose Cp dasa of 5 years is running. Lords of Cp and Cn are Saturn and Moon respectively. Suppose Saturn is in Le and Moon is in Ta. Antardasas start from either Le or Ta. If Cp is stronger than Cn (or Saturn is much stronger than Moon), then we start from Le. If Cn is stronger than Cp (or Moon is much stronger than Saturn), then we start from Ta. Let us say Cn is stronger than Cp and Saturn is not much stronger than Moon. Then antardasas start from Ta, which contains Moon. Because Ta is an even sign, counting is backward. So antardasas go as — Ta, Ar, Pi, Aq, Cp, Sg, Sc, Li, Vi, Le, Cn and Ge. Each antardasa is of 5 months. 
+
+**_Exceptions_ :** If Saturn occupies antardasa seed rasi, antardasas go in the forward direction. If Ketu occupies antardasa seed rasi, antardasa direction is reversed (from forward to backward or from backward to forward). In the above example, antardasa sequence becomes Ta, Ge, Cn, Le, Vi, Li, Sc, Sg, Cp, Aq and Pi, if Ketu occupies Cn. 
+
+#### **18.4 Interpretation**

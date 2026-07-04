@@ -1,0 +1,3 @@
+- (4) The 8<sup>th</sup> and 12<sup>th</sup> houses from AL bring setbacks to one’s status. Their dasas can be unfavorable. 
+
+**Example 78:** Consider Sri Vajpayee, whose Sudasa was calculated in Example 77. His GL is in Cancer. Capricorn is the 7<sup>th</sup> house from GL and it can bring power and authority. Its lord Saturn aspects GL. Moon is the lord of GL and he aspects Cp. So Cp dasa is very favorable for attaining a position of power and authority. Moreover, Cp contains AL and A5. AL shows status and A5 can show power. The 5<sup>th</sup> house shows one’s following. A5 shows things based on which the world forms an impression about one’s following. It can show the trappings of power. Capricorn dasa in the second cycle made him the Prime Minister of India.

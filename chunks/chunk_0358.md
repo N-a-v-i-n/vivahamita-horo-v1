@@ -1,0 +1,5 @@
+We should consider the inherent nature and the functional nature of planets. Whether a planet is a natural benefic or a natural malefic is analogous to whether a person is inherently good or bad. Whether a planet is a functional benefic or a functional malefic is analogous to whether a person does good or bad to one. Just as a nice person may harm one and a bad person may do good, natural benefics can become functional malefics and natural malefics can become functional benefics. 
+
+#### **13.3 Baadhakas** 
+
+For a house falling in a movable/fixed/dual rasi, the 11<sup>th</sup> /9<sup>th</sup> /7<sup>th</sup> house (respectively) from there becomes baadhaka sthaana (troubling spot). Its lord is called a “baadhaka” (troublemaker) for the original house. The list of baadhaka sthaanas and baadhakas corresponding to each rasi is given in Table 31.

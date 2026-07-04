@@ -1,0 +1,5 @@
+**Bhaarathi Yoga:** If the lord of the sign occupied in navamsa by 2<sup>nd</sup> , 5<sup>th</sup> or 11<sup>th</sup> lord exalted and joins the 9<sup>th</sup> lord, then this yoga is present. One born with this yoga is a great scholar. He is intelligent, religious, good-looking and famous. Bhaarathi is another name of Saraswathi, the goddess of learning. 
+
+**Saraswathi Yoga:** If (1) each of Mercury, Jupiter and Venus occupies a quadrant or a trine or the 2<sup>nd</sup> house (not necessarily together) and (2) Jupiter is in an own or friendly or exaltation sign, then this yoga is present. One born with this yoga is very learned, skillful, intelligent, rich and famous. He is praised by all. Saraswathi is the goddess of learning. 
+
+**Amsaavatara Yoga:** If Jupiter, Venus and exalted Saturn are in quadrants, then this yoga is present. One born with this yoga becomes a king or an equal. He is learned and pleasure-loving. He has unsullied reputation. Amsaavatara means one who is an incarnation of a part of the Lord.

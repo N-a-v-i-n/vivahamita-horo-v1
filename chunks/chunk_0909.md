@@ -1,0 +1,1 @@
+So, traditionally, people warm milk on a stove at the time of muhurta. If milk is warmed for making sweet rice for offering Gods as a prasaad, that symbolizes the starting of life in the house. We have to decide intelligently on a case by case basis.

@@ -1,0 +1,5 @@
+###### **13.4.1** **_Basic Guidelines_** 
+
+When we analyze the charts, we should remember all the concepts we learnt in the previous chapters. The following factors must be remembered: 
+
+- (1) **Divisional Chart:** Use the correct divisional chart for the matter of interest. Suppose we are looking at happiness from a vehicle. D-16 is the best chart. Suppose we are trying to analyze a criminal’s psychology. D-30 is the best chart. Suppose we are analyzing marriage. D-9 is the best chart. Suppose we are analyzing marriage in a culture where marriage is not a dharma (duty) and a union of souls, but it is merely living together of two people, then rasi chart may be better than D-9. Suppose we want to study one’s religious activities. Then D- 20 is the chart. If we want to study one’s learning, D-24 is the chart. Suppose we want to study one’s career and achievements in society, D-10 chart is the correct chart. In this manner, we should choose the correct divisional chart.

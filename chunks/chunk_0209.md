@@ -1,0 +1,3 @@
+Similarly, the 9<sup>th</sup> house shows one’s fortune. In D-24, it may show fortune related to learning. It can show the guidance received by one ( _i.e._ guru – teacher). But the world forms an impression about one’s fortune in learning, based on the degrees received by one. One with an advanced degree is assumed to be more fortunate with respect to learning than one with a simple degree. So A9 can show one’s higher degrees. 
+
+In this manner, intelligent and blessed students can clearly understand the meanings of various arudha padas in various divisional charts. One cannot become a good Vedic astrologer by memorizing a lot of tables. One needs to understand the basics clearly and apply them intelligently.

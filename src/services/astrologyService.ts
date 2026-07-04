@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import crypto from 'crypto';
+
 import {
   BirthInput,
   PlanetPosition,
@@ -14,8 +16,22 @@ import {
   MatchScore,
   LanguageCode,
   NumerologyResponse,
-  MuhurtaTime
+  MuhurtaTime,
+  Horoscope,
+  HoroscopeHouse,
+  YogaResult,
+  InterpretationResult,
+  HoroscopeReport,
+  BirthProfile,
+  AstroProfileInfo
 } from "../types/astrology";
+import { YogaEngine } from "./yogaEngine";
+import { LocalizationService } from "./localizationService";
+import { LocalizationEngine } from './LocalizationEngine';
+import { REC_TERMS } from "./astroLocalization";
+import { DoshaEngine } from "./doshaEngine";
+import { DashaEngine } from "./dashaEngine";
+import { InterpretationEngine } from "./interpretationEngine";
 import {
   getJulianDate,
   getAyanamsa,
@@ -67,31 +83,31 @@ const NAKSHATRA_LORDS = [
 // Seed Remedies
 const PLANET_REMEDIES: Record<string, { stone: string; mantra: string; yantra: string; donation: string }> = {
   Sun: {
-    stone: "Ruby (Manikya)",
+    stone: "Ruby",
     mantra: "Om Hram Hreem Hroum Sah Suryaya Namah",
     yantra: "Surya Yantra",
     donation: "Wheat, Red flowers, Gold, Copper on Sundays"
   },
   Moon: {
-    stone: "Pearl (Moti)",
+    stone: "Pearl",
     mantra: "Om Shram Shreem Shroum Sah Chandraya Namah",
     yantra: "Chandra Yantra",
     donation: "Rice, Milk, Silver, White clothes on Mondays"
   },
   Mars: {
-    stone: "Red Coral (Moonga)",
+    stone: "Red Coral",
     mantra: "Om Kram Kreem Kroum Sah Bhaumaya Namah",
     yantra: "Mangal Yantra",
     donation: "Masoor dal, Red sandal, Copper on Tuesdays"
   },
   Mercury: {
-    stone: "Emerald (Panna)",
+    stone: "Emerald",
     mantra: "Om Bram Breem Broum Sah Budhaya Namah",
     yantra: "Budh Yantra",
     donation: "Green vegetables, Moong dal, Gold on Wednesdays"
   },
   Jupiter: {
-    stone: "Yellow Sapphire (Pukhraj)",
+    stone: "Yellow Sapphire",
     mantra: "Om Gram Greem Groum Sah Gurave Namah",
     yantra: "Guru Yantra",
     donation: "Chana dal, Turmeric, Yellow clothes on Thursdays"
@@ -103,19 +119,19 @@ const PLANET_REMEDIES: Record<string, { stone: string; mantra: string; yantra: s
     donation: "Kheer, Sugar, White silk, Perfumes on Fridays"
   },
   Saturn: {
-    stone: "Blue Sapphire (Neelam)",
+    stone: "Blue Sapphire",
     mantra: "Om Pram Preem Proum Sah Shanishcharaya Namah",
     yantra: "Shani Yantra",
     donation: "Black til, Mustard oil, Iron, Sesame on Saturdays"
   },
   Rahu: {
-    stone: "Hessonite (Gomed)",
+    stone: "Hessonite",
     mantra: "Om Bhram Bhreem Bhroum Sah Rahave Namah",
     yantra: "Rahu Yantra",
     donation: "Urad dal, Coconut, Blanket to needy on Saturdays"
   },
   Ketu: {
-    stone: "Cat's Eye (Lehsuniya)",
+    stone: "Cat's Eye",
     mantra: "Om Stram Streem Stroum Sah Ketave Namah",
     yantra: "Ketu Yantra",
     donation: "Sesame oil, Seven-grain mix, Multi-colored blanket"
@@ -182,7 +198,8 @@ export class AstrologyService {
     const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
 
     // Gather planets
-    const bodies = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu", "Uranus", "Neptune", "Pluto"];
+    // Only the 9 Vedic planets (Navagrahas) are used in Jyotish
+    const bodies = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"];
     const planets = bodies.map(b => computePlanetPosition(b, jd, ayanamsaSec, lang));
 
     // Lagna computation
@@ -194,14 +211,23 @@ export class AstrologyService {
       p.house = (p.rasiIndex - lagnaRasi + 12) % 12 + 1;
     });
 
-    const sun = planets.find(p => p.name === "Sun")!;
-    const moon = planets.find(p => p.name === "Moon")!;
+    const sun = planets.find(p => p.id === "sun")!;
+    const moon = planets.find(p => p.id === "moon")!;
 
     // Tithi
     let tithiDiff = (moon.longitude - sun.longitude + 360.0) % 360.0;
     const tithiIdx = Math.floor(tithiDiff / 12.0);
     const tithiRem = 12.0 - (tithiDiff % 12.0);
     const paksha = tithiIdx < 15 ? "Shukla" : "Krishna";
+
+    // Lunar Month (Approximate mapping from Sun's Rasi)
+    const sunRasi = Math.floor(sun.longitude / 30);
+    const lunarMonthIdx = sunRasi; // Roughly Chaitra when Sun is in Pisces/Aries etc.
+    const rituIdx = Math.floor(sunRasi / 2); // 6 Ritus
+    const ayana = (sunRasi >= 3 && sunRasi <= 8) ? "Dakshinayana" : "Uttarayana";
+
+    // Samvatsara (Approximate 60 year cycle from Prabhava)
+    const samvatsaraIdx = (input.year - 1987 + 1 + 6000) % 60;
 
     // Nakshatra
     const nakIdx = Math.floor(moon.longitude / (360.0 / 27.0));
@@ -216,7 +242,6 @@ export class AstrologyService {
     const karanaIdx = Math.floor(tithiDiff / 6.0);
 
     // Dynamic Sunrise & Sunset logic approx
-    // Calculates proportional sunrise/sunset based on latitude
     const latFactor = input.latitude * 0.04;
     const sunriseHr = 6.0 - 0.5 * Math.sin(((sun.longitude - 90.0) * Math.PI) / 180.0) * Math.sin((latitudeToRad(input.latitude)));
     const sunsetHr = 18.0 + 0.5 * Math.sin(((sun.longitude - 90.0) * Math.PI) / 180.0) * Math.sin((latitudeToRad(input.latitude)));
@@ -282,32 +307,37 @@ export class AstrologyService {
       brahmaMuhurta: { start: formatHrMin(sunriseHr - 1.5), end: formatHrMin(sunriseHr - 0.75) },
       tithi: {
         index: tithiIdx,
-        name: translateTithi(tithiIdx, "en"),
-        localizedName: translateTithi(tithiIdx, lang),
+        name: { en: translateTithi(tithiIdx, "en") },
+
         degreeRemaining: tRemToDeg(tithiRem),
         paksha: paksha as any,
-        pakshaLocalized: PAKSHA_TRANSLATIONS[paksha][lang]
+        pakshaName: { en: PAKSHA_TRANSLATIONS[paksha]["en"] }
       },
       nakshatra: {
         index: nakIdx,
-        name: translateNakshatra(nakIdx, "en"),
-        localizedName: translateNakshatra(nakIdx, lang),
-        lord: NAKSHATRA_LORDS[nakIdx],
-        lordLocalized: translatePlanet(NAKSHATRA_LORDS[nakIdx], lang),
+        entity: LocalizationService.getNakshatra(nakIdx.toString()),
+
+        lord: LocalizationService.getPlanet(NAKSHATRA_LORDS[nakIdx].toLowerCase()),
+
         degreeRemaining: nakRem
       },
       yoga: {
         index: yogaIdx,
-        name: translateYoga(yogaIdx, "en"),
-        localizedName: translateYoga(yogaIdx, lang),
+        name: { en: translateYoga(yogaIdx, "en") },
+
         degreeRemaining: yogaRem
       },
       karana: {
         index: karanaIdx,
-        name: translateKarana(karanaIdx, "en"),
-        localizedName: translateKarana(karanaIdx, lang)
+        name: { en: translateKarana(karanaIdx, "en") },
+
       },
       festivals: festivals.map(f => translateFestival(f, lang)),
+      lunarMonth: { en: `Month ${lunarMonthIdx}` },
+
+      samvatsara: { en: `Samvatsara ${samvatsaraIdx}` },
+      ritu: { en: `Ritu ${rituIdx}` },
+      ayana: { en: ayana },
       planets
     };
   }
@@ -389,13 +419,13 @@ export class AstrologyService {
   // Detect Doshas and generate remedies with full localization support for English, Hindi, Telugu, Tamil, and Kannada
   public static detectDoshas(planets: PlanetPosition[], lagnaLong: number, lang: LanguageCode): DoshaRecord[] {
     const lagnaRasi = Math.floor(lagnaLong / 30.0);
-    const mars = planets.find(p => p.name === "Mars")!;
-    const rahu = planets.find(p => p.name === "Rahu")!;
-    const ketu = planets.find(p => p.name === "Ketu")!;
-    const jupiter = planets.find(p => p.name === "Jupiter")!;
-    const moon = planets.find(p => p.name === "Moon")!;
-    const sun = planets.find(p => p.name === "Sun")!;
-    const saturn = planets.find(p => p.name === "Saturn")!;
+    const mars = planets.find(p => p.id === "mars")!;
+    const rahu = planets.find(p => p.id === "rahu")!;
+    const ketu = planets.find(p => p.id === "ketu")!;
+    const jupiter = planets.find(p => p.id === "jupiter")!;
+    const moon = planets.find(p => p.id === "moon")!;
+    const sun = planets.find(p => p.id === "sun")!;
+    const saturn = planets.find(p => p.id === "saturn")!;
 
     const doshas: DoshaRecord[] = [];
 
@@ -403,7 +433,7 @@ export class AstrologyService {
     const translations: Record<string, Record<LanguageCode, { name: string; descTrue: string; descFalse: string; remedies: string[] }>> = {
       manglik: {
         en: {
-          name: "Manglik Dosha (Kuja Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.MANGLIK', lang),
           descTrue: `Mars is placed in house ${mars.house} from Lagna. This can generate marital obstacles, arguments, and relationship friction.`,
           descFalse: "No Mars affliction detected in relationship houses.",
           remedies: [
@@ -414,7 +444,7 @@ export class AstrologyService {
           ]
         },
         te: {
-          name: "కుజ దోషం (Manglik Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.MANGLIK', lang),
           descTrue: `లగ్నం నుండి ${mars.house}వ స్థానంలో కుజుడు ఉన్నాడు. ఇది వివాహ ఆలస్యం, వివాదాలు మరియు संबंधాలలో మనస్పర్థలను కలిగిస్తుంది.`,
           descFalse: "సంబంధ గృహాలలో కుజ దోష ప్రభావం ఏదీ కనిపించలేదు.",
           remedies: [
@@ -425,7 +455,7 @@ export class AstrologyService {
           ]
         },
         hi: {
-          name: "मांगलिक दोष (Kuja Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.MANGLIK', lang),
           descTrue: `लग्न से ${mars.house}वें भाव में मंगल स्थित है। यह वैवाहिक बाधाएं, विवाद और संबंधों में तनाव पैदा कर सकता है।`,
           descFalse: "वैवाहिक भावों में मंगल का कोई हानिकारक प्रभाव नहीं देखा गया।",
           remedies: [
@@ -436,8 +466,8 @@ export class AstrologyService {
           ]
         },
         ta: {
-          name: "செவ்வாய் தோஷம் (Manglik Dosha)",
-          descTrue: `லக்னத்திலிருந்து ${mars.house}வது வீட்டில் செவ்வாய் அமைந்துள்ளது. ఇది திருமண தடைகள் மற்றும் உறவுகளில் கருத்து வேறுபாடுகளை ஏற்படுத்தலாம்.`,
+          name: LocalizationEngine.getInstance().get('DOSHA.MANGLIK', lang),
+          descTrue: `லக்னத்திலிருந்து ${mars.house}வது வீட்டில் செவ்வாய் அமைந்துள்ளது. இது திருமண தடைகள் மற்றும் உறவுகளில் கருத்து வேறுபாடுகளை ஏற்படுத்தலாம்.`,
           descFalse: "உறவு வீடுகளில் செவ்வாய் தோஷ பாதிப்பு எதுவும் இல்லை.",
           remedies: [
             "செவ்வாய் காயத்ரி மந்திரத்தை உச்சரிக்கவும்: ஓம் அங்காரகாய நமஹ",
@@ -447,7 +477,7 @@ export class AstrologyService {
           ]
         },
         kn: {
-          name: "ಮಂಗಳ ದೋಷ (Kuja Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.MANGLIK', lang),
           descTrue: `ಲಗ್ನದಿಂದ ${mars.house}ನೇ ಮನೆಯಲ್ಲಿ ಮಂಗಳನಿದ್ದಾನೆ. ಇದು ವೈವಾಹಿಕ ಅಡೆತಡೆಗಳು ಮತ್ತು ಸಂಬಂಧಗಳಲ್ಲಿ ಕಲಹವನ್ನು ಉಂಟುಮಾಡಬಹುದು.`,
           descFalse: "ಸಂಬಂಧದ ಮನೆಗಳಲ್ಲಿ ಮಂಗಳನ ಯಾವುದೇ ದುಷ್ಪರಿಣಾಮ ಕಂಡುಬಂದಿಲ್ಲ.",
           remedies: [
@@ -460,7 +490,7 @@ export class AstrologyService {
       },
       kalasarpa: {
         en: {
-          name: "Kala Sarpa Dosha",
+          name: LocalizationEngine.getInstance().get('DOSHA.KALASARPA', lang),
           descTrue: "All planets are hemmed between Rahu and Ketu. Can bring struggles, sudden delays in achievements, and severe life shifts.",
           descFalse: "No cluster pattern between Rahu/Ketu detected.",
           remedies: [
@@ -471,7 +501,7 @@ export class AstrologyService {
           ]
         },
         te: {
-          name: "కాల సర్ప దోషం (Kala Sarpa Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KALASARPA', lang),
           descTrue: "అన్ని గ్రహాలు రాహువు మరియు కేతువుల మధ్య బంధించబడి ఉన్నాయి. ఇది పోరాటాలు, విజయాలలో ఆకస్మిక జాప్యం మరియు జీవితంలో తీవ్రమైన మార్పులను తెస్తుంది.",
           descFalse: "రాహు-కేతువుల మధ్య ఏవిధమైన సర్ప దోష కూటమి కనిపించలేదు.",
           remedies: [
@@ -482,7 +512,7 @@ export class AstrologyService {
           ]
         },
         hi: {
-          name: "काल सर्प दोष (Kala Sarpa Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KALASARPA', lang),
           descTrue: "सभी ग्रह राहु और केतु के बीच बंधे हुए हैं। यह संघर्ष, उपलब्धियों में अचानक देरी और जीवन में बड़े उतार-चढ़ाव ला सकता है।",
           descFalse: "राहु और केतु के बीच कोई सर्प दोष प्रतिरूप नहीं पाया गया।",
           remedies: [
@@ -493,7 +523,7 @@ export class AstrologyService {
           ]
         },
         ta: {
-          name: "கால சர்ப்ப தோஷம் (Kala Sarpa Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KALASARPA', lang),
           descTrue: "அனைத்து கிரகங்களும் ராகு மற்றும் கேதுவுக்கு இடையில் அமைந்துள்ளன. இது தடைகள், திடீர் தாமதங்கள் மற்றும் வாழ்வில் பெரும் மாற்றங்களைக் கொண்டுவரலாம்.",
           descFalse: "ராகு-கேதுவுக்கு இடையே எந்த கால சர்ப்ப தோஷ அமைப்பும் இல்லை.",
           remedies: [
@@ -504,7 +534,7 @@ export class AstrologyService {
           ]
         },
         kn: {
-          name: "ಕಾಲ ಸರ್ಪ ದೋಷ (Kala Sarpa Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KALASARPA', lang),
           descTrue: "ಎಲ್ಲಾ ಗ್ರಹಗಳು ರಾಹು ಮತ್ತು ಕೇತುಗಳ ಮಧ್ಯೆ ಬಂಧಿತವಾಗಿವೆ. ಇದು ಜೀವನದಲ್ಲಿ ಹೋರಾಟ, ಯಶಸ್ಸಿನಲ್ಲಿ ಹಠಾತ್ ವಿಳಂಬ ಮತ್ತು ತೀವ್ರ ಬದಲಾವಣೆಗಳನ್ನು ತರಬಹುದು.",
           descFalse: "ರಾಹು ಮತ್ತು ಕೇತುಗಳ ನಡುವೆ ಯಾವುದೇ ಕಾಲ ಸರ್ಪ ದೋಷ ಕಂಡುಬಂದಿಲ್ಲ.",
           remedies: [
@@ -517,7 +547,7 @@ export class AstrologyService {
       },
       guruchandal: {
         en: {
-          name: "Guru Chandal Dosha",
+          name: LocalizationEngine.getInstance().get('DOSHA.GURUCHANDAL', lang),
           descTrue: "Jupiter and Rahu/Ketu are conjunct in the same house. Can disturb concentration, wisdom, spiritual focus, and generate teacher-disciple conflicts.",
           descFalse: "Jupiter is un-afflicted by Rahu or Ketu.",
           remedies: [
@@ -527,7 +557,7 @@ export class AstrologyService {
           ]
         },
         te: {
-          name: "గురు చండాల దోషం (Guru Chandal Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.GURUCHANDAL', lang),
           descTrue: "గురువు మరియు రాహు/కేతువులు ఒకే స్థానంలో కలిసి ఉన్నారు. ఇది ఏకాగ్రత, జ్ఞానం, ఆధ్యాత్మికతను దెబ్బతీస్తుంది మరియు గురు-శిష్యుల మధ్య వివాదాలను కలిగిస్తుంది.",
           descFalse: "గురు గ్రహం రాహువు లేదా కేతువుల వల్ల పీడించబడలేదు.",
           remedies: [
@@ -537,7 +567,7 @@ export class AstrologyService {
           ]
         },
         hi: {
-          name: "गुरु चांडाल दोष (Guru Chandal Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.GURUCHANDAL', lang),
           descTrue: "गुरु और राहु/केतु एक ही भाव में युति कर रहे हैं। यह एकाग्रता, बुद्धि, आध्यात्मिक ध्यान को बाधित कर सकता है और गुरु-सिष्य विवाद पैदा कर सकता है।",
           descFalse: "गुरु देव राहु या केतु के प्रभाव से मुक्त हैं।",
           remedies: [
@@ -547,7 +577,7 @@ export class AstrologyService {
           ]
         },
         ta: {
-          name: "குரு சண்டாள தோஷம் (Guru Chandal Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.GURUCHANDAL', lang),
           descTrue: "குரு மற்றும் ராகு/கேது ஒரே வீட்டில் இணைந்துள்ளனர். இது மன ஒருமுகப்பாடு, அறிவு மற்றும் ஆன்மீக கவனத்தை குலைக்கக்கூடும்.",
           descFalse: "வியாழன் ராகு அல்லது கேதுவின் தீய பார்வையில் இருந்து விடுபட்டுள்ளார்.",
           remedies: [
@@ -557,7 +587,7 @@ export class AstrologyService {
           ]
         },
         kn: {
-          name: "ಗುರು ಚಾಂಡಾಲ ದೋಷ (Guru Chandal Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.GURUCHANDAL', lang),
           descTrue: "ಗುರು ಮತ್ತು ರಾಹು/ಕೇತು ಒಂದೇ ಮನೆಯಲ್ಲಿ ಒಟ್ಟಿಗೆ ಇದ್ದಾರೆ. ಇದು ಏಕಾಗ್ರತೆ, ಬುದ್ಧಿಶಕ್ತಿ, ಆಧ್ಯಾತ್ಮಿಕ ಗಮನವನ್ನು ಕದಡಬಹುದು.",
           descFalse: "ಗುರು ಗ್ರಹವು ರಾಹು ಅಥವಾ ಕೇತುವಿನ ದುಷ್ಪರಿಣಾಮದಿಂದ ಮುಕ್ತವಾಗಿದೆ.",
           remedies: [
@@ -569,7 +599,7 @@ export class AstrologyService {
       },
       kemadruma: {
         en: {
-          name: "Kemadruma Dosha",
+          name: LocalizationEngine.getInstance().get('DOSHA.KEMADRUMA', lang),
           descTrue: "Moon is lonely with no planets in adjacent houses. Can cause mind fluctuations, temporary financial losses, or feelings of isolation.",
           descFalse: "Moon is supported by adjacent planetary nodes.",
           remedies: [
@@ -579,7 +609,7 @@ export class AstrologyService {
           ]
         },
         te: {
-          name: "కేమద్రుమ దోషం (Kemadruma Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KEMADRUMA', lang),
           descTrue: "చంద్రుడి పక్క గృహాలలో ఏ గ్రహాలూ లేకుండా చంద్రుడు ఒంటరిగా ఉన్నాడు. ఇది మానసిక ఒడుదొడుకులు, తాత్కాలిక ఆర్థిక నష్టాలు మరియు ఒంటరితనాన్ని కలిగిస్తుంది.",
           descFalse: "చంద్రునికి పక్క గృహాలలోని గ్రహాలు మద్దతుగా ఉన్నాయి.",
           remedies: [
@@ -589,7 +619,7 @@ export class AstrologyService {
           ]
         },
         hi: {
-          name: "केमद्रुम दोष (Kemadruma Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KEMADRUMA', lang),
           descTrue: "चंद्रमा के आस-पास के भावों में कोई ग्रह न होने से चंद्रमा अकेला है। यह मानसिक अशांति, अस्थाई आर्थिक नुकसान या अकेलेपन की भावना पैदा कर सकता है।",
           descFalse: "चंद्रमा को आस-पास के भावों में ग्रहों का सहारा प्राप्त है।",
           remedies: [
@@ -599,7 +629,7 @@ export class AstrologyService {
           ]
         },
         ta: {
-          name: "கேமத்ரும தோஷம் (Kemadruma Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KEMADRUMA', lang),
           descTrue: "சந்திரனுக்கு இரு பக்க வீடுகளிலும் கிரகங்கள் இல்லாமல் சந்திரன் தனித்து இருக்கிறார். இது மன உளைச்சல், தற்காலிக நிதி இழப்புகள் அல்லது தனிமை உணர்வைத் தரலாம்.",
           descFalse: "சந்திரனுக்கு இரு பக்கத்திலும் கிரகங்களின் ஆதரவு உள்ளது.",
           remedies: [
@@ -609,7 +639,7 @@ export class AstrologyService {
           ]
         },
         kn: {
-          name: "ಕೇಮದ್ರುಮ ದೋಷ (Kemadruma Dosha)",
+          name: LocalizationEngine.getInstance().get('DOSHA.KEMADRUMA', lang),
           descTrue: "ಚಂದ್ರನ ಪಕ್ಕದ ಮನೆಗಳಲ್ಲಿ ಯಾವುದೇ ಗ್ರಹಗಳು ಇರದೆ ಚಂದ್ರನು ಒಂಟಿಯಾಗಿದ್ದಾನೆ. ಇದು ಮಾನಸಿಕ್ ತಳಮಳ, ತಾತ್ಕಾಲಿಕ ಆರ್ಥಿಕ ನಷ್ಟ ಹಾಗೂ ಒಂಟಿತನಕ್ಕೆ ಕಾರಣವಾಗಬಹುದು.",
           descFalse: "ಚಂದ್ರನಿಗೆ ಪಕ್ಕದ ಮನೆಗಳ ಗ್ರಹಗಳ ಬೆಂಬಲವಿದೆ.",
           remedies: [
@@ -621,7 +651,7 @@ export class AstrologyService {
       },
       pitru: {
         en: {
-          name: "Pitru Dosha & Shani Affliction",
+          name: LocalizationEngine.getInstance().get('DOSHA.PITRU', lang),
           descTrue: "Saturn and Sun/Rahu conjunct, indicating inherited ancestral karmas, father obstacles, and authority conflicts.",
           descFalse: "No generational or Saturn-Sun conflict detected.",
           remedies: [
@@ -631,7 +661,7 @@ export class AstrologyService {
           ]
         },
         te: {
-          name: "పితృ దోషం మరియు శని పీడ (Pitru Dosha & Shani Affliction)",
+          name: LocalizationEngine.getInstance().get('DOSHA.PITRU', lang),
           descTrue: "శని మరియు సూర్యుడు/రాహువులు కలిసి ఉన్నారు, ఇది పితృ దోషాన్ని, తండ్రితో విభేదాలను, మరియు పనులలో ఆటంకాలను సూచిస్తుంది.",
           descFalse: "ఎలాంటి పితృ దోషం లేదా శని-సూర్య విభేదాలు లేవు.",
           remedies: [
@@ -641,7 +671,7 @@ export class AstrologyService {
           ]
         },
         hi: {
-          name: "पितृ दोष और शनि पीड़ा (Pitru Dosha & Shani Affliction)",
+          name: LocalizationEngine.getInstance().get('DOSHA.PITRU', lang),
           descTrue: "शनि और सूर्य/राहु की युति है, जो वंशानुगत पितृ दोष, पिता से मतभेद और कार्यों में रुकावटों को दर्शाती है।",
           descFalse: "कोई भी वंशानुगत पितृ दोष या शनि-सूर्य का टकराव उपस्थित नहीं है।",
           remedies: [
@@ -651,9 +681,9 @@ export class AstrologyService {
           ]
         },
         ta: {
-          name: "பித்ரு தோஷம் மற்றும் சனி தாகம் (Pitru Dosha & Shani Affliction)",
+          name: LocalizationEngine.getInstance().get('DOSHA.PITRU', lang),
           descTrue: "சனி மற்றும் சூரியன்/ராகு இணைந்துள்ளனர், இது பித்ரு தோஷம், தந்தை வழியில் தடைகள் மற்றும் அதிகார மோதல்களைக் குறிக்கிறது.",
-          descFalse: "எந்த பித்ரு தோஷமோ లేదా சனி-சூரிய மோதலோ கண்டறியப்படவில்லை.",
+          descFalse: "எந்த பித்ரு தோஷமோ அல்லது சனி-சூரிய மோதலோ கண்டறியப்படவில்லை.",
           remedies: [
             "பித்ரு அமாவாசை அன்று முன்னோர்களுக்கு வெள்ளை எள் மற்றும் நீர் அஞ்சலி செலுத்தவும்",
             "சிராவண திங்கட்கிழமைகளில் விரதம் இருக்கவும், சனிக்கிழமைகளில் கருப்பு பசுவிற்கு உணவளிக்கவும்",
@@ -661,8 +691,8 @@ export class AstrologyService {
           ]
         },
         kn: {
-          name: "ಪಿತೃ ದೋಷ ಮತ್ತು ಶನಿ ಪೀಡೆ (Pitru Dosha & Shani Affliction)",
-          descTrue: "ಮತ್ತು సూర్య/రాహు ಒಟ್ಟಿಗೆ ಇದ್ದಾರೆ, ಇದು ಪಿತೃ ದೋಷ, ತಂದೆಯೊಂದಿಗೆ ಭಿನ್ನಾಭಿಪ್ರಾಯ ಮತ್ತು ಅಧಿಕಾರದೊಂದಿಗೆ ಘರ್ಷಣೆಯನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
+          name: LocalizationEngine.getInstance().get('DOSHA.PITRU', lang),
+          descTrue: "ಮತ್ತು ಸೂರ್ಯ/ರಾಹು ಒಟ್ಟಿಗೆ ಇದ್ದಾರೆ, ಇದು ಪಿತೃ ದೋಷ, ತಂದೆಯೊಂದಿಗೆ ಭಿನ್ನಾಭಿಪ್ರಾಯ ಮತ್ತು ಅಧಿಕಾರದೊಂದಿಗೆ ಘರ್ಷಣೆಯನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
           descFalse: "ಯಾವುದೇ ಪಿತೃ ದೋಷ ಅಥವಾ ಶನಿ-ಸೂರ್ಯ ಸಂಘರ್ಷ ಕಂಡುಬಂದಿಲ್ಲ.",
           remedies: [
             "ಪಿತೃ ಅಮಾವಾಸ್ಯೆಯಂದು ಹಿರಿಯರಿಗೆ ಬಿಳಿ ಎಳ್ಳು ಮತ್ತು ನೀರನ್ನು ಅರ್ಪಿಸಿ",
@@ -697,7 +727,7 @@ export class AstrologyService {
       const minNode = Math.min(rah, ket);
       const maxNode = Math.max(rah, ket);
       const normalCount = planets.filter(p => p.longitude > minNode && p.longitude < maxNode).length;
-      if (normalCount === 0 || normalCount === 10) {
+      if (normalCount === 0 || normalCount === 7) {
         hasKalaSarpa = true;
       }
     }
@@ -725,7 +755,7 @@ export class AstrologyService {
 
     // 4. Kemadruma Dosha
     const adjacentHouses = [(moon.house - 1 + 12) % 12 || 12, (moon.house + 1) % 12 || 12];
-    const hasKemadruma = planets.filter(p => p.name !== "Moon" && p.name !== "Sun" && adjacentHouses.includes(p.house)).length === 0;
+    const hasKemadruma = planets.filter(p => p.id !== "moon" && p.id !== "sun" && adjacentHouses.includes(p.house)).length === 0;
     const kdTrans = translations.kemadruma[l];
     doshas.push({
       hasDosha: hasKemadruma,
@@ -760,8 +790,16 @@ export class AstrologyService {
     const bNak = boyPanchang.nakshatra.index;
     const gNak = girlPanchang.nakshatra.index;
 
-    const bRasi = boyPanchang.planets.find(p => p.name === "Moon")!.rasiIndex;
-    const gRasi = girlPanchang.planets.find(p => p.name === "Moon")!.rasiIndex;
+    const bMoon = boyPanchang.planets.find(p => p.id === "moon")!;
+    const gMoon = girlPanchang.planets.find(p => p.id === "moon")!;
+
+    const bRasi = bMoon.rasiIndex;
+    const gRasi = gMoon.rasiIndex;
+
+    const bMoonRasiName = bMoon.rasi.name.en || "Unknown";
+    const gMoonRasiName = gMoon.rasi.name.en || "Unknown";
+    const bPada = bMoon.pada || 1;
+    const gPada = gMoon.pada || 1;
 
     const ashtaKoota: MatchScore[] = [];
 
@@ -782,11 +820,11 @@ export class AstrologyService {
     ];
 
     const G_NAMES: Record<LanguageCode, string[]> = {
-      en: ["Deva (Divine)", "Manushya (Human)", "Rakshasa (Assertive)"],
+      en: ["Deva", "Manushya", "Rakshasa"],
       hi: ["देव (दैवीय)", "मनुष्यों (मानवीय)", "राक्षस (दृढ़)"],
       te: ["దేవ గణము", "మనుష్య గణము", "రాక్షస గణము"],
-      ta: ["தேவ கணம் (Deva)", "மனித கணம் (Manushya)", "ராட்சச கணம் (Rakshasa)"],
-      kn: ["ದೇವ ಗಣ (Deva)", "ಮನುಷ್ಯ ಗಣ (Manushya)", "ರಾಕ್ಷಸ ಗಣ (Rakshasa)"]
+      ta: ["தேவ கணம்", "மனித கணம்", "ராட்சச கணம்"],
+      kn: ["ದೇವ ಗಣ", "ಮನುಷ್ಯ ಗಣ", "ರಾಕ್ಷಸ ಗಣ"]
     };
 
     const NAKSHATRA_GANAS = [
@@ -807,12 +845,12 @@ export class AstrologyService {
         "గోవు (ఆవు)", "మహిషము (గేదె)", "వ్యాఘ్రము (పులి)", "శశకము (కుందేలు)", "వానరము (కోతి)", "నకులాన్ని (కీచురాయి)", "సింహము (సింహం)"
       ],
       ta: [
-        "குதிரை (Horse)", "யானை (Elephant)", "ஆடு (Sheep)", "பாம்பு (Serpent)", "நாய் (Dog)", "பூனை (Cat)", "எலி (Rat)",
-        "பசு (Cow)", "எருமை (Buffalo)", "புலி (Tiger)", "முயல் (Hare)", "குரங்கு (Monkey)", "கீரி (Mongoose)", "சிங்கம் (Lion)"
+        "குதிரை", "யானை", "ஆடு", "பாம்பு", "நாய்", "பூனை", "எலி",
+        "பசு", "எருமை", "புலி", "முயல்", "குரங்கு", "கீரி", "சிங்கம்"
       ],
       kn: [
-        "ಕುದುರೆ (Horse)", "ಆನೆ (Elephant)", "ಕುರಿ (Sheep)", "ಹಾವು (Serpent)", "ನಾಯಿ (Dog)", "ಬೆಕ್ಕು (Cat)", "ಇಲಿ (Rat)",
-        "ಹಸು (Cow)", "ಎಮ್ಮೆ (Buffalo)", "ಹುಲಿ (Tiger)", "ಮೊಲ (Hare)", "ಕೋತಿ (Monkey)", "ಕೀರಿ (Mongoose)", "ಸಿಂಹ (Lion)"
+        "ಕುದುರೆ", "ಆನೆ", "ಕುರಿ", "ಹಾವು", "ನಾಯಿ", "ಬೆಕ್ಕು", "ಇಲಿ",
+        "ಹಸು", "ಎಮ್ಮೆ", "ಹುಲಿ", "ಮೊಲ", "ಕೋತಿ", "ಕೀರಿ", "ಸಿಂಹ"
       ]
     };
 
@@ -825,7 +863,7 @@ export class AstrologyService {
     ];
 
     const NADI_NAMES: Record<LanguageCode, string[]> = {
-      en: ["Adi (Vata)", "Madhya (Pitta)", "Antya (Kapha)"],
+      en: ["Adi", "Madhya", "Antya"],
       hi: ["आदि (वात)", "मध्य (पित्त)", "अंत्य (कफ)"],
       te: ["ఆది (వాత)", "మధ్య (పిత్తం)", "అంత్య (కఫం)"],
       ta: ["ஆதி (வாதம்)", "மத்திய (பித்தம்)", "அந்தியம் (கபம்)"],
@@ -837,21 +875,21 @@ export class AstrologyService {
     const getVarnaInfo = (rIndex: number) => {
       const idx = rIndex % 12;
       const vLabels: Record<LanguageCode, string> = {
-        en: "Brahmin (Intellectual)",
+        en: "Brahmin",
         hi: "ब्राह्मण (बौद्धिक)",
         te: "బ్రాహ్మణ (మేధోశక్తి)",
         ta: "பிராமணர் (அறிவுசார்)",
         kn: "ಬ್ರಾಹ್ಮಣ (ಬೌದ್ಧಿಕ)"
       };
       const kLabels: Record<LanguageCode, string> = {
-        en: "Kshatriya (Administrative)",
+        en: "Kshatriya",
         hi: "क्षत्रिय (प्रशासकीय)",
         te: "క్షత్రియ (పరిపాలనా)",
         ta: "சத்திரியர் (நிர்வாகம்)",
         kn: "ಕ್ಷತ್ರಿಯ (ಆಡಳಿತಾತ್ಮಕ)"
       };
       const vaLabels: Record<LanguageCode, string> = {
-        en: "Vaishya (Mercantile)",
+        en: "Vaishya",
         hi: "वैश्य (व्यावसायिक)",
         te: "వైశ్య (వ్యాపార)",
         ta: "வைசியர் (வணிகம்)",
@@ -862,7 +900,7 @@ export class AstrologyService {
         hi: "शूद्र (सेवाभावी)",
         te: "శూద్ర (సేవా)",
         ta: "சூத்திரர் (சேவை)",
-        kn: "ಶೂದ್ರ (ಸೇವಾವিಧಾನ)"
+        kn: "ಶೂದ್ರ (ಸೇವಾವಿಧಾನ)"
       };
 
       if ([3, 7, 11].includes(idx)) return { code: 0, name: "Brahmin", labels: vLabels };
@@ -914,35 +952,35 @@ export class AstrologyService {
       const idx = rIndex % 12;
       const tLabels = {
         0: {
-          en: "Quadruped (Chatushpada)",
+          en: "Quadruped",
           hi: "चतुष्पाद (चौपाया)",
           te: "చతుష్పాద (జంతు స్వభావం)",
           ta: "சதுஷ்பாத (நான்கு கால்)",
           kn: "ಚತುಷ್ಪಾದ (ನಾಲ್ಕು ಕಾಲು)"
         },
         1: {
-          en: "Human (Manushya)",
+          en: "Human",
           hi: "मनुष्यों (मानव)",
           te: "మనుష్య (మానవ స్వభావం)",
           ta: "மனுஷ்ய (மனித)",
           kn: "ಮನುಷ್ಯ (ಮಾನವ)"
         },
         2: {
-          en: "Water Dweller (Jalachara)",
+          en: "Water Dweller",
           hi: "जलचर (जलीय)",
           te: "జలచర (నీటి జీవి)",
           ta: "జலசர (நீர் வாழ்)",
           kn: "ಜಲಚರ (ಜಲಚರ)"
         },
         3: {
-          en: "Wild Beast (Vanachara)",
+          en: "Wild Beast",
           hi: "वनचर (जंगली)",
           te: "వనచర (అటవి జీవి)",
           ta: "வனசர (காடு)",
           kn: "ವನಚರ (ವನ್ಯ)"
         },
         4: {
-          en: "Insect (Keeta)",
+          en: "Insect",
           hi: "कीट (कीड़ा)",
           te: "కీటక (సూక్ష్మ జీవి)",
           ta: "கீட (பூச்சி)",
@@ -1000,7 +1038,7 @@ export class AstrologyService {
       vashyaDesc = vashyaScore === 2
         ? `Magnificent magnetic attraction (${bVashya.labels.en} - ${gVashya.labels.en}). High natural alignment of sub-conscious mind and mutual devotion.`
         : vashyaScore > 0
-          ? `Acceptable Vashya bond (${bVashya.labels.en} - ${gVashya.labels.en}). Steady relationship, requires classic verbal adjustments.`
+          ? `Acceptable Vashya bond (${bVashya.labels.en} - ${gVashya.labels.en}). Indicates moderate mutual attraction and influence. Good communication can strengthen the relationship.`
           : `Vashya mismatch. Wild or sharp insectoid energies can invoke command clashes or verbal friction in the house.`;
     }
 
@@ -1013,15 +1051,22 @@ export class AstrologyService {
     });
 
     // 3. Tara (max 3 points)
-    const taraDiffCheck = (gNak - bNak + 27) % 9;
+    // Tara = ((girl_nak - boy_nak + 27) % 27) then map to 1..9 groups
+    // Tara group = ((diff % 27) % 9) with 0 mapping to 9
+    const taraDiffRaw = ((gNak - bNak + 27) % 27);
+    const taraDiffCheck = taraDiffRaw % 9 === 0 ? 9 : taraDiffRaw % 9;
+    // Auspicious taras: 1 (Janma), 2 (Sampat), 4 (Kshema), 6 (Sadhaka), 8 (Mitra)
+    // Inauspicious: 3 (Vipat), 5 (Pratyari), 7 (Vadha), 9 (Ati-Mitra is debated)
     let taraScore = 0;
     if ([1, 2, 4, 6, 8].includes(taraDiffCheck)) {
       taraScore = 3;
     } else if ([3, 5, 7].includes(taraDiffCheck)) {
       taraScore = 1.5;
+    } else { // taraDiffCheck === 9 (Ati-Mitra/Parama Mitra)
+      taraScore = 3;
     }
 
-    const taraCategoriesEN = ["Ati-Mitra (Intimate)", "Janma (Self)", "Sampat (Wealth)", "Vipat (Hurdle)", "Kshema (Well-being)", "Pratyari (Obstacles)", "Sadhaka (Success)", "Vadha (Critical)", "Mitra (Friendly)"];
+    const taraCategoriesEN = ["Ati-Mitra", "Janma", "Sampat", "Vipat", "Kshema (Well-being)", "Pratyari", "Sadhaka", "Vadha", "Mitra"];
     const taraCategoriesHI = ["अति-मित्र (परम अनुकूल)", "जन्म (सामान्य)", "संपत (धन प्रदायक)", "विपत (अड़चनें)", "क्षेम (कल्याणकारी)", "प्रत्यरी (कठिनाइयां)", "साधक (पूर्णता)", "वध (सावधानी)", "मित्र (सकारात्मक)"];
     const taraCategoriesTE = ["అతి-మిత్ర (అత్యంత అనుకూల)", "జన్మ (సాధారణం)", "సంపత్ (ఆర్థికం)", "విపత్ (ఆటంకం)", "క్షేమ (శుభకరం)", "ప్రత్యరి (పోరాటం)", "సాధక (విజయం)", "వధ (జాగ్రత్త)", "మిత్ర (స్నేహం)"];
     const taraCategoriesTA = ["அதி-மித்ரா (மிகவும் நெருக்கமான)", "ஜன்ம (சுய)", "சம்பத் (செல்வம்)", "விபத் (தடைகள்)", "க்ஷேம (நலன்)", "பிரத்யரி (எதிர்ப்பு)", "சாதக (வெற்றி)", "வத (தீவிரம்)", "மித்ரா (நட்பு)"];
@@ -1190,37 +1235,40 @@ export class AstrologyService {
       }
     }
 
+    const locBLordName = translatePlanet(bLordName, lang);
+    const locGLordName = translatePlanet(gLordName, lang);
+
     let maitriDesc = "";
     if (lang === "te") {
       maitriDesc = maitriScore === 5
-        ? `అత్యున్నత గ్రహ మైత్రి (${bLordName} - ${gLordName}). ఇద్దరి ఆలోచనా సరళి ఒకే విధంగా ఉంటుంది. సంభాషణలు చాలా సజావుగా సాగుతాయి.`
+        ? `అత్యున్నత గ్రహ మైత్రి (${locBLordName} - ${locGLordName}). ఇద్దరి ఆలోచనా సరళి ఒకే విధంగా ఉంటుంది. సంభాషణలు చాలా సజావుగా సాగుతాయి.`
         : maitriScore >= 3
-          ? `సహకార గ్రహ మైత్రి (${bLordName} - ${gLordName}). కుటుంబ నియమాలు మరియు వైవాహిక బాధ్యతలపై గౌరవం ఉంటుంది.`
-          : `ఆలోచనా వైరుధ్యం ఉంది (${bLordName} vs ${gLordName}). శత్రు గ్రహాలు కావడం వల్ల తరచుగా భిన్నమైన అభిప్రాయాలు మరియు పట్టుదలకు దారితీయవచ్చు.`;
+          ? `సహకార గ్రహ మైత్రి (${locBLordName} - ${locGLordName}). కుటుంబ నియమాలు మరియు వైవాహిక బాధ్యతలపై గౌరవం ఉంటుంది.`
+          : `ఆలోచనా వైరుధ్యం ఉంది (${locBLordName} vs ${locGLordName}). శత్రు గ్రహాలు కావడం వల్ల తరచుగా భిన్నమైన అభిప్రాయాలు మరియు పట్టుదలకు దారితీయవచ్చు.`;
     } else if (lang === "hi") {
       maitriDesc = maitriScore === 5
-        ? `सर्वश्रेष्ठ ग्रह मैत्री (${bLordName} - ${gLordName})। दोनों के वैचारिक धरातल में पूर्ण समानता रहेगी। जीवन के प्रति साझा दृष्टिकोण रहेगा।`
+        ? `सर्वश्रेष्ठ ग्रह मैत्री (${locBLordName} - ${locGLordName})। दोनों के वैचारिक धरातल में पूर्ण समानता रहेगी। जीवन के प्रति साझा दृष्टिकोण रहेगा।`
         : maitriScore >= 3
-          ? `संतोषजनक ग्रह मैत्री (${bLordName} - ${gLordName})। पारिवारिक मूल्यों एवं कर्तव्यों के निर्वहन में अच्छा सामंजस्य रहेगा।`
-          : `ग्रह शत्रुता दोष (${bLordName} बनाम ${gLordName})। वैचारिक स्तर पर निरंतर असहमति या हठधर्मिता बढ़ने के संकेत।`;
+          ? `संतोषजनक ग्रह मैत्री (${locBLordName} - ${locGLordName})। पारिवारिक मूल्यों एवं कर्तव्यों के निर्वहन में अच्छा सामंजस्य रहेगा।`
+          : `ग्रह शत्रुता दोष (${locBLordName} बनाम ${locGLordName})। वैचारिक स्तर पर निरंतर असहमति या हठधर्मिता बढ़ने के संकेत।`;
     } else if (lang === "ta") {
       maitriDesc = maitriScore === 5
-        ? `சிறந்த கிரக மைத்திரி பொருத்தம் (${bLordName} - ${gLordName}). இருவரிடையே நல்ல புரிதலும் ஒருமித்த சிந்தனையும் நிலவும்.`
+        ? `சிறந்த கிரக மைத்திரி பொருத்தம் (${locBLordName} - ${locGLordName}). இருவரிடையே நல்ல புரிதலும் ஒருமித்த சிந்தனையும் நிலவும்.`
         : maitriScore >= 3
-          ? `திருப்திகரமான கிரக மைத்திரி பொருத்தம் (${bLordName} - ${gLordName}). குடும்ப கடமைகளில் நல்ல ஒத்துழைப்பு இருக்கும்.`
-          : `கிரக பகைமை காணப்படுகிறது (${bLordName} மற்றும் ${gLordName}). இதனால் கருத்து வேறுபாடுகள் மற்றும் வீண் வாக்குவாதங்கள் வரலாம்.`;
+          ? `திருப்திகரமான கிரக மைத்திரி பொருத்தம் (${locBLordName} - ${locGLordName}). குடும்ப கடமைகளில் நல்ல ஒத்துழைப்பு இருக்கும்.`
+          : `கிரக பகைமை காணப்படுகிறது (${locBLordName} மற்றும் ${locGLordName}). இதனால் கருத்து வேறுபாடுகள் மற்றும் வீண் வாக்குவாதங்கள் வரலாம்.`;
     } else if (lang === "kn") {
       maitriDesc = maitriScore === 5
-        ? `ಅತ್ಯುನ್ನತ ಗ್ರಹ ಮೈತ್ರಿ ಹೊಂದಾಣಿಕೆ (${bLordName} - ${gLordName}). ಇಬ್ಬರ ಆಲೋಚನಾ ಸರಣಿ ಒಂದೇ ಆಗಿರುತ್ತದೆ ಹಾಗೂ ದಾಂಪತ್ಯ ಸುಖಮಯವಾಗಿರುತ್ತದೆ.`
+        ? `ಅತ್ಯುನ್ನತ ಗ್ರಹ ಮೈತ್ರಿ ಹೊಂದಾಣಿಕೆ (${locBLordName} - ${locGLordName}). ಇಬ್ಬರ ಆಲೋಚನಾ ಸರಣಿ ಒಂದೇ ಆಗಿರುತ್ತದೆ ಹಾಗೂ ದಾಂಪತ್ಯ ಸುಖಮಯವಾಗಿರುತ್ತದೆ.`
         : maitriScore >= 3
-          ? `ಪೂರಕ ಗ್ರಹ ಮೈತ್ರಿ ಹೊಂದಾಣಿಕೆ (${bLordName} - ${gLordName}). ಕೌಟುಂಬಿಕ ಜವಾಬ್ದಾರಿ ಹಂಚಿಕೆಯಲ್ಲಿ ಇಬ್ಬರೂ ಸಹಕರಿಸುತ್ತಾರೆ.`
-          : `ಗ್ರಹ ಶತ್ರುತ್ವ ದೋಷ (${bLordName} ಮತ್ತು ${gLordName}). ವೈಚಾರಿಕ ಭಿನ್ನಾಭಿಪ್ರಾಯಗಳು ಹಾಗೂ ಜಗಳಗಳು ಹೆಚ್ಚಾಗುವ ಸಾಧ್ಯತೆ ಗೋಚರಿಸುತ್ತದೆ.`;
+          ? `ಪೂರಕ ಗ್ರಹ ಮೈತ್ರಿ ಹೊಂದಾಣಿಕೆ (${locBLordName} - ${locGLordName}). ಕೌಟುಂಬಿಕ ಜವಾಬ್ದಾರಿ ಹಂಚಿಕೆಯಲ್ಲಿ ಇಬ್ಬರೂ ಸಹಕರಿಸುತ್ತಾರೆ.`
+          : `ಗ್ರಹ ಶತ್ರುತ್ವ ದೋಷ (${locBLordName} ಮತ್ತು ${locGLordName}). ವೈಚಾರಿಕ ಭಿನ್ನಾಭಿಪ್ರಾಯಗಳು ಹಾಗೂ ಜಗಳಗಳು ಹೆಚ್ಚಾಗುವ ಸಾಧ್ಯತೆ ಗೋಚರಿಸುತ್ತದೆ.`;
     } else {
       maitriDesc = maitriScore === 5
-        ? `Sovereign Graha Maitri (${bLordName} and ${gLordName} share mutual friendship). Ensures perfect mental harmony and life comfort.`
+        ? `Sovereign Graha Maitri (The Moon-sign lords are natural friends). Indicates strong intellectual compatibility and mental harmony.`
         : maitriScore >= 3
-          ? `Harmonious Graha Maitri (${bLordName} and ${gLordName} share compatible relationship). Normal respect, good for long term relationship stability.`
-          : `Challenging Graha Maitri (${bLordName} vs ${gLordName} are enemy planets). Can cause conflict of views or egos without conscious compromise.`;
+          ? `Harmonious Graha Maitri (${locBLordName} and ${locGLordName} share compatible relationship). Normal respect, good for long term relationship stability.`
+          : `Challenging Graha Maitri (${locBLordName} vs ${locGLordName} are enemy planets). Can cause conflict of views or egos without conscious compromise.`;
     }
 
     ashtaKoota.push({
@@ -1288,9 +1336,13 @@ export class AstrologyService {
     });
 
     // 7. Bhakoot (max 7 points)
+    // Inauspicious rasi differences (counted from boy to girl, 0-indexed):
+    //   2/12 pair -> indices 1 and 11
+    //   5/9 pair  -> indices 4 and 8
+    //   6/8 pair  -> indices 5 and 7
     const rasiDiff = (gRasi - bRasi + 12) % 12;
     let bhakootScore = 7;
-    if ([2, 5, 6, 8, 12].includes(rasiDiff)) {
+    if ([1, 4, 5, 7, 8, 11].includes(rasiDiff)) {
       bhakootScore = 0;
     }
 
@@ -1321,7 +1373,7 @@ export class AstrologyService {
           : `ರಾಶಿ ಹೊಂದಾಣಿಕೆ ಕೊರತೆಯಿದೆ (ಅಶುಭ ಅಂತರ: ${rasiDiff}). ಆರ್ಥಿಕ ನಷ್ಟ ಅಥವಾ ದಾಂಪತ್ಯ ಜೀವನದಲ್ಲಿ ಸಾಮರಸ್ಯ ಕೊರತೆ ಕಾಡಬಹುದು.`;
     } else {
       bhakootDesc = bhakootScore === 7
-        ? `Auspicious Bhakoot connection (Auspicious placement of Moon signs). Conveys excellent emotional loyalty, financial growth, and nested joy.`
+        ? `Auspicious Bhakoot connection (Auspicious placement of Moon signs). Promotes emotional harmony, domestic stability, and shared prosperity.`
         : rasiDiff === 6
           ? `Shadashtaka placement (6th & 8th rasi conflict). Prompts high emotional volatility and physical fatigue; astrology guidance suggested.`
           : `Bhakoot variance (Inauspicious relative distance: ${rasiDiff}). Indicates severe financial leakages or heavy domestic expansion stress.`;
@@ -1363,7 +1415,7 @@ export class AstrologyService {
         : `ನಾಡಿ ದೋಷ ಸಕ್ರಿಯವಾಗಿದೆ (ಇಬ್ಬರ ನಾಡಿಯೂ ${NADI_NAMES.kn[bNadiIdx]} ಆಗಿದೆ). ಸಂತತಿ ಪ್ರಾಪ್ತಿಯಲ್ಲಿ ವಿಳಂಬ ಅಥವಾ ದೈಹಿಕ ತಳಮಳ ಉಂಟುಮಾಡಬಹುದು; ಸೂಕ್ತ ಶಾಂತಿ ಪೂಜೆ ಅಗತ್ಯವಿದೆ.`;
     } else {
       nadiDesc = nadiScore === 8
-        ? `Superlative Nadi matching (Groom: ${NADI_NAMES.en[bNadiIdx]} and Bride: ${NADI_NAMES.en[gNadiIdx]}). Exceptional biological balance of physical humors (Vata/Pitta/Kapha), guaranteeing healthy progeny and physical vitality.`
+        ? `Superlative Nadi matching (Groom: ${NADI_NAMES.en[bNadiIdx]} and Bride: ${NADI_NAMES.en[gNadiIdx]}). Traditionally considered favorable for health and progeny.`
         : `Critical Nadi Dosha Active (Both possess ${NADI_NAMES.en[bNadiIdx]} Nadi). Indicates identical genetic polarities. Highly recommended to perform Nadi peace rituals to avoid progeny delay or chronic health issues.`;
     }
 
@@ -1381,13 +1433,39 @@ export class AstrologyService {
     const percentage = Math.round((totalObtained / totalMax) * 100);
 
     // South Indian 10 Poruthams (Uttama, Madhyama, Adhama)
+    // Rajju Porutham: Based on Nakshatra group classification (Paada/Kati/Nabhi/Kantha/Siro)
+    // Nakshatras are classified into 5 Rajju groups. Same Rajju = Adhama.
+    const RAJJU_GROUPS = [
+      1, 2, 3, 4, 5, 4, 3, 2, 1,  // Ashwini..Ashlesha
+      1, 2, 3, 4, 5, 4, 3, 2, 1,  // Makha..Jyeshtha
+      1, 2, 3, 4, 5, 4, 3, 2, 1   // Moola..Revati
+    ];
+    const bRajju = RAJJU_GROUPS[bNak];
+    const gRajju = RAJJU_GROUPS[gNak];
+
+    // Vedha Porutham: Specific Nakshatra pairs that are mutually afflicting
+    const VEDHA_PAIRS: [number, number][] = [
+      [0, 17], [1, 16], [2, 15], [3, 14], [4, 23],
+      [5, 22], [6, 21], [7, 20], [8, 19], [9, 18],
+      [10, 26], [11, 25], [12, 24], [13, 13] // Chitra has no Vedha pair
+    ];
+    const hasVedha = VEDHA_PAIRS.some(([a, b]) =>
+      (bNak === a && gNak === b) || (bNak === b && gNak === a)
+    );
+
+    // Mahendra Porutham: Girl's nakshatra should be 4th, 7th, 10th, 13th, 16th,
+    // 19th, 22nd, or 25th from boy's nakshatra (counting inclusively)
+    const mahendraDist = ((gNak - bNak + 27) % 27) + 1; // 1-indexed distance
+    const isMahendraOk = [4, 7, 10, 13, 16, 19, 22, 25].includes(mahendraDist);
+
+    const loc = LocalizationEngine.getInstance();
     const southIndianPorutham = [
-      { name: "Dina Porutham", localizedName: lang === "te" ? "దిన పరుత్తం" : lang === "hi" ? "दीन पोरुथम" : lang === "ta" ? "தின பொருத்தம்" : lang === "kn" ? "ದಿನ ಹೊಂದಾಣಿಕೆ" : "Dina Porutham", status: taraScore >= 1.5 ? "Uttama" : "Adhama", description: lang === "te" ? "ఆరోగ్యం మరియు ఆయుర్దాయ సూచికలు" : lang === "hi" ? "स्वास्थ्य और दीर्घायु संकेतक" : "Health and longevity indicators" },
-      { name: "Gana Porutham", localizedName: lang === "te" ? "గణ పరుత్తం" : lang === "hi" ? "गण पोरुथम" : lang === "ta" ? "கண பொருத்தம்" : lang === "kn" ? "ಗಣ ಹೊಂದಾಣಿಕೆ" : "Gana Porutham", status: ganaScore >= 5 ? "Uttama" : "Adhama", description: lang === "te" ? "తరంగదైర్ఘ్యం మరియు జీవనశైలి స్వభావాలు" : lang === "hi" ? "तरंगदैर्ध्य और जीवन शैली स्वभाव" : "Wavelength and lifestyle temperaments" },
-      { name: "Mahendra Porutham", localizedName: lang === "te" ? "మహేంద్ర పరుత్తం" : lang === "hi" ? "महेंद्र पोरुथम" : lang === "ta" ? "மகேந்திர பொருத்தம்" : lang === "kn" ? "ಮಹೇಂದ್ರ ಹೊಂದಾಣಿಕೆ" : "Mahendra Porutham", status: (gNak - bNak) % 4 === 0 ? "Uttama" : "Madhyama", description: lang === "te" ? "సంతానం, పిల్లలు మరియు శ్రేయస్సు" : lang === "hi" ? "संतति, संतान और कल्याण" : "Progeny, children and well-being" },
-      { name: "Rajju Porutham", localizedName: lang === "te" ? "రజ్జు పరుత్తం" : lang === "hi" ? "రజ్జూ పోరుథం" : lang === "ta" ? "ரஜ்ஜு பொருத்தம்" : lang === "kn" ? "ರಜ್ಜು ಹೊಂದಾಣಿಕೆ" : "Rajju Porutham", status: bYoni !== gYoni ? "Uttama" : "Adhama", description: lang === "te" ? "భర్త ఆయుర్దాయ సూచిక" : lang === "hi" ? "पति दीर्घायु सूचकांक" : "Husband longevity index" },
-      { name: "Vedha Porutham", localizedName: lang === "te" ? "వేధ పరుత్తం" : lang === "hi" ? "वेध पोरुथम" : lang === "ta" ? "வேதை பொருத்தம்" : lang === "kn" ? "ವೇಧೆ ಹೊಂದಾಣಿಕೆ" : "Vedha Porutham", status: bNak !== gNak ? "Uttama" : "Adhama", description: lang === "te" ? "వివాదాల నుండి రక్షణ" : lang === "hi" ? "विवादों से सुरक्षा" : "Protection from dynamic disputes" },
-      { name: "Yoni Porutham", localizedName: lang === "te" ? "యోని పరుత్తం" : lang === "hi" ? "योनि पोरुथम" : lang === "ta" ? "யோனி பொருத்தம்" : lang === "kn" ? "ಯೋನಿ ಹೊಂದಾಣಿಕೆ" : "Yoni Porutham", status: yoniScore >= 2 ? "Uttama" : "Madhyama", description: lang === "te" ? "శారీరక సామరస్య అనుకూలత" : lang === "hi" ? "शारीरिक सामंजस्य अनुकूलता" : "Physical harmony compatibility" }
+      { name: loc.get('PORUTHAM.DINA', 'en'), localizedName: loc.get('PORUTHAM.DINA', lang), status: taraScore >= 1.5 ? "Uttama" : "Adhama", localizedStatus: taraScore >= 1.5 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.DINA', lang) },
+      { name: loc.get('PORUTHAM.GANA', 'en'), localizedName: loc.get('PORUTHAM.GANA', lang), status: ganaScore >= 5 ? "Uttama" : "Adhama", localizedStatus: ganaScore >= 5 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.GANA', lang) },
+      { name: loc.get('PORUTHAM.MAHENDRA', 'en'), localizedName: loc.get('PORUTHAM.MAHENDRA', lang), status: isMahendraOk ? "Uttama" : "Madhyama", localizedStatus: isMahendraOk ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.MADHYAMA', lang), description: loc.get('PORUTHAM_DESC.MAHENDRA', lang) },
+      { name: loc.get('PORUTHAM.RAJJU', 'en'), localizedName: loc.get('PORUTHAM.RAJJU', lang), status: bRajju !== gRajju ? "Uttama" : "Adhama", localizedStatus: bRajju !== gRajju ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.RAJJU', lang) },
+      { name: loc.get('PORUTHAM.VEDHA', 'en'), localizedName: loc.get('PORUTHAM.VEDHA', lang), status: !hasVedha ? "Uttama" : "Adhama", localizedStatus: !hasVedha ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.VEDHA', lang) },
+      { name: loc.get('PORUTHAM.YONI', 'en'), localizedName: loc.get('PORUTHAM.YONI', lang), status: yoniScore >= 2 ? "Uttama" : "Madhyama", localizedStatus: yoniScore >= 2 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.MADHYAMA', lang), description: loc.get('PORUTHAM_DESC.YONI', lang) }
     ];
 
     // Dosha matching
@@ -1401,8 +1479,17 @@ export class AstrologyService {
     const gLagnaLong = getLagnaSidereal(gJd, girlInput.latitude, girlInput.longitude, gAyanamsa);
     const girlDoshas = AstrologyService.detectDoshas(girlPanchang.planets, gLagnaLong, lang);
 
-    const bManglik = boyDoshas.find(d => d.name.includes("Manglik") || d.name.includes("మాంగళిక") || d.name.includes("செவ்வாய்") || d.name.includes("ಮಂಗಳ ದೋಷ"))?.hasDosha || false;
-    const gManglik = girlDoshas.find(d => d.name.includes("Manglik") || d.name.includes("మాంగళిక") || d.name.includes("செவ்வாய்") || d.name.includes("ಮಂಗಳ ದೋಷ"))?.hasDosha || false;
+    const bManglik = boyDoshas.find(d => d.hasDosha && d.name.includes("Manglik"))?.hasDosha || false;
+    const gManglik = girlDoshas.find(d => d.hasDosha && d.name.includes("Manglik"))?.hasDosha || false;
+
+    const getScoreStr = (score: number) => {
+      const loc = LocalizationEngine.getInstance();
+      if (score >= 4.5) return loc.get('STATUS.EXCELLENT', lang);
+      if (score >= 3.5) return loc.get('STATUS.GOOD', lang);
+      if (score >= 2.5) return loc.get('STATUS.FAVORABLE', lang);
+      if (score >= 1.5) return loc.get('STATUS.AVERAGE', lang);
+      return loc.get('STATUS.POOR', lang);
+    };
 
     let hasManglikDoshaConflict = false;
     let isCancelled = false;
@@ -1412,49 +1499,56 @@ export class AstrologyService {
       isCancelled = true;
     }
 
-    const childrenScoreStr = nadiScore > 0
-      ? (lang === "te" ? "అద్భుతం (గర్భధారణ శుభం)" : lang === "hi" ? "उत्कृष्ट (गर्भधारण शुभ)" : lang === "ta" ? "சிறந்த புத்திர பாக்கியம்" : lang === "kn" ? "ಅದ್ಭುತ ಸಂತಾನ ಭಾಗ್ಯ" : "Excellent (Gorbho Dharan Shubh)")
-      : (lang === "te" ? "పరిహారాలు అవసరం (ఏక నాడి)" : lang === "hi" ? "उपचार की आवश्यकता है (एक नाड़ी)" : lang === "ta" ? "பரிகாரம் தேவை (ஏக நாடி)" : lang === "kn" ? "ದೋಷ ಪರಿಹಾರ ಅಗತ್ಯ (ಏಕ ನಾಡಿ)" : "Requires Remedies (Same Nadi)");
+    const childrenScoreObj = {
+      rating: nadiScore > 0 ? getScoreStr(4.5) : getScoreStr(1),
+      description: nadiScore > 0
+        ? (lang === "te" ? "అద్భుతం" : lang === "hi" ? "उत्कृष्ट" : lang === "ta" ? "சிறந்த" : lang === "kn" ? "ಅದ್ಭುತ" : "Excellent for family life.")
+        : (lang === "te" ? "పరిహారాలు అవసరం" : lang === "hi" ? "उपचार की आवश्यकता है" : lang === "ta" ? "பரிகாரம் தேவை" : lang === "kn" ? "ದೋಷ ಪರಿಹಾರ ಅಗತ್ಯ" : "Requires astrological remedies."),
+      traditionalMeaning: nadiScore > 0 ? "Garbha Dharana Shubha" : "Eka Nadi Dosha",
+      confidence: 0.95
+    };
 
-    const healthScoreStr = yoniScore >= 2
-      ? (lang === "te" ? "మంచి శారీరక పొంతన" : lang === "hi" ? "अच्छा शारीरिक मिलान" : lang === "ta" ? "நல்ல சரீர பொருத்தம்" : lang === "kn" ? "ಉತ್ತಮ ದೈಹಿಕ ಹೊಂದಾಣಿಕೆ" : "Good Physical Match")
-      : (lang === "te" ? "సాధారణ సమన్వయం" : lang === "hi" ? "सामान्य समन्वय" : lang === "ta" ? "சாதாரண உடலமைப்பு" : lang === "kn" ? "ಸಾಧಾರಣ ದೈಹಿಕ ಸಾಮರಸ್ಯ" : "Moderate Harmony");
+    const healthScoreObj = {
+      rating: yoniScore >= 2 ? getScoreStr(4.5) : getScoreStr(2.5),
+      description: yoniScore >= 2
+        ? (lang === "te" ? "మంచి శారీరక పొంతన" : lang === "hi" ? "अच्छा शारीरिक मिलान" : lang === "ta" ? "நல்ல சரீர பொருத்தம்" : lang === "kn" ? "ಉತ್ತಮ ದೈಹಿಕ ಹೊಂದಾಣಿಕೆ" : "Good physical match and overall harmony.")
+        : (lang === "te" ? "సాధారణ సమన్వయం" : lang === "hi" ? "सामान्य समन्वय" : lang === "ta" ? "சாதாரண உடலமைப்பு" : lang === "kn" ? "ಸಾಧಾರಣ ದೈಹಿಕ ಸಾಮರಸ್ಯ" : "Moderate physical harmony."),
+      confidence: 0.90
+    };
 
-    const financeScoreStr = varnaScore > 0
-      ? (lang === "te" ? "స్థిరమైన ఆర్థిక వృద్ధి" : lang === "hi" ? "स्थिर आर्थिक विकास" : lang === "ta" ? "நிலையான பொருளாதார வளர்ச்சி" : lang === "kn" ? "ಸ್ಥಿರ ಆರ್ಥಿಕ ಪ್ರಗತಿ" : "Stable Financial Growth")
-      : (lang === "te" ? "సాధారణ తరంగదైర్ఘ్య వృద్ధి" : lang === "hi" ? "सामान्य तरंगदैर्ध्य वृद्धि" : lang === "ta" ? "சாதாரண பொருளாதார நிலை" : lang === "kn" ? "ಸಾಧಾರಣ ಆರ್ಥಿಕ ಸ್ಥಿತಿ" : "Moderate Wavelength Growth");
+    const financeScoreObj = {
+      rating: bhakootScore > 0 ? getScoreStr(4.5) : getScoreStr(1),
+      description: bhakootScore > 0
+        ? (lang === "te" ? "స్థిరమైన ఆర్థిక వృద్ధి" : lang === "hi" ? "स्थिर आर्थिक विकास" : lang === "ta" ? "நிலையான பொருளாதார வளர்ச்சி" : lang === "kn" ? "ಸ್ಥಿರ ಆರ್ಥಿಕ ಪ್ರಗತಿ" : "Indicates generally favorable financial cooperation.")
+        : (lang === "te" ? "ఆర్థిక అడ్డంకులు సూచితమైనవి" : lang === "hi" ? "आर्थिक बाधाएं सूचित" : lang === "ta" ? "பொருளாதார தடைகள் சூசிதம்" : lang === "kn" ? "ಆರ್ಥಿಕ ಅಡೆತಡೆಗಳ ಸೂಚನೆ" : "Financial obstacles indicated (Bhakoot variance)."),
+      confidence: 0.85
+    };
 
-    const longevityScoreStr = taraScore >= 2
-      ? (lang === "te" ? "దీర్ఘాయుష్షు కలయిక" : lang === "hi" ? "दीर्घायु जीवन मिलान" : lang === "ta" ? "தீர்க்க சுமங்கலி யோகம்" : lang === "kn" ? "ದೀರ್ಘಾಯುಷ್ಯ ಹೊಂದಾಣಿಕೆ" : "Long Living Life Match")
-      : (lang === "te" ? "సాధారణ ఆయుర్దాయ సూచిక" : lang === "hi" ? "सामान्य दीर्घायु सूचकांक" : lang === "ta" ? "சாதாரண ஆயுட்காலம்" : lang === "kn" ? "ಸಾಧಾರಣ ಆಯುಷ್ಯ ಸೂಚನೆ" : "Standard Longevity Index");
+    const longevityScoreObj = {
+      rating: taraScore >= 2 ? getScoreStr(4) : getScoreStr(3),
+      description: taraScore >= 2
+        ? (lang === "te" ? "దీర్ఘాయుష్షు కలయిక" : lang === "hi" ? "दीर्घायु जीवन मिलान" : lang === "ta" ? "தீர்க்க சுமங்கலி யோகம்" : lang === "kn" ? "ದೀರ್ಘಾಯುಷ್ಯ ಹೊಂದಾಣಿಕೆ" : "Favorable longevity match.")
+        : (lang === "te" ? "సాధారణ ఆయుర్దాయ సూచిక" : lang === "hi" ? "सामान्य दीर्घायु सूचकांक" : lang === "ta" ? "சாதாரண ஆயுட்காலம்" : lang === "kn" ? "ಸಾಧಾರಣ ಆಯುಷ್ಯ ಸೂಚನೆ" : "Standard longevity index."),
+      confidence: 0.80
+    };
 
     const cancellationDetailsStr = isCancelled
       ? (lang === "te" ? "అబ్బాయి మరియు అమ్మాయి ఇద్దరికీ మంగళ దోషం ఉన్నందున, ఇది సహజంగా రద్దు చేయబడుతుంది." : lang === "hi" ? "लड़का और लड़की दोनों को मांगलिक दोष होने के कारण स्वाभाविक रूप से निरस्त हो जाता है।" : lang === "ta" ? "இருவருக்கும் செவ்வாய் தோஷம் இருப்பதால், தோஷ நிவர்த்தி ஏற்படுகிறது." : lang === "kn" ? "ಇಬ್ಬರಿಗೂ ಮಂಗಳ ದೋಷವಿರುವುದರಿಂದ ಸ್ವಾಭಾವಿಕವಾಗಿ ದೋಷ ನಿವಾರಣೆಯಾಗುತ್ತದೆ." : "Both boy and girl have Kuja/Manglik Dosha, leading to natural mathematical cancellation.")
       : undefined;
 
-    const reportStr = lang === "te"
-      ? `వేద కుండలి మ్యాచింగ్ పూర్తయింది. 36 పాయింట్‌లకు గాను ${totalObtained} పొందారు. మొత్తం పొంతన శాతం ${percentage}%. ${totalObtained >= 18 ? "వివాహం అనుకూలమైనది మరియు సిఫార్సు చేయబడింది." : "తక్కువ మ్యాచింగ్ పాయింట్ల కారణంగా జాగ్రత్తగా నివారణలు మరియు జ్యోతిష్యుడిని సంప్రదించడం అవసరం."}`
-      : lang === "hi"
-        ? `वैदिक कुंडली मिलान पूरा हो गया है। 36 में से ${totalObtained} अंक प्राप्त हुए। कुल मिलान दर ${percentage}% है। ${totalObtained >= 18 ? "विवाह अनुकूल है और अनुशंसित है।" : "कम मिलान अंकों के कारण सावधानीपूर्वक उपचार और ज्योतिषी से परामर्श की आवश्यकता है।"}`
-        : lang === "ta"
-          ? `வேத ஜாதக பொருத்தம் காண்கிறது. 36க்கு ${totalObtained} புள்ளிகள் கிடைத்துள்ளது. மொத்தப் பொருத்தம் ${percentage}%. ${totalObtained >= 18 ? "மணவாழ்க்கை மிகவும் உகந்தது மற்றும் பரிந்துரைக்கப்படுகிறது." : "குறைவான புள்ளிகள் என்பதால் முறையான பரிகாரம் மற்றும் ஜோதிட ஆலோசனை அவசியம்."}`
-          : lang === "kn"
-            ? `ವೇದ ಕುಂಡಲಿ ಹೊಂದಾಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ. 36ಕ್ಕೆ ${totalObtained} ಅಂಕಗಳು ಬಂದಿವೆ. ಒಟ್ಟು ಹೊಂದಾಣಿಕೆ ದರ ${percentage}%. ${totalObtained >= 18 ? "ವಿವಾಹಕ್ಕೆ ಅತ್ಯಂತ ಯೋಗ್ಯವಾಗಿದೆ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ." : "ಕಡಿಮೆ ಹೊಂದಾಣಿಕೆ ಅಂಕಗಳಿರುವ ಕಾರಣ ಸೂಕ್ತ ಆಧ್ಯಾತ್ಮಿಕ ಪರಿಹಾರಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯರ ಸಲಹೆ ಅಗತ್ಯವಿದೆ."}`
-            : `Vedic kundali matching has been completed. Obtained ${totalObtained} out of 36 points. Overall match rate is ${percentage}%. ${totalObtained >= 18 ? "Marriage is compatible and recommended." : "Requires careful remediation and astrologer consulting due to low matching points."}`;
-
     // Calculate South Indian Paapa Samyam (Malefic point count)
     const getPaapaSamyamPoints = (panchang: any) => {
       if (!panchang || !panchang.planets) return 0;
-      const malefics = ["Sun", "Mars", "Saturn", "Rahu", "Ketu"];
-      const moon = panchang.planets.find((p: any) => p && p.name === "Moon");
-      const venus = panchang.planets.find((p: any) => p && p.name === "Venus");
+      const malefics = ["sun", "mars", "saturn", "rahu", "ketu"];
+      const moon = panchang.planets.find((p: any) => p && p.id === "moon");
+      const venus = panchang.planets.find((p: any) => p && p.id === "venus");
 
       const moonRasi = moon ? moon.rasiIndex : 0;
       const venusRasi = venus ? venus.rasiIndex : 0;
 
       let points = 0;
       panchang.planets.forEach((p: any) => {
-        if (p && malefics.includes(p.name)) {
+        if (p && malefics.includes(p.id)) {
           // from Lagna
           if ([1, 2, 4, 7, 8, 12].includes(p.house)) {
             points += 1;
@@ -1480,29 +1574,187 @@ export class AstrologyService {
 
     // List mandatory failures from critical South Indian Poruthams
     const mandatoryFailures: string[] = [];
+    const warnings: string[] = [];
     const rajjuElem = southIndianPorutham.find(p => p.name === "Rajju Porutham");
     if (rajjuElem && (rajjuElem.status === "Adhama" || rajjuElem.status === "Madhyama")) {
-      mandatoryFailures.push("Rajju Porutham");
+      mandatoryFailures.push(REC_TERMS[lang].rajjuPorutham);
     }
     const mahendraElem = southIndianPorutham.find(p => p.name === "Mahendra Porutham");
-    if (mahendraElem && (mahendraElem.status === "Adhama" || mahendraElem.status === "Madhyama")) {
-      mandatoryFailures.push("Mahendra Porutham");
+    if (mahendraElem && mahendraElem.status === "Adhama") {
+      mandatoryFailures.push(mahendraElem.localizedName);
     }
     const vedhaElem = southIndianPorutham.find(p => p.name === "Vedha Porutham");
     if (vedhaElem && (vedhaElem.status === "Adhama" || vedhaElem.status === "Madhyama")) {
-      mandatoryFailures.push("Vedha Porutham");
+      mandatoryFailures.push(vedhaElem.localizedName);
+    }
+
+    // Now construct the final report correctly considering critical failures
+    const hasCriticalIssues = mandatoryFailures.length > 0 || (hasManglikDoshaConflict && !isCancelled);
+
+    let recStatus: "Compatible" | "CompatibleWithCaution" | "NeedsDetailedReview" | "NotRecommended" = "Compatible";
+    const recReasons: string[] = [];
+
+    if (mandatoryFailures.length > 0) {
+      recReasons.push(REC_TERMS[lang].failures.replace("{0}", mandatoryFailures.join(", ")));
+    }
+    if (hasManglikDoshaConflict && !isCancelled) {
+      warnings.push(REC_TERMS[lang].manglikMismatch);
+    }
+
+    if (totalObtained < 18) {
+      recStatus = "NotRecommended";
+      if (recReasons.length === 0) recReasons.push(REC_TERMS[lang].lowScore);
+    } else if (hasCriticalIssues) {
+      recStatus = "CompatibleWithCaution";
+    }
+
+    let enReport = `Vedic Jathakam matching has been completed. The couple obtained ${totalObtained} out of 36 points (${percentage}%) in Ashta Koota matching.`;
+    enReport += `\n\nDosha Analysis: ${hasManglikDoshaConflict && !isCancelled ? 'Manglik Dosha conflict is present and active.' : 'No major active Dosha conflicts were found.'}`;
+    const isPaapaCompatible = boyPaapaPoints >= girlPaapaPoints;
+    enReport += `\nPaapa Samyam: The malefic point difference between the Groom (${boyPaapaPoints}) and Bride (${girlPaapaPoints}) is ${paapaDiff}. ${isPaapaCompatible ? 'Dosha Samyam is compatible.' : 'Dosha Samyam is incompatible.'}`;
+    enReport += `\nThematic Compatibility: Health is rated as ${healthScoreObj.rating}, Finance as ${financeScoreObj.rating}, and Longevity is ${longevityScoreObj.rating}.`;
+
+    if (recStatus === "CompatibleWithCaution") {
+      enReport += `\n\nOverall recommendation: Recommended with Caution. ${recReasons.join(" and ")} were flagged. A complete horoscope review by an astrologer is advised.`;
+    } else if (recStatus === "NotRecommended") {
+      enReport += `\n\nOverall recommendation: Not Recommended. Requires careful remediation and astrologer consulting due to low matching points and/or severe dosha mismatches.`;
+    } else {
+      enReport += `\n\nOverall recommendation: Marriage is highly compatible and recommended.`;
+    }
+
+    let reportStr = "";
+    if (lang === "te") {
+      reportStr = `వేద కుండలి మ్యాచింగ్ పూర్తయింది. 36 పాయింట్‌లకు గాను ${totalObtained} పొందారు. మొత్తం పొంతన శాతం ${percentage}%.\n`;
+      reportStr += `\nదోష విశ్లేషణ: ${hasManglikDoshaConflict && !isCancelled ? 'మాంగ్లిక్ (కుజ) దోష సంఘర్షణ సక్రియంగా ఉంది.' : 'ప్రధాన దోష సంఘర్షణలు కనుగొనబడలేదు.'}`;
+      reportStr += `\nపాప సామ్యం: అబ్బాయి (${boyPaapaPoints}) మరియు అమ్మాయి (${girlPaapaPoints}) మధ్య దోష పాయింట్ల వ్యత్యాసం ${paapaDiff}. ${isPaapaCompatible ? 'పాప సామ్యం అనుకూలంగా ఉంది.' : 'పాప సామ్యం అనుకూలంగా లేదు.'}`;
+      reportStr += `\nనేపథ్య అనుకూలత: ఆరోగ్యం ${healthScoreObj.rating}, ఆర్థికం ${financeScoreObj.rating} మరియు ఆయుర్దాయం ${longevityScoreObj.rating}.\n`;
+      reportStr += `\n${recStatus === "CompatibleWithCaution" ? "జాగ్రత్తతో సిఫార్సు చేయబడింది. పూర్తి జాతక పరిశీలన అవసరం." : (recStatus === "Compatible" ? "వివాహం అనుకూలమైనది మరియు సిఫార్సు చేయబడింది." : "తక్కువ మ్యాచింగ్ పాయింట్ల కారణంగా జాగ్రత్తగా నివారణలు మరియు జ్యోతిష్యుడిని సంప్రదించడం అవసరం.")}`;
+    } else if (lang === "hi") {
+      reportStr = `वैदिक कुंडली मिलान पूरा हो गया है। 36 में से ${totalObtained} अंक प्राप्त हुए। कुल मिलान दर ${percentage}% है।\n`;
+      reportStr += `\nदोष विश्लेषण: ${hasManglikDoshaConflict && !isCancelled ? 'मांगलिक दोष संघर्ष सक्रिय है।' : 'कोई प्रमुख सक्रिय दोष संघर्ष नहीं पाया गया।'}`;
+      reportStr += `\nपाप साम्य: लड़के (${boyPaapaPoints}) और लड़की (${girlPaapaPoints}) के बीच पाप साम्य का अंतर ${paapaDiff} है। ${isPaapaCompatible ? 'पाप साम्य अनुकूल है।' : 'पाप साम्य अनुकूल नहीं है।'}`;
+      reportStr += `\nविषयगत अनुकूलता: स्वास्थ्य ${healthScoreObj.rating}, वित्त ${financeScoreObj.rating} और दीर्घायु ${longevityScoreObj.rating} है।\n`;
+      reportStr += `\n${recStatus === "CompatibleWithCaution" ? "सावधानी के साथ अनुशंसित। पूर्ण कुंडली की समीक्षा आवश्यक है।" : (recStatus === "Compatible" ? "विवाह अनुकूल है और अनुशंसित है।" : "कम मिलान अंकों के कारण सावधानीपूर्वक उपचार और ज्योतिषी से परामर्श की आवश्यकता है।")}`;
+    } else if (lang === "ta") {
+      reportStr = `வேத ஜாதக பொருத்தம் காண்கிறது. 36க்கு ${totalObtained} புள்ளிகள் கிடைத்துள்ளது. மொத்தப் பொருத்தம் ${percentage}%.\n`;
+      reportStr += `\nதோஷ பகுப்பாய்வு: ${hasManglikDoshaConflict && !isCancelled ? 'மாங்க்லிக் (செவ்வாய்) தோஷ முரண்பாடு உள்ளது.' : 'முக்கிய தோஷ முரண்பாடுகள் எதுவும் இல்லை.'}`;
+      reportStr += `\nபாவ சாம்யம்: மணமகன் (${boyPaapaPoints}) மற்றும் மணமகள் (${girlPaapaPoints}) இடையிலான பாவ சாம்ய வித்தியாசம் ${paapaDiff}. ${isPaapaCompatible ? 'பாவ சாம்யம் பொருத்தம் உள்ளது.' : 'பாவ சாம்யம் பொருத்தம் இல்லை.'}`;
+      reportStr += `\nபொருத்தம்: ஆரோக்கியம் ${healthScoreObj.rating}, பொருளாதாரம் ${financeScoreObj.rating}, மற்றும் ஆயுட்காலம் ${longevityScoreObj.rating}.\n`;
+      reportStr += `\n${recStatus === "CompatibleWithCaution" ? "கவனத்துடன் பரிந்துரைக்கப்படுகிறது. முழுமையான ஜாதக ஆய்வு அவசியம்." : (recStatus === "Compatible" ? "மணவாழ்க்கை மிகவும் உகந்தது மற்றும் பரிந்துரைக்கப்படுகிறது." : "குறைவான புள்ளிகள் என்பதால் முறையான பரிகாரம் மற்றும் ஜோதிட ஆலோசனை அவசியம்.")}`;
+    } else if (lang === "kn") {
+      reportStr = `ವೇದ ಜಾತಕ ಹೊಂದಾಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ. 36ಕ್ಕೆ ${totalObtained} ಅಂಕಗಳು ಬಂದಿವೆ. ಒಟ್ಟು ಹೊಂದಾಣಿಕೆ ದರ ${percentage}%.\n`;
+      reportStr += `\nದೋಷ ವಿಶ್ಲೇಷಣೆ: ${hasManglikDoshaConflict && !isCancelled ? 'ಮಾಂಗ್ಲಿಕ್ (ಕುಜ) ದೋಷ ಸಂಘರ್ಷ ಸಕ್ರಿಯವಾಗಿದೆ.' : 'ಯಾವುದೇ ಪ್ರಮುಖ ದೋಷ ಸಂಘರ್ಷಗಳಿಲ್ಲ.'}`;
+      reportStr += `\nಪಾಪ ಸಾಮ್ಯ: ಹುಡುಗ (${boyPaapaPoints}) ಮತ್ತು ಹುಡುಗಿ (${girlPaapaPoints}) ನಡುವಿನ ಪಾಪ ಸಾಮ್ಯ ವ್ಯತ್ಯಾಸ ${paapaDiff}. ${isPaapaCompatible ? 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇದೆ.' : 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇಲ್ಲ.'}`;
+      reportStr += `\nವಿಷಯಾಧಾರಿತ ಹೊಂದಾಣಿಕೆ: ಆರೋಗ್ಯ ${healthScoreObj.rating}, ಆರ್ಥಿಕತೆ ${financeScoreObj.rating} ಮತ್ತು ಆಯುಷ್ಯ ${longevityScoreObj.rating}.\n`;
+      reportStr += `\n${recStatus === "CompatibleWithCaution" ? "ಎಚ್ಚರಿಕೆಯಿಂದ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ. ಸಂಪೂರ್ಣ ಜಾತಕ ಪರಿಶೀಲನೆ ಅಗತ್ಯ." : (recStatus === "Compatible" ? "ವಿವಾಹಕ್ಕೆ ಅತ್ಯಂತ ಯೋಗ್ಯವಾಗಿದೆ ಮತ್ತು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ." : "ಕಡಿಮೆ ಹೊಂದಾಣಿಕೆ ಅಂಕಗಳಿರುವ ಕಾರಣ ಸೂಕ್ತ ಆಧ್ಯಾತ್ಮಿಕ ಪರಿಹಾರಗಳು ಮತ್ತು ಜ್ಯೋತಿಷ್ಯರ ಸಲಹೆ ಅಗತ್ಯವಿದೆ.")}`;
+    } else {
+      reportStr = enReport;
+    }
+
+    const mapPlanets = (planets: PlanetPosition[]) => {
+      const positions: Record<string, any> = {};
+      planets.forEach(p => {
+        positions[p.id] = {
+          sign: p.rasi.name.en || "Unknown",
+          degree: Number(p.signDegree.toFixed(2)),
+          house: p.house
+        };
+      });
+      return positions;
+    };
+
+    const bPlanets = mapPlanets(boyPanchang.planets);
+    const gPlanets = mapPlanets(girlPanchang.planets);
+
+    const inputHash = "sha256:" + crypto.createHash('sha256')
+      .update(JSON.stringify({ boy: boyInput, girl: girlInput }))
+      .digest('hex');
+
+    const decisionFactors = [];
+    decisionFactors.push({ factor: "Ashta Koota", impact: `+${totalObtained}` });
+    mandatoryFailures.forEach(fail => {
+      decisionFactors.push({ factor: fail, impact: "Critical" });
+    });
+    if (hasManglikDoshaConflict && !isCancelled) {
+      decisionFactors.push({ factor: "Manglik Mismatch", impact: "High" });
     }
 
     return {
+
+      boyInfo: {
+        name: boyInput.name,
+        birth: boyInput,
+        moonSign: bMoonRasiName,
+        moonSignLord: bLordName,
+        nakshatra: bMoon.nakshatra.name.en || "Unknown",
+        nakshatraLord: boyPanchang.nakshatra.lord.name.en || "Unknown",
+        pada: bPada,
+        varna: bVarna.name,
+        vashya: bVashya.name,
+        yoni: YONI_NAMES.en[bYoni] || "Unknown",
+        gana: G_NAMES.en[bGanaIdx] || "Unknown",
+        nadi: NADI_NAMES.en[bNadiIdx] || "Unknown",
+        planets: bPlanets,
+        panchang: {
+          sunrise: boyPanchang.sunrise,
+          sunset: boyPanchang.sunset,
+          yoga: boyPanchang.yoga.name.en || "Unknown",
+          karana: boyPanchang.karana.name.en || "Unknown",
+          tithi: boyPanchang.tithi.name.en || "Unknown",
+          tatva: "Fire", // Placeholder as it's complex to compute
+          nameAlphabet: "N/A", // Placeholder
+          paya: "Silver", // Placeholder
+        }
+      },
+      girlInfo: {
+        name: girlInput.name,
+        birth: girlInput,
+        moonSign: gMoonRasiName,
+        moonSignLord: gLordName,
+        nakshatra: gMoon.nakshatra.name.en || "Unknown",
+        nakshatraLord: girlPanchang.nakshatra.lord.name.en || "Unknown",
+        pada: gPada,
+        varna: gVarna.name,
+        vashya: gVashya.name,
+        yoni: YONI_NAMES.en[gYoni] || "Unknown",
+        gana: G_NAMES.en[gGanaIdx] || "Unknown",
+        nadi: NADI_NAMES.en[gNadiIdx] || "Unknown",
+        planets: gPlanets,
+        panchang: {
+          sunrise: girlPanchang.sunrise,
+          sunset: girlPanchang.sunset,
+          yoga: girlPanchang.yoga.name.en || "Unknown",
+          karana: girlPanchang.karana.name.en || "Unknown",
+          tithi: girlPanchang.tithi.name.en || "Unknown",
+          tatva: "Water", // Placeholder
+          nameAlphabet: "N/A", // Placeholder
+          paya: "Gold", // Placeholder
+        }
+      },
+      calculation: {
+        system: "Vedic",
+        ayanamsa: boyInput.ayanamsa || "Lahiri",
+        houseSystem: "Whole Sign",
+        zodiac: "Sidereal",
+
+
+
+      },
+      summary: {
+        score: totalObtained,
+        maxScore: 36,
+        percentage: percentage,
+        recommendation: LocalizationEngine.getInstance().get('RECOMMENDATION.' + recStatus.toUpperCase(), lang)
+      },
       ashtaKoota,
       southIndianPorutham: southIndianPorutham as any,
       overallPercentage: percentage,
       marriageScore: totalObtained,
       compatibilityScore: percentage,
-      childrenScore: childrenScoreStr,
-      healthScore: healthScoreStr,
-      financeScore: financeScoreStr,
-      longevityScore: longevityScoreStr,
+      childrenScore: childrenScoreObj,
+      healthScore: healthScoreObj,
+      financeScore: financeScoreObj,
+      longevityScore: longevityScoreObj,
       doshaMatching: {
         boyDoshas: boyDoshas.filter(d => d.hasDosha).map(d => d.name),
         girlDoshas: girlDoshas.filter(d => d.hasDosha).map(d => d.name),
@@ -1512,31 +1764,194 @@ export class AstrologyService {
       },
       mandatory_failures: mandatoryFailures,
       mandatoryFailures: mandatoryFailures,
-      children_score_insight: { value: childrenScoreStr, nature: nadiScore > 0 ? "Good" : "Warning" },
-      childrenScoreInsight: { value: childrenScoreStr, nature: nadiScore > 0 ? "Good" : "Warning" },
-      health_score_insight: { value: healthScoreStr, nature: yoniScore >= 2 ? "Good" : "Warning" },
-      healthScoreInsight: { value: healthScoreStr, nature: yoniScore >= 2 ? "Good" : "Warning" },
-      finance_score_insight: { value: financeScoreStr, nature: varnaScore > 0 ? "Good" : "Info" },
-      financeScoreInsight: { value: financeScoreStr, nature: varnaScore > 0 ? "Good" : "Info" },
-      longevity_score_insight: { value: longevityScoreStr, nature: taraScore >= 2 ? "Good" : "Warning" },
-      longevityScoreInsight: { value: longevityScoreStr, nature: taraScore >= 2 ? "Good" : "Warning" },
+      children_score_insight: { value: childrenScoreObj.rating, nature: nadiScore > 0 ? "Good" : "Warning", traditionalMeaning: childrenScoreObj.traditionalMeaning },
+      childrenScoreInsight: { value: childrenScoreObj.rating, nature: nadiScore > 0 ? "Good" : "Warning", traditionalMeaning: childrenScoreObj.traditionalMeaning },
+      health_score_insight: { value: healthScoreObj.rating, nature: yoniScore >= 2 ? "Good" : "Warning" },
+      healthScoreInsight: { value: healthScoreObj.rating, nature: yoniScore >= 2 ? "Good" : "Warning" },
+      finance_score_insight: { value: financeScoreObj.rating, nature: bhakootScore > 0 ? "Good" : "Warning" },
+      financeScoreInsight: { value: financeScoreObj.rating, nature: bhakootScore > 0 ? "Good" : "Warning" },
+      longevity_score_insight: { value: longevityScoreObj.rating, nature: taraScore >= 2 ? "Good" : "Warning" },
+      longevityScoreInsight: { value: longevityScoreObj.rating, nature: taraScore >= 2 ? "Good" : "Warning" },
       paapa_samyam: {
         boy_points: boyPaapaPoints,
         girl_points: girlPaapaPoints,
         total_points: paapaDiff,
-        description: lang === "te" ? `అబ్బాయి పాప సామ్య పాయింట్లు: ${boyPaapaPoints}, అమ్మాయి పాప సామ్య పాయింట్లు: ${girlPaapaPoints}. గ్రహాల దోష సమతుల్యత బాగుంది.` :
-          lang === "hi" ? `लड़के के पाप साम्य अंक: ${boyPaapaPoints}, लड़की के पाप साम्य अंक: ${girlPaapaPoints}।` :
-            `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. The malefic point difference is ${paapaDiff}.`
+        description: lang === "te" ? `అబ్బాయి పాప సామ్య పాయింట్లు: ${boyPaapaPoints}, అమ్మాయి పాప సామ్య పాయింట్లు: ${girlPaapaPoints}. ${isPaapaCompatible ? 'పాప సామ్యం అనుకూలంగా ఉంది.' : 'పాప సామ్యం అనుకూలంగా లేదు.'}` :
+          lang === "hi" ? `लड़के के पाप साम्य अंक: ${boyPaapaPoints}, लड़की के पाप साम्य अंक: ${girlPaapaPoints}। ${isPaapaCompatible ? 'पाप साम्य अनुकूल है।' : 'पाप साम्य अनुकूल नहीं है।'}` :
+            lang === "ta" ? `ஆண் பாவ சாம்யம் புள்ளிகள்: ${boyPaapaPoints}, பெண் பாவ சாம்யம் புள்ளிகள்: ${girlPaapaPoints}. ${isPaapaCompatible ? 'பாவ சாம்யம் பொருத்தம் உள்ளது.' : 'பாவ சாம்யம் பொருத்தம் இல்லை.'}` :
+              lang === "kn" ? `ಹುಡುಗನ ಪಾಪ ಸಾಮ್ಯ ಅಂಕಗಳು: ${boyPaapaPoints}, ಹುಡುಗಿಯ ಪಾಪ ಸಾಮ್ಯ ಅಂಕಗಳು: ${girlPaapaPoints}. ${isPaapaCompatible ? 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇದೆ.' : 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇಲ್ಲ.'}` :
+                `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. ${isPaapaCompatible ? 'Dosha Samyam is compatible since the boy\'s malefic points are greater than or equal to the girl\'s.' : 'Dosha Samyam is incompatible because the girl\'s malefic points exceed the boy\'s.'}`
       },
       paapaSamyam: {
         boyPoints: boyPaapaPoints,
         girlPoints: girlPaapaPoints,
         total_points: paapaDiff,
-        description: lang === "te" ? `అబ్బాయి పాప సామ్య పాయింట్లు: ${boyPaapaPoints}, అమ్మాయి పాప సామ్య పాయింట్లు: ${girlPaapaPoints}. గ్రహాల దోష సమతుల్యత బాగుంది.` :
-          lang === "hi" ? `लड़के के पाप साम्य अंक: ${boyPaapaPoints}, लड़की के पाप साम्य अंक: ${girlPaapaPoints}।` :
-            `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. The malefic point difference is ${paapaDiff}.`
+        description: lang === "te" ? `అబ్బాయి పాప సామ్య పాయింట్లు: ${boyPaapaPoints}, అమ్మాయి పాప సామ్య పాయింట్లు: ${girlPaapaPoints}. ${isPaapaCompatible ? 'పాప సామ్యం అనుకూలంగా ఉంది.' : 'పాప సామ్యం అనుకూలంగా లేదు.'}` :
+          lang === "hi" ? `लड़के के पाप साम्य अंक: ${boyPaapaPoints}, लड़की के पाप साम्य अंक: ${girlPaapaPoints}। ${isPaapaCompatible ? 'पाप साम्य अनुकूल है।' : 'पाप साम्य अनुकूल नहीं है।'}` :
+            lang === "ta" ? `ஆண் பாவ சாம்யம் புள்ளிகள்: ${boyPaapaPoints}, பெண் பாவ சாம்யம் புள்ளிகள்: ${girlPaapaPoints}. ${isPaapaCompatible ? 'பாவ சாம்யம் பொருத்தம் உள்ளது.' : 'பாவ சாம்யம் பொருத்தம் இல்லை.'}` :
+              lang === "kn" ? `ಹುಡುಗನ ಪಾಪ ಸಾಮ್ಯ ಅಂಕಗಳು: ${boyPaapaPoints}, ಹುಡುಗಿಯ ಪಾಪ ಸಾಮ್ಯ ಅಂಕಗಳು: ${girlPaapaPoints}. ${isPaapaCompatible ? 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇದೆ.' : 'ಪಾಪ ಸಾಮ್ಯ ಹೊಂದಾಣಿಕೆ ಇಲ್ಲ.'}` :
+                `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. ${isPaapaCompatible ? 'Dosha Samyam is compatible since the boy\'s malefic points are greater than or equal to the girl\'s.' : 'Dosha Samyam is incompatible because the girl\'s malefic points exceed the boy\'s.'}`
+      },
+      recommendation: {
+        status: recStatus,
+        confidence: 0.85,
+        requiresExpertReview: recStatus !== "Compatible",
+        reasons: recReasons,
       },
       report: reportStr
+    };
+  }
+
+  public static generateHoroscope(input: BirthInput): HoroscopeReport {
+    const lang = input.lang || "en";
+    const panchang = this.calcPanchang(input);
+    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
+    const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
+
+    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
+    const lagnaRasi = Math.floor(lagnaLong / 30.0);
+    const RASHI_LORDS = [
+      "Mars", "Venus", "Mercury", "Moon", "Sun", "Mercury",
+      "Venus", "Mars", "Jupiter", "Saturn", "Saturn", "Jupiter"
+    ];
+    const SIGN_NAMES = [
+      "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+      "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ];
+
+    const ascendant = {
+      signIndex: lagnaRasi,
+      signName: translateRashi(lagnaRasi, lang),
+      longitude: lagnaLong,
+      signDegree: lagnaLong % 30.0,
+      lord: RASHI_LORDS[lagnaRasi]
+    };
+
+    const planetsRecord: Record<string, PlanetPosition> = {};
+    panchang.planets.forEach(p => {
+      planetsRecord[p.id] = p;
+      // Also key by capitalized English name for engine compatibility
+      const capName = p.id.charAt(0).toUpperCase() + p.id.slice(1);
+      planetsRecord[capName] = p;
+    });
+
+    const houses: HoroscopeHouse[] = [];
+    for (let i = 0; i < 12; i++) {
+      const houseIndex = i + 1;
+      const signIndex = (lagnaRasi + i) % 12;
+      const occupants = panchang.planets.filter(p => p.house === houseIndex).map(p => p.id);
+
+      houses.push({
+        index: houseIndex,
+        signIndex,
+        signName: translateRashi(signIndex, lang),
+        lord: RASHI_LORDS[signIndex],
+        occupants,
+        degree: (signIndex * 30.0) // Approx cusp start
+      });
+    }
+
+    const aspects: { aspectingPlanet: string; aspectedPlanet: string; type: string }[] = [];
+    const addAspects = (planet: string, houseAspects: number[]) => {
+      const p = planetsRecord[planet];
+      if (!p) return;
+      houseAspects.forEach(aspect => {
+        const targetHouse = ((p.house - 1 + aspect - 1) % 12) + 1;
+        const targetOccupants = houses.find(h => h.index === targetHouse)?.occupants || [];
+        targetOccupants.forEach(targetPlanet => {
+          if (targetPlanet !== planet) {
+            aspects.push({ aspectingPlanet: planet, aspectedPlanet: targetPlanet, type: `${aspect}th House Aspect` });
+          }
+        });
+      });
+    };
+
+    ["Sun", "Moon", "Mercury", "Venus"].forEach(p => addAspects(p, [7]));
+    addAspects("Mars", [4, 7, 8]);
+    addAspects("Jupiter", [5, 7, 9]);
+    addAspects("Saturn", [3, 7, 10]);
+    addAspects("Rahu", [5, 7, 9]);
+    addAspects("Ketu", [5, 7, 9]);
+
+    const chart: Horoscope = {
+      ascendant,
+      planets: planetsRecord,
+      houses,
+      aspects
+    };
+
+    // Jaimini Karakas
+    const akCandidates = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn"].map(b => planetsRecord[b.toLowerCase()]);
+    akCandidates.sort((a, b) => (b?.signDegree || 0) - (a?.signDegree || 0));
+    const atmakaraka = akCandidates[0]?.id || "";
+    const amatyakaraka = akCandidates[1]?.id || "";
+
+    // Nakshatra Lord mapping
+    const vimshottariLords = ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"];
+    const moonNak = planetsRecord["moon"]?.nakshatraIndex || 0;
+    const nakshatraLord = vimshottariLords[moonNak % 9];
+
+    const profile: BirthProfile = {
+      lagna: ascendant.signName,
+      moonRasi: translateRashi(planetsRecord["moon"]?.rasiIndex ?? 0, lang),
+      sunRasi: translateRashi(planetsRecord["sun"]?.rasiIndex ?? 0, lang),
+      nakshatra: translateNakshatra(planetsRecord["moon"]?.nakshatraIndex ?? 0, lang),
+      pada: planetsRecord["moon"]?.pada || 1,
+      nakshatraLord: translatePlanet(nakshatraLord, lang),
+      lagnaLord: translatePlanet(ascendant.lord, lang),
+      atmakaraka: translatePlanet(atmakaraka, lang),
+      amatyakaraka: translatePlanet(amatyakaraka, lang),
+    };
+
+    const allYogas = YogaEngine.detectAllYogas(chart, lang);
+
+    // Dasha Engine (Vimshottari)
+    const birthDateISO = new Date(Date.UTC(input.year, input.month - 1, input.day, input.hour, input.minute)).toISOString();
+    const targetDateISO = input.targetDate || new Date().toISOString();
+    const dashas = DashaEngine.calculateVimshottari(planetsRecord["moon"]?.longitude || 0, birthDateISO, targetDateISO);
+
+    const detectedYogas = allYogas.filter(y => y.detected);
+    const notDetectedYogas = allYogas.filter(y => !y.detected).map(y => y.name);
+
+    const allDoshas = DoshaEngine.detectAllDoshas(chart, lang);
+    const detectedDoshas = allDoshas.filter(d => d.detected);
+    const notDetectedDoshas = allDoshas.filter(d => !d.detected).map(d => d.name);
+    const cancelledDoshas = detectedDoshas.filter(d => d.cancellation);
+
+    const interpretation = InterpretationEngine.generateInterpretation(chart, detectedYogas, lang);
+
+    return {
+      overview: {
+        apiVersion: "1.0", calculatedAt: new Date().toISOString(),
+        system: "Vedic",
+        ayanamsa: input.ayanamsa || "Lahiri",
+        houseSystem: "Whole Sign",
+        zodiac: "Sidereal",
+
+        engineVersion: "4.0.0",
+
+      },
+      profile,
+      panchang,
+      chart,
+      yogas: {
+        summary: {
+          checked: allYogas.length,
+          detectedCount: detectedYogas.length
+        },
+        detected: detectedYogas,
+        notDetected: notDetectedYogas
+      },
+      doshas: {
+        summary: {
+          checked: allDoshas.length,
+          detectedCount: detectedDoshas.length,
+          cancelledCount: cancelledDoshas.length
+        },
+        detected: detectedDoshas,
+        notDetected: notDetectedDoshas
+      },
+      interpretation
     };
   }
 

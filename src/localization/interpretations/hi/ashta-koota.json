@@ -1,0 +1,34 @@
+{
+  "Varna": {
+    "Score_1": [
+      {
+        "id": "VARNA_1_001_hi",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Excellent spiritual and professional compatibility is indicated."
+      },
+      {
+        "id": "VARNA_1_002_hi",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The Varna score indicates very strong foundational alignment and career synergy."
+      }
+    ]
+  },
+  "Graha_Maitri": {
+    "Score_5": [
+      {
+        "id": "MAITRI_5_001_hi",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Perfect planetary friendship fosters deep intellectual harmony."
+      }
+    ]
+  }
+}

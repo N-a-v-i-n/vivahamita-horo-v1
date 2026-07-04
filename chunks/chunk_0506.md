@@ -1,0 +1,5 @@
+**Exercise 28:** The native of Chart 26 had an excellent career in India until 1997. Then he had to go to US with his wife, who is a software engineer. He could not find the right job for his qualifications in US. He could not succeed in his efforts to redeem his career. He had to depend on his wife and went through a lot of hard times. Calculate Narayana dasa and explain the events. 
+
+#### **18.5 Narayana Dasa of Vargas** 
+
+Narayana dasa may be calculated for vargas (divisional charts) also. Narayana dasa of a varga throws light on the progress of matters shown in that varga. For example, we can use Naryana dasa of D-4 to time changes in residence, happiness from home and stay in foreign countries. We can use Narayana dasa of D-10 to time events in career. We can use Narayana dasa of D-24 to time events related to learning and knowledge. We can use Narayana dasa of D-9 to time marriage and to predict events in marital life. We can use Narayana dasa of D-7 to predict happiness from children. We can use Narayana dasa of D-12 to predict relations with parents.

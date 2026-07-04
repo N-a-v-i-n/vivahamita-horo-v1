@@ -1,0 +1,2 @@
+|**Cp**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Cp, Sg, Sc, Li, Vi, Le, Cn, Ge, Ta, Ar, Pi, Aq<br>Cp, Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi, Li, Sc, Sg<br>Cp,Aq,Pi,Ar,Ta,Ge,Cn,Le,Vi,Li,Sc,Sg|
+|**Aq**|(_a_)_Normal_:<br>(_b_)_Saturn_:<br>(_c_) _Ketu_:|Aq, Cn, Sg, Ta, Li, Pi, Le, Cp, Ge, Sc, Ar, Vi<br>Aq, Pi, Ar, Ta, Ge, Cn, Le, Vi, Li, Sc, Sg, Cp<br>Aq,Vi,Ar,Sc,Ge,Cp,Le,Pi,Li,Ta,Sg,Cn|

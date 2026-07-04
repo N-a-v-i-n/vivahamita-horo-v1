@@ -1,0 +1,5 @@
+#### **25.4 Transits and Divisional Charts** 
+
+Though the _motivation_ for the approach described here comes from some principles described in classics, the actual approach is essentially based on this author’s own researches. This author heard about **“Bhrigu transits”** , which correlate the transit positions in navamsa chart with the natal positions in rasi chart. However, he does not know much about the tradition of Bhrigu transits to conclude whether or not his findings are loosely related to that tradition. 
+
+Though this author prefers to teach only those approaches that have the sanction of maharshis, he finds this particular approach superior to most other techniques of transit analysis. Moreover, this approach does not violate any teachings of maharshis. This is also a fertile area for research and deserves our attention. Hence it will be covered here. However, readers are advised to keep in mind that what follows is a product of the very limited intelligence of this author and hence prone to errors. Readers are encouraged to question and to conduct further researches in this area.

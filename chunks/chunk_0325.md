@@ -1,0 +1,5 @@
+**Example 38:** Let us go further with Exercise 18 now. After finding the rasis in which Mercury is benefic with respect to various references, let us count the references with respect to which Mercury is benefic in each rasi. From the answer to Exercise 18, we see that Mercury is benefic in Ar with respect to Sun, Moon, Mars, Mercury, Venus, Saturn and lagna. In other words, Mercury is benefic in Ar with respect to 7 references. So we write 7 in Ar. We see that Mercury is benefic in Ta with respect to Sun, Mercury, Venus and Saturn. In other words, Mercury is benefic in Ta with respect to 4 references. So we write 4 in Ta. We find the count of references for each rasi and prepare a chart. This is called Mercury’s BAV or simply Mercury’s AV. Readers may complete the calculations and verify with Chart 11. 
+
+In Ar and Ge, we have 7 rekhas. So Mercury is benefic in those rasis with respect to 7 references out of 8. In Aq, we have 6 rekhas. So these three rasis are particularly favorable for Mercury. In Vi and Cp, we have 3 rekhas and that is the lowest. So Mercury is particularly unfavorable in Vi and Cp. We can use this information to 
+
+152

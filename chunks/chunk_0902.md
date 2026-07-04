@@ -1,0 +1,5 @@
+With Cn being the 6<sup>th</sup> house, its dasa brought bad relations with other nations. India was isolated in the international community after the nuclear tests. Li is the 9<sup>th</sup> house and it shows good diplomacy and excellent relations in navamsa. Its lord Venus is in a trine. So Libra dasa saw Vajpayee promoting peace with a nation shown by Libra – Pakistan – and the Lahore bus trip materialized in Li dasa. 
+
+About Le dasa, the following was written by this author in a magazine article<sup>97</sup> : 
+
+“Leo dasa of six months will run from May 19, 1999. Leo has unobstructed argalas from two diplomatic planets – Moon and Venus. Leo is the 7<sup>th</sup> house and it contains Sun and Rahu. Rahu's presence may indicate unpleasant confrontation with some countries, but Sun is very strong in own house. This means that India's voice may be heard with attention and India's point of view may be respected in international fora during this period. The international community may respect the bold stand taken by Vajpayee government regarding various thorny issues that may plague the world during the next few months.

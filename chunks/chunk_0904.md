@@ -1,0 +1,5 @@
+#### **35.7 Conclusion** 
+
+When we have the birthdata of a nation, we can use its birthchart. By the birth of a nation, we mean the start of a new order and the recognition of a new national identity. We can cast charts at a nation’s capital when a new solar or lunar year or month starts and use them to predict the fortune of a nation during the year or month. 
+
+Lunar new year charts are free from errors due to ayanamsa. However, solar new year charts are prone to heavy errors if ayanamsa is erroneous. If ayanamsa has an error of 1 arc-minute, this results in an error of 360 arc-minutes ( _i.e._ 6º!) in lagna of the solar new year chart. This is because lagna moves 360 times as fast as Sun. In the time Sun takes to move by an angle of θ, lagna moves by an angle of (360xθ). So the divisional charts of solar new year charts will not give consistent results until our ayanamsa is exact. It is not wise to assume that the ayanamsa one uses is perfect and free from any error.

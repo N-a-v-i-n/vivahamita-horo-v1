@@ -1,0 +1,3 @@
+But, can we use it to make any predictions? If we get the chart of someone with lagna in an airy sign, can we predict using this principle when he will get married? No! 
+
+This is the problem with vague astrological principles. True, this is an extreme example, but didn’t “Venus in own or friendly or watery sign or a trine from the 7<sup>th</sup> house” make some sense to us? However, it turned out to be too general (or vague) to help us in making a precise prediction.

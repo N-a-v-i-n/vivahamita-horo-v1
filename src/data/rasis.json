@@ -1,0 +1,122 @@
+{
+  "aries": {
+    "id": "aries",
+    "name": {
+      "en": "Aries",
+      "te": "మేషం",
+      "ta": "மேஷம்",
+      "kn": "ಮೇಷ",
+      "ml": "മേടം"
+    }
+  },
+  "taurus": {
+    "id": "taurus",
+    "name": {
+      "en": "Taurus",
+      "te": "వృషభం",
+      "ta": "ரிஷபம்",
+      "kn": "ವೃಷಭ",
+      "ml": "ഇടവം"
+    }
+  },
+  "gemini": {
+    "id": "gemini",
+    "name": {
+      "en": "Gemini",
+      "te": "మిథునం",
+      "ta": "மிதுனம்",
+      "kn": "ಮಿಥುನ",
+      "ml": "മിഥുനം"
+    }
+  },
+  "cancer": {
+    "id": "cancer",
+    "name": {
+      "en": "Cancer",
+      "te": "కర్కాటకం",
+      "ta": "கடகம்",
+      "kn": "ಕಟಕ",
+      "ml": "കർക്കിടകം"
+    }
+  },
+  "leo": {
+    "id": "leo",
+    "name": {
+      "en": "Leo",
+      "te": "సింహం",
+      "ta": "சிம்மம்",
+      "kn": "ಸಿಂಹ",
+      "ml": "ചിങ്ങം"
+    }
+  },
+  "virgo": {
+    "id": "virgo",
+    "name": {
+      "en": "Virgo",
+      "te": "కన్య",
+      "ta": "கன்னி",
+      "kn": "ಕನ್ಯಾ",
+      "ml": "കന്നി"
+    }
+  },
+  "libra": {
+    "id": "libra",
+    "name": {
+      "en": "Libra",
+      "te": "తుల",
+      "ta": "துலாம்",
+      "kn": "ತುಲಾ",
+      "ml": "തുലാം"
+    }
+  },
+  "scorpio": {
+    "id": "scorpio",
+    "name": {
+      "en": "Scorpio",
+      "te": "వృశ్చికం",
+      "ta": "விருச்சிகம்",
+      "kn": "ವೃಶ್ಚಿಕ",
+      "ml": "വൃശ്ചികം"
+    }
+  },
+  "sagittarius": {
+    "id": "sagittarius",
+    "name": {
+      "en": "Sagittarius",
+      "te": "ధనుస్సు",
+      "ta": "தனுசு",
+      "kn": "ಧನುಸ್ಸು",
+      "ml": "ധനു"
+    }
+  },
+  "capricorn": {
+    "id": "capricorn",
+    "name": {
+      "en": "Capricorn",
+      "te": "మకరం",
+      "ta": "மகரம்",
+      "kn": "ಮಕರ",
+      "ml": "മകരം"
+    }
+  },
+  "aquarius": {
+    "id": "aquarius",
+    "name": {
+      "en": "Aquarius",
+      "te": "కుంభం",
+      "ta": "கும்பம்",
+      "kn": "ಕುಂಭ",
+      "ml": "കുംഭം"
+    }
+  },
+  "pisces": {
+    "id": "pisces",
+    "name": {
+      "en": "Pisces",
+      "te": "మీనం",
+      "ta": "மீனம்",
+      "kn": "ಮೀನ",
+      "ml": "മീനം"
+    }
+  }
+}

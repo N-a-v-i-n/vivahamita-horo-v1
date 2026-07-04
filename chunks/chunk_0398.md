@@ -1,0 +1,5 @@
+#### **15.3 Shadbala and Astakavarga Bala** 
+
+There are six sources of strength – strength due to placement, strength due to time, strength due to directions, strength due to aspects, strength due to motion and strength due to inherent nature. **Shadbala** is a measure of the strength of a planet based on these six sources of strength. Explaining the computation of shadbalas is beyond the scope of this book. For the details of its computation, one may refer to “Brihat Parasara Hora Sastram” by Parasara or “Graha and Bhava Balas” by Dr. B.V. Raman. Most computer software programs give shadbala, though there are minor differences between the definitions used by them. 
+
+When two or planets influence the same house or when they participate in a yoga, then the planet with the highest shadbala is the most likely give the results. The planet with the strongest shadbala is like a group leader who acts on the group’s behalf.

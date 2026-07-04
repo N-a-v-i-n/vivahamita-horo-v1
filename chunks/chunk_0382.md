@@ -1,0 +1,5 @@
+###### **_Rudra_** 
+
+Consider the lord of the 8<sup>th</sup> house from ( _i_ ) lagna and ( _ii_ ) the 7<sup>th</sup> house. Find the 8<sup>th</sup> house using Table 32 and not in the normal way<sup>50</sup> . The stronger of the two planets becomes Rudra. If the weaker planet is afflicted, it can also become Rudra. We say that a planet is stronger if it conjoins more planets. If both planets conjoin the same number of planets, a planet in exaltation or own rasi is stronger. A planet joining exalted planets is stronger. A planet aspected by many planets (rasi aspect) is stronger. Finally, a planet which is more advanced in its rasi is stronger. We find the stronger planet in this manner and it becomes Rudra. However, if the weaker planet is debilitated or in an inimical sign and conjoined/aspected by malefics like Mars, Saturn, Rahu and Ketu, then it becomes Rudra. 
+
+###### **_Trishoola Rasis_**

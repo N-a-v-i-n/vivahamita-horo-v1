@@ -159,7 +159,7 @@ export const VedicChart: React.FC<VedicChartProps> = ({ data, selectedLanguage }
                 {vargaSelection}
               </span>
               <span className="font-serif font-bold text-stone-800 text-[11px]" style={{ fontFamily: "Cinzel, serif" }}>
-                Nirayana Kundali
+                Nirayana Jathakam
               </span>
               <p className="text-[9px] text-stone-400 mt-1 uppercase font-mono tracking-wider font-semibold">
                 {data.lagna?.signName} Lagna

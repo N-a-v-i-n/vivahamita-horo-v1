@@ -1,0 +1,3 @@
+**Example 137:** Let us consider India’s independence chart and Tajaka annual chart of 1997-98 (see Chart 80). India surprised the international community by conducting a series of nuclear tests in May 1998. Let us look at D-24 (the chart of technology and research) and find Tajaka annual chart and Sudarsana Chakra dasa. 
+
+In natal D-24, lagna in Cp is stronger than Moon and Sun. In 1997, India finished 50 years and started the 51<sup>st</sup> year. We get 3 by subtracting multiples of 12 from 51. So Sudarsana Chakra dasa of the 3<sup>rd</sup> house runs in the year. So dasa belongs to Pi<sup>94</sup> . We should cast the annual chart when the 51<sup>st</sup> year starts and judge the chart w.r.t. Pi.

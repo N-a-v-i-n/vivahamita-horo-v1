@@ -1,0 +1,5 @@
+While I am upset with the dismissal of astrology by some critics as a ‘superstition’, I am equally, if not more, upset with the irrational and unscientific attitude of some astrologers. In an effort to promote rational thinking in the astrological community, I included a chapter on “Rational Thinking”. 
+
+A very brief introduction to some special topics such as remedial measures, mundane astrology and muhurtas is provided in this book and it is hoped that interested readers will pursue these topics further by referring to other textbooks. 
+
+Vedic astrology is considered a sacred subject and Maharshi Parasara warned us against sharing this knowledge with unworthy people. Ancient Sages laid down some rules for the ethical behavior of a Vedic astrologer. I earnestly hope that all the readers of this book will appreciate those rules. To that end, I added a chapter on “Ethical Behavior of a Jyotishi”.

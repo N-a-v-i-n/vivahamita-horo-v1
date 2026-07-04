@@ -1,0 +1,5 @@
+Planetary strength is more important than strictly following these thumbrules. 
+
+#### **36.4 Planetary Strength** 
+
+Though a lot of thumbrules are given in literature, an intelligent astrologer gives more importance to the strength of planets in the muhurta chart than those thumbrules. Not only should the rasi chart be strong, but also the concerned divisional chart should be strong. For example, for joining a new job, lagna, 6<sup>th</sup> house and 10<sup>th</sup> house should be strong in rasi and D-10 charts. When starting a child’s education, 1<sup>st</sup> , 2<sup>nd</sup> , 4<sup>th</sup> and 5<sup>th</sup> should be strong in rasi and D-24 charts. When buying a new vehicle, 1<sup>st</sup> and 4<sup>th</sup> houses (and A4) should be strong in rasi and D-16 charts. When entering a new house, the 1<sup>st</sup> and 4<sup>th</sup> from lagna and Venus in D-4 should be strong. When buying some real estate, the 1<sup>st</sup> and 4<sup>th</sup> from lagna and Mars in D-4 should be strong.

@@ -1,0 +1,5 @@
+**Mridanga Yoga:** If (1) there are planets in own and exaltation signs in quadrants and trines and (2) lagna lord is strong, then this yoga is present. One born with this yoga is a king or an equal and he is happy. Mridanga is a rich and elegant percussion instrument popular in south India. 
+
+**Sreenaatha Yoga:** If (1) the 7<sup>th</sup> lord is exalted in 10th<sup>33</sup> and (2) 10<sup>th</sup> lord is with 9<sup>th</sup> lord, then this yoga is present. One born with this yoga becomes a great king equal to Indra – king of gods. Sreenaatha means the lord of great wealth and prosperity. It also means Vishnu. 
+
+**Matsya Yoga:** If (1) benefics are in lagna and 9<sup>th</sup> , (2) some planets are in 5<sup>th</sup> , and, (3) malefics are in chaturasras (4<sup>th</sup> and 8<sup>th</sup> houses), then this yoga is present. One born with this yoga becomes an astrologer or a seer. He is a personification of kindness, character and intelligence. He is strong and good-looking. He is famous and learned. He is a _tapasvi_ (austere pursuer). Matsya means a fish.

@@ -1,0 +1,3 @@
+We can propitiate planets by reciting mantras and stotras. Mantra is a combination of sounds with a special power to produce beneficial spiritual waves within us. 
+
+A mantra should be recited with an accurate pronunciation and intonation. Some mantras do not have any intonation, but the pronunciation of sounds must be perfect. Some saattwik mantras are self-correcting, in the sense that one reading it will eventually be forced to learn the correct pronunciation and intonation. Some other mantras can produce negative effects with improper recitation. So one should be careful with mantras.

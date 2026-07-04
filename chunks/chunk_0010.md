@@ -1,0 +1,5 @@
+Due to my background in engineering, I tried to adopt a style somewhat similar to the one used in mathematics and physics textbooks. I tried to be concise and always to the point. I gave plenty of examples and even some exercises. I hope that students will read the material and examples carefully and attempt the exercises sincerely. I hope that the astrological community will accept this new style of astrology teaching. 
+
+In this book, I did not try to steer clear of the controversies plaguing Vedic astrology. As my purpose in writing this book is to chronicle my broad understanding of Jyotish in a clear and concise fashion and to give clear guidance to fellow students, I stated my views clearly except in issues in which I do not have a firm opinion. 
+
+This book probably contains some fine knowledge, due to the blessings I received from my gurus, and some wrong knowledge as well, due to the limitations of my intelligence. Giving fine knowledge to unworthy students and feeding wrong knowledge to worthy students are both mistakes and I am aware that I may be committing both. I beg for the forgiveness of my gurus, maharshis and gods.

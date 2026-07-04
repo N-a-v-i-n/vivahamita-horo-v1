@@ -1,6 +1,20 @@
-# Vivahamitra Vedic Astrology Platform REST API (No-Auth)
+# Vivahamitra Vedic Astrology Platform REST API & Premium Dashboard
 
 Vedic Astrology Computation Platform powered by high-precision Swiss Ephemeris. All endpoints are **public and require no authentication keys or login profiles**. 
+
+---
+
+## 🌟 Premium Interactive Dashboard
+The platform now includes a state-of-the-art **Interactive API Dashboard** built with React, Vite, and Tailwind CSS.
+- **API Playground**: Select endpoints, tweak the JSON payload, and execute actual requests.
+- **Premium Aesthetics**: Dark glassmorphic design, dynamic glowing borders, pulsing telemetry metrics, and animated loaders.
+- **Premium Horoscope Matching PDF Report**: Automatically generate a beautifully designed A4 PDF straight from the `/api/matching` endpoint. The PDF contains compatibility scores, Ashtakoota charting, Dosha analysis, and visual gauges.
+
+**To access the dashboard:**
+```bash
+npm run dev
+```
+Then visit `http://localhost:3000` in your browser.
 
 ---
 
@@ -10,6 +24,7 @@ All endpoints accept `application/json` payloads and are executed via **`POST`**
 | Endpoint | Method | Description |
 | :------- | :----- | :---------- |
 | `/api/panchang` | `POST` | Computes localized solar/lunar times, sunrise, sunset, Tithi, Nakshatra, Yoga, and Karana. |
+| `/api/horoscope` | `POST` | Generates comprehensive horoscope including Profile, Houses, Planets, Yogas, Doshas and Interpretations. |
 | `/api/chart` | `POST` | Maps precise sidereal positions and coordinates for D1 (Rasi) & D9 (Navamsa) divisional charts. |
 | `/api/matching` | `POST` | Evaluates compatibility (Guna Milan scored out of 36 dimensions) for wedding alliances. |
 | `/api/dasha` | `POST` | Computes Vimshottari Mahadasha timeline starting from moon's position. |
@@ -17,6 +32,20 @@ All endpoints accept `application/json` payloads and are executed via **`POST`**
 | `/api/muhurta` | `POST` | Pinpoints positive celestial timeline windows for business, properties, or marriages. |
 | `/api/numerology` | `POST` | Calculates life path destiny numbers and auspicious start recommendations. |
 | `/api/test-suite` | `POST` / `GET` | Triggers the precision test suite covering 105 astronomical evaluation cases. |
+
+---
+
+## 🌐 100% Native Localization
+Vivahamitra supports 100% native localization of output. 
+
+**Supported Languages:**
+- English (`en`)
+- Telugu (`te`)
+- Hindi (`hi`)
+- Tamil (`ta`)
+- Kannada (`kn`)
+
+> **IMPORTANT**: The `lang` attribute has been removed from request bodies. It MUST be passed as a query parameter (e.g., `?lang=te`). JSON response keys remain in English, but all user-facing values, strings, observations, and recommendations will be natively translated.
 
 ---
 
@@ -39,7 +68,6 @@ All birth-related payloads use the following structured keys:
   * `"Fagan-Bradley"`
   * `"Yukteswar"`
   * `"Tropical"`
-* **`lang`**: Output language. Supported options: `"en"`, `"hi"`, `"te"`, `"ta"`, `"kn"`.
 
 ---
 
@@ -47,7 +75,7 @@ All birth-related payloads use the following structured keys:
 
 ### 1. Panchang & Lunar Computations (`/api/panchang`)
 ```bash
-curl -X POST "http://localhost:3000/api/panchang" \
+curl -X POST "http://localhost:3000/api/panchang?lang=en" \
   -H "Content-Type: application/json" \
   -d '{
     "year": 1995,
@@ -59,14 +87,13 @@ curl -X POST "http://localhost:3000/api/panchang" \
     "longitude": 78.486,
     "timezone": 5.5,
     "ayanamsa": "Lahiri",
-    "lang": "en",
     "explain": true
   }'
 ```
 
-### 2. D1 & D9 Birth Chart coordinates (`/api/chart`)
+### 2. Comprehensive Horoscope Profile (`/api/horoscope`)
 ```bash
-curl -X POST "http://localhost:3000/api/chart" \
+curl -X POST "http://localhost:3000/api/horoscope?lang=hi" \
   -H "Content-Type: application/json" \
   -d '{
     "year": 1995,
@@ -77,15 +104,31 @@ curl -X POST "http://localhost:3000/api/chart" \
     "latitude": 17.385,
     "longitude": 78.486,
     "timezone": 5.5,
-    "ayanamsa": "Lahiri",
-    "lang": "en"
+    "ayanamsa": "Lahiri"
+  }'
+```
+
+### 3. D1 & D9 Birth Chart coordinates (`/api/chart`)
+```bash
+curl -X POST "http://localhost:3000/api/chart?lang=en" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "year": 1995,
+    "month": 6,
+    "day": 15,
+    "hour": 8,
+    "minute": 30,
+    "latitude": 17.385,
+    "longitude": 78.486,
+    "timezone": 5.5,
+    "ayanamsa": "Lahiri"
   }'
 ```
 
 ### 3. Star Alliance Compatibility Matchmaking (`/api/matching`)
 Requires two natal profiles named `boy` and `girl`:
 ```bash
-curl -X POST "http://localhost:3000/api/matching" \
+curl -X POST "http://localhost:3000/api/matching?lang=te" \
   -H "Content-Type: application/json" \
   -d '{
     "boy": {
@@ -109,14 +152,13 @@ curl -X POST "http://localhost:3000/api/matching" \
       "longitude": 80.2707,
       "timezone": 5.5,
       "ayanamsa": "Lahiri"
-    },
-    "lang": "en"
+    }
   }'
 ```
 
 ### 4. Birth Afflictions Audit (`/api/dosha`)
 ```bash
-curl -X POST "http://localhost:3000/api/dosha" \
+curl -X POST "http://localhost:3000/api/dosha?lang=hi" \
   -H "Content-Type: application/json" \
   -d '{
     "year": 1995,
@@ -127,17 +169,7 @@ curl -X POST "http://localhost:3000/api/dosha" \
     "latitude": 17.385,
     "longitude": 78.486,
     "timezone": 5.5,
-    "ayanamsa": "Lahiri",
-    "lang": "en"
-  }'
-```
-
-### 5. Running the internal 105 Assertions Test Metrics (`/api/test-suite`)
-```bash
-curl -X POST "http://localhost:3000/api/test-suite" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "cases": 105
+    "ayanamsa": "Lahiri"
   }'
 ```
 
@@ -145,4 +177,3 @@ curl -X POST "http://localhost:3000/api/test-suite" \
 
 ## 📡 Port Configuration
 The dev and production server runs on Port `3000`. No API tokens or signature authorizations are passed inside headers. Request away with complete tranquility!
-# vivahamita-horo-v1

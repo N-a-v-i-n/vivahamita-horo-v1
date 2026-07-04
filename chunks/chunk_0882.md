@@ -1,0 +1,5 @@
+These days, people misuse the term “mantra” and refer to many stotras as mantras. Stotras are hymns in praise of planets and God. There is no correct intonation to read a stotra and devotion is important when reciting a stotra. Recitation of a stotra gives results very slowly. Interested readers can read the 108 names of various planets everyday. As lagna is the most important house in a chart and lagna lord shows the vitality of the chart, one may worship the planet owning lagna in the divisional chart representing the area of life that one wants to improve. For example, if one wants spiritual progress, lagna lord in D-20 should be worshipped. If one wants pleasures and comforts, lagna lord in D-16 should be worshipped. 
+
+There are different mantras for propitiating planets. In addition, there are kavachas, stotras and 108 names of all planets. 
+
+One popular mantra of each planet is listed below. One should read the stanza given first a few times and then repeat the basic mantra thousands of times. The recommended repitition count is also listed. The weekday ruled by a planet is ideal for repeating its mantra.

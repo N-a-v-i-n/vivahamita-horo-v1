@@ -1,0 +1,5 @@
+I tried to give prominence to special ascendants, divisional charts and arudhas, because contemporary literature doesn't seem to give them the kind of importance that Sage Parasara gave. Understanding the primacy Parasara gave to all these concepts is a must for a renaissance in Vedic astrology. 
+
+Unfortunately, some people think today that Parasara and Jaimini taught two totally different approaches to astrology. When we talk about arudha padas, argalas, chara karakas, chara dasa and other rasi dasas, people think of them as “Jaimini astrology”. People even use terms like “Jaimini karakas” and “Jaimini dasas”. However, all these concepts were covered by Parasara also (please read “Brihat Parasara Hora Sastram”). The “Parasari vs Jaimini” distinction is based on unfortunate misconceptions that we can do away with. 
+
+In this book, I have de-emphasized these wrong distinctions and emphasized an _integrated_ approach – a holistic approach – that looks at Vedic astrology as a whole. I really think that this is the right approach.

@@ -1,0 +1,1323 @@
+{
+  "overview": {
+    "apiVersion": "1.0",
+    "calculatedAt": "2026-07-03T08:12:26.411Z",
+    "system": "Vedic (Parasara)",
+    "ayanamsa": "Lahiri",
+    "houseSystem": "Whole Sign",
+    "zodiac": "Sidereal",
+    "engineVersion": "4.0.0"
+  },
+  "profile": {
+    "lagna": "ధనుస్సు రాశి (Dhanus)",
+    "moonRasi": "తులా రాశి (Thula)",
+    "sunRasi": "తులా రాశి (Thula)",
+    "nakshatra": "చిత్త",
+    "pada": 4,
+    "nakshatraLord": "కుజుడు (Kuja)",
+    "lagnaLord": "గురుడు (Guru)",
+    "atmakaraka": "sun",
+    "amatyakaraka": "saturn"
+  },
+  "panchang": {
+    "sunrise": "11:24",
+    "sunset": "23:35",
+    "moonrise": "12:36",
+    "moonset": "00:47",
+    "rahuKalam": {
+      "start": "19:01",
+      "end": "20:32"
+    },
+    "yamagandam": {
+      "start": "22:04",
+      "end": "23:35"
+    },
+    "gulikai": {
+      "start": "14:27",
+      "end": "15:58"
+    },
+    "durmuhurtham": [
+      {
+        "start": "12:55",
+        "end": "14:27"
+      },
+      {
+        "start": "19:01",
+        "end": "20:32"
+      }
+    ],
+    "abhijit": {
+      "start": "17:06",
+      "end": "17:53"
+    },
+    "brahmaMuhurta": {
+      "start": "09:54",
+      "end": "10:39"
+    },
+    "tithi": {
+      "index": 27,
+      "degreeRemaining": 25.1037,
+      "paksha": "Krishna"
+    },
+    "nakshatra": {
+      "index": 13,
+      "entity": {
+        "id": "13"
+      },
+      "lord": {
+        "id": "mars",
+        "name": "కుజుడు"
+      },
+      "degreeRemaining": 2.7536252245686974
+    },
+    "yoga": {
+      "index": 2,
+      "degreeRemaining": 7.3371273441324565
+    },
+    "karana": {
+      "index": 55
+    },
+    "festivals": [],
+    "planets": [
+      {
+        "id": "sun",
+        "name": "సూర్యుడు",
+        "longitude": 208.7498312137696,
+        "latitude": -0.000231503903149106,
+        "distance": 0.9892268802532372,
+        "declination": -18.393500868583562,
+        "obliquity": 0,
+        "speed": 1.007428199421889,
+        "degree": 208.7498312137696,
+        "signDegree": 28.749831213769596,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 3,
+        "navamsaIndex": 2,
+        "navamsa": {
+          "id": "gemini",
+          "name": "మిథునం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "moon",
+        "name": "చంద్రుడు",
+        "longitude": 183.91304144209798,
+        "latitude": -5.020727202742676,
+        "distance": 0.002683417677516803,
+        "declination": -15.317998952266034,
+        "obliquity": 0,
+        "speed": 12.155729423763741,
+        "degree": 183.91304144209798,
+        "signDegree": 3.9130414420979776,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 13,
+        "nakshatra": {
+          "id": "chitra",
+          "name": "చిత్త"
+        },
+        "pada": 4,
+        "navamsaIndex": 7,
+        "navamsa": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "mars",
+        "name": "కుజుడు",
+        "longitude": 46.282356895807894,
+        "latitude": 0.832251838864971,
+        "distance": 0.5192791870151607,
+        "declination": 22.777247297277533,
+        "obliquity": 0,
+        "speed": -0.3352679302903515,
+        "degree": 46.282356895807894,
+        "signDegree": 16.282356895807894,
+        "rasiIndex": 1,
+        "rasi": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "house": 6,
+        "nakshatraIndex": 3,
+        "nakshatra": {
+          "id": "rohini",
+          "name": "రోహిణి"
+        },
+        "pada": 2,
+        "navamsaIndex": 1,
+        "navamsa": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "isRetrograde": true,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "mercury",
+        "name": "బుధుడు",
+        "longitude": 222.48148949266283,
+        "latitude": -1.7919964084274778,
+        "distance": 1.354349527964395,
+        "declination": -23.1126294072476,
+        "obliquity": 0,
+        "speed": 1.496124449845068,
+        "degree": 222.48148949266283,
+        "signDegree": 12.481489492662831,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 16,
+        "nakshatra": {
+          "id": "anooraadha"
+        },
+        "pada": 3,
+        "navamsaIndex": 6,
+        "navamsa": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "jupiter",
+        "name": "గురువు",
+        "longitude": 109.49342472069439,
+        "latitude": 0.5164709179124136,
+        "distance": 5.014805997582415,
+        "declination": 17.345207992008778,
+        "obliquity": 0,
+        "speed": 0.048509090015387765,
+        "degree": 109.49342472069439,
+        "signDegree": 19.493424720694392,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 8,
+        "nakshatra": {
+          "id": "aasresha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "venus",
+        "name": "శుక్రుడు",
+        "longitude": 212.13510600595797,
+        "latitude": 0.3994959244959351,
+        "distance": 1.7100104237615132,
+        "declination": -18.837673253088344,
+        "obliquity": 0,
+        "speed": 1.2555407463729464,
+        "degree": 212.13510600595797,
+        "signDegree": 2.135106005957965,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 4,
+        "navamsaIndex": 3,
+        "navamsa": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "saturn",
+        "name": "శని",
+        "longitude": 267.18689026202213,
+        "latitude": -0.09042373809662423,
+        "distance": 10.47899379281825,
+        "declination": -21.903248738414064,
+        "obliquity": 0,
+        "speed": 0.07951844186234462,
+        "degree": 267.18689026202213,
+        "signDegree": 27.186890262022132,
+        "rasiIndex": 8,
+        "rasi": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "house": 1,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "rahu",
+        "name": "రాహువు",
+        "longitude": 277.01647671125585,
+        "latitude": -4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": -19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 277.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 9,
+        "rasi": {
+          "id": "capricorn",
+          "name": "మకరం"
+        },
+        "house": 2,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 4,
+        "navamsaIndex": 11,
+        "navamsa": {
+          "id": "pisces",
+          "name": "మీనం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      {
+        "id": "ketu",
+        "name": "కేతువు",
+        "longitude": 97.01647671125585,
+        "latitude": 4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": 19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 97.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 7,
+        "nakshatra": {
+          "id": "pushyami"
+        },
+        "pada": 2,
+        "navamsaIndex": 5,
+        "navamsa": {
+          "id": "virgo",
+          "name": "కన్య"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      }
+    ]
+  },
+  "chart": {
+    "ascendant": {
+      "signIndex": 8,
+      "signName": "ధనుస్సు రాశి (Dhanus)",
+      "longitude": 240.27270168623474,
+      "signDegree": 0.2727016862347398,
+      "lord": "Jupiter"
+    },
+    "planets": {
+      "sun": {
+        "id": "sun",
+        "name": "సూర్యుడు",
+        "longitude": 208.7498312137696,
+        "latitude": -0.000231503903149106,
+        "distance": 0.9892268802532372,
+        "declination": -18.393500868583562,
+        "obliquity": 0,
+        "speed": 1.007428199421889,
+        "degree": 208.7498312137696,
+        "signDegree": 28.749831213769596,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 3,
+        "navamsaIndex": 2,
+        "navamsa": {
+          "id": "gemini",
+          "name": "మిథునం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Sun": {
+        "id": "sun",
+        "name": "సూర్యుడు",
+        "longitude": 208.7498312137696,
+        "latitude": -0.000231503903149106,
+        "distance": 0.9892268802532372,
+        "declination": -18.393500868583562,
+        "obliquity": 0,
+        "speed": 1.007428199421889,
+        "degree": 208.7498312137696,
+        "signDegree": 28.749831213769596,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 3,
+        "navamsaIndex": 2,
+        "navamsa": {
+          "id": "gemini",
+          "name": "మిథునం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "moon": {
+        "id": "moon",
+        "name": "చంద్రుడు",
+        "longitude": 183.91304144209798,
+        "latitude": -5.020727202742676,
+        "distance": 0.002683417677516803,
+        "declination": -15.317998952266034,
+        "obliquity": 0,
+        "speed": 12.155729423763741,
+        "degree": 183.91304144209798,
+        "signDegree": 3.9130414420979776,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 13,
+        "nakshatra": {
+          "id": "chitra",
+          "name": "చిత్త"
+        },
+        "pada": 4,
+        "navamsaIndex": 7,
+        "navamsa": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Moon": {
+        "id": "moon",
+        "name": "చంద్రుడు",
+        "longitude": 183.91304144209798,
+        "latitude": -5.020727202742676,
+        "distance": 0.002683417677516803,
+        "declination": -15.317998952266034,
+        "obliquity": 0,
+        "speed": 12.155729423763741,
+        "degree": 183.91304144209798,
+        "signDegree": 3.9130414420979776,
+        "rasiIndex": 6,
+        "rasi": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "house": 11,
+        "nakshatraIndex": 13,
+        "nakshatra": {
+          "id": "chitra",
+          "name": "చిత్త"
+        },
+        "pada": 4,
+        "navamsaIndex": 7,
+        "navamsa": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "mars": {
+        "id": "mars",
+        "name": "కుజుడు",
+        "longitude": 46.282356895807894,
+        "latitude": 0.832251838864971,
+        "distance": 0.5192791870151607,
+        "declination": 22.777247297277533,
+        "obliquity": 0,
+        "speed": -0.3352679302903515,
+        "degree": 46.282356895807894,
+        "signDegree": 16.282356895807894,
+        "rasiIndex": 1,
+        "rasi": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "house": 6,
+        "nakshatraIndex": 3,
+        "nakshatra": {
+          "id": "rohini",
+          "name": "రోహిణి"
+        },
+        "pada": 2,
+        "navamsaIndex": 1,
+        "navamsa": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "isRetrograde": true,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Mars": {
+        "id": "mars",
+        "name": "కుజుడు",
+        "longitude": 46.282356895807894,
+        "latitude": 0.832251838864971,
+        "distance": 0.5192791870151607,
+        "declination": 22.777247297277533,
+        "obliquity": 0,
+        "speed": -0.3352679302903515,
+        "degree": 46.282356895807894,
+        "signDegree": 16.282356895807894,
+        "rasiIndex": 1,
+        "rasi": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "house": 6,
+        "nakshatraIndex": 3,
+        "nakshatra": {
+          "id": "rohini",
+          "name": "రోహిణి"
+        },
+        "pada": 2,
+        "navamsaIndex": 1,
+        "navamsa": {
+          "id": "taurus",
+          "name": "వృషభం"
+        },
+        "isRetrograde": true,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "mercury": {
+        "id": "mercury",
+        "name": "బుధుడు",
+        "longitude": 222.48148949266283,
+        "latitude": -1.7919964084274778,
+        "distance": 1.354349527964395,
+        "declination": -23.1126294072476,
+        "obliquity": 0,
+        "speed": 1.496124449845068,
+        "degree": 222.48148949266283,
+        "signDegree": 12.481489492662831,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 16,
+        "nakshatra": {
+          "id": "anooraadha"
+        },
+        "pada": 3,
+        "navamsaIndex": 6,
+        "navamsa": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Mercury": {
+        "id": "mercury",
+        "name": "బుధుడు",
+        "longitude": 222.48148949266283,
+        "latitude": -1.7919964084274778,
+        "distance": 1.354349527964395,
+        "declination": -23.1126294072476,
+        "obliquity": 0,
+        "speed": 1.496124449845068,
+        "degree": 222.48148949266283,
+        "signDegree": 12.481489492662831,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 16,
+        "nakshatra": {
+          "id": "anooraadha"
+        },
+        "pada": 3,
+        "navamsaIndex": 6,
+        "navamsa": {
+          "id": "libra",
+          "name": "తుల"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "jupiter": {
+        "id": "jupiter",
+        "name": "గురువు",
+        "longitude": 109.49342472069439,
+        "latitude": 0.5164709179124136,
+        "distance": 5.014805997582415,
+        "declination": 17.345207992008778,
+        "obliquity": 0,
+        "speed": 0.048509090015387765,
+        "degree": 109.49342472069439,
+        "signDegree": 19.493424720694392,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 8,
+        "nakshatra": {
+          "id": "aasresha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Jupiter": {
+        "id": "jupiter",
+        "name": "గురువు",
+        "longitude": 109.49342472069439,
+        "latitude": 0.5164709179124136,
+        "distance": 5.014805997582415,
+        "declination": 17.345207992008778,
+        "obliquity": 0,
+        "speed": 0.048509090015387765,
+        "degree": 109.49342472069439,
+        "signDegree": 19.493424720694392,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 8,
+        "nakshatra": {
+          "id": "aasresha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "venus": {
+        "id": "venus",
+        "name": "శుక్రుడు",
+        "longitude": 212.13510600595797,
+        "latitude": 0.3994959244959351,
+        "distance": 1.7100104237615132,
+        "declination": -18.837673253088344,
+        "obliquity": 0,
+        "speed": 1.2555407463729464,
+        "degree": 212.13510600595797,
+        "signDegree": 2.135106005957965,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 4,
+        "navamsaIndex": 3,
+        "navamsa": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Venus": {
+        "id": "venus",
+        "name": "శుక్రుడు",
+        "longitude": 212.13510600595797,
+        "latitude": 0.3994959244959351,
+        "distance": 1.7100104237615132,
+        "declination": -18.837673253088344,
+        "obliquity": 0,
+        "speed": 1.2555407463729464,
+        "degree": 212.13510600595797,
+        "signDegree": 2.135106005957965,
+        "rasiIndex": 7,
+        "rasi": {
+          "id": "scorpio",
+          "name": "వృశ్చికం"
+        },
+        "house": 12,
+        "nakshatraIndex": 15,
+        "nakshatra": {
+          "id": "visaakha"
+        },
+        "pada": 4,
+        "navamsaIndex": 3,
+        "navamsa": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "saturn": {
+        "id": "saturn",
+        "name": "శని",
+        "longitude": 267.18689026202213,
+        "latitude": -0.09042373809662423,
+        "distance": 10.47899379281825,
+        "declination": -21.903248738414064,
+        "obliquity": 0,
+        "speed": 0.07951844186234462,
+        "degree": 267.18689026202213,
+        "signDegree": 27.186890262022132,
+        "rasiIndex": 8,
+        "rasi": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "house": 1,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Saturn": {
+        "id": "saturn",
+        "name": "శని",
+        "longitude": 267.18689026202213,
+        "latitude": -0.09042373809662423,
+        "distance": 10.47899379281825,
+        "declination": -21.903248738414064,
+        "obliquity": 0,
+        "speed": 0.07951844186234462,
+        "degree": 267.18689026202213,
+        "signDegree": 27.186890262022132,
+        "rasiIndex": 8,
+        "rasi": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "house": 1,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 1,
+        "navamsaIndex": 8,
+        "navamsa": {
+          "id": "sagittarius",
+          "name": "ధనుస్సు"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "rahu": {
+        "id": "rahu",
+        "name": "రాహువు",
+        "longitude": 277.01647671125585,
+        "latitude": -4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": -19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 277.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 9,
+        "rasi": {
+          "id": "capricorn",
+          "name": "మకరం"
+        },
+        "house": 2,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 4,
+        "navamsaIndex": 11,
+        "navamsa": {
+          "id": "pisces",
+          "name": "మీనం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Rahu": {
+        "id": "rahu",
+        "name": "రాహువు",
+        "longitude": 277.01647671125585,
+        "latitude": -4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": -19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 277.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 9,
+        "rasi": {
+          "id": "capricorn",
+          "name": "మకరం"
+        },
+        "house": 2,
+        "nakshatraIndex": 20,
+        "nakshatra": {
+          "id": "uttaraashaadha"
+        },
+        "pada": 4,
+        "navamsaIndex": 11,
+        "navamsa": {
+          "id": "pisces",
+          "name": "మీనం"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "ketu": {
+        "id": "ketu",
+        "name": "కేతువు",
+        "longitude": 97.01647671125585,
+        "latitude": 4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": 19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 97.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 7,
+        "nakshatra": {
+          "id": "pushyami"
+        },
+        "pada": 2,
+        "navamsaIndex": 5,
+        "navamsa": {
+          "id": "virgo",
+          "name": "కన్య"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      },
+      "Ketu": {
+        "id": "ketu",
+        "name": "కేతువు",
+        "longitude": 97.01647671125585,
+        "latitude": 4.787024905414127e-17,
+        "distance": 0.0026418516908372105,
+        "declination": 19.99193931319466,
+        "obliquity": 0,
+        "speed": -0.2076584742243064,
+        "degree": 97.01647671125585,
+        "signDegree": 7.016476711255848,
+        "rasiIndex": 3,
+        "rasi": {
+          "id": "cancer",
+          "name": "కర్కాటకం"
+        },
+        "house": 8,
+        "nakshatraIndex": 7,
+        "nakshatra": {
+          "id": "pushyami"
+        },
+        "pada": 2,
+        "navamsaIndex": 5,
+        "navamsa": {
+          "id": "virgo",
+          "name": "కన్య"
+        },
+        "isRetrograde": false,
+        "isCombust": false,
+        "dignity": "Neutral",
+        "strength": 100
+      }
+    },
+    "houses": [
+      {
+        "index": 1,
+        "signIndex": 8,
+        "signName": "ధనుస్సు రాశి (Dhanus)",
+        "lord": "Jupiter",
+        "occupants": [
+          "saturn"
+        ],
+        "degree": 240
+      },
+      {
+        "index": 2,
+        "signIndex": 9,
+        "signName": "మకర రాశి (Makara)",
+        "lord": "Saturn",
+        "occupants": [
+          "rahu"
+        ],
+        "degree": 270
+      },
+      {
+        "index": 3,
+        "signIndex": 10,
+        "signName": "కుంభ రాశి (Kumbha)",
+        "lord": "Saturn",
+        "occupants": [],
+        "degree": 300
+      },
+      {
+        "index": 4,
+        "signIndex": 11,
+        "signName": "మీన రాశి (Meena)",
+        "lord": "Jupiter",
+        "occupants": [],
+        "degree": 330
+      },
+      {
+        "index": 5,
+        "signIndex": 0,
+        "signName": "మేష రాశి (Mesha)",
+        "lord": "Mars",
+        "occupants": [],
+        "degree": 0
+      },
+      {
+        "index": 6,
+        "signIndex": 1,
+        "signName": "వృషభ రాశి (Vrishabha)",
+        "lord": "Venus",
+        "occupants": [
+          "mars"
+        ],
+        "degree": 30
+      },
+      {
+        "index": 7,
+        "signIndex": 2,
+        "signName": "మిథున రాశి (Mithuna)",
+        "lord": "Mercury",
+        "occupants": [],
+        "degree": 60
+      },
+      {
+        "index": 8,
+        "signIndex": 3,
+        "signName": "కర్కాటక రాశి (Karkataka)",
+        "lord": "Moon",
+        "occupants": [
+          "jupiter",
+          "ketu"
+        ],
+        "degree": 90
+      },
+      {
+        "index": 9,
+        "signIndex": 4,
+        "signName": "సింహ రాశి (Simha)",
+        "lord": "Sun",
+        "occupants": [],
+        "degree": 120
+      },
+      {
+        "index": 10,
+        "signIndex": 5,
+        "signName": "కన్యా రాశి (Kanya)",
+        "lord": "Mercury",
+        "occupants": [],
+        "degree": 150
+      },
+      {
+        "index": 11,
+        "signIndex": 6,
+        "signName": "తులా రాశి (Thula)",
+        "lord": "Venus",
+        "occupants": [
+          "sun",
+          "moon"
+        ],
+        "degree": 180
+      },
+      {
+        "index": 12,
+        "signIndex": 7,
+        "signName": "వృశ్చిక రాశి (Vrishchika)",
+        "lord": "Mars",
+        "occupants": [
+          "mercury",
+          "venus"
+        ],
+        "degree": 210
+      }
+    ],
+    "aspects": [
+      {
+        "aspectingPlanet": "Mercury",
+        "aspectedPlanet": "mars",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Venus",
+        "aspectedPlanet": "mars",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Mars",
+        "aspectedPlanet": "mercury",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Mars",
+        "aspectedPlanet": "venus",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Mars",
+        "aspectedPlanet": "saturn",
+        "type": "8th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Jupiter",
+        "aspectedPlanet": "mercury",
+        "type": "5th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Jupiter",
+        "aspectedPlanet": "venus",
+        "type": "5th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Jupiter",
+        "aspectedPlanet": "rahu",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Rahu",
+        "aspectedPlanet": "mars",
+        "type": "5th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Rahu",
+        "aspectedPlanet": "jupiter",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Rahu",
+        "aspectedPlanet": "ketu",
+        "type": "7th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Ketu",
+        "aspectedPlanet": "mercury",
+        "type": "5th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Ketu",
+        "aspectedPlanet": "venus",
+        "type": "5th House Aspect"
+      },
+      {
+        "aspectingPlanet": "Ketu",
+        "aspectedPlanet": "rahu",
+        "type": "7th House Aspect"
+      }
+    ]
+  },
+  "yogas": {
+    "summary": {
+      "checked": 18,
+      "detectedCount": 4
+    },
+    "detected": [
+      {
+        "id": "gaja_kesari",
+        "name": "గజకేసరి యోగం",
+        "detected": true,
+        "strength": 50,
+        "evidence": [
+          "గురువు చంద్రుడి నుండి 10వ కేంద్ర స్థానంలో ఉన్నాడు."
+        ],
+        "rule": {
+          "version": "Standard Classical",
+          "reference": "BPHS"
+        }
+      },
+      {
+        "id": "vipareeta_raja",
+        "name": "విపరీత రాజయోగం",
+        "detected": true,
+        "strength": 75,
+        "evidence": [
+          "6వ అధిపతి (శుక్రుడు (Shukra)) 12వ స్థానంలో ఉన్నాడు.",
+          "12వ అధిపతి (కుజుడు (Kuja)) 6వ స్థానంలో ఉన్నాడు."
+        ],
+        "rule": {
+          "version": "Standard Classical",
+          "reference": "BPHS"
+        }
+      },
+      {
+        "id": "daridra_yoga",
+        "name": "దరిద్ర యోగం",
+        "detected": true,
+        "strength": 50,
+        "evidence": [
+          "ధనాధిపతి శుక్రుడు (Shukra) దుస్థానం (6, 8, 12) 12వ ఇంట్లో ఉన్నాడు."
+        ],
+        "rule": {
+          "version": "Standard Classical",
+          "reference": "BPHS"
+        }
+      },
+      {
+        "id": "guru_chandal",
+        "name": "గురు చండాల యోగం",
+        "detected": true,
+        "strength": 50,
+        "evidence": [
+          "గురువు కేతువుతో కలిసి 8వ ఇంట్లో ఉన్నాడు."
+        ],
+        "rule": {
+          "version": "Standard Classical",
+          "reference": "BPHS"
+        }
+      }
+    ],
+    "notDetected": [
+      "బుధాదిత్య యోగం",
+      "చంద్ర మంగళ యోగం",
+      "నీచభంగ రాజయోగం",
+      "కుజుడు (Kuja) మహాపురుష యోగం",
+      "బుధుడు (Budha) మహాపురుష యోగం",
+      "గురుడు (Guru) మహాపురుష యోగం",
+      "శుక్రుడు (Shukra) మహాపురుష యోగం",
+      "శని (Shani) మహాపురుష యోగం",
+      "ధన యోగం",
+      "రాజ యోగం",
+      "లక్ష్మీ యోగం",
+      "అధి యోగం",
+      "కేమద్రుమ యోగం",
+      "శకట యోగం"
+    ]
+  },
+  "doshas": {
+    "summary": {
+      "checked": 5,
+      "detectedCount": 0,
+      "cancelledCount": 0
+    },
+    "detected": [],
+    "notDetected": [
+      "కుజ దోషం (మాంగలిక్)",
+      "కాల సర్ప దోషం",
+      "పితృ దోషం",
+      "గ్రహణ దోషం",
+      "శని దోషం"
+    ]
+  },
+  "interpretation": {
+    "personality": {
+      "score": 50,
+      "observations": [
+        "లగ్నం ధనుస్సు రాశి (Dhanus), అధిపతి గురుడు (Guru).",
+        "లగ్నాధిపతి గురుడు (Guru) 8వ ఇంట్లో (కర్కాటక రాశి (Karkataka)) ఉన్నాడు.",
+        "చంద్రుడు తులా రాశి (Thula)లో ఉన్నాడు."
+      ],
+      "traditionalInterpretations": [
+        "సహజంగా గురుడు (Guru) ప్రభావం ఎక్కువగా ఉంటుంది.",
+        "మానసిక భావాలు తులా రాశి (Thula) లక్షణాలను పోలి ఉంటాయి."
+      ]
+    },
+    "career": {
+      "score": 60,
+      "observations": [
+        "10వ స్థానం కన్యా రాశి (Kanya), అధిపతి బుధుడు (Budha).",
+        "10వ ఇంట్లో గ్రహాలు లేవు.",
+        "గజకేసరి యోగం కనుగొనబడింది."
+      ],
+      "traditionalInterpretations": [
+        "కెరీర్ మార్గం ప్రధానంగా బుధుడు (Budha) స్థానంపై ఆధారపడి ఉంటుంది.",
+        "ఈ యోగాల ఉనికి వృత్తిలో మంచి గుర్తింపు మరియు విజయాన్ని సూచిస్తుంది."
+      ]
+    },
+    "education": {
+      "score": 50,
+      "observations": [
+        "4వ అధిపతి (గురుడు (Guru)) 8వ ఇంట్లో ఉన్నాడు.",
+        "5వ అధిపతి (కుజుడు (Kuja)) 6వ ఇంట్లో ఉన్నాడు."
+      ],
+      "traditionalInterpretations": []
+    },
+    "finance": {
+      "score": 25,
+      "observations": [
+        "2వ స్థానం (సంపద) అధిపతి శని (Shani).",
+        "11వ స్థానం (లాభాలు) అధిపతి శుక్రుడు (Shukra).",
+        "దరిద్ర యోగం కనుగొనబడింది: ధనాధిపతి శుక్రుడు (Shukra) దుస్థానం (6, 8, 12) 12వ ఇంట్లో ఉన్నాడు."
+      ],
+      "traditionalInterpretations": [
+        "ఈ కలయిక ఆర్థిక స్థిరత్వంలో హెచ్చుతగ్గులు లేదా సవాళ్లను సూచిస్తుంది."
+      ]
+    },
+    "relationships": {
+      "score": 50,
+      "observations": [
+        "7వ స్థానం అధిపతి బుధుడు (Budha).",
+        "శుక్రుడు (Shukra) (వివాహ కారకుడు) వృశ్చిక రాశి (Vrishchika)లో (Neutral) ఉన్నాడు."
+      ],
+      "traditionalInterpretations": []
+    },
+    "health": {
+      "score": 35,
+      "observations": [
+        "6వ స్థానం (ఆరోగ్యం) అధిపతి శుక్రుడు (Shukra) 12వ ఇంట్లో ఉన్నాడు.",
+        "లగ్నాధిపతి దుస్థానంలో (8వ ఇల్లు) ఉన్నాడు."
+      ],
+      "traditionalInterpretations": [
+        "లగ్నాధిపతి సవాలు చేసే ఇంట్లో ఉన్నప్పుడు, శారీరక ఆరోగ్యం మరియు ఒత్తిడి నిర్వహణపై అదనపు శ్రద్ధ అవసరం."
+      ]
+    },
+    "spirituality": {
+      "score": 50,
+      "observations": [
+        "కేతువు (Ketu) 8వ ఇంట్లో ఉన్నాడు."
+      ],
+      "traditionalInterpretations": []
+    },
+    "strengths": [
+      "గజకేసరి యోగం ఉండటం వల్ల శుభ ఫలితాలు ఉంటాయి.",
+      "విపరీత రాజయోగం ఉండటం వల్ల శుభ ఫలితాలు ఉంటాయి."
+    ],
+    "challenges": [
+      "దరిద్ర యోగం ఉండటం వల్ల సవాళ్లు మరియు అడ్డంకులు సూచించబడ్డాయి, తగిన పరిహారాలు అవసరం.",
+      "గురు చండాల యోగం ఉండటం వల్ల సవాళ్లు మరియు అడ్డంకులు సూచించబడ్డాయి, తగిన పరిహారాలు అవసరం."
+    ],
+    "remedies": [
+      "దరిద్ర యోగ పరిహారం: పేదలకు క్రమం తప్పకుండా దానం చేయడం మరియు వ్యక్తిగత ఆర్థిక విషయాలను క్రమబద్ధంగా ఉంచుకోవడం మంచిది."
+    ]
+  }
+}

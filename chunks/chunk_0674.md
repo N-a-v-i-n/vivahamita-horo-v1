@@ -1,0 +1,5 @@
+#### **25.8 Answer to the Exercises** 
+
+###### **Exercise 38:** 
+
+Natal D-4 chart and transit rasi chart are given in Chart 63. Lagna is in Sg in natal D- 4. The 9<sup>th</sup> house of fortune in a foreign land is in Le and it contains Rahu, the significator of foreign things. So Le stands for life in a foreign land in this D-4. Four planets occupy it in the transit rasi chart, including Jupiter, Mercury and Mars. Jupiter owns lagna in natal D-4 and he shows the native from the point of view of residence and fortune. Mercury owns lagna in natal rasi chart and he shows the physical self of the native. Mars owns the 12<sup>th</sup> house in natal D-4 and he shows living in distant places. All these planets activate Le in their rasi chart transit. So foreign journey is a possibility. In addition, Rahu is in Sg in the transit rasi chart and Sg contains lagna in natal D-4. So foreign influence on residence is fortified.

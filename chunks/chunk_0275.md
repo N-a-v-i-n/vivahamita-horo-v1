@@ -1,0 +1,5 @@
+**Kusuma Yoga:** If (1) lagna is in a fixed sign, (2) Venus is in a quadrant, (3) Moon is in a trine with a benefic, and, (4) Saturn is in the 10<sup>th</sup> house, then this yoga is present. One born with this yoga becomes a king or an equal. He is charitable. He is endowed with pleasures and happiness. He is a leader of his community. He has character and scholarship. Kusuma means a flower. 
+
+**Kalaanidhi Yoga:** If (1) Jupiter is in the 2<sup>nd</sup> house or the 5<sup>th</sup> house and (2) he is conjoined or aspected by Mercury and Venus, then this yoga is present. One born with this yoga is endowed with character, happiness, good health, wealth and learning. He is respected by kings. Kalaanidhi means a treasure of arts and skills. 
+
+**Kalpadruma Yoga:** Consider (1) lagna lord, (2) his dispositor, (3) the latter’s dispositor in rasi and (4) in navamsa. If all the four planets are all in quadrants, trines or exaltation signs, then this yoga is present. An example will make this clearer.

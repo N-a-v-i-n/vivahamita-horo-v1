@@ -1,0 +1,5 @@
+Lagna with the reported birthtime is at 13Cp16. Let us approach the problem of rectification in a pyramid-like approach. First let us verify D-4 lagna. The native left his motherland and went to USA in Jupiter dasa. In D-4, Jupiter owns 9<sup>th</sup> (flourishing abroad) and 12<sup>th</sup> (staying away from motherland) and he occupies the 7<sup>th</sup> house (long journeys). Rahu is the primary significator of foreign residence and he joins Jupiter. For these reasons, Jupiter dasa can certainly take him abroad. So lagna in D-4 is most probably correct. 
+
+D-4 lagna changes rasi at multiples of 7.5º. The lagna we used above (13Cp16) is between 7.5º and 15º in Cp. So we conclude that lagna is between 7Cp30 and 15Cp00. 
+
+Next, let us look at navamsa. In navamsa, lagna changes rasi at multiples of 3º20'. Here is changes at 13Cp20. The given lagna (13Cp16) is just below it. We see from Chart 75 that navamsa lagna is in Ar. However, with a very small error, it can be Ta also. Let us consider both.

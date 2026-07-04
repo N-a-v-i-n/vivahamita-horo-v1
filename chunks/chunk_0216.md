@@ -1,0 +1,3 @@
+###### **Example 32:** 
+
+Let us consider India’s Prime Minister Sri A.B. Vajpayee’s rasi chart given in Chart 3. Jupiter’s period ran in 1980’s and 1990’s. With Jupiter in the 2<sup>nd</sup> house from AL, his dasa can give a rise in material fortune. With Jupiter being a functional benefic for Scorpio lagna and occupying a quadrant, Jupiter dasa should give comforts in reality. However, Jupiter’s arudha pada is in Libra, the 12<sup>th</sup> house from lagna. This can make the native feel unhappy, uncomfortable and alienated. Graha arudhas show how the native feels.

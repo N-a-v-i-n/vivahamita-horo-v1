@@ -1,0 +1,5 @@
+Narayana dasa of vargas is computed a little differently. Each divisional chart is based on a seed house. The seed for D- _n_ is the _n_<sup>th</sup> house. For example, the seed of D- 9 is the 9<sup>th</sup> house. D-9 shows dharma (duty). To get married, to live with one’s spouse and to perform religious ceremonies with spouse are one’s duties or dharma. This is why Navamsa is also called Dharmamsa. The seed of D-10 is the 10<sup>th</sup> house. That is why D-10 shows one’s _karma_ or action in society. The seed of D-7 is the 7<sup>th</sup> house. Sex is for procreation and begetting progeny. The seed of D-4 (house) and D- 16 (vehicles and pleasures) is the 4<sup>th</sup> house. D-12 in the physical plane (it shows the lineage one belongs to) and D-24 in the mental plane (it shows one’s learning) show the evolution of one’s self in the respective planes. They are both based on the 12<sup>th</sup> house as the seed, which shows the evolution of self. 
+
+245 
+
+Part 2: Dasa Analysis

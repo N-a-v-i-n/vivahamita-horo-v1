@@ -1,0 +1,5 @@
+Two planets of life, Mercury and Sun, are in Cn, afflicted by Rahu. Cn is the 2<sup>nd</sup> house and stands for death in the natal D-11. Planet of death Moon is in Le (a house of life from natal D-11 lagna) and Jupiter aspects him, as well as his own 7<sup>th</sup> house (Sg). Saturn is debilitated. On the whole, the houses and planets of life in D-11 are afflicted or weak in the transit rasi chart. 
+
+Now let us look at the interaction between the natal rasi chart and the transit D-11 (Chart 57). In rasi chart, Le is lagna and Sun is lagna lord. Le represents the native, Cp represents his accidents, Sun represents the physical body and Aq (7<sup>th</sup> ) and Saturn (7<sup>th</sup> lord) represent death. Jupiter (8<sup>th</sup> lord) represents longevity. 
+
+The natal rasi chart shows the existence of the native at the physical level. The transit D-11 represents the momentary forces of destruction and let us study its interaction with the natal rasi chart.

@@ -348,8 +348,8 @@ res = requests.post("https://api.vivahamitra.in/api/dosha", json={
       { name: "lang", type: "string", required: false, desc: "Translation parameter" }
     ],
     exampleRequest: {
-      boy: { year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
-      girl: { year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.0827, longitude: 80.2707, timezone: 5.5 },
+      boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
+      girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.0827, longitude: 80.2707, timezone: 5.5 },
       lang: "en"
     },
     exampleResponse: {
@@ -374,19 +374,19 @@ res = requests.post("https://api.vivahamitra.in/api/dosha", json={
     },
     curlSample: `curl -X POST https://api.vivahamitra.in/api/matching \\
   -H "Content-Type: application/json" \\
-  -d '{"boy":{"year":1995,"month":6,"day":15,"hour":8,"minute":30,"latitude":17.385,"longitude":78.486,"timezone":5.5},"girl":{"year":1997,"month":8,"day":20,"hour":14,"minute":15,"latitude":13.082,"longitude":80.270,"timezone":5.5}}'`,
+  -d '{"boy":{"name":"Sanjay","year":1995,"month":6,"day":15,"hour":8,"minute":30,"latitude":17.385,"longitude":78.486,"timezone":5.5},"girl":{"name":"Neha","year":1997,"month":8,"day":20,"hour":14,"minute":15,"latitude":13.082,"longitude":80.270,"timezone":5.5}}'`,
     jsSample: `const matchRes = await fetch('/api/matching', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    boy: { year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
-    girl: { year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.082, longitude: 80.270, timezone: 5.5 }
+    boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
+    girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.082, longitude: 80.270, timezone: 5.5 }
   })
 }).then(r => r.json());`,
     pythonSample: `import requests
 payload = {
-    "boy": {"year": 1995, "month": 6, "day": 15, "hour": 8, "minute": 30, "latitude": 17.385, "longitude": 78.486, "timezone": 5.5},
-    "girl": {"year": 1997, "month": 8, "day": 20, "hour": 14, "minute": 15, "latitude": 13.0827, "longitude": 80.2707, "timezone": 5.5}
+    "boy": {"name": "Sanjay", "year": 1995, "month": 6, "day": 15, "hour": 8, "minute": 30, "latitude": 17.385, "longitude": 78.486, "timezone": 5.5},
+    "girl": {"name": "Neha", "year": 1997, "month": 8, "day": 20, "hour": 14, "minute": 15, "latitude": 13.0827, "longitude": 80.2707, "timezone": 5.5}
 }
 res = requests.post("https://api.vivahamitra.in/api/matching", json=payload)`
   },
@@ -573,6 +573,75 @@ res = requests.post("https://api.vivahamitra.in/api/consult", json={
     pythonSample: `import requests
 res = requests.post("https://api.vivahamitra.in/api/horoscope", json={
     "year": 1995, "month": 6, "day": 15, "hour": 8, "minute": 30,
+    "latitude": 17.385, "longitude": 78.486, "timezone": 5.5
+})`
+  },
+  {
+    path: "/horoscope-v2",
+    name: "Detailed Horoscope Report (V2)",
+    method: "POST",
+    description: "Generates an extremely detailed and precise horoscope report containing exactly mirrored birth details, planetary positions in exact degrees/minutes/seconds, Vimshottari Mahadasha/Bhukti periods, and fully mapped South Indian charts. Phase 1 provides the fully comprehensive JSON.",
+    params: [
+      { name: "name", type: "string", required: false, desc: "Name of the person" },
+      { name: "gender", type: "string", required: false, desc: "Gender" },
+      { name: "year", type: "number", required: true, desc: "Saka/Gregorian year (e.g. 1995)" },
+      { name: "month", type: "number", required: true, desc: "Month index, 1-12 (e.g. 6)" },
+      { name: "day", type: "number", required: true, desc: "Day of current month, 1-31 (e.g. 15)" },
+      { name: "hour", type: "number", required: true, desc: "Hour of day, 24 hr decimal format, 0-23 (e.g. 8)" },
+      { name: "minute", type: "number", required: true, desc: "Minute of day, 0-59 (e.g. 30)" },
+      { name: "latitude", type: "number", required: true, desc: "Geographical latitude coordinates, Northern hemisphere positive, decimal degrees (e.g. 17.385)" },
+      { name: "longitude", type: "number", required: true, desc: "Geographical longitude coordinates, Eastern hemisphere positive, decimal degrees (e.g. 78.486)" },
+      { name: "timezone", type: "number", required: true, desc: "Local UTC decimal offset in hours (e.g. 5.5 for India IST)" },
+      { name: "placeOfBirth", type: "string", required: false, desc: "Name of the birth city/location" }
+    ],
+    exampleRequest: {
+      name: "NAVEEN KUMAR",
+      gender: "Male",
+      year: 1997,
+      month: 2,
+      day: 25,
+      hour: 21,
+      minute: 5,
+      latitude: 17.385,
+      longitude: 78.486,
+      timezone: 5.5,
+      placeOfBirth: "Hyderabad"
+    },
+    exampleResponse: {
+      success: true,
+      metadata: {
+        version: "v2",
+        generatedAt: "2026-07-04T10:00:00.000Z",
+        language: "en",
+        reportType: "SouthIndian"
+      },
+      data: {
+        birthDetails: {},
+        panchanga: {},
+        planetaryTable: [],
+        houses: [],
+        rasiChart: {},
+        navamsaChart: {},
+        bhavaChart: {},
+        dashaTable: {}
+      },
+      pdf: {
+        generated: false,
+        url: "",
+        fileName: ""
+      }
+    },
+    curlSample: `curl -X POST https://api.vivahamitra.in/horoscope-v2 \\
+  -H "Content-Type: application/json" \\
+  -d '{"year":1997,"month":2,"day":25,"hour":21,"minute":5,"latitude":17.385,"longitude":78.486,"timezone":5.5}'`,
+    jsSample: `const report = await fetch('/horoscope-v2', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ year: 1997, month: 2, day: 25, hour: 21, minute: 5, latitude: 17.385, longitude: 78.486, timezone: 5.5 })
+}).then(r => r.json());`,
+    pythonSample: `import requests
+res = requests.post("https://api.vivahamitra.in/horoscope-v2", json={
+    "year": 1997, "month": 2, "day": 25, "hour": 21, "minute": 5,
     "latitude": 17.385, "longitude": 78.486, "timezone": 5.5
 })`
   }

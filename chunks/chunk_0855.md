@@ -1,0 +1,5 @@
+We will find the correct factor behind an event only if we search for it without compromising. A true researcher never compromises. Of course, there may be many astrological factors contributing to the manufacturing of an event and we may not be able to find all of them because we don’t know all the possible techniques. Nevertheless, we should try to find the right factor within the limits of our knowledge. Accepting a wrong factor as the reason for an event is illogical. Attributing an isolated incident  in a day to a dasa that runs for 10 years is irrational. 
+
+Some astrologers may make a correct prediction based on illogical thinking, due to luck (or spiritual strength). We should not be blinded by the success of a prediction. Success of a prediction does not prove the validity of the methods used. We may try to enhance our predictive success through good spiritual practices, but we should also try to identify the right factors behind various events and consolidate the scientific aspects of Vedic astrology. The scientific and spiritual aspects of astrology should go together and strengthen each other. 
+
+#### **33.3 Known Past vs Future**

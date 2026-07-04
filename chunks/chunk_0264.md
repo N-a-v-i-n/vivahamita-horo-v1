@@ -1,0 +1,5 @@
+**Chatra Yoga:** If all the planets occupy the 7 signs from the 7<sup>th</sup> house, this yoga is formed. One born with this yoga will help his people. He is kind and liked by many kings. He is intelligent. He is happy in the early and late parts of life. He is longlived. Chatra means an umbrella. 
+
+**Chaapa Yoga:** If all the planets occupy the 7 signs from the 10<sup>th</sup> house, this yoga is formed. One born with this yoga becomes a liar, thief and a protector of secrets. He wanders in forests. He is unfortunate. He is happy in the middle part of his life. Chaapa means a bow. 
+
+**Ardha Chandra Yoga:** If all the planets occupy the 7 signs starting from a panapara or an apoklima, this yoga is formed. One born with this yoga becomes an army chief. He has a good physique. Kings like him. He is strong and possesses gems, gold and many ornaments. Ardha Chandra means half-Moon.

@@ -1,0 +1,5 @@
+**Guru-Mangala Yoga:** If Jupiter and Mars are together or in the 7<sup>th</sup> house from each other, then this yoga is present. One born with this yoga is righteous and energetic. His energies are channelled in dharmic paths. 
+
+**Amala Yoga:** If there are only natural benefics in the 10<sup>th</sup> house from lagna or Moon, then this yoga is present. One born with this yoga has ever-lasting fame. He is respected by kings. He has luxuries and he is virtuous. He helps others. Amala means pure. Because the 10<sup>th</sup> house shows one conduct in society, situation of only benefics there makes one’s conduct in the society very pure. 
+
+**Parvata Yoga:** If (1) quadrants are occupied only by benefics and (2) the 7<sup>th</sup> and 8<sup>th</sup> houses are either vacant or occupied only by benefics,  then this yoga is present. One born with this yoga is fortunate, eloquent, famous, charitable, easy-going and likes humour. Parvata means a mountain.

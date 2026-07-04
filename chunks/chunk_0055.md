@@ -1,0 +1,1 @@
+because nobody knows exactly which star is supposed to be the starting point of the real zodiac. We will use Chitrapaksha/Lahiri ayanamsa in this book, which is accepted by most Vedic astrologers of India.

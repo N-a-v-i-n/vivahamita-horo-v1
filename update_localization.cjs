@@ -1,0 +1,135 @@
+const fs = require('fs');
+
+const langs = ['en', 'te', 'hi', 'ta', 'kn'];
+
+const interpretations = {
+  en: {
+    "SUMMARY_SCORE_EXCELLENT": "The horoscope comparison reveals a highly compatible relationship, securing an impressive {score} out of 36 points ({percent}%).",
+    "SUMMARY_SCORE_AVERAGE": "The matching indicates acceptable overall compatibility with a moderate score of {score} out of 36 points ({percent}%).",
+    "SUMMARY_SCORE_LOW": "The compatibility is significantly low, obtaining only {score} out of 36 points ({percent}%).",
+    "THEME_STRONG_EMOTIONAL_PHYSICAL": "The exceptional Graha Maitri and physical indicators point to strong intellectual understanding and deep mutual emotional bonding.",
+    "THEME_STRONG_INTELLECTUAL": "The strong Graha Maitri indicates that communication, intellectual harmony, and mutual respect are likely to become pillars of this alliance.",
+    "THEME_POOR_EMOTIONAL_FINANCIAL": "However, the poor planetary friendship combined with Bhakoot imbalances suggests emotional friction and significant struggles in domestic coordination.",
+    "THEME_WEAK_INTELLECTUAL": "The weak planetary friendship suggests potential communication gaps and differences in ideological perspectives.",
+    "THEME_AVERAGE_BONDING": "The planetary indicators suggest a standard level of mutual understanding and emotional connection.",
+    "THEME_EXCELLENT_PROSPERITY_PROGENY": "Financial prospects, domestic stability, and family growth appear highly favorable due to the supportive Nadi and Bhakoot combinations.",
+    "THEME_CHALLENGING_HEALTH_FINANCE": "While health prospects are standard, financial and domestic stability may face significant headwinds according to Bhakoot indicators.",
+    "THEME_FINANCIAL_CHALLENGES": "The inauspicious Bhakoot placement indicates severe financial leakages or domestic expansion stress.",
+    "THEME_HEALTH_PROGENY_CONCERNS": "The lack of Nadi compatibility raises traditional concerns regarding long-term health and the overall vitality of progeny.",
+    "THEME_MANGLIK_MITIGATED_BY_PAAPA": "Although an active Manglik dosha conflict exists, the balanced malefic influence (Paapa Samyam) between both charts significantly mitigates the severity of this affliction.",
+    "THEME_MANGLIK_AND_PAAPA_CONFLICT": "The charts indicate significant astrological friction due to an active Manglik dosha conflict paired with an incompatible malefic balance (Paapa Samyam).",
+    "THEME_MANGLIK_CANCELLED_GOOD_PAAPA": "The presence of Manglik dosha in both charts naturally cancels the affliction, and the highly favorable malefic balance (Paapa Samyam) further stabilizes the alliance.",
+    "THEME_MANGLIK_CANCELLED_BAD_PAAPA": "While the Manglik dosha cancels out between the charts, an incompatible malefic balance (Paapa Samyam) remains a point of astrological concern.",
+    "THEME_NO_MANGLIK_BUT_BAD_PAAPA": "While there are no major Manglik dosha conflicts, the malefic planetary balance (Paapa Samyam) between the charts is incompatible, requiring careful consideration.",
+    "THEME_DOSHA_FREE_AND_GOOD_PAAPA": "Astrologically, the charts are well-aligned with no major dosha afflictions, and the malefic planetary balance (Paapa Samyam) is highly favorable.",
+    "THEME_RAJJU_FAILURE_WARNING": "Despite other positive factors, the Rajju Porutham mismatch introduces a traditional caution related to long-term marital stability and the well-being of the spouse.",
+    "CONCLUSION_HIGHLY_RECOMMENDED": "Overall, this is a strong match free from major astrological afflictions, and marriage is highly recommended.",
+    "CONCLUSION_RECOMMENDED_WITH_CAUTION": "Overall, this alliance is recommended, but with caution. A complete horoscope review by a qualified astrologer is advised to address the flagged traditional concerns.",
+    "CONCLUSION_NOT_RECOMMENDED": "Overall, this alliance is not recommended. It requires careful remediation and in-depth consultation due to low matching points and severe astrological mismatches."
+  },
+  te: {
+    "SUMMARY_SCORE_EXCELLENT": "జాతక పరిశీలన ప్రకారం, 36 పాయింట్‌లకు గాను {score} అద్భుతమైన స్కోరుతో ({percent}%) అత్యంత అనుకూలమైన సంబంధం ఉన్నట్లు తెలుస్తోంది.",
+    "SUMMARY_SCORE_AVERAGE": "మొత్తం పొంతన 36 పాయింట్‌లకు గాను {score} పాయింట్‌లతో ({percent}%) ఒక మోస్తరుగా, ఆమోదయోగ్యంగా ఉంది.",
+    "SUMMARY_SCORE_LOW": "ఈ జాతకాల మధ్య పొంతన చాలా తక్కువగా ఉంది, 36 పాయింట్‌లకు కేవలం {score} పాయింట్లు ({percent}%) మాత్రమే లభించాయి.",
+    "THEME_STRONG_EMOTIONAL_PHYSICAL": "అద్భుతమైన గ్రహ మైత్రి మరియు శారీరక అనుకూలతలు బలమైన పరస్పర అవగాహన మరియు లోతైన భావోద్వేగ బంధాన్ని సూచిస్తున్నాయి.",
+    "THEME_STRONG_INTELLECTUAL": "బలమైన గ్రహ మైత్రి కారణంగా, పరస్పర గౌరవం, ఆలోచనల కలయిక మరియు మంచి భావవ్యక్తీకరణ ఈ సంబంధానికి మూలస్తంభాలుగా నిలుస్తాయి.",
+    "THEME_POOR_EMOTIONAL_FINANCIAL": "అయితే, గ్రహ మైత్రి లోపించడం మరియు భకూట్ దోషం కలయిక వల్ల భావోద్వేగ సంఘర్షణలు మరియు కుటుంబ నిర్వహణలో ఇబ్బందులు ఎదురుకావచ్చు.",
+    "THEME_WEAK_INTELLECTUAL": "గ్రహాల మధ్య మైత్రి లేకపోవడం వల్ల భావవ్యక్తీకరణలో లోపాలు మరియు సైద్ధాంతిక భేదాభిప్రాయాలు వచ్చే అవకాశం ఉంది.",
+    "THEME_AVERAGE_BONDING": "గ్రహ స్థితులను బట్టి చూస్తే, ఈ జంట మధ్య ఒక మోస్తరు అవగాహన మరియు భావోద్వేగ బంధం ఉంటుందని తెలుస్తోంది.",
+    "THEME_EXCELLENT_PROSPERITY_PROGENY": "అనుకూలమైన నాడి మరియు భకూట్ స్థితుల కారణంగా ఆర్థిక అభివృద్ధి, కుటుంబ స్థిరత్వం మరియు సంతాన ప్రాప్తి చాలా బాగున్నాయి.",
+    "THEME_CHALLENGING_HEALTH_FINANCE": "ఆరోగ్య సూచికలు సాధారణంగా ఉన్నప్పటికీ, భకూట్ దోషం వల్ల ఆర్థిక మరియు కుటుంబ స్థిరత్వంలో ఒడిదుడుకులు రావచ్చు.",
+    "THEME_FINANCIAL_CHALLENGES": "ప్రతికూల భకూట్ స్థానం కారణంగా తీవ్రమైన ఆర్థిక నష్టాలు లేదా కుటుంబ సంబంధిత ఒత్తిళ్లు ఉండే అవకాశం ఉంది.",
+    "THEME_HEALTH_PROGENY_CONCERNS": "నాడి పొంతన లేకపోవడం వల్ల, దీర్ఘకాలిక ఆరోగ్యం మరియు సంతానానికి సంబంధించిన సాంప్రదాయక ఆందోళనలు వ్యక్తమవుతున్నాయి.",
+    "THEME_MANGLIK_MITIGATED_BY_PAAPA": "మాంగ్లిక్ (కుజ) దోష సంఘర్షణ ఉన్నప్పటికీ, ఇద్దరి జాతకాలలో పాప సామ్యం (గ్రహ దోషాల సమతుల్యత) అనుకూలంగా ఉండటం వల్ల ఆ దోష తీవ్రత గణనీయంగా తగ్గుతుంది.",
+    "THEME_MANGLIK_AND_PAAPA_CONFLICT": "సక్రియంగా ఉన్న మాంగ్లిక్ దోషం మరియు అనుకూలంగా లేని పాప సామ్యం కారణంగా జాతకాల మధ్య గణనీయమైన జ్యోతిష్యపరమైన ప్రతికూలతలు ఉన్నాయి.",
+    "THEME_MANGLIK_CANCELLED_GOOD_PAAPA": "ఇద్దరి జాతకాలలో మాంగ్లిక్ దోషం ఉండటం వల్ల అది రద్దయింది, మరియు అత్యంత అనుకూలమైన పాప సామ్యం సంబంధానికి మరింత స్థిరత్వాన్ని ఇస్తుంది.",
+    "THEME_MANGLIK_CANCELLED_BAD_PAAPA": "జాతకాలలో మాంగ్లిక్ దోషం రద్దయినప్పటికీ, పాప సామ్యం అనుకూలంగా లేకపోవడం కొంత ఆందోళన కలిగించే అంశం.",
+    "THEME_NO_MANGLIK_BUT_BAD_PAAPA": "ప్రధానమైన మాంగ్లిక్ దోషాలు లేనప్పటికీ, జాతకాల మధ్య పాప సామ్యం (గ్రహ దోషాల సమతుల్యత) అనుకూలంగా లేదు, ఇది జాగ్రత్తగా పరిశీలించాల్సిన విషయం.",
+    "THEME_DOSHA_FREE_AND_GOOD_PAAPA": "జ్యోతిష్యపరంగా, ఈ జాతకాలలో ప్రధాన దోషాలేవీ లేవు మరియు గ్రహ దోషాల సమతుల్యత (పాప సామ్యం) అత్యంత అనుకూలంగా ఉంది.",
+    "THEME_RAJJU_FAILURE_WARNING": "ఇతర సానుకూల అంశాలు ఉన్నప్పటికీ, రజ్జు పొంతన లోపించడం వల్ల దీర్ఘకాలిక వైవాహిక స్థిరత్వం మరియు జీవిత భాగస్వామి శ్రేయస్సుకు సంబంధించి సాంప్రదాయ హెచ్చరికలు ఉన్నాయి.",
+    "CONCLUSION_HIGHLY_RECOMMENDED": "మొత్తం మీద, ఇది ప్రధాన జ్యోతిష్య దోషాలు లేని బలమైన పొంతన, కాబట్టి వివాహానికి గట్టిగా సిఫార్సు చేయబడుతోంది.",
+    "CONCLUSION_RECOMMENDED_WITH_CAUTION": "మొత్తం మీద, ఈ సంబంధం సిఫార్సు చేయబడింది, కానీ కొన్ని హెచ్చరికలతో. సూచించిన సాంప్రదాయ ఆందోళనలను నివారించడానికి జ్యోతిష్యుడి చేత పూర్తి జాతక పరిశీలన చేయించుకోవడం మంచిది.",
+    "CONCLUSION_NOT_RECOMMENDED": "మొత్తం మీద, ఈ సంబంధం సిఫార్సు చేయబడదు. తక్కువ మ్యాచింగ్ పాయింట్లు మరియు తీవ్రమైన జ్యోతిష్య దోషాల కారణంగా జాగ్రత్తగా నివారణలు మరియు నిపుణుల సలహా అవసరం."
+  },
+  hi: {
+    "SUMMARY_SCORE_EXCELLENT": "कुंडली मिलान एक अत्यधिक अनुकूल संबंध को दर्शाता है, जिसमें 36 में से {score} ({percent}%) का उत्कृष्ट स्कोर प्राप्त हुआ है।",
+    "SUMMARY_SCORE_AVERAGE": "मिलान 36 में से {score} ({percent}%) के मध्यम स्कोर के साथ स्वीकार्य समग्र अनुकूलता का संकेत देता है।",
+    "SUMMARY_SCORE_LOW": "अनुकूलता काफी कम है, 36 में से केवल {score} अंक ({percent}%) प्राप्त हुए हैं।",
+    "THEME_STRONG_EMOTIONAL_PHYSICAL": "उत्कृष्ट ग्रह मैत्री और शारीरिक संकेतक मजबूत बौद्धिक समझ और गहरे आपसी भावनात्मक बंधन की ओर इशारा करते हैं।",
+    "THEME_STRONG_INTELLECTUAL": "मजबूत ग्रह मैत्री दर्शाती है कि संचार, बौद्धिक सामंजस्य और आपसी सम्मान इस गठबंधन के स्तंभ बनने की संभावना है।",
+    "THEME_POOR_EMOTIONAL_FINANCIAL": "हालांकि, भकूट असंतुलन के साथ खराब ग्रह मित्रता भावनात्मक घर्षण और घरेलू समन्वय में महत्वपूर्ण संघर्ष का सुझाव देती है।",
+    "THEME_WEAK_INTELLECTUAL": "कमजोर ग्रह मित्रता संचार अंतराल और वैचारिक दृष्टिकोण में अंतर का सुझाव देती है।",
+    "THEME_AVERAGE_BONDING": "ग्रहों के संकेतक आपसी समझ और भावनात्मक संबंध के एक मानक स्तर का सुझाव देते हैं।",
+    "THEME_EXCELLENT_PROSPERITY_PROGENY": "अनुकूल नाड़ी और भकूट संयोजनों के कारण वित्तीय संभावनाएं, घरेलू स्थिरता और पारिवारिक वृद्धि अत्यधिक अनुकूल प्रतीत होती है।",
+    "THEME_CHALLENGING_HEALTH_FINANCE": "जबकि स्वास्थ्य संभावनाएं मानक हैं, भकूट संकेतकों के अनुसार वित्तीय और घरेलू स्थिरता को महत्वपूर्ण बाधाओं का सामना करना पड़ सकता है।",
+    "THEME_FINANCIAL_CHALLENGES": "अशुभ भकूट स्थान गंभीर वित्तीय रिसाव या घरेलू तनाव को दर्शाता है।",
+    "THEME_HEALTH_PROGENY_CONCERNS": "नाड़ी अनुकूलता की कमी दीर्घकालिक स्वास्थ्य और संतान की समग्र जीवन शक्ति के संबंध में पारंपरिक चिंताएं पैदा करती है।",
+    "THEME_MANGLIK_MITIGATED_BY_PAAPA": "हालांकि एक सक्रिय मांगलिक दोष संघर्ष मौजूद है, दोनों कुंडलियों के बीच संतुलित पापक प्रभाव (पाप साम्य) इस दोष की गंभीरता को काफी कम कर देता है।",
+    "THEME_MANGLIK_AND_PAAPA_CONFLICT": "कुंडलियाँ एक सक्रिय मांगलिक दोष संघर्ष और एक असंगत पापक संतुलन (पाप साम्य) के कारण महत्वपूर्ण ज्योतिषीय घर्षण का संकेत देती हैं।",
+    "THEME_MANGLIK_CANCELLED_GOOD_PAAPA": "दोनों कुंडलियों में मांगलिक दोष की उपस्थिति स्वाभाविक रूप से दोष को रद्द कर देती है, और अत्यधिक अनुकूल पापक संतुलन (पाप साम्य) गठबंधन को और स्थिर करता है।",
+    "THEME_MANGLIK_CANCELLED_BAD_PAAPA": "जबकि कुंडलियों के बीच मांगलिक दोष रद्द हो जाता है, एक असंगत पापक संतुलन (पाप साम्य) ज्योतिषीय चिंता का विषय बना हुआ है।",
+    "THEME_NO_MANGLIK_BUT_BAD_PAAPA": "हालांकि कोई बड़ा मांगलिक दोष संघर्ष नहीं है, कुंडलियों के बीच पापक ग्रह संतुलन (पाप साम्य) असंगत है, जिस पर सावधानीपूर्वक विचार करने की आवश्यकता है।",
+    "THEME_DOSHA_FREE_AND_GOOD_PAAPA": "ज्योतिषीय रूप से, कुंडलियाँ किसी भी बड़े दोष से मुक्त हैं, और पापक ग्रह संतुलन (पाप साम्य) अत्यधिक अनुकूल है।",
+    "THEME_RAJJU_FAILURE_WARNING": "अन्य सकारात्मक कारकों के बावजूद, रज्जु पोरुथम बेमेल दीर्घकालिक वैवाहिक स्थिरता और जीवनसाथी की भलाई से संबंधित एक पारंपरिक सावधानी का परिचय देता है।",
+    "CONCLUSION_HIGHLY_RECOMMENDED": "कुल मिलाकर, यह प्रमुख ज्योतिषीय दोषों से मुक्त एक मजबूत मेल है, और विवाह की अत्यधिक अनुशंसा की जाती है।",
+    "CONCLUSION_RECOMMENDED_WITH_CAUTION": "कुल मिलाकर, इस गठबंधन की सिफारिश की जाती है, लेकिन सावधानी के साथ। पारंपरिक चिंताओं को दूर करने के लिए एक योग्य ज्योतिषी द्वारा पूर्ण कुंडली समीक्षा की सलाह दी जाती है।",
+    "CONCLUSION_NOT_RECOMMENDED": "कुल मिलाकर, इस गठबंधन की सिफारिश नहीं की जाती है। कम मिलान अंकों और गंभीर ज्योतिषीय दोषों के कारण सावधानीपूर्वक उपचार और गहन परामर्श की आवश्यकता है।"
+  },
+  ta: {
+    "SUMMARY_SCORE_EXCELLENT": "ஜாதகப் பொருத்தம் மிகச் சிறந்த இணக்கத்தை வெளிப்படுத்துகிறது, 36க்கு {score} புள்ளிகள் ({percent}%) பெற்றுள்ளது.",
+    "SUMMARY_SCORE_AVERAGE": "மொத்தப் பொருத்தம் 36க்கு {score} புள்ளிகளுடன் ({percent}%) சுமாரான அளவில் உள்ளது.",
+    "SUMMARY_SCORE_LOW": "பொருத்தம் மிகவும் குறைவாக உள்ளது, 36க்கு {score} புள்ளிகள் ({percent}%) மட்டுமே பெற்றுள்ளது.",
+    "THEME_STRONG_EMOTIONAL_PHYSICAL": "சிறந்த கிரக மைத்ரி மற்றும் உடல் ரீதியான பொருத்தம் ஆகியவை ஆழமான புரிதலையும் உணர்வுபூர்வமான பிணைப்பையும் காட்டுகின்றன.",
+    "THEME_STRONG_INTELLECTUAL": "வலுவான கிரக மைத்ரி காரணமாக, தகவல் தொடர்பு, அறிவுசார் இணக்கம் மற்றும் பரஸ்பர மரியாதை ஆகியவை திருமண வாழ்வில் சிறப்பாக அமையும்.",
+    "THEME_POOR_EMOTIONAL_FINANCIAL": "இருப்பினும், குறைவான கிரக நட்பு மற்றும் பக்ஷ (ராசி) பொருத்தம் இல்லாமை ஆகியவை குடும்ப வாழ்வில் கருத்து வேறுபாடுகள் மற்றும் சிரமங்களை ஏற்படுத்தலாம்.",
+    "THEME_WEAK_INTELLECTUAL": "கிரக நட்பு குறைவாக இருப்பதால் கருத்து பரிமாற்றத்தில் இடைவெளியும் எண்ணங்களில் வேறுபாடும் ஏற்பட வாய்ப்புள்ளது.",
+    "THEME_AVERAGE_BONDING": "கிரக நிலைகள் ஒரு சாதாரண அளவிலான புரிதல் மற்றும் உணர்வுபூர்வமான பிணைப்பைக் குறிக்கின்றன.",
+    "THEME_EXCELLENT_PROSPERITY_PROGENY": "அனுகூலமான நாடி மற்றும் ராசி பொருத்தம் காரணமாக பொருளாதார முன்னேற்றம், குடும்ப மகிழ்ச்சி மற்றும் குழந்தை பாக்கியம் சிறப்பாக உள்ளது.",
+    "THEME_CHALLENGING_HEALTH_FINANCE": "ஆரோக்கியம் சீராக இருந்தாலும், ராசி பொருத்தம் இல்லாமை காரணமாக குடும்பம் மற்றும் பொருளாதாரத்தில் தடைகள் ஏற்படலாம்.",
+    "THEME_FINANCIAL_CHALLENGES": "சரியற்ற ராசி பொருத்தம் கடுமையான பொருளாதார பின்னடைவுகள் அல்லது குடும்ப அழுத்தங்களை சுட்டிக்காட்டுகிறது.",
+    "THEME_HEALTH_PROGENY_CONCERNS": "நாடி பொருத்தம் இல்லாததால், நீண்டகால ஆரோக்கியம் மற்றும் வம்சவிருத்தி தொடர்பான பாரம்பரிய கவலைகள் எழுகின்றன.",
+    "THEME_MANGLIK_MITIGATED_BY_PAAPA": "செவ்வாய் (மாங்க்லிக்) தோஷ முரண்பாடு இருந்தாலும், இரு ஜாதகங்களுக்கிடையே உள்ள பாவ சாம்யம் (கிரக தோஷ சமநிலை) இதன் வீரியத்தை பெருமளவு குறைக்கிறது.",
+    "THEME_MANGLIK_AND_PAAPA_CONFLICT": "செயலிலுள்ள செவ்வாய் தோஷ முரண்பாடு மற்றும் பொருத்தமற்ற பாவ சாம்யம் காரணமாக ஜாதகங்களுக்கிடையே குறிப்பிடத்தக்க தோஷங்கள் உள்ளன.",
+    "THEME_MANGLIK_CANCELLED_GOOD_PAAPA": "இரு ஜாதகங்களிலும் செவ்வாய் தோஷம் உள்ளதால் அது நிவர்த்தி ஆகிறது, மேலும் மிகச் சிறந்த பாவ சாம்யம் திருமண உறவை மேலும் வலுவாக்குகிறது.",
+    "THEME_MANGLIK_CANCELLED_BAD_PAAPA": "செவ்வாய் தோஷம் நிவர்த்தி அடைந்தாலும், பொருத்தமற்ற பாவ சாம்யம் கவலைக்குரிய விஷயமாக உள்ளது.",
+    "THEME_NO_MANGLIK_BUT_BAD_PAAPA": "முக்கிய செவ்வாய் தோஷ முரண்பாடுகள் இல்லாவிட்டாலும், பாவ சாம்யம் பொருத்தமற்றதாக இருப்பதால் கவனமாக பரிசீலிக்க வேண்டும்.",
+    "THEME_DOSHA_FREE_AND_GOOD_PAAPA": "ஜோதிட ரீதியாக, எந்தவொரு பெரிய தோஷமும் இல்லை, மேலும் கிரக தோஷ சமநிலை (பாவ சாம்யம்) மிகவும் சாதகமாக உள்ளது.",
+    "THEME_RAJJU_FAILURE_WARNING": "மற்ற சிறப்பம்சங்கள் இருந்தாலும், ரஜ்ஜு பொருத்தம் இல்லாததால் நீண்டகால மாங்கல்ய பாக்கியம் தொடர்பான பாரம்பரிய எச்சரிக்கைகள் உள்ளன.",
+    "CONCLUSION_HIGHLY_RECOMMENDED": "ஒட்டுமொத்தமாக, இது எவ்வித பெரிய ஜோதிட தோஷங்களும் இல்லாத சிறந்த பொருத்தம், எனவே திருமணம் செய்ய உறுதியாக பரிந்துரைக்கப்படுகிறது.",
+    "CONCLUSION_RECOMMENDED_WITH_CAUTION": "ஒட்டுமொத்தமாக, இது கவனத்துடன் பரிந்துரைக்கப்படுகிறது. சுட்டிக்காட்டப்பட்ட தோஷங்களை நிவர்த்தி செய்ய ஒரு தகுதியான ஜோதிடரிடம் முழுமையான ஜாதக ஆய்வு செய்வது நல்லது.",
+    "CONCLUSION_NOT_RECOMMENDED": "ஒட்டுமொத்தமாக, இது பரிந்துரைக்கப்படவில்லை. குறைவான புள்ளிகள் மற்றும் தீவிரமான ஜோதிட தோஷங்கள் இருப்பதால் முறையான பரிகாரங்கள் மற்றும் ஆலோசனைகள் தேவை."
+  },
+  kn: {
+    "SUMMARY_SCORE_EXCELLENT": "ಜಾತಕ ಪರಿಶೀಲನೆಯ ಪ್ರಕಾರ, 36 ಅಂಕಗಳಿಗೆ {score} ರ ಅತ್ಯುತ್ತಮ ಅಂಕಗಳೊಂದಿಗೆ ({percent}%) ಅತ್ಯಂತ ಅನುಕೂಲಕರ ಸಂಬಂಧವಿದೆ.",
+    "SUMMARY_SCORE_AVERAGE": "ಒಟ್ಟು ಹೊಂದಾಣಿಕೆ 36 ಕ್ಕೆ {score} ಅಂಕಗಳೊಂದಿಗೆ ({percent}%) ಸಾಧಾರಣ ಮತ್ತು ಸ್ವೀಕಾರಾರ್ಹವಾಗಿದೆ.",
+    "SUMMARY_SCORE_LOW": "ಹೊಂದಾಣಿಕೆಯು ತುಂಬಾ ಕಡಿಮೆಯಾಗಿದೆ, ಕೇವಲ {score} ಅಂಕಗಳು ({percent}%) ಲಭ್ಯವಾಗಿವೆ.",
+    "THEME_STRONG_EMOTIONAL_PHYSICAL": "ಅತ್ಯುತ್ತಮ ಗ್ರಹ ಮೈತ್ರಿ ಮತ್ತು ದೈಹಿಕ ಸೂಚಕಗಳು ಬಲವಾದ ಬೌದ್ಧಿಕ ತಿಳುವಳಿಕೆ ಮತ್ತು ಆಳವಾದ ಭಾವನಾತ್ಮಕ ಬಂಧವನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
+    "THEME_STRONG_INTELLECTUAL": "ಬಲವಾದ ಗ್ರಹ ಮೈತ್ರಿಯು ಉತ್ತಮ ಸಂವಹನ, ಬೌದ್ಧಿಕ ಸಾಮರಸ್ಯ ಮತ್ತು ಪರಸ್ಪರ ಗೌರವವನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
+    "THEME_POOR_EMOTIONAL_FINANCIAL": "ಆದಾಗ್ಯೂ, ಗ್ರಹಗಳ ನಡುವಿನ ಕಳಪೆ ಸ್ನೇಹ ಹಾಗೂ ರಾಶಿ ಹೊಂದಾಣಿಕೆಯ ಕೊರತೆಯು ಭಾವನಾತ್ಮಕ ಸಂಘರ್ಷ ಮತ್ತು ಕೌಟುಂಬಿಕ ಜೀವನದಲ್ಲಿ ಅಡೆತಡೆಗಳನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
+    "THEME_WEAK_INTELLECTUAL": "ಕಳಪೆ ಗ್ರಹ ಮೈತ್ರಿಯು ಸಂವಹನದ ಕೊರತೆ ಮತ್ತು ಸೈದ್ಧಾಂತಿಕ ಭಿನ್ನಾಭಿಪ್ರಾಯಗಳನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
+    "THEME_AVERAGE_BONDING": "ಗ್ರಹಗಳ ಸ್ಥಾನಗಳು ಸಾಧಾರಣ ಮಟ್ಟದ ಪರಸ್ಪರ ತಿಳುವಳಿಕೆ ಮತ್ತು ಭಾವನಾತ್ಮಕ ಬಂಧವನ್ನು ಸೂಚಿಸುತ್ತವೆ.",
+    "THEME_EXCELLENT_PROSPERITY_PROGENY": "ಅನುಕೂಲಕರ ನಾಡಿ ಮತ್ತು ಭಕೂಟ್ ಸ್ಥಾನಗಳಿಂದಾಗಿ ಆರ್ಥಿಕ ಪ್ರಗತಿ, ಕೌಟುಂಬಿಕ ಯಶಸ್ಸು ಮತ್ತು ಸಂತಾನ ಭಾಗ್ಯ ಉತ್ತಮವಾಗಿದೆ.",
+    "THEME_CHALLENGING_HEALTH_FINANCE": "ಆರೋಗ್ಯವು ಸಾಧಾರಣವಾಗಿದ್ದರೂ, ರಾಶಿ ಹೊಂದಾಣಿಕೆಯ ಕೊರತೆಯಿಂದಾಗಿ ಆರ್ಥಿಕ ಮತ್ತು ಕೌಟುಂಬಿಕ ಸ್ಥಿರತೆಯಲ್ಲಿ ಏರುಪೇರುಗಳಾಗಬಹುದು.",
+    "THEME_FINANCIAL_CHALLENGES": "ಅಶುಭ ಭಕೂಟ್ ಸ್ಥಾನವು ಗಂಭೀರ ಆರ್ಥಿಕ ನಷ್ಟ ಅಥವಾ ಕೌಟುಂಬಿಕ ಒತ್ತಡವನ್ನು ಸೂಚಿಸುತ್ತದೆ.",
+    "THEME_HEALTH_PROGENY_CONCERNS": "ನಾಡಿ ಹೊಂದಾಣಿಕೆಯ ಕೊರತೆಯು ದೀರ್ಘಕಾಲದ ಆರೋಗ್ಯ ಮತ್ತು ಸಂತಾನದ ಬಗೆಗಿನ ಸಾಂಪ್ರದಾಯಿಕ ಕಾಳಜಿಗಳನ್ನು ಎತ್ತಿ ತೋರಿಸುತ್ತದೆ.",
+    "THEME_MANGLIK_MITIGATED_BY_PAAPA": "ಮಾಂಗ್ಲಿಕ್ (ಕುಜ) ದೋಷ ಸಂಘರ್ಷವಿದ್ದರೂ, ಪಾಪ ಸಾಮ್ಯವು (ಗ್ರಹ ದೋಷಗಳ ಸಮತೋಲನ) ಅನುಕೂಲಕರವಾಗಿರುವುದರಿಂದ ಆ ದೋಷದ ತೀವ್ರತೆ ಕಡಿಮೆಯಾಗುತ್ತದೆ.",
+    "THEME_MANGLIK_AND_PAAPA_CONFLICT": "ಸಕ್ರಿಯ ಮಾಂಗ್ಲಿಕ್ ದೋಷ ಮತ್ತು ಪ್ರತಿಕೂಲವಾದ ಪಾಪ ಸಾಮ್ಯದಿಂದಾಗಿ ಜಾತಕಗಳ ನಡುವೆ ಗಂಭೀರವಾದ ಜ್ಯೋತಿಷ್ಯ ದೋಷಗಳಿವೆ.",
+    "THEME_MANGLIK_CANCELLED_GOOD_PAAPA": "ಎರಡೂ ಜಾತಕಗಳಲ್ಲಿ ಮಾಂಗ್ಲಿಕ್ ದೋಷ ಇರುವುದರಿಂದ ಅದು ರದ್ದಾಗುತ್ತದೆ, ಮತ್ತು ಅತ್ಯುತ್ತಮವಾದ ಪಾಪ ಸಾಮ್ಯವು ಸಂಬಂಧವನ್ನು ಮತ್ತಷ್ಟು ಬಲಪಡಿಸುತ್ತದೆ.",
+    "THEME_MANGLIK_CANCELLED_BAD_PAAPA": "ಮಾಂಗ್ಲಿಕ್ ದೋಷವು ರದ್ದಾಗಿದ್ದರೂ, ಪಾಪ ಸಾಮ್ಯವು ಅನುಕೂಲಕರವಾಗಿಲ್ಲದಿರುವುದು ಸ್ವಲ್ಪ ಕಳವಳಕಾರಿಯಾಗಿದೆ.",
+    "THEME_NO_MANGLIK_BUT_BAD_PAAPA": "ಯಾವುದೇ ಪ್ರಮುಖ ಮಾಂಗ್ಲಿಕ್ ದೋಷಗಳಿಲ್ಲದಿದ್ದರೂ, ಜಾತಕಗಳ ನಡುವೆ ಪಾಪ ಸಾಮ್ಯವು ಅನುಕೂಲಕರವಾಗಿಲ್ಲ, ಇದನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಪರಿಗಣಿಸಬೇಕು.",
+    "THEME_DOSHA_FREE_AND_GOOD_PAAPA": "ಜ್ಯೋತಿಷ್ಯದ ದೃಷ್ಟಿಯಿಂದ, ಈ ಜಾತಕಗಳಲ್ಲಿ ಯಾವುದೇ ಪ್ರಮುಖ ದೋಷಗಳಿಲ್ಲ ಮತ್ತು ಪಾಪ ಸಾಮ್ಯವು ಅತ್ಯಂತ ಅನುಕೂಲಕರವಾಗಿದೆ.",
+    "THEME_RAJJU_FAILURE_WARNING": "ಇತರ ಸಕಾರಾತ್ಮಕ ಅಂಶಗಳಿದ್ದರೂ, ರಜ್ಜು ಹೊಂದಾಣಿಕೆಯ ಕೊರತೆಯು ದೀರ್ಘಕಾಲದ ವೈವಾಹಿಕ ಸ್ಥಿರತೆ ಮತ್ತು ಸಂಗಾತಿಯ ಯೋಗಕ್ಷೇಮಕ್ಕೆ ಸಂಬಂಧಿಸಿದಂತೆ ಸಾಂಪ್ರದಾಯಿಕ ಎಚ್ಚರಿಕೆ ನೀಡುತ್ತದೆ.",
+    "CONCLUSION_HIGHLY_RECOMMENDED": "ಒಟ್ಟಾರೆಯಾಗಿ, ಇದು ಯಾವುದೇ ಪ್ರಮುಖ ಜ್ಯೋತಿಷ್ಯ ದೋಷಗಳಿಲ್ಲದ ಬಲವಾದ ಹೊಂದಾಣಿಕೆಯಾಗಿದ್ದು, ವಿವಾಹಕ್ಕೆ ಕಡ್ಡಾಯವಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.",
+    "CONCLUSION_RECOMMENDED_WITH_CAUTION": "ಒಟ್ಟಾರೆಯಾಗಿ, ಈ ಸಂಬಂಧವನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ, ಆದರೆ ಎಚ್ಚರಿಕೆಯಿಂದ. ಸೂಚಿಸಲಾದ ಸಾಂಪ್ರದಾಯಿಕ ದೋಷಗಳಿಗೆ ಜ್ಯೋತಿಷ್ಯರ ಮೂಲಕ ಸಂಪೂರ್ಣ ಜಾತಕ ಪರಿಶೀಲನೆ ಮಾಡಿಸುವುದು ಸೂಕ್ತ.",
+    "CONCLUSION_NOT_RECOMMENDED": "ಒಟ್ಟಾರೆಯಾಗಿ, ಈ ಸಂಬಂಧವನ್ನು ಶಿಫಾರಸು ಮಾಡುವುದಿಲ್ಲ. ಕಡಿಮೆ ಅಂಕಗಳು ಮತ್ತು ಗಂಭೀರ ಜ್ಯೋತಿಷ್ಯ ದೋಷಗಳಿರುವ ಕಾರಣ ಸೂಕ್ತ ಪರಿಹಾರಗಳು ಮತ್ತು ತಜ್ಞರ ಸಲಹೆ ಅಗತ್ಯವಿದೆ."
+  }
+};
+
+for (const lang of langs) {
+  const filePath = `src/localization/${lang}.json`;
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  data.INTERPRETATION = interpretations[lang];
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
+console.log('Localization updated.');

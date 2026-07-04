@@ -11,6 +11,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import astrologyRouter from "./src/routes/astrology.js";
+import { horoscopeV2Router } from "./src/routes/horoscopeV2.js";
+import { matchingV2Router } from "./src/routes/matchingV2.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,8 +32,10 @@ async function startServer() {
     next();
   });
 
-  // Mount API router
+  // Mount API routers
   app.use("/api", astrologyRouter);
+  app.use("/horoscope-v2", horoscopeV2Router);
+  app.use("/matching-v2", matchingV2Router);
 
   // Health check
   app.get("/health", (req, res) => {

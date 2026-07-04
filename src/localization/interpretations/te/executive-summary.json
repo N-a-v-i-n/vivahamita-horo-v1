@@ -1,0 +1,2546 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "author": "Astrology Content Team",
+    "lastUpdated": "2026-07-04",
+    "reviewedBy": "Head Astrologer"
+  },
+  "Score_0": {
+    "Introduction": [
+      {
+        "id": "EXEC_000_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 0 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_000_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 0 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_000_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_000_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_000_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_000_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_1": {
+    "Introduction": [
+      {
+        "id": "EXEC_001_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 1 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_001_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 1 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_001_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_001_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_001_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_001_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_2": {
+    "Introduction": [
+      {
+        "id": "EXEC_002_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 2 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_002_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 2 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_002_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_002_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_002_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_002_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_3": {
+    "Introduction": [
+      {
+        "id": "EXEC_003_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 3 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_003_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 3 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_003_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_003_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_003_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_003_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_4": {
+    "Introduction": [
+      {
+        "id": "EXEC_004_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 4 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_004_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 4 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_004_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_004_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_004_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_004_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_5": {
+    "Introduction": [
+      {
+        "id": "EXEC_005_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 5 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_005_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 5 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_005_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_005_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_005_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_005_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_6": {
+    "Introduction": [
+      {
+        "id": "EXEC_006_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 6 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_006_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 6 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_006_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_006_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_006_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_006_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_7": {
+    "Introduction": [
+      {
+        "id": "EXEC_007_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 7 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_007_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 7 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_007_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_007_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_007_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_007_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_8": {
+    "Introduction": [
+      {
+        "id": "EXEC_008_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 8 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_008_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 8 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_008_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_008_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_008_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_008_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_9": {
+    "Introduction": [
+      {
+        "id": "EXEC_009_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 9 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_009_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 9 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_009_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_009_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_009_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_009_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_10": {
+    "Introduction": [
+      {
+        "id": "EXEC_010_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 10 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_010_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 10 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_010_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_010_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_010_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_010_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_11": {
+    "Introduction": [
+      {
+        "id": "EXEC_011_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 11 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_011_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 11 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_011_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_011_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_011_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_011_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_12": {
+    "Introduction": [
+      {
+        "id": "EXEC_012_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 12 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_012_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 12 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_012_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_012_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_012_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_012_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_13": {
+    "Introduction": [
+      {
+        "id": "EXEC_013_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 13 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_013_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 13 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_013_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_013_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_013_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_013_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_14": {
+    "Introduction": [
+      {
+        "id": "EXEC_014_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 14 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_014_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 14 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_014_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_014_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_014_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_014_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_15": {
+    "Introduction": [
+      {
+        "id": "EXEC_015_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 15 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_015_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 15 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_015_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_015_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_015_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_015_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_16": {
+    "Introduction": [
+      {
+        "id": "EXEC_016_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 16 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_016_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 16 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_016_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_016_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_016_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_016_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_17": {
+    "Introduction": [
+      {
+        "id": "EXEC_017_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 17 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_017_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 17 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_017_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_017_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_017_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_017_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_NOT_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Due to a low score, this match is not recommended without extensive review."
+      }
+    ]
+  },
+  "Score_18": {
+    "Introduction": [
+      {
+        "id": "EXEC_018_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 18 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_018_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 18 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_018_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_018_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_018_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_018_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_19": {
+    "Introduction": [
+      {
+        "id": "EXEC_019_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 19 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_019_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 19 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_019_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_019_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_019_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_019_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_20": {
+    "Introduction": [
+      {
+        "id": "EXEC_020_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 20 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_020_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 20 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_020_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_020_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_020_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_020_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_21": {
+    "Introduction": [
+      {
+        "id": "EXEC_021_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 21 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_021_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 21 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_021_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_021_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_021_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_021_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_22": {
+    "Introduction": [
+      {
+        "id": "EXEC_022_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 22 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_022_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 22 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_022_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_022_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_022_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_022_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_23": {
+    "Introduction": [
+      {
+        "id": "EXEC_023_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 23 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_023_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 23 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_023_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_023_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_023_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_023_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_24": {
+    "Introduction": [
+      {
+        "id": "EXEC_024_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 24 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_024_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 24 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_024_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_024_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_024_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_024_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_25": {
+    "Introduction": [
+      {
+        "id": "EXEC_025_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 25 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_025_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 25 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_025_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_025_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_025_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_025_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_26": {
+    "Introduction": [
+      {
+        "id": "EXEC_026_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 26 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_026_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 26 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_026_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_026_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_026_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_026_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_RECOMMENDED_CAUTION"
+        ],
+        "excludedTags": [],
+        "text": "The match is acceptable, but caution and remedies may be advised."
+      }
+    ]
+  },
+  "Score_27": {
+    "Introduction": [
+      {
+        "id": "EXEC_027_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 27 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_027_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 27 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_027_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_027_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_027_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_027_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_28": {
+    "Introduction": [
+      {
+        "id": "EXEC_028_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 28 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_028_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 28 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_028_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_028_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_028_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_028_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_29": {
+    "Introduction": [
+      {
+        "id": "EXEC_029_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 29 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_029_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 29 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_029_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_029_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_029_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_029_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_30": {
+    "Introduction": [
+      {
+        "id": "EXEC_030_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 30 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_030_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 30 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_030_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_030_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_030_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_030_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_31": {
+    "Introduction": [
+      {
+        "id": "EXEC_031_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 31 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_031_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 31 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_031_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_031_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_031_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_031_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_32": {
+    "Introduction": [
+      {
+        "id": "EXEC_032_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 32 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_032_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 32 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_032_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_032_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_032_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_032_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_33": {
+    "Introduction": [
+      {
+        "id": "EXEC_033_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 33 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_033_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 33 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_033_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_033_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_033_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_033_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_34": {
+    "Introduction": [
+      {
+        "id": "EXEC_034_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 34 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_034_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 34 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_034_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_034_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_034_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_034_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_35": {
+    "Introduction": [
+      {
+        "id": "EXEC_035_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 35 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_035_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 35 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_035_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_035_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_035_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_035_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_36": {
+    "Introduction": [
+      {
+        "id": "EXEC_036_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [
+          "MANGLIK_ACTIVE"
+        ],
+        "excludedTags": [
+          "RAJJU_ADHAMA"
+        ],
+        "text": "Despite achieving a score of 36 points, the presence of Kuja Dosha requires attention."
+      },
+      {
+        "id": "EXEC_036_INTRO_002_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The match secures a score of 36 out of 36 points in the Ashta Koota system."
+      }
+    ],
+    "PlanetaryHarmony": [
+      {
+        "id": "EXEC_036_HARMONY_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Planetary alignment indicates standard foundational interactions."
+      }
+    ],
+    "Strengths": [
+      {
+        "id": "EXEC_036_STR_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "FINANCE_EXCELLENT"
+        ],
+        "excludedTags": [],
+        "text": "Financial prosperity is highly indicated by the celestial alignment."
+      }
+    ],
+    "Weaknesses": [
+      {
+        "id": "EXEC_036_WEAK_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "No major critical weaknesses are apparent, though routine understanding is always required."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_036_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [
+          "REC_HIGHLY_RECOMMENDED"
+        ],
+        "excludedTags": [],
+        "text": "Overall, this is an exceptionally strong alliance and is highly recommended."
+      }
+    ]
+  },
+  "Score_Default": {
+    "Introduction": [
+      {
+        "id": "EXEC_DEFAULT_INTRO_001_te",
+        "priority": 100,
+        "weight": 25,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "The horoscope matching has been evaluated based on the Asthakoot system."
+      }
+    ],
+    "Recommendation": [
+      {
+        "id": "EXEC_DEFAULT_REC_001_te",
+        "priority": 100,
+        "weight": 50,
+        "requiredTags": [],
+        "excludedTags": [],
+        "text": "Please consult an astrologer for a final detailed recommendation."
+      }
+    ]
+  }
+}

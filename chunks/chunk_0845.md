@@ -1,0 +1,5 @@
+Some people use some formula based techniques for birthtime rectification and assume that human births happen only in certain quanta of time. Most of those techniques do not work. The only correct way to rectify a birthtime is to correct it in such a way that one’s nature and past life events are well explained. An astrologer should have an idea of the change introduced in various computations if the birthtime changes a little. Using lagna in D-9, D-10 _etc_ , we can broadly rectify the birthtime. Then we can rectify it with a finer precision by going to higher divisional charts like D-20 and D-24 and using Kalachakra dasa. A couple of examples were provided in this book. Readers should understand the examples thoroughly and practice these techniques with as many charts as they can. The adage that practice makes one perfect is particularly true in this area. Readers should remember that correct birthtime rectification lays a solid foundation for the entire chart analysis – without correct birthtime rectification, all other fine techniques we learnt in this book are useless. 
+
+#### **32.6 Answers to Exercises** 
+
+###### **Exercise 50:**

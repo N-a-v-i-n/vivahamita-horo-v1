@@ -1,0 +1,5 @@
+_Types of Ithasala_ : There are 3 types of ithasala yoga. 
+
+( _i_ ) _Vartamaana ithasala yoga_ results when the planets aspect each other and both are within the deeptaamsa (orb) of the other planet. Vartamaana means present (current). In the above example, Venus is at 19º and his deeptaamsa extends from 12º to 26º. Moon is within his deeptaamsa. Venus is also within Moon’s deeptaamsa. So we have vartamaana ithasala. 
+
+( _ii_ ) _Poorna ithasala yoga_ results when the planets aspect each other closely and their advancements in respective rasis are within 1º of each other. Poorna means complete. Poorna ithasala is the most powerful ithasala. It shows speedy fulfillment of the matter. In the above example, the difference between the advancements of Moon and Venus in respective rasis is 19º–14º = 5º. This is more than 1º. So we don’t have a poorna ithasala. Now let us say that Moon is at 18º25' in Le (instead of 14° in Le). Then also we have an ithasala because Moon is behind Venus. The difference between the advancements is only 0°35', _i.e._ less than 1°. So we have a poorna ithasala now.

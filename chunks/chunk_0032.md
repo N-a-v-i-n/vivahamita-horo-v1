@@ -1,0 +1,5 @@
+Each rasi again has many kinds of divisions and they are called “ **vargas"** . They will be defined in detail later. 
+
+###### **1.3.3** **_Bhavas (houses)_** 
+
+Another important concept is “ **house”** (Sanskrit name: **bhava** ). In each chart, houses can be found with respect to several _reference points_ and the reference points most commonly employed are lagna and special lagnas. Starting from the rasi occupied by the selected reference point and proceeding in the regular order across the zodiac, we associate each rasi with a house (first, second _etc_ ). Always the rasi containing the reference point chosen is the 1<sup>st</sup> house. Next rasi is the 2<sup>nd</sup> house. The rasi after that is the 3<sup>rd</sup> house. We proceed until the 12<sup>th</sup> house like that. Just remember that when we encounter Pisces, we go to Aries after it. If no reference point is specified when houses are mentioned, it means that **lagna** is used as the reference.

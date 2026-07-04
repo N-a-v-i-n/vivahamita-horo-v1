@@ -1,0 +1,5 @@
+**Lesson:** Sree Lagna moves twice as fast as lagna. Hora lagna and Sree lagna, which move twice as fast as lagna, show the matters related to the 2<sup>nd</sup> house, _i.e._ money (HL is useful in death also). Ghati lagna, which moves 5 times as fast as lagna, shows the matters related to the 5<sup>th</sup> house, _i.e._ fame, <u>power and authority.</u> 
+
+If Sree Lagna increases by ( _m_ /2)º, then (30º – Sree Lagna) decreases by ( _m_ /2)º. The fraction (30º – Sree Lagna)/30º decreases by ( _m_ /60). If the complete length of the first dasa is _n_ years, then the remainder of the first dasa at birth decreases by _n_ x( _m_ /60) years = (6 x _n_ x _m_ ) days. If the remainder of the first dasa at birth decreases by these many days, all dasas come these many days _earlier_ . 
+
+**Formula:** If the complete Narayana dasa length of the first dasa in Sudasa is _n_ years and the birthtime changes by _m_ minutes, all the dasa and antardasa dates change by approximately (6 x _n_ x _m_ ) days. If the birthtime is earlier, dasas will come later and vice versa.

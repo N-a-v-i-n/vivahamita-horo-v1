@@ -1,0 +1,5 @@
+NOTE: One has to be careful with the calculation if the first dasa is Rahu dasa. The arc ruled by Rahu starts at 333°20' and ends at 26°40'. The ending longitude 26°40' is equivalent to 386°40' and we should use either 26°40' or 386°40' based on Moon’s longitude. For example, if Moon is at 10º in Aries, then the part of the arc that is yet to be traversed is 26°40' – 10° = 16°40'. If Moon is at 20º in Pisces, _i.e._ at 350º, then the part of the arc that is yet to be traversed is 386°40' – 350° = 36°40'. 
+
+###### **17.2.2** **_Antardasas_** 
+
+The first antardasa belongs to the planet that comes in the table _after_ the dasa lord. Then antardasas go in the same order as dasas and the last antardasa belongs to dasa lord. For example, antardasas in Jupiter dasa go as: Rahu, Venus, Sun, Moon, Mars, Mercury, Saturn and Jupiter. Antardasas in Moon dasa go as: Mars, Mercury, Saturn, Jupiter, Rahu, Venus, Sun and Moon.

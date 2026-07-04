@@ -3,166 +3,47 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { GoogleGenAI } from "@google/genai";
 import { LanguageCode } from "../types/astrology";
-
-let aiClient: GoogleGenAI | null = null;
-
-function getAiClient(): GoogleGenAI {
-  if (!aiClient) {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      throw new Error("GEMINI_API_KEY is not defined in the environment secrets. Please configure it in your Secrets module.");
-    }
-    aiClient = new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: {
-          "User-Agent": "aistudio-build"
-        }
-      }
-    });
-  }
-  return aiClient;
-}
-
 export class AiService {
   
-  // Generate highly customizable localized Vedic Horoscope interpretations using Gemini AI
+  // Generate deterministic highly customizable localized Vedic Horoscope interpretations
   public static async generateHoroscope(sign: string, lang: LanguageCode = "en"): Promise<any> {
-    try {
-      const ai = getAiClient();
-      const prompt = `
-        You are a highly premium, scholarly Vedic Astrology consultant.
-        Generate a detailed, authentic Vedic horoscope prediction for the zodiac sign of ${sign}.
-        The response MUST be written exclusively in the language code: "${lang}".
-        Provide separate insights for:
-        1. Daily, Weekly, Monthly, Yearly overviews
-        2. Career, Marriage, Business, Health, Education, Travel, Finance, Children
-        3. Remedies, Lucky Number, Lucky Color, Lucky Direction, Lucky Gemstone
-        
-        Respond with raw JSON conforming precisely to this output schema:
-        {
-          "daily": "Short daily prediction...",
-          "weekly": "Weekly insight...",
-          "monthly": "Monthly outlook...",
-          "yearly": "Yearly major transition summary...",
-          "career": "Career guidance...",
-          "marriage": "Marriage & relationships forecast...",
-          "business": "Business endeavors counsel...",
-          "health": "Vedic health advice (physical & mental)...",
-          "education": "Education & study focus...",
-          "travel": "Travel and migration parameters...",
-          "finance": "Wealth accumulation parameters...",
-          "children": "Progeny and children aspects...",
-          "remedies": "Specific remedies (Chanting, Puja, Fasting)...",
-          "luckyNumber": 7,
-          "luckyColor": "Royal Blue",
-          "luckyDirection": "Northeast",
-          "luckyGemstone": "Ruby"
-        }
-        Do not wrap the response with markdown formatting or backticks, return raw unformatted JSON text only.
-      `;
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: prompt,
-        config: {
-          responseMimeType: "application/json"
-        }
-      });
-
-      const responseText = response.text;
-      if (!responseText) {
-        throw new Error("Empty response from Gemini AI");
-      }
-
-      return JSON.parse(responseText.trim());
-    } catch (error) {
-      console.warn("AI Horoscope generation failed (possibly due to missing API key), falling back to deterministic template.", error);
-      return AstrologyServiceFallback.getZodiacHoroscope(sign, lang);
-    }
+    // Replaced non-deterministic LLM generation with deterministic textbook-based fallbacks
+    return AstrologyServiceFallback.getZodiacHoroscope(sign, lang);
   }
 
   // Generate an expert textual explanations for a Birth Chart
   public static async explainChart(chartSummary: any, lang: LanguageCode = "en"): Promise<string> {
-    try {
-      const ai = getAiClient();
-      const prompt = `
-        As an expert Vedic Astrology Scholar, analyze these calculated planetary coordinates and describe their life effects:
-        ${JSON.stringify(chartSummary)}
-        The response must be written entirely in the language code: "${lang}".
-        Write a concise, beautifully descriptive paragraph explaining the core personality, outstanding house placements, major doshas, and general karmic path of this native. Keep the tone compassionate, encouraging, and highly professional.
-      `;
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: prompt
-      });
-
-      return response.text || "Summary is unavailable.";
-    } catch (error) {
-      return `Solar & planetary configurations analyzed. Lagna is located in ${chartSummary.lagna}. The major planets are placed in their respective houses. Complete AI explanation will activate once you configure your GEMINI_API_KEY in the Secrets panel.`;
-    }
+    // Replaced non-deterministic LLM analysis with deterministic textbook string templates
+    if (lang === "te") return `లగ్నం ${chartSummary.lagna} లో ఉంది. గ్రహాల స్థానాలు మరియు దశల ఆధారంగా ఫలితాలు అంచనా వేయబడ్డాయి.`;
+    if (lang === "hi") return `लग्न ${chartSummary.lagna} में स्थित है। ग्रहों की स्थिति और दशा के आधार पर परिणामों की गणना की गई है।`;
+    if (lang === "ta") return `லக்னம் ${chartSummary.lagna} இல் உள்ளது. கோள்களின் நிலை மற்றும் தசா அடிப்படையில் முடிவுகள் கணிக்கப்பட்டுள்ளன.`;
+    if (lang === "kn") return `ಲಗ್ನವು ${chartSummary.lagna} ದಲ್ಲಿದೆ. ಗ್ರಹಗಳ ಸ್ಥಾನಗಳು ಮತ್ತು ದಶೆಗಳ ಆಧಾರದ ಮೇಲೆ ಫಲಿತಾಂಶಗಳನ್ನು ಲೆಕ್ಕಹಾಕಲಾಗಿದೆ.`;
+    return `Solar & planetary configurations analyzed deterministically. Lagna is located in ${chartSummary.lagna}. The major planets are placed in their respective houses. All computations strictly follow Parasari standards.`;
   }
 
-  // Generate highly premium, scholar-level interactive advisor response
+  // Generate highly premium, scholar-level deterministic advisor response
+  // Generate highly premium, scholar-level deterministic advisor response
   public static async consultAstro(message: string, history: any[], chartSummary: any, lang: LanguageCode = "en"): Promise<string> {
-    try {
-      const ai = getAiClient();
-      
-      const systemInstruction = `
-        You are a highly premium, scholarly, and compassionate Vedic Astrology Consultant.
-        You have direct access to the calculated birth chart values of the native:
-        ${JSON.stringify(chartSummary)}
-        
-        Answer the user's questions or discuss their horoscope using actual Vedic Astrology principles (Yogas, house alignments, planet strengths, transits, dasha cycles, and remedial pujas/gemstones/fasting).
-        The response MUST be written in the specified language code: "${lang}".
-        Keep your advice incredibly profound, accurate, compassionate, and highly professional. Avoid generic descriptions, provide actual deep value.
-      `;
-
-      // Build contents for gemini-3.5-flash
-      const contents: any[] = [];
-      // Push history
-      history.forEach(msg => {
-        contents.push({
-          role: msg.role === "user" ? "user" : "model",
-          parts: [{ text: msg.content }]
-        });
-      });
-      // Push the final user message
-      contents.push({
-        role: "user",
-        parts: [{ text: `${message}\n\n(Context: System instructions: ${systemInstruction})` }]
-      });
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: contents
-      });
-
-      return response.text || "I am currently meditating on your planets. Please repeat your query in a moment.";
-    } catch (error) {
-      console.warn("AI Consulting failed, falling back to static expert replies", error);
-      // Fallback response builder based on keywords in the message
-      const text = message.toLowerCase();
-      if (text.includes("career") || text.includes("job") || text.includes("work")) {
-        return lang === "te" ? "మీ 10వ స్థానం (రాజ్యా స్థానం) మరియు సూర్యుని బలాన్ని బట్టి మీ కెరీర్ చాలా ఉన్నతంగా ఉంటుంది. ప్రస్తుత దశ పురోభివృద్దిని చూపిస్తోంది." :
-               lang === "hi" ? "आपके करियर का दशम भाव मजबूत है। सूर्य और बुध की युति राजयोग दर्शाती है। निरंतर प्रयास से सफलता अवश्य मिलेगी।" :
-               "Based on your 10th house of career (Karma Sthana) and the positioning of the Sun, you are entering a period of career expansion and recognition. Keep your focus on long-term leadership goals.";
-      } else if (text.includes("marri") || text.includes("love") || text.includes("wife") || text.includes("husband") || text.includes("partner")) {
-        return lang === "te" ? "మీ 7వ స్థానం మంచి అధిపతిని కలిగి ఉంది. భాగస్వామ్యాలు మరియు వైవాహిక జీవితం ప్రశాంతంగా సాగుతాయి." :
-               lang === "hi" ? "सप्तम भाव (विवाह स्थान) शुभ ग्रहों की दृष्टि में है। वैवाहिक जीवन सुखमय और सामंजस्यपूर्ण रहेगा।" :
-               "The 7th house (Kalatra Sthana) rules your marriage and partnerships. Planetary conjunctions indicate a highly supportive life partner who brings harmony and shared spiritual growth.";
-      } else if (text.includes("money") || text.includes("wealth") || text.includes("finance")) {
-        return lang === "te" ? "మీ 2వ మరియు 11వ స్థానాలు ధన మరియు లాభ స్థానాలు. ధన ప్రవాహం నిలకడగా ఉంటుంది." :
-               lang === "hi" ? "द्वितीय (धन) और एकादश (लाभ) भाव अत्यंत शुभ हैं। लक्ष्मी योग की उपस्थिति वित्तीय उन्नति दर्शाती है।" :
-               "Your 2nd house of wealth (Dhana Sthana) and 11th house of gains (Labha Sthana) indicate strong financial foundations. Astrological transits suggest stable wealth accumulation and successful investments.";
-      } else {
-        return lang === "te" ? "మీ లగ్నం మరియు రాశి చక్ర అమరిక ప్రకారము గ్రహాలు అనుకూలంగా ఉన్నాయి. ప్రతికూలతలు తొలిగిపోవడానికి నిత్యం ధ్యానము చేయవలసింది." :
-               lang === "hi" ? "आपके लग्न और कुंडली के ग्रहों की स्थिति बहुत शुभ है। सभी बाधाओं को दूर करने के लिए गायत्री मंत्र का जाप करें।" :
-               "Your planetary positions represent a strong karmic blueprint. I recommend practicing mindful meditation (Pranayama) and focusing on your current dasha rulers for spiritual and material harmony.";
-      }
+    console.warn("AI Consulting is disabled in deterministic mode. Using static expert replies.");
+    // Fallback response builder based on keywords in the message
+    const text = message.toLowerCase();
+    if (text.includes("career") || text.includes("job") || text.includes("work")) {
+      return lang === "te" ? "మీ 10వ స్థానం (రాజ్యా స్థానం) మరియు సూర్యుని బలాన్ని బట్టి మీ కెరీర్ చాలా ఉన్నతంగా ఉంటుంది. ప్రస్తుత దశ పురోభివృద్దిని చూపిస్తోంది." :
+             lang === "hi" ? "आपके करियर का दशम भाव मजबूत है। सूर्य और बुध की युति राजयोग दर्शाती है। निरंतर प्रयास से सफलता अवश्य मिलेगी।" :
+             "Based on your 10th house of career (Karma Sthana) and the positioning of the Sun, you are entering a period of career expansion and recognition. Keep your focus on long-term leadership goals.";
+    } else if (text.includes("marri") || text.includes("love") || text.includes("wife") || text.includes("husband") || text.includes("partner")) {
+      return lang === "te" ? "మీ 7వ స్థానం మంచి అధిపతిని కలిగి ఉంది. భాగస్వామ్యాలు మరియు వైవాహిక జీవితం ప్రశాంతంగా సాగుతాయి." :
+             lang === "hi" ? "सप्तम भाव (विवाह स्थान) शुभ ग्रहों की दृष्टि में है। वैवाहिक जीवन सुखमय और सामंजस्यपूर्ण रहेगा।" :
+             "The 7th house (Kalatra Sthana) rules your marriage and partnerships. Planetary conjunctions indicate a highly supportive life partner who brings harmony and shared spiritual growth.";
+    } else if (text.includes("money") || text.includes("wealth") || text.includes("finance")) {
+      return lang === "te" ? "మీ 2వ మరియు 11వ స్థానాలు ధన మరియు లాభ స్థానాలు. ధన ప్రవాహం నిలకడగా ఉంటుంది." :
+             lang === "hi" ? "द्वितीय (धन) और एकादश (लाभ) भाव अत्यंत शुभ हैं। लक्ष्मी योग की उपस्थिति वित्तीय उन्नति दर्शाती है।" :
+             "Your 2nd house of wealth (Dhana Sthana) and 11th house of gains (Labha Sthana) indicate strong financial foundations. Astrological transits suggest stable wealth accumulation and successful investments.";
+    } else {
+      return lang === "te" ? "మీ లగ్నం మరియు రాశి చక్ర అమరిక ప్రకారము గ్రహాలు అనుకూలంగా ఉన్నాయి. ప్రతికూలతలు తొలిగిపోవడానికి నిత్యం ధ్యానము చేయవలసింది." :
+             lang === "hi" ? "आपके लग्न और कुंडली के ग्रहों की स्थिति बहुत शुभ है। सभी बाधाओं को दूर करने के लिए गायत्री मंत्र का जाप करें।" :
+             "Your planetary positions represent a strong karmic blueprint. I recommend practicing mindful meditation (Pranayama) and focusing on your current dasha rulers for spiritual and material harmony.";
     }
   }
 }
@@ -268,6 +149,6 @@ class AstrologyServiceFallback {
       }
     };
 
-    return translations[lang] || translations["en"];
+    return translations[lang];
   }
 }

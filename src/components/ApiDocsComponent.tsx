@@ -148,8 +148,8 @@ export const ApiDocsComponent: React.FC<ApiDocsProps> = ({
     let sidebarPayload: any = {};
     if (activeDoc.path === "/api/matching") {
       sidebarPayload = {
-        boy: { year, month, day, hour, minute, latitude, longitude, timezone, ayanamsa: selectedAyanamsa },
-        girl: { year: fYear, month: fMonth, day: fDay, hour: fHour, minute: fMinute, latitude: fLatitude, longitude: fLongitude, timezone: fTimezone, ayanamsa: selectedAyanamsa },
+        boy: { name: nameInput, year, month, day, hour, minute, latitude, longitude, timezone, ayanamsa: selectedAyanamsa },
+        girl: { name: fNameInput, year: fYear, month: fMonth, day: fDay, hour: fHour, minute: fMinute, latitude: fLatitude, longitude: fLongitude, timezone: fTimezone, ayanamsa: selectedAyanamsa },
         lang: selectedLanguage
       };
     } else if (activeDoc.path === "/api/numerology") {

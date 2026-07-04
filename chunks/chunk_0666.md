@@ -1,0 +1,5 @@
+#### **25.6 Timing with Sodhya Pindas** 
+
+Parasara taught some techniques of timing events based on sodhya pindas. We can take the number of rekhas in _any_ house from a planet and multiply the count with the planet’s sodhya pinda. We can get a nakshatra from that product by dividing it with 27, taking the remainder and counting nakshatras from Aswini. Benefics and malefics transiting in the nakshatra will give good or bad results (respectively) relating to the original house. Especially Saturn’s transit is important. Saturn’s transit in the nakshatra corresponding to a particular house makes the signified matters suffer. Jupiter’s transit is beneficial. Some people also take the 10<sup>th</sup> or 19<sup>th</sup> nakshatra from the nakshtra found above. A nakshatra and the 10<sup>th</sup> and 19<sup>th</sup> nakshatras from it are owned by the same planet under Vimsottari dasa scheme and they go together. 
+
+We can also find a rasi by dividing the product with 12 instead of 27 and counting rasis from Aries. Saturn’s transit in the resultant rasi brings misfortune relating to the original house. However, nakshatras are more important.

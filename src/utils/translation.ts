@@ -9,181 +9,181 @@ import { LanguageCode, TranslationSet } from "../types/astrology";
 export const PLANET_TRANSLATIONS: Record<string, TranslationSet> = {
   Sun: {
     en: "Sun",
-    te: "సూర్యుడు (Surya)",
-    hi: "सूर्य (Surya)",
-    ta: "சூரியன் (Suriyan)",
-    kn: "ಸೂರ್ಯ (Surya)"
+    te: "సూర్యుడు",
+    hi: "सूर्य",
+    ta: "சூரியன்",
+    kn: "ಸೂರ್ಯ"
   },
   Moon: {
     en: "Moon",
-    te: "చంద్రుడు (Chandra)",
-    hi: "चंद्र (Chandra)",
-    ta: "சந்திரன் (Chandran)",
-    kn: "ಚಂದ್ರ (Chandra)"
+    te: "చంద్రుడు",
+    hi: "चंद्र",
+    ta: "சந்திரன்",
+    kn: "ಚಂದ್ರ"
   },
   Mars: {
     en: "Mars",
-    te: "కుజుడు (Kuja)",
-    hi: "मंगल (Mangal)",
-    ta: "செவ்வாய் (Sevvai)",
-    kn: "ಮಂಗಳ (Mangala)"
+    te: "కుజుడు",
+    hi: "मंगल",
+    ta: "செவ்வாய்",
+    kn: "ಮಂಗಳ"
   },
   Mercury: {
     en: "Mercury",
-    te: "బుధుడు (Budha)",
-    hi: "बुध (Budh)",
-    ta: "புதன் (Budhan)",
-    kn: "ಬುಧ (Budha)"
+    te: "బుధుడు",
+    hi: "बुध",
+    ta: "புதன்",
+    kn: "ಬುಧ"
   },
   Jupiter: {
     en: "Jupiter",
-    te: "గురుడు (Guru)",
-    hi: "गुरु (Guru/Brihaspati)",
-    ta: "குரு (Guru)",
-    kn: "ಗುರು (Guru)"
+    te: "గురుడు",
+    hi: "गुरु",
+    ta: "குரு",
+    kn: "ಗುರು"
   },
   Venus: {
     en: "Venus",
-    te: "శుక్రుడు (Shukra)",
-    hi: "शुक्र (Shukra)",
-    ta: "சுக்கிரன் (Sukran)",
-    kn: "ಶುಕ್ರ (Shukra)"
+    te: "శుక్రుడు",
+    hi: "शुक्र",
+    ta: "சுக்கிரன்",
+    kn: "ಶುಕ್ರ"
   },
   Saturn: {
     en: "Saturn",
-    te: "శని (Shani)",
-    hi: "शनि (Shani)",
-    ta: "சனி (Shani)",
-    kn: "ಶನಿ (Shani)"
+    te: "శని",
+    hi: "शनि",
+    ta: "சனி",
+    kn: "ಶನಿ"
   },
   Rahu: {
     en: "Rahu",
-    te: "రాహువు (Rahu)",
-    hi: "राहु (Rahu)",
-    ta: "ராகு (Rahu)",
-    kn: "ರಾಹು (Rahu)"
+    te: "రాహువు",
+    hi: "राहु",
+    ta: "ராகு",
+    kn: "ರಾಹು"
   },
   Ketu: {
     en: "Ketu",
-    te: "కేతువు (Ketu)",
-    hi: "केतु (Ketu)",
-    ta: "கேது (Ketu)",
-    kn: "ಕೇತು (Ketu)"
+    te: "కేతువు",
+    hi: "केतु",
+    ta: "கேது",
+    kn: "ಕೇತು"
   },
   Uranus: {
     en: "Uranus",
-    te: "ఇంద్రుడు (Uranus)",
-    hi: "अरुण (Uranus)",
-    ta: "யுரேனஸ் (Uranus)",
-    kn: "ಯುರೇನಸ್ (Uranus)"
+    te: "ఇంద్రుడు",
+    hi: "अरुण",
+    ta: "யுரேனஸ்",
+    kn: "ಯುರೇನಸ್"
   },
   Neptune: {
     en: "Neptune",
-    te: "वरుడు (Neptune)",
-    hi: "वरुण (Neptune)",
-    ta: "நெப்டியூன் (Neptune)",
-    kn: "ನೆಪ್ಚೂನ್ (Neptune)"
+    te: "वरుడు",
+    hi: "वरुण",
+    ta: "நெப்டியூன்",
+    kn: "ನೆಪ್ಚೂನ್"
   },
   Pluto: {
     en: "Pluto",
-    te: "యముడు (Pluto)",
-    hi: "यम (Pluto)",
-    ta: "புளூட்டோ (Pluto)",
-    kn: "ಪ್ಲುಟೊ (Pluto)"
+    te: "యముడు",
+    hi: "यम",
+    ta: "புளூட்டோ",
+    kn: "ಪ್ಲುಟೊ"
   },
   Lagna: {
     en: "Lagna (Ascendant)",
-    te: "లగ్నం (Lagna)",
-    hi: "लग्न (Lagna)",
-    ta: "லக்னம் (Lagnam)",
-    kn: "ಲಗ್ನ (Lagna)"
+    te: "లగ్నం",
+    hi: "लग्न",
+    ta: "லக்னம்",
+    kn: "ಲಗ್ನ"
   }
 };
 
 export const RASHI_TRANSLATIONS: TranslationSet[] = [
   {
     en: "Mesha (Aries)",
-    te: "మేష రాశి (Mesha)",
-    hi: "मेष (Mesha)",
-    ta: "மேஷம் (Mesham)",
-    kn: "ಮೇಷ (Mesha)"
+    te: "మేష రాశి",
+    hi: "मेष",
+    ta: "மேஷம்",
+    kn: "ಮೇಷ"
   },
   {
     en: "Vrishabha (Taurus)",
-    te: "వృషభ రాశి (Vrishabha)",
-    hi: "वृषभ (Vrishabha)",
-    ta: "ரிஷபம் (Rishabham)",
-    kn: "ವೃಷಭ (Vrishabha)"
+    te: "వృషభ రాశి",
+    hi: "वृषभ",
+    ta: "ரிஷபம்",
+    kn: "ವೃಷಭ"
   },
   {
     en: "Mithuna (Gemini)",
-    te: "మిథున రాశి (Mithuna)",
-    hi: "मिथुन (Mithuna)",
-    ta: "மிதுனம் (Midhunam)",
-    kn: "ಮಿಥುನ (Mithuna)"
+    te: "మిథున రాశి",
+    hi: "मिथुन",
+    ta: "மிதுனம்",
+    kn: "ಮಿಥುನ"
   },
   {
     en: "Karka (Cancer)",
-    te: "కర్కాటక రాశి (Karkataka)",
-    hi: "कर्क (Karka)",
-    ta: "கடகம் (Kadagam)",
-    kn: "ಕರ್ಕಾಟಕ (Karkataka)"
+    te: "కర్కాటక రాశి",
+    hi: "कर्क",
+    ta: "கடகம்",
+    kn: "ಕರ್ಕಾಟಕ"
   },
   {
     en: "Simha (Leo)",
-    te: "సింహ రాశి (Simha)",
-    hi: "सिंह (Simha)",
-    ta: "சிம்மம் (Simmam)",
-    kn: "ಸಿಂಹ (Simha)"
+    te: "సింహ రాశి",
+    hi: "सिंह",
+    ta: "சிம்மம்",
+    kn: "ಸಿಂಹ"
   },
   {
     en: "Kanya (Virgo)",
-    te: "కన్యా రాశి (Kanya)",
-    hi: "कन्या (Kanya)",
-    ta: "கன்னி (Kanni)",
-    kn: "ಕನ್ಯာ (Kanya)"
+    te: "కన్యా రాశి",
+    hi: "कन्या",
+    ta: "கன்னி",
+    kn: "ಕನ್ಯာ"
   },
   {
     en: "Tula (Libra)",
-    te: "తులా రాశి (Thula)",
-    hi: "तुला (Tula)",
-    ta: "துலாம் (Thulam)",
-    kn: "ತುಲಾ (Thula)"
+    te: "తులా రాశి",
+    hi: "तुला",
+    ta: "துலாம்",
+    kn: "ತುಲಾ"
   },
   {
     en: "Vrishchika (Scorpio)",
-    te: "వృశ్చిక రాశి (Vrishchika)",
-    hi: "वृश्चिक (Vrishchika)",
-    ta: "விருச்சிகம் (Viruchigam)",
-    kn: "ವೃಶ್ಚಿಕ (Vrishchika)"
+    te: "వృశ్చిక రాశి",
+    hi: "वृश्चिक",
+    ta: "விருச்சிகம்",
+    kn: "ವೃಶ್ಚಿಕ"
   },
   {
     en: "Dhanu (Sagittarius)",
-    te: "ధనుస్సు రాశి (Dhanus)",
-    hi: "धनु (Dhanu)",
-    ta: "தனுசு (Dhanusu)",
-    kn: "ಧನು (Dhanu)"
+    te: "ధనుస్సు రాశి",
+    hi: "धनु",
+    ta: "தனுசு",
+    kn: "ಧನು"
   },
   {
     en: "Makara (Capricorn)",
-    te: "మకర రాశి (Makara)",
-    hi: "मकर (Makara)",
-    ta: "மகரம் (Magaram)",
-    kn: "ಮಕರ (Makara)"
+    te: "మకర రాశి",
+    hi: "मकर",
+    ta: "மகரம்",
+    kn: "ಮಕರ"
   },
   {
     en: "Kumbha (Aquarius)",
-    te: "కుంభ రాశి (Kumbha)",
-    hi: "कुंभ (Kumbha)",
-    ta: "கும்பம் (Kumbam)",
-    kn: "ಕುಂಭ (Kumbha)"
+    te: "కుంభ రాశి",
+    hi: "कुंभ",
+    ta: "கும்பம்",
+    kn: "ಕುಂಭ"
   },
   {
     en: "Meena (Pisces)",
-    te: "మీన రాశి (Meena)",
-    hi: "मीन (Meena)",
-    ta: "மீனம் (Meenam)",
-    kn: "ಮೀನ (Meena)"
+    te: "మీన రాశి",
+    hi: "मीन",
+    ta: "மீனம்",
+    kn: "ಮೀನ"
   }
 ];
 
@@ -301,21 +301,21 @@ export const DIGNITY_TRANSLATIONS: Record<string, TranslationSet> = {
   Exalted: {
     en: "Exalted (Ucha)",
     te: "ఉచ్ఛ స్థితి",
-    hi: "उच्च (Exalted)",
+    hi: "उच्च",
     ta: "உச்சம்",
     kn: "ಉಚ್ಛ"
   },
   Debilitated: {
     en: "Debilitated (Neecha)",
     te: "నీచ స్థితి",
-    hi: "नीच (Debilitated)",
+    hi: "नीच",
     ta: "நீசம்",
     kn: "ನೀಚ"
   },
   Own: {
     en: "Own House (Swa Rasi)",
     te: "స్వక్షేత్రం",
-    hi: "स्वराशि (Swa Rasi)",
+    hi: "स्वराशि",
     ta: "ஆட்சி",
     kn: "ಸ್ವಕ್ಷೇತ್ರ"
   },
@@ -371,7 +371,7 @@ export const KOOTA_TRANSLATIONS: Record<string, TranslationSet> = {
     ta: "யோனி பொருத்தம்",
     kn: "ಯೋನಿ ಕೂಟ"
   },
-  GrahaMaitri: {
+  "Graha Maitri": {
     en: "Graha Maitri (Mental Harmony)",
     te: "గ్రహ మైత్రి కూట",
     hi: "ग्रह मैत्री कूट",
@@ -404,7 +404,7 @@ export const KOOTA_TRANSLATIONS: Record<string, TranslationSet> = {
 // Functions to retrieve translation in designated language easily
 export function getTranslation(set: TranslationSet | undefined, lang: LanguageCode): string {
   if (!set) return "";
-  return set[lang] || set["en"];
+  return set[lang] as string;
 }
 
 export function translatePlanet(planet: string, lang: LanguageCode): string {
@@ -412,9 +412,38 @@ export function translatePlanet(planet: string, lang: LanguageCode): string {
   return set ? getTranslation(set, lang) : planet;
 }
 
-export function translateRashi(index: number, lang: LanguageCode): string {
-  const set = RASHI_TRANSLATIONS[index % 12];
-  return set ? getTranslation(set, lang) : `Rashi ${index}`;
+// Map Western sign names to rashi indices for string-based lookup
+const WESTERN_TO_RASHI_INDEX: Record<string, number> = {
+  "aries": 0, "taurus": 1, "gemini": 2, "cancer": 3, "leo": 4, "virgo": 5,
+  "libra": 6, "scorpio": 7, "sagittarius": 8, "capricorn": 9, "aquarius": 10, "pisces": 11,
+  "mesha": 0, "vrishabha": 1, "mithuna": 2, "karka": 3, "simha": 4, "kanya": 5,
+  "tula": 6, "vrishchika": 7, "dhanu": 8, "makara": 9, "kumbha": 10, "meena": 11
+};
+
+export function translateRashi(indexOrName: number | string, lang: LanguageCode): string {
+  let idx: number;
+  if (typeof indexOrName === "number") {
+    idx = indexOrName % 12;
+  } else {
+    // Try to extract Western name from strings like "Mesha (Aries)", "Libra", "Karka (Cancer)", etc.
+    const lower = indexOrName.toLowerCase().trim();
+    // Try matching against the parenthetical Western name first
+    const parenMatch = lower.match(/\((\w+)\)/);
+    const key = parenMatch ? parenMatch[1] : lower;
+    idx = WESTERN_TO_RASHI_INDEX[key] ?? -1;
+    if (idx === -1) {
+      // Try matching each word
+      for (const word of lower.split(/[\s()]+/)) {
+        if (WESTERN_TO_RASHI_INDEX[word] !== undefined) {
+          idx = WESTERN_TO_RASHI_INDEX[word];
+          break;
+        }
+      }
+    }
+    if (idx === -1) return indexOrName; // fallback: return as-is
+  }
+  const set = RASHI_TRANSLATIONS[idx];
+  return set ? getTranslation(set, lang) : `Rashi ${idx}`;
 }
 
 export function translateNakshatra(index: number, lang: LanguageCode): string {

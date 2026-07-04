@@ -9,21 +9,56 @@ import { AiService } from "../services/aiService";
 import { generateDivisionalCharts, getJulianDate, getAyanamsa, getLagnaSidereal } from "../utils/astroCalc";
 import { BirthInput, LanguageCode, ApiResponse, AyanamsaType, MuhurtaTime } from "../types/astrology";
 import { translatePlanet, translateRashi, translateNakshatra, translateMuhurtaActivityName, translateMuhurtaActivityDesc, translateFestival, translateWeekday, translateLunarMonth } from "../utils/translation";
-import { AstrologyTestSuite } from "../services/astrologyTestSuite";
+
 
 const router = Router();
 
-// Middleware: Direct bypass pass-through (No authorization required)
+// Middleware to enforce strict language rules based on ?lang=
 router.use((req, res, next) => {
+  const supportedLangs = ['en', 'te', 'ta', 'kn', 'hi'];
+  const langQuery = req.query.lang as string;
+
+  if (langQuery && !supportedLangs.includes(langQuery)) {
+    return res.status(400).json({
+      success: false,
+      error: `Unsupported language: '${langQuery}'. Supported languages are: ${supportedLangs.join(', ')}`
+    });
+  }
+
+  if (!langQuery) {
+    req.query.lang = 'en';
+  }
+
   next();
 });
 
+// Helper to collapse LocalizedString maps into a single string for a given language
+export function collapseLocalization(obj: any, lang: LanguageCode): any {
+  if (Array.isArray(obj)) {
+    return obj.map(item => collapseLocalization(item, lang));
+  } else if (obj instanceof Date) {
+    return obj;
+  } else if (obj !== null && typeof obj === 'object') {
+    // Check if it's a LocalizedString map
+    if (obj.en !== undefined && Object.keys(obj).every(k => ['en', 'te', 'ta', 'kn', 'hi', 'ml'].includes(k))) {
+      return obj[lang];
+    }
+    const newObj: any = {};
+    for (const key of Object.keys(obj)) {
+      newObj[key] = collapseLocalization(obj[key], lang);
+    }
+    return newObj;
+  }
+  return obj;
+}
+
 // Helper to construct standard API Response envelope
 function sendEnvelope<T>(res: Response, lang: LanguageCode, data: T, ayanamsa: AyanamsaType = "Lahiri", tzStr = "Asia/Kolkata") {
-  const envelope: ApiResponse<T> = {
+  const collapsedData = collapseLocalization(data, lang);
+  const envelope: any = {
     success: true,
     language: lang,
-    data,
+    data: collapsedData,
     meta: {
       calculation_engine: "Swiss Ephemeris",
       ayanamsa,
@@ -54,7 +89,7 @@ const RASHI_NAMES_ENGLISH = [
 router.post("/chart", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     const ayanamsa = input.ayanamsa || "Lahiri";
     input.lang = lang;
 
@@ -74,7 +109,7 @@ router.post("/chart", async (req: Request, res: Response) => {
         lagna: lagnaRasiName,
         planets: panchang.planets.map(p => ({
           name: p.name,
-          rasi: p.rasiLocalizedName,
+          rasi: p.rasi.name.en,
           house: p.house,
           retrograde: p.isRetrograde
         }))
@@ -105,13 +140,13 @@ router.post("/chart", async (req: Request, res: Response) => {
 router.post("/horoscope", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     // Choose appropriate sign or moon rasi to run horoscope against
     const panchang = AstrologyService.calcPanchang(input);
-    const moonPlanet = panchang.planets.find(p => p.name === "Moon");
-    const rasiSign = moonPlanet ? moonPlanet.rasiName : "Mesha (Aries)";
+    const moonPlanet = panchang.planets.find(p => p.id === "moon");
+    const rasiSign = moonPlanet ? moonPlanet.rasi.name.en : "Mesha (Aries)";
 
     const horoscope = await AiService.generateHoroscope(rasiSign, lang);
     sendEnvelope(res, lang, horoscope);
@@ -124,7 +159,7 @@ router.post("/horoscope", async (req: Request, res: Response) => {
 router.post("/panchang", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
@@ -138,7 +173,7 @@ router.post("/panchang", async (req: Request, res: Response) => {
 router.post("/charts/divisional", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
@@ -157,11 +192,11 @@ router.post("/charts/divisional", async (req: Request, res: Response) => {
 router.post("/dasha", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
-    const moon = panchang.planets.find(p => p.name === "Moon")!;
+    const moon = panchang.planets.find(p => p.id === "moon")!;
     
     const dasha = AstrologyService.calcVimshottariDasha(moon.longitude, input.year, lang);
     sendEnvelope(res, lang, dasha, input.ayanamsa || "Lahiri");
@@ -174,7 +209,7 @@ router.post("/dasha", async (req: Request, res: Response) => {
 router.post("/dosha", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
@@ -193,7 +228,7 @@ router.post("/dosha", async (req: Request, res: Response) => {
 router.post("/matching", async (req: Request, res: Response) => {
   try {
     const matchingInput = req.body;
-    const lang = matchingInput.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     
     if (matchingInput.boy) matchingInput.boy.lang = lang;
     if (matchingInput.girl) matchingInput.girl.lang = lang;
@@ -201,6 +236,7 @@ router.post("/matching", async (req: Request, res: Response) => {
     const result = AstrologyService.calculateMatching(matchingInput.boy, matchingInput.girl, lang);
     sendEnvelope(res, lang, result);
   } catch (error: any) {
+    console.error(error.stack);
     res.status(400).json({ success: false, error: error.message });
   }
 });
@@ -216,12 +252,7 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
       });
     }
 
-    // Determine target language with fallback to "en"
-    let lang: LanguageCode = "en";
-    const requestedLang = ((matchingInput.lang || req.query.lang || "en") as string).toLowerCase();
-    if (["en", "hi", "te", "ta", "kn"].includes(requestedLang)) {
-      lang = requestedLang as LanguageCode;
-    }
+    const lang = req.query.lang as LanguageCode;
 
     matchingInput.boy.lang = lang;
     matchingInput.girl.lang = lang;
@@ -235,8 +266,8 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
 
     const bNak = boyPanchang.nakshatra.index;
     const gNak = girlPanchang.nakshatra.index;
-    const bRasi = boyPanchang.planets.find(p => p.name === "Moon")!.rasiIndex;
-    const gRasi = girlPanchang.planets.find(p => p.name === "Moon")!.rasiIndex;
+    const bRasi = boyPanchang.planets.find(p => p.id === "moon")!.rasiIndex;
+    const gRasi = girlPanchang.planets.find(p => p.id === "moon")!.rasiIndex;
 
     const NAKSHATRA_NADIS = [
       0, 1, 2, 2, 1, 0, 0, 1, 2, 2, 1, 0, 0, 1, 2, 2, 1, 0, 0, 1, 2, 2, 1, 0, 0, 1, 2
@@ -390,8 +421,8 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
         isNadiCancelled = true;
         nadiCancellationReason = activeT.nadi_diff_rasi_same_nak;
       } else if (bNak === gNak) {
-        const bPada = boyPanchang.planets.find(p => p.name === "Moon")?.pada || 1;
-        const gPada = girlPanchang.planets.find(p => p.name === "Moon")?.pada || 1;
+        const bPada = boyPanchang.planets.find(p => p.id === "moon")?.pada || 1;
+        const gPada = girlPanchang.planets.find(p => p.id === "moon")?.pada || 1;
         if (bPada !== gPada) {
           isNadiCancelled = true;
           nadiCancellationReason = activeT.nadi_same_nak_diff_pada;
@@ -408,7 +439,7 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
 
     // Calculate Bhakoot Cancellation
     const rasiDiff = (gRasi - bRasi + 12) % 12;
-    const isBhakootDoshaPresent = [2, 5, 6, 8, 12].includes(rasiDiff);
+    const isBhakootDoshaPresent = [1, 4, 5, 7, 8, 11].includes(rasiDiff);
 
     let isBhakootCancelled = false;
     let bhakootCancellationReason = activeT.bhakoot_no_dosha;
@@ -446,15 +477,15 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
     const nadiScore = ashtaKoota.find(k => k.koota === "Nadi")?.obtainedPoints ?? 0;
 
     // Detailed profiling of partners
-    const boyMoon = boyPanchang.planets.find(p => p.name === "Moon")!;
-    const girlMoon = girlPanchang.planets.find(p => p.name === "Moon")!;
+    const boyMoon = boyPanchang.planets.find(p => p.id === "moon")!;
+    const girlMoon = girlPanchang.planets.find(p => p.id === "moon")!;
 
     const boyProfile = {
       gender: "Male",
-      nakshatra: boyMoon.nakshatraName,
-      nakshatra_localized: boyMoon.nakshatraLocalizedName,
-      rasi: boyMoon.rasiName,
-      rasi_localized: boyMoon.rasiLocalizedName,
+      nakshatra: boyMoon.nakshatra.name.en,
+      nakshatra_localized: boyMoon.nakshatra.name.en,
+      rasi: boyMoon.rasi.name.en,
+      rasi_localized: boyMoon.rasi.name.en,
       pada: boyMoon.pada,
       rasi_lord: RASHI_LORDS[bRasi],
       is_manglik: resultData.doshaMatching.boyDoshas.some(d => d.includes("Manglik") || d.includes("मांगलिक") || d.includes("మాంగళిక"))
@@ -462,10 +493,10 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
 
     const girlProfile = {
       gender: "Female",
-      nakshatra: girlMoon.nakshatraName,
-      nakshatra_localized: girlMoon.nakshatraLocalizedName,
-      rasi: girlMoon.rasiName,
-      rasi_localized: girlMoon.rasiLocalizedName,
+      nakshatra: girlMoon.nakshatra.name.en,
+      nakshatra_localized: girlMoon.nakshatra.name.en,
+      rasi: girlMoon.rasi.name.en,
+      rasi_localized: girlMoon.rasi.name.en,
       pada: girlMoon.pada,
       rasi_lord: RASHI_LORDS[gRasi],
       is_manglik: resultData.doshaMatching.girlDoshas.some(d => d.includes("Manglik") || d.includes("मांगलिक") || d.includes("మాంగళిక"))
@@ -666,7 +697,7 @@ router.post("/matching/custom", async (req: Request, res: Response) => {
 router.post("/muhurta", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     
     const activities = [
       { act: "Marriage" },
@@ -699,7 +730,7 @@ router.post("/muhurta", async (req: Request, res: Response) => {
 router.post("/festivals", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
@@ -719,7 +750,7 @@ router.post("/festivals", async (req: Request, res: Response) => {
 router.post("/numerology", async (req: Request, res: Response) => {
   try {
     const input: any = req.body; // Expects name & DOB details
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     const dob = input.dob || { year: 1995, month: 6, day: 15 };
     const name = input.name || "Aarav";
 
@@ -735,7 +766,7 @@ router.post("/numerology", async (req: Request, res: Response) => {
 router.post("/utils", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     const jd = 2451545.0 + (input.day || 1); // Julian Date approximation
 
     const utilsData = {
@@ -758,11 +789,11 @@ router.post("/utils", async (req: Request, res: Response) => {
 router.post("/batch", async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     input.lang = lang;
     
     const panchang = AstrologyService.calcPanchang(input);
-    const moon = panchang.planets.find(p => p.name === "Moon")!;
+    const moon = panchang.planets.find(p => p.id === "moon")!;
     
     const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
     const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
@@ -771,7 +802,7 @@ router.post("/batch", async (req: Request, res: Response) => {
     const dasha = AstrologyService.calcVimshottariDasha(moon.longitude, input.year, lang);
     const doshas = AstrologyService.detectDoshas(panchang.planets, lagnaLong, lang);
     const numerology = AstrologyService.getNumerology("Aarav", { year: input.year, month: input.month, day: input.day }, moon.longitude, lang);
-    const horoscopeFlb = await AiService.generateHoroscope(moon.rasiName, lang);
+    const horoscopeFlb = await AiService.generateHoroscope(moon.rasi.name.en, lang);
 
     const completePackage = {
       panchang,
@@ -790,8 +821,8 @@ router.post("/batch", async (req: Request, res: Response) => {
 // 13. AI Astrology Consultation Chat (POST /api/consult)
 router.post("/consult", async (req: Request, res: Response) => {
   try {
-    const { message, history, birthInput, lang } = req.body;
-    const selectedLang = lang || birthInput?.lang || "en";
+    const { message, history, birthInput } = req.body;
+    const selectedLang = req.query.lang as LanguageCode;
     
     let chartSummary = {};
     if (birthInput) {
@@ -809,11 +840,11 @@ router.post("/consult", async (req: Request, res: Response) => {
           lagna: lagnaRasiName,
           planets: panchang.planets.map((p: any) => ({
             name: p.name,
-            rasi: p.rasiName,
+            rasi: p.rasi.name.en,
             degree: p.degree,
             house: p.house,
             retrograde: p.isRetrograde,
-            nakshatra: p.nakshatraName
+            nakshatra: p.nakshatra.name.en
           }))
         };
       } catch (e) {
@@ -905,7 +936,7 @@ function getReportDataHelper(currLang: LanguageCode, lagnaR: number, moonR: numb
 const customDetailsHandler = async (req: Request, res: Response) => {
   try {
     const input: BirthInput = req.body;
-    const lang = input.lang || (req.query.lang as LanguageCode) || "en";
+    const lang = req.query.lang as LanguageCode;
     const ayanamsa = input.ayanamsa || "Lahiri";
 
     // 1. Calculate basic Sidereal coordinates and Panchang
@@ -915,7 +946,7 @@ const customDetailsHandler = async (req: Request, res: Response) => {
     const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
     const lagnaRasi = Math.floor(lagnaLong / 30.0);
 
-    const moon = panchang.planets.find(p => p.name === "Moon")!;
+    const moon = panchang.planets.find(p => p.id === "moon")!;
     const doshas = AstrologyService.detectDoshas(panchang.planets, lagnaLong, lang);
 
     // 2. Map precisely to the requested schema fields
@@ -928,19 +959,19 @@ const customDetailsHandler = async (req: Request, res: Response) => {
     const planetsOfInterest = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"];
     const planet_positions: Record<string, any> = {};
     planetsOfInterest.forEach(name => {
-      const p = panchang.planets.find(item => item.name === name);
+      const p = panchang.planets.find(item => item.id === name.toLowerCase());
       if (p) {
         planet_positions[name] = {
           planet: p.name,
-          localized_name: translatePlanet(p.name, lang),
+          localized_name: p.name.en,
           longitude: p.longitude,
           rasi_index: p.rasiIndex,
-          rasi_name: p.rasiName,
+          rasi_name: p.rasi.name.en,
           rasi_localized: translateRashi(p.rasiIndex, lang),
           degree: p.degree,
           sign_degree: p.signDegree,
           house: p.house,
-          nakshatra_name: p.nakshatraName,
+          nakshatra_name: p.nakshatra.name.en,
           nakshatra_localized: translateNakshatra(p.nakshatraIndex, lang),
           pada: p.pada,
           is_retrograde: p.isRetrograde
@@ -1032,11 +1063,11 @@ const customDetailsHandler = async (req: Request, res: Response) => {
       const calculatedHouse = (p.signIndex - lagnaNavRasi + 12) % 12 + 1;
       return {
         planet: p.planet,
-        localized_planet: p.localizedPlanet,
+        localized_planet: p.planet.name.en,
         longitude: p.longitude,
         rasi_index: p.signIndex,
-        rasi_name: p.signName,
-        rasi_localized: p.signLocalizedName,
+        rasi_name: p.sign.name.en,
+        rasi_localized: p.sign.name.en,
         house: calculatedHouse
       };
     }) || [];
@@ -1044,11 +1075,11 @@ const customDetailsHandler = async (req: Request, res: Response) => {
     const chart_data = {
       D1: makeUIChartData(d1Chart?.points.map(p => ({
         planet: p.planet,
-        localized_planet: p.localizedPlanet,
+        localized_planet: p.planet.name.en,
         longitude: p.longitude,
         rasi_index: p.signIndex,
-        rasi_name: p.signName,
-        rasi_localized: p.signLocalizedName,
+        rasi_name: p.sign.name.en,
+        rasi_localized: p.sign.name.en,
         house: p.house
       })) || [], lagnaRasi),
       D9: makeUIChartData(d9PointsRecalculated, lagnaNavRasi),
@@ -1081,29 +1112,5 @@ const customDetailsHandler = async (req: Request, res: Response) => {
 
 router.post("/horoscope/custom-details", customDetailsHandler);
 router.post("/custom-details", customDetailsHandler);
-
-// 15. Deep Vedic & Astronomical Math Assertions test suite (105 positive & negative cases)
-const testSuiteHandler = (req: Request, res: Response) => {
-  try {
-    const rawCases = req.query.cases || req.body.cases;
-    let casesCount = 105;
-    if (rawCases) {
-      const parsed = parseInt(rawCases as string, 10);
-      if (!isNaN(parsed) && parsed > 0) {
-        casesCount = Math.min(parsed, 50000); // Guarded to max 50,000 cases to prevent server crash
-      }
-    }
-    const report = AstrologyTestSuite.runAllTests(casesCount);
-    res.json({
-      success: true,
-      ...report
-    });
-  } catch (error: any) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
-
-router.get("/test-suite", testSuiteHandler);
-router.post("/test-suite", testSuiteHandler);
 
 export default router;

@@ -1,0 +1,3 @@
+Thus we should divide time in the space of Sun’s longitude when dividing dasas upto praana-antardasas or deha-antardasas. Then only correct results will be obtained. A _free_ software program for computers using Microsoft Windows operating systems can be downloaded at **<u>http://www.VedicAstrologer.org</u>** <u>. Given the birthdata and the</u> start year and length of a mahadasa, this software program can divide the mahadasa upto the level of deha-antardasas using Sun’s longitude as the measure of time. 
+
+#### **18.7 Conclusion**
