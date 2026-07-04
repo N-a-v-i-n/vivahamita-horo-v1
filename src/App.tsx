@@ -334,8 +334,8 @@ export default function App() {
           boyHoroscope: boyHoroscope.data || boyHoroscope,
           girlHoroscope: girlHoroscope.data || girlHoroscope,
         });
-      } else if ((activeDoc.path === "/horoscope-v2" || activeDoc.path === "/matching-v2") && data.pdf?.url) {
-        setPdfData(data.pdf.url);
+      } else if ((activeDoc.path === "/horoscope-v2" || activeDoc.path === "/matching-v2") && data.pdf?.base64) {
+        setPdfData(data.pdf.base64);
       } else {
         setPdfData(null);
       }
@@ -523,15 +523,20 @@ export default function App() {
                 )}
 
                 {(activeDoc.path === "/horoscope-v2" || activeDoc.path === "/matching-v2") && pdfData && typeof pdfData === 'string' && (
-                  <a
-                    href={window.location.origin + pdfData}
-                    target="_blank"
-                    rel="noreferrer"
+                  <button
+                    onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = `data:application/pdf;base64,${pdfData}`;
+                      link.download = `Vivahamitra-${activeDoc.path.replace('/', '')}-${Date.now()}.pdf`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
                     className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-sm rounded-lg shadow-lg shadow-emerald-900/20 transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
                   >
                     <Download className="w-4 h-4" />
                     Download PDF
-                  </a>
+                  </button>
                 )}
 
                 <button

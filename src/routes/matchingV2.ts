@@ -99,10 +99,10 @@ matchingV2Router.post("/", async (req: Request, res: Response) => {
     // 4. Generate the PDF
     if (input.pdfRequested) {
       try {
-        const pdfData = await PdfMatchingService.generateMatchingPdf(responseData, lang);
+        const pdfData = await PdfMatchingService.generateMatchingPdf(response.data, lang);
         response.pdf = {
           generated: true,
-          url: pdfData.url,
+          base64: pdfData.base64,
           fileName: pdfData.fileName,
           generatedAt: new Date().toISOString()
         };

@@ -37,7 +37,7 @@ horoscopeV2Router.post("/", async (req: Request, res: Response) => {
       
       response.pdf = {
         generated: true,
-        url: pdfData.url,
+        base64: pdfData.base64,
         fileName: pdfData.fileName,
         generatedAt: new Date().toISOString()
       };

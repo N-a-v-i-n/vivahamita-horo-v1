@@ -11,25 +11,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export class PdfMatchingService {
-  public static async generateMatchingPdf(data: MatchingV2ResponseData, lang: string = 'en'): Promise<{ url: string, fileName: string }> {
+  public static async generateMatchingPdf(data: MatchingV2ResponseData, lang: string = 'en'): Promise<{ base64: string, fileName: string }> {
     const timestamp = Date.now();
     const fileName = `matching-${data.boyHoroscope.birthDetails.name.replace(/\s+/g, '')}-${data.girlHoroscope.birthDetails.name.replace(/\s+/g, '')}-${timestamp}.pdf`;
     
-    const reportsDir = path.join(__dirname, '..', '..', 'public', 'reports');
-    if (!fs.existsSync(reportsDir)) {
-      fs.mkdirSync(reportsDir, { recursive: true });
-    }
-    const filePath = path.join(reportsDir, fileName);
-
     const htmlContent = this.buildHtmlTemplate(data, lang);
 
     const browser = await BrowserManager.getBrowser();
-
     const page = await browser.newPage();
     await page.setContent(htmlContent, { waitUntil: 'load' });
     
-    await page.pdf({
-      path: filePath,
+    const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true,
       displayHeaderFooter: true,
@@ -51,8 +43,11 @@ export class PdfMatchingService {
     });
 
     await page.close();
-    const url = `/reports/${fileName}`;
-    return { url, fileName };
+    
+    const bufferData = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);
+    const base64 = bufferData.toString('base64');
+    
+    return { base64, fileName };
   }
 
   private static buildHtmlTemplate(data: MatchingV2ResponseData, lang: string): string {

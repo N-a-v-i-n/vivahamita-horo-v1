@@ -11,30 +11,21 @@ const __dirname = path.dirname(__filename);
 
 export class PdfService {
   /**
-   * Generates a PDF report from the canonical horoscope data and returns a local URL.
+   * Generates a PDF report from the canonical horoscope data and returns a base64 string.
    */
-  public static async generateHoroscopePdf(data: HoroscopeV2ResponseData, lang: string = 'en'): Promise<{ url: string, fileName: string }> {
+  public static async generateHoroscopePdf(data: HoroscopeV2ResponseData, lang: string = 'en'): Promise<{ base64: string, fileName: string }> {
     const timestamp = Date.now();
     const fileName = `horoscope-${data.birthDetails.name.replace(/\s+/g, '_').toLowerCase()}-${timestamp}.pdf`;
     
-    // Ensure public/reports directory exists
-    const reportsDir = path.join(__dirname, '..', '..', 'public', 'reports');
-    if (!fs.existsSync(reportsDir)) {
-      fs.mkdirSync(reportsDir, { recursive: true });
-    }
-    const filePath = path.join(reportsDir, fileName);
-
     const htmlContent = this.buildHtmlTemplate(data, lang);
 
     const browser = await BrowserManager.getBrowser();
-
     const page = await browser.newPage();
     
     // Set content and wait for web fonts to load
     await page.setContent(htmlContent, { waitUntil: 'load' });
     
-    await page.pdf({
-      path: filePath,
+    const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true,
       displayHeaderFooter: true,
@@ -56,13 +47,12 @@ export class PdfService {
     });
 
     await page.close();
-
-    // Since this is a local server, we return a URL mapping to public static files
-    // The server currently serves 'dist' folder statically. We might need to ensure 'public/reports' is served, 
-    // or return a relative URL that the frontend can fetch.
-    const url = `/reports/${fileName}`;
     
-    return { url, fileName };
+    // We cast Buffer to string to satisfy older type definitions if any, though puppeteer returns Uint8Array in newer versions
+    const bufferData = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);
+    const base64 = bufferData.toString('base64');
+    
+    return { base64, fileName };
   }
 
   private static buildHtmlTemplate(data: HoroscopeV2ResponseData, lang: string): string {
