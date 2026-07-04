@@ -6,6 +6,14 @@
       "dest": "api/index.js"
     },
     {
+      "src": "/horoscope-v2(.*)",
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/matching-v2(.*)",
+      "dest": "api/index.js"
+    },
+    {
       "handle": "filesystem"
     },
     {

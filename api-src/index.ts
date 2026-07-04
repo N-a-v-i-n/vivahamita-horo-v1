@@ -5,7 +5,9 @@
 
 import express from "express";
 import dotenv from "dotenv";
-import astrologyRouter from "../src/routes/astrology";
+import astrologyRouter from "../src/routes/astrology.js";
+import { horoscopeV2Router } from "../src/routes/horoscopeV2.js";
+import { matchingV2Router } from "../src/routes/matchingV2.js";
 
 dotenv.config();
 
@@ -25,6 +27,8 @@ app.use((req, res, next) => {
 
 // Mount the core astrological matching router directly
 app.use("/api", astrologyRouter);
+app.use("/horoscope-v2", horoscopeV2Router);
+app.use("/matching-v2", matchingV2Router);
 
 // Base health endpoint for the serverless executor
 app.get("/api/health", (req, res) => {
