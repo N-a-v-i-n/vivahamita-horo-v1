@@ -4,7 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
+  },
+  "overrides": {
+    "swisseph": {
+      "node-gyp": "^13.0.1"
+    }
   },
   "scripts": {
     "dev": "tsx server.ts",
