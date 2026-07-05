@@ -1756,8 +1756,8 @@ export class AstrologyService {
       financeScore: financeScoreObj,
       longevityScore: longevityScoreObj,
       doshaMatching: {
-        boyDoshas: boyDoshas.filter(d => d.hasDosha).map(d => d.name),
-        girlDoshas: girlDoshas.filter(d => d.hasDosha).map(d => d.name),
+        boyDoshas: boyDoshas.filter(d => d.hasDosha).map(d => d.localizedName || d.name),
+        girlDoshas: girlDoshas.filter(d => d.hasDosha).map(d => d.localizedName || d.name),
         hasManglikDoshaConflict,
         isCancelled,
         cancellationDetails: cancellationDetailsStr

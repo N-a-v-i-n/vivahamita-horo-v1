@@ -1,0 +1,18 @@
+{
+  "dignityModifiers": {
+    "EXALTED": "These qualities are expressed with profound natural strength and grace.",
+    "MOOLATRIKONA": "These qualities are expressed powerfully and comfortably.",
+    "OWN_SIGN": "These qualities flow easily and feel deeply at home.",
+    "FRIENDLY": "These qualities are well-supported by the environment.",
+    "NEUTRAL": "These qualities operate moderately depending on effort.",
+    "ENEMY": "These qualities face some friction and require conscious work.",
+    "DEBILITATED": "These qualities require significant persistent effort and structure to fully realize."
+  },
+  "confidenceReasons": {
+    "STRONG_LAGNA": "Strong Lagna Lord",
+    "WEAK_LAGNA": "Weak Lagna Lord",
+    "STRONG_10TH": "Strong 10th lord indicating robust career potential",
+    "STRONG_7TH": "Benefic influences on 7th house",
+    "YOGA_PRESENT": "Presence of auspicious Yoga"
+  }
+}

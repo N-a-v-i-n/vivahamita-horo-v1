@@ -1,0 +1,23 @@
+{
+  "dignity": {
+    "EXALTED": 40,
+    "MOOLATRIKONA": 35,
+    "OWN_SIGN": 30,
+    "FRIENDLY": 15,
+    "NEUTRAL": 0,
+    "ENEMY": -20,
+    "DEBILITATED": -40
+  },
+  "house": {
+    "KENDRA": 20,
+    "TRIKONA": 15,
+    "UPACHAYA": 10,
+    "DUSTHANA": -20
+  },
+  "status": {
+    "VARGOTTAMA": 10,
+    "COMBUST": -15,
+    "RETROGRADE_EXALTED": -10,
+    "RETROGRADE_DEBILITATED": 10
+  }
+}

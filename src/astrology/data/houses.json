@@ -1,0 +1,14 @@
+{
+  "1": { "type": ["KENDRA", "TRIKONA"], "keywords": ["self", "personality", "vitality", "appearance"] },
+  "2": { "type": ["MARAKA"], "keywords": ["wealth", "family", "speech", "values"] },
+  "3": { "type": ["UPACHAYA"], "keywords": ["courage", "siblings", "communication", "skills"] },
+  "4": { "type": ["KENDRA"], "keywords": ["home", "mother", "happiness", "inner peace"] },
+  "5": { "type": ["TRIKONA"], "keywords": ["creativity", "children", "intelligence", "romance"] },
+  "6": { "type": ["DUSTHANA", "UPACHAYA"], "keywords": ["health", "enemies", "service", "daily work"] },
+  "7": { "type": ["KENDRA", "MARAKA"], "keywords": ["partnerships", "marriage", "business", "public"] },
+  "8": { "type": ["DUSTHANA"], "keywords": ["transformation", "secrets", "longevity", "sudden events"] },
+  "9": { "type": ["TRIKONA"], "keywords": ["luck", "dharma", "higher learning", "travel"] },
+  "10": { "type": ["KENDRA", "UPACHAYA"], "keywords": ["career", "karma", "public status", "authority"] },
+  "11": { "type": ["UPACHAYA"], "keywords": ["gains", "networks", "friends", "aspirations"] },
+  "12": { "type": ["DUSTHANA"], "keywords": ["spirituality", "losses", "isolation", "foreign lands"] }
+}

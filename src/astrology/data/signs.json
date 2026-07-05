@@ -1,0 +1,14 @@
+{
+  "Aries": { "modifier": "boldly and energetically", "element": "Fire", "mode": "Cardinal" },
+  "Taurus": { "modifier": "stably and practically", "element": "Earth", "mode": "Fixed" },
+  "Gemini": { "modifier": "adaptably and curiously", "element": "Air", "mode": "Mutable" },
+  "Cancer": { "modifier": "emotionally and nurturingly", "element": "Water", "mode": "Cardinal" },
+  "Leo": { "modifier": "confidently and proudly", "element": "Fire", "mode": "Fixed" },
+  "Virgo": { "modifier": "analytically and methodically", "element": "Earth", "mode": "Mutable" },
+  "Libra": { "modifier": "diplomatically and socially", "element": "Air", "mode": "Cardinal" },
+  "Scorpio": { "modifier": "intensely and secretively", "element": "Water", "mode": "Fixed" },
+  "Sagittarius": { "modifier": "adventurously and philosophically", "element": "Fire", "mode": "Mutable" },
+  "Capricorn": { "modifier": "disciplined and ambitiously", "element": "Earth", "mode": "Cardinal" },
+  "Aquarius": { "modifier": "innovatively and independently", "element": "Air", "mode": "Fixed" },
+  "Pisces": { "modifier": "compassionately and imaginatively", "element": "Water", "mode": "Mutable" }
+}

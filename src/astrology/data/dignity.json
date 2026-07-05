@@ -1,0 +1,47 @@
+{
+  "Sun": {
+    "exalted": "Aries",
+    "debilitated": "Libra",
+    "own": ["Leo"]
+  },
+  "Moon": {
+    "exalted": "Taurus",
+    "debilitated": "Scorpio",
+    "own": ["Cancer"]
+  },
+  "Mars": {
+    "exalted": "Capricorn",
+    "debilitated": "Cancer",
+    "own": ["Aries", "Scorpio"]
+  },
+  "Mercury": {
+    "exalted": "Virgo",
+    "debilitated": "Pisces",
+    "own": ["Gemini", "Virgo"]
+  },
+  "Jupiter": {
+    "exalted": "Cancer",
+    "debilitated": "Capricorn",
+    "own": ["Sagittarius", "Pisces"]
+  },
+  "Venus": {
+    "exalted": "Pisces",
+    "debilitated": "Virgo",
+    "own": ["Taurus", "Libra"]
+  },
+  "Saturn": {
+    "exalted": "Libra",
+    "debilitated": "Aries",
+    "own": ["Capricorn", "Aquarius"]
+  },
+  "Rahu": {
+    "exalted": "Gemini",
+    "debilitated": "Sagittarius",
+    "own": ["Aquarius"]
+  },
+  "Ketu": {
+    "exalted": "Sagittarius",
+    "debilitated": "Gemini",
+    "own": ["Scorpio"]
+  }
+}

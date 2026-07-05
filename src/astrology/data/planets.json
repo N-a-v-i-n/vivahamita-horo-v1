@@ -1,0 +1,11 @@
+{
+  "Sun": { "keywords": ["leadership", "authority", "soul", "career", "vitality"] },
+  "Moon": { "keywords": ["emotions", "mind", "mother", "nurturing", "intuition"] },
+  "Mars": { "keywords": ["energy", "courage", "action", "ambition", "conflict"] },
+  "Mercury": { "keywords": ["intellect", "communication", "logic", "business", "learning"] },
+  "Jupiter": { "keywords": ["wisdom", "expansion", "luck", "teaching", "spirituality"] },
+  "Venus": { "keywords": ["love", "relationships", "luxury", "beauty", "creativity"] },
+  "Saturn": { "keywords": ["discipline", "karma", "patience", "hard work", "delays"] },
+  "Rahu": { "keywords": ["obsession", "innovation", "materialism", "unconventional"] },
+  "Ketu": { "keywords": ["detachment", "spirituality", "liberation", "intuition"] }
+}
