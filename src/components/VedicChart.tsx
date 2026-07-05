@@ -154,14 +154,17 @@ export const VedicChart: React.FC<VedicChartProps> = ({ data, selectedLanguage }
           /* South Indian Rasi Grid */
           <div className="grid grid-cols-4 grid-rows-4 gap-2.5 bg-white p-4 rounded-xl border border-stone-200/80 aspect-square w-full max-w-[420px] text-xs relative select-none shadow-[0_4px_24px_rgba(40,30,20,0.015)]">
             {/* Center block */}
-            <div className="col-start-2 col-span-2 row-start-2 row-span-2 bg-[#FAF8F5]/85 p-3 rounded-lg border border-[#e8dfd3] flex flex-col justify-center items-center text-center">
-              <span className="p-0.5 px-2 bg-[#9C7c5D]/10 text-[#856344] border border-[#e8dfd3] text-[9.5px] font-mono font-bold rounded-full mb-1">
+            <div className="col-start-2 col-span-2 row-start-2 row-span-2 bg-[#FAF8F5]/85 p-3 rounded-lg border border-[#e8dfd3] flex flex-col justify-center items-center text-center relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="text-[#9C7c5D] opacity-10 text-6xl" style={{ fontFamily: "serif" }}>ॐ</span>
+              </div>
+              <span className="relative z-10 p-0.5 px-2 bg-[#9C7c5D]/10 text-[#856344] border border-[#e8dfd3] text-[9.5px] font-mono font-bold rounded-full mb-1">
                 {vargaSelection}
               </span>
-              <span className="font-serif font-bold text-stone-800 text-[11px]" style={{ fontFamily: "Cinzel, serif" }}>
+              <span className="relative z-10 font-serif font-bold text-stone-800 text-[11px]" style={{ fontFamily: "Cinzel, serif" }}>
                 Nirayana Jathakam
               </span>
-              <p className="text-[9px] text-stone-400 mt-1 uppercase font-mono tracking-wider font-semibold">
+              <p className="relative z-10 text-[9px] text-stone-400 mt-1 uppercase font-mono tracking-wider font-semibold">
                 {data.lagna?.signName} Lagna
               </p>
             </div>

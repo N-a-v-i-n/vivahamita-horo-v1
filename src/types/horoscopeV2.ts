@@ -1,3 +1,5 @@
+import { NarrativeOutput } from '../astrology/models/types';
+
 export interface HoroscopeV2Request {
   name?: string;
   gender?: string;
@@ -94,6 +96,8 @@ export interface HoroscopeV2DashaTable {
   vimshottari: HoroscopeV2Mahadasha[];
 }
 
+
+
 export interface HoroscopeV2ResponseData {
   birthDetails: HoroscopeV2BirthDetails;
   panchanga: HoroscopeV2Panchanga;
@@ -103,6 +107,7 @@ export interface HoroscopeV2ResponseData {
   navamsaChart: HoroscopeV2Chart;
   bhavaChart: HoroscopeV2Chart;
   dashaTable: HoroscopeV2DashaTable;
+  analysis?: NarrativeOutput;
 }
 
 export interface HoroscopeV2Metadata {

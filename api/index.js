@@ -4,13 +4,7 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-}) : x)(function(x) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
-  throw Error('Dynamic require of "' + x + '" is not supported');
-});
-var __commonJS = (cb, mod) => function __require2() {
+var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __copyProps = (to, from, except, desc) => {
@@ -30,393 +24,10155 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/merge/lib/src/index.js
-var require_src = __commonJS({
-  "node_modules/merge/lib/src/index.js"(exports, module) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.isPlainObject = exports.clone = exports.recursive = exports.merge = exports.main = void 0;
-    module.exports = exports = main;
-    exports.default = main;
-    function main() {
-      var items = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        items[_i] = arguments[_i];
-      }
-      return merge.apply(void 0, items);
+// node_modules/@indic-transliteration/sanscript/sanscript.js
+var require_sanscript = __commonJS({
+  "node_modules/@indic-transliteration/sanscript/sanscript.js"(exports, module) {
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
     }
-    exports.main = main;
-    main.clone = clone;
-    main.isPlainObject = isPlainObject;
-    main.recursive = recursive;
-    function merge() {
-      var items = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        items[_i] = arguments[_i];
-      }
-      return _merge(items[0] === true, false, items);
-    }
-    exports.merge = merge;
-    function recursive() {
-      var items = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        items[_i] = arguments[_i];
-      }
-      return _merge(items[0] === true, true, items);
-    }
-    exports.recursive = recursive;
-    function clone(input) {
-      if (Array.isArray(input)) {
-        var output = [];
-        for (var index = 0; index < input.length; ++index)
-          output.push(clone(input[index]));
-        return output;
-      } else if (isPlainObject(input)) {
-        var output = {};
-        for (var index in input)
-          output[index] = clone(input[index]);
-        return output;
-      } else {
-        return input;
-      }
-    }
-    exports.clone = clone;
-    function isPlainObject(input) {
-      return input && typeof input === "object" && !Array.isArray(input);
-    }
-    exports.isPlainObject = isPlainObject;
-    function _recursiveMerge(base, extend) {
-      if (!isPlainObject(base))
-        return extend;
-      for (var key in extend) {
-        if (key === "__proto__" || key === "constructor" || key === "prototype")
-          continue;
-        base[key] = isPlainObject(base[key]) && isPlainObject(extend[key]) ? _recursiveMerge(base[key], extend[key]) : extend[key];
-      }
-      return base;
-    }
-    function _merge(isClone, isRecursive, items) {
-      var result;
-      if (isClone || !isPlainObject(result = items.shift()))
-        result = {};
-      for (var index = 0; index < items.length; ++index) {
-        var item = items[index];
-        if (!isPlainObject(item))
-          continue;
-        for (var key in item) {
-          if (key === "__proto__" || key === "constructor" || key === "prototype")
-            continue;
-          var value = isClone ? clone(item[key]) : item[key];
-          result[key] = isRecursive ? _recursiveMerge(result[key], value) : value;
+    function _createForOfIteratorHelper(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (!it) {
+        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+          if (it) o = it;
+          var i = 0;
+          var F = function F2() {
+          };
+          return { s: F, n: function n() {
+            if (i >= o.length) return { done: true };
+            return { done: false, value: o[i++] };
+          }, e: function e(_e2) {
+            throw _e2;
+          }, f: F };
         }
+        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
       }
-      return result;
+      var normalCompletion = true, didErr = false, err;
+      return { s: function s() {
+        it = it.call(o);
+      }, n: function n() {
+        var step = it.next();
+        normalCompletion = step.done;
+        return step;
+      }, e: function e(_e3) {
+        didErr = true;
+        err = _e3;
+      }, f: function f() {
+        try {
+          if (!normalCompletion && it.return != null) it.return();
+        } finally {
+          if (didErr) throw err;
+        }
+      } };
     }
-  }
-});
-
-// node_modules/swisseph/lib/swisseph.js
-var require_swisseph = __commonJS({
-  "node_modules/swisseph/lib/swisseph.js"(exports, module) {
-    var swisseph2 = __require(__dirname + "/../build/Release/swisseph.node");
-    var merge = require_src();
-    swisseph2.SE_AUNIT_TO_KM = 1495978707e-1;
-    swisseph2.SE_AUNIT_TO_LIGHTYEAR = 1 / 63241.07708427;
-    swisseph2.SE_AUNIT_TO_PARSEC = 1 / 206264.8062471;
-    swisseph2.SE_JUL_CAL = 0;
-    swisseph2.SE_GREG_CAL = 1;
-    swisseph2.SE_ECL_NUT = -1;
-    swisseph2.SE_SUN = 0;
-    swisseph2.SE_MOON = 1;
-    swisseph2.SE_MERCURY = 2;
-    swisseph2.SE_VENUS = 3;
-    swisseph2.SE_EARTH = 14;
-    swisseph2.SE_MARS = 4;
-    swisseph2.SE_JUPITER = 5;
-    swisseph2.SE_SATURN = 6;
-    swisseph2.SE_URANUS = 7;
-    swisseph2.SE_NEPTUNE = 8;
-    swisseph2.SE_PLUTO = 9;
-    swisseph2.SE_MEAN_NODE = 10;
-    swisseph2.SE_TRUE_NODE = 11;
-    swisseph2.SE_MEAN_APOG = 12;
-    swisseph2.SE_OSCU_APOG = 13;
-    swisseph2.SE_INTP_APOG = 21;
-    swisseph2.SE_INTP_PERG = 22;
-    swisseph2.SE_CHIRON = 15;
-    swisseph2.SE_PHOLUS = 16;
-    swisseph2.SE_CERES = 17;
-    swisseph2.SE_PALLAS = 18;
-    swisseph2.SE_JUNO = 19;
-    swisseph2.SE_VESTA = 20;
-    swisseph2.SE_NPLANETS = 23;
-    swisseph2.SE_AST_OFFSET = 1e4;
-    swisseph2.SE_VARUNA = swisseph2.SE_AST_OFFSET + 2e4;
-    swisseph2.SE_FICT_OFFSET = 40;
-    swisseph2.SE_FICT_OFFSET_1 = 39;
-    swisseph2.SE_FICT_MAX = 999;
-    swisseph2.SE_NFICT_ELEM = 15;
-    swisseph2.SE_COMET_OFFSET = 1e3;
-    swisseph2.SE_NALL_NAT_POINTS = swisseph2.SE_NPLANETS + swisseph2.SE_NFICT_ELEM;
-    swisseph2.SE_CUPIDO = 40;
-    swisseph2.SE_HADES = 41;
-    swisseph2.SE_ZEUS = 42;
-    swisseph2.SE_KRONOS = 43;
-    swisseph2.SE_APOLLON = 44;
-    swisseph2.SE_ADMETOS = 45;
-    swisseph2.SE_VULKANUS = 46;
-    swisseph2.SE_POSEIDON = 47;
-    swisseph2.SE_ISIS = 48;
-    swisseph2.SE_NIBIRU = 49;
-    swisseph2.SE_HARRINGTON = 50;
-    swisseph2.SE_NEPTUNE_LEVERRIER = 51;
-    swisseph2.SE_NEPTUNE_ADAMS = 52;
-    swisseph2.SE_PLUTO_LOWELL = 53;
-    swisseph2.SE_PLUTO_PICKERING = 54;
-    swisseph2.SE_VULCAN = 55;
-    swisseph2.SE_WHITE_MOON = 56;
-    swisseph2.SE_PROSERPINA = 57;
-    swisseph2.SE_WALDEMATH = 58;
-    swisseph2.SE_FIXSTAR = -10;
-    swisseph2.SE_ASC = 0;
-    swisseph2.SE_MC = 1;
-    swisseph2.SE_ARMC = 2;
-    swisseph2.SE_VERTEX = 3;
-    swisseph2.SE_EQUASC = 4;
-    swisseph2.SE_COASC1 = 5;
-    swisseph2.SE_COASC2 = 6;
-    swisseph2.SE_POLASC = 7;
-    swisseph2.SE_NASCMC = 8;
-    swisseph2.SEFLG_JPLEPH = 1;
-    swisseph2.SEFLG_SWIEPH = 2;
-    swisseph2.SEFLG_MOSEPH = 4;
-    swisseph2.SEFLG_HELCTR = 8;
-    swisseph2.SEFLG_TRUEPOS = 16;
-    swisseph2.SEFLG_J2000 = 32;
-    swisseph2.SEFLG_NONUT = 64;
-    swisseph2.SEFLG_SPEED3 = 128;
-    swisseph2.SEFLG_SPEED = 256;
-    swisseph2.SEFLG_NOGDEFL = 512;
-    swisseph2.SEFLG_NOABERR = 1024;
-    swisseph2.SEFLG_ASTROMETRIC = swisseph2.SEFLG_NOABERR | swisseph2.SEFLG_NOGDEFL;
-    swisseph2.SEFLG_EQUATORIAL = 2 * 1024;
-    swisseph2.SEFLG_XYZ = 4 * 1024;
-    swisseph2.SEFLG_RADIANS = 8 * 1024;
-    swisseph2.SEFLG_BARYCTR = 16 * 1024;
-    swisseph2.SEFLG_TOPOCTR = 32 * 1024;
-    swisseph2.SEFLG_ORBEL_AA = swisseph2.SEFLG_TOPOCTR;
-    swisseph2.SEFLG_SIDEREAL = 64 * 1024;
-    swisseph2.SEFLG_ICRS = 128 * 1024;
-    swisseph2.SEFLG_DPSIDEPS_1980 = 256 * 1024;
-    swisseph2.SEFLG_JPLHOR = swisseph2.SEFLG_DPSIDEPS_1980;
-    swisseph2.SEFLG_JPLHOR_APPROX = 512 * 1024;
-    swisseph2.SE_SIDBITS = 256;
-    swisseph2.SE_SIDBIT_ECL_T0 = 256;
-    swisseph2.SE_SIDBIT_SSY_PLANE = 512;
-    swisseph2.SE_SIDBIT_USER_UT = 1024;
-    swisseph2.SE_SIDM_FAGAN_BRADLEY = 0;
-    swisseph2.SE_SIDM_LAHIRI = 1;
-    swisseph2.SE_SIDM_DELUCE = 2;
-    swisseph2.SE_SIDM_RAMAN = 3;
-    swisseph2.SE_SIDM_USHASHASHI = 4;
-    swisseph2.SE_SIDM_KRISHNAMURTI = 5;
-    swisseph2.SE_SIDM_DJWHAL_KHUL = 6;
-    swisseph2.SE_SIDM_YUKTESHWAR = 7;
-    swisseph2.SE_SIDM_JN_BHASIN = 8;
-    swisseph2.SE_SIDM_BABYL_KUGLER1 = 9;
-    swisseph2.SE_SIDM_BABYL_KUGLER2 = 10;
-    swisseph2.SE_SIDM_BABYL_KUGLER3 = 11;
-    swisseph2.SE_SIDM_BABYL_HUBER = 12;
-    swisseph2.SE_SIDM_BABYL_ETPSC = 13;
-    swisseph2.SE_SIDM_ALDEBARAN_15TAU = 14;
-    swisseph2.SE_SIDM_HIPPARCHOS = 15;
-    swisseph2.SE_SIDM_SASSANIAN = 16;
-    swisseph2.SE_SIDM_GALCENT_0SAG = 17;
-    swisseph2.SE_SIDM_J2000 = 18;
-    swisseph2.SE_SIDM_J1900 = 19;
-    swisseph2.SE_SIDM_B1950 = 20;
-    swisseph2.SE_SIDM_SURYASIDDHANTA = 21;
-    swisseph2.SE_SIDM_SURYASIDDHANTA_MSUN = 22;
-    swisseph2.SE_SIDM_ARYABHATA = 23;
-    swisseph2.SE_SIDM_ARYABHATA_MSUN = 24;
-    swisseph2.SE_SIDM_SS_REVATI = 25;
-    swisseph2.SE_SIDM_SS_CITRA = 26;
-    swisseph2.SE_SIDM_TRUE_CITRA = 27;
-    swisseph2.SE_SIDM_TRUE_REVATI = 28;
-    swisseph2.SE_SIDM_TRUE_PUSHYA = 29;
-    swisseph2.SE_SIDM_GALCENT_RGILBRAND = 30;
-    swisseph2.SE_SIDM_GALEQU_IAU1958 = 31;
-    swisseph2.SE_SIDM_GALEQU_TRUE = 32;
-    swisseph2.SE_SIDM_GALEQU_MULA = 33;
-    swisseph2.SE_SIDM_GALALIGN_MARDYKS = 34;
-    swisseph2.SE_SIDM_TRUE_MULA = 35;
-    swisseph2.SE_SIDM_GALCENT_MULA_WILHELM = 36;
-    swisseph2.SE_SIDM_ARYABHATA_522 = 37;
-    swisseph2.SE_SIDM_BABYL_BRITTON = 38;
-    swisseph2.SE_SIDM_TRUE_SHEORAN = 39;
-    swisseph2.SE_SIDM_GALCENT_COCHRANE = 40;
-    swisseph2.SE_SIDM_GALEQU_FIORENZA = 41;
-    swisseph2.SE_SIDM_VALENS_MOON = 42;
-    swisseph2.SE_SIDM_USER = 255;
-    swisseph2.SE_NSIDM_PREDEF = 43;
-    swisseph2.SE_NODBIT_MEAN = 1;
-    swisseph2.SE_NODBIT_OSCU = 2;
-    swisseph2.SE_NODBIT_OSCU_BAR = 4;
-    swisseph2.SE_NODBIT_FOPOINT = 256;
-    swisseph2.SEFLG_DEFAULTEPH = swisseph2.SEFLG_SWIEPH;
-    swisseph2.SE_MAX_STNAME = 256;
-    swisseph2.SE_ECL_CENTRAL = 1;
-    swisseph2.SE_ECL_NONCENTRAL = 2;
-    swisseph2.SE_ECL_TOTAL = 4;
-    swisseph2.SE_ECL_ANNULAR = 8;
-    swisseph2.SE_ECL_PARTIAL = 16;
-    swisseph2.SE_ECL_ANNULAR_TOTAL = 32;
-    swisseph2.SE_ECL_PENUMBRAL = 64;
-    swisseph2.SE_ECL_ALLTYPES_SOLAR = swisseph2.SE_ECL_CENTRAL | swisseph2.SE_ECL_NONCENTRAL | swisseph2.SE_ECL_TOTAL | swisseph2.SE_ECL_ANNULAR | swisseph2.SE_ECL_PARTIAL | swisseph2.SE_ECL_ANNULAR_TOTAL;
-    swisseph2.SE_ECL_ALLTYPES_LUNAR = swisseph2.SE_ECL_TOTAL | swisseph2.SE_ECL_PARTIAL | swisseph2.SE_ECL_PENUMBRAL;
-    swisseph2.SE_ECL_VISIBLE = 128;
-    swisseph2.SE_ECL_MAX_VISIBLE = 256;
-    swisseph2.SE_ECL_1ST_VISIBLE = 512;
-    swisseph2.SE_ECL_PARTBEG_VISIBLE = 512;
-    swisseph2.SE_ECL_2ND_VISIBLE = 1024;
-    swisseph2.SE_ECL_TOTBEG_VISIBLE = 1024;
-    swisseph2.SE_ECL_3RD_VISIBLE = 2048;
-    swisseph2.SE_ECL_TOTEND_VISIBLE = 2048;
-    swisseph2.SE_ECL_4TH_VISIBLE = 4096;
-    swisseph2.SE_ECL_PARTEND_VISIBLE = 4096;
-    swisseph2.SE_ECL_PENUMBBEG_VISIBLE = 8192;
-    swisseph2.SE_ECL_PENUMBEND_VISIBLE = 16384;
-    swisseph2.SE_ECL_OCC_BEG_DAYLIGHT = 8192;
-    swisseph2.SE_ECL_OCC_END_DAYLIGHT = 16384;
-    swisseph2.SE_ECL_ONE_TRY = 32 * 1024;
-    swisseph2.SE_CALC_RISE = 1;
-    swisseph2.SE_CALC_SET = 2;
-    swisseph2.SE_CALC_MTRANSIT = 4;
-    swisseph2.SE_CALC_ITRANSIT = 8;
-    swisseph2.SE_BIT_DISC_CENTER = 256;
-    swisseph2.SE_BIT_DISC_BOTTOM = 8192;
-    swisseph2.SE_BIT_GEOCTR_NO_ECL_LAT = 128;
-    swisseph2.SE_BIT_NO_REFRACTION = 512;
-    swisseph2.SE_BIT_CIVIL_TWILIGHT = 1024;
-    swisseph2.SE_BIT_NAUTIC_TWILIGHT = 2048;
-    swisseph2.SE_BIT_ASTRO_TWILIGHT = 4096;
-    swisseph2.SE_BIT_FIXED_DISC_SIZE = 16 * 1024;
-    swisseph2.SE_ECL2HOR = 0;
-    swisseph2.SE_EQU2HOR = 1;
-    swisseph2.SE_HOR2ECL = 0;
-    swisseph2.SE_HOR2EQU = 1;
-    swisseph2.SE_TRUE_TO_APP = 0;
-    swisseph2.SE_APP_TO_TRUE = 1;
-    swisseph2.SE_SPLIT_DEG_ROUND_SEC = 1;
-    swisseph2.SE_SPLIT_DEG_ROUND_MIN = 2;
-    swisseph2.SE_SPLIT_DEG_ROUND_DEG = 4;
-    swisseph2.SE_SPLIT_DEG_ZODIACAL = 8;
-    swisseph2.SE_SPLIT_DEG_NAKSHATRA = 1024;
-    swisseph2.SE_SPLIT_DEG_KEEP_SIGN = 16;
-    swisseph2.SE_SPLIT_DEG_KEEP_DEG = 32;
-    swisseph2.SE_HELIACAL_RISING = 1;
-    swisseph2.SE_HELIACAL_SETTING = 2;
-    swisseph2.SE_MORNING_FIRST = swisseph2.SE_HELIACAL_RISING;
-    swisseph2.SE_EVENING_LAST = swisseph2.SE_HELIACAL_SETTING;
-    swisseph2.SE_EVENING_FIRST = 3;
-    swisseph2.SE_MORNING_LAST = 4;
-    swisseph2.SE_ACRONYCHAL_RISING = 5;
-    swisseph2.SE_ACRONYCHAL_SETTING = 6;
-    swisseph2.SE_COSMICAL_SETTING = swisseph2.SE_ACRONYCHAL_SETTING;
-    swisseph2.SE_HELFLAG_LONG_SEARCH = 128;
-    swisseph2.SE_HELFLAG_HIGH_PRECISION = 256;
-    swisseph2.SE_HELFLAG_OPTICAL_PARAMS = 512;
-    swisseph2.SE_HELFLAG_NO_DETAILS = 1024;
-    swisseph2.SE_HELFLAG_SEARCH_1_PERIOD = 1 << 11;
-    swisseph2.SE_HELFLAG_VISLIM_DARK = 1 << 12;
-    swisseph2.SE_HELFLAG_VISLIM_NOMOON = 1 << 13;
-    swisseph2.SE_HELFLAG_VISLIM_PHOTOPIC = 1 << 14;
-    swisseph2.SE_HELFLAG_AVKIND_VR = 1 << 15;
-    swisseph2.SE_HELFLAG_AVKIND_PTO = 1 << 16;
-    swisseph2.SE_HELFLAG_AVKIND_MIN7 = 1 << 17;
-    swisseph2.SE_HELFLAG_AVKIND_MIN9 = 1 << 18;
-    swisseph2.SE_HELFLAG_AVKIND = swisseph2.SE_HELFLAG_AVKIND_VR | swisseph2.SE_HELFLAG_AVKIND_PTO | swisseph2.SE_HELFLAG_AVKIND_MIN7 | swisseph2.SE_HELFLAG_AVKIND_MIN9;
-    swisseph2.TJD_INVALID = 99999999;
-    swisseph2.SIMULATE_VICTORVB = 1;
-    swisseph2.SE_PHOTOPIC_FLAG = 0;
-    swisseph2.SE_SCOTOPIC_FLAG = 1;
-    swisseph2.SE_MIXEDOPIC_FLAG = 2;
-    swisseph2.ephemeris = {
-      "swisseph": swisseph2.SEFLG_SWIEPH,
-      "moshier": swisseph2.SEFLG_MOSEPH,
-      "de200": "de200.eph",
-      "de405": "de405.eph",
-      "de406": "de406.eph",
-      "de406e": "de406e.eph",
-      "de414": "de414.eph",
-      "de421": "de421.eph",
-      "de422": "de422.eph",
-      "de430": "de430.eph",
-      "de431": "de431.eph"
-    };
-    swisseph2.calc = function(options, callback) {
-      var flags;
-      flags = swisseph2.SEFLG_SPEED;
-      var date;
-      options.date.gregorian = options.date.gregorian || {};
-      options.date.julian = options.date.julian || {};
-      if (options.date.gregorian.terrestrial) {
-        date = options.date.gregorian.terrestrial;
-        options.date.julian.terrestrial = swisseph2.swe_julday(date.year, date.month, date.day, date.hour, swisseph2.SE_GREG_CAL);
-        options.date.julian.delta = swisseph2.swe_deltat(options.date.julian.terrestrial).delta;
-        options.date.julian.universal = options.date.julian.terrestrial - options.date.julian.delta;
-        options.date.gregorian.universal = options.date.gregorian.universal || {};
-        merge(options.date.gregorian.universal, swisseph2.swe_revjul(options.date.julian.universal, swisseph2.SE_GREG_CAL));
-      } else if (options.date.gregorian.universal) {
-        date = options.date.gregorian.universal;
-        options.date.julian.universal = swisseph2.swe_julday(date.year, date.month, date.day, date.hour, swisseph2.SE_GREG_CAL);
-        options.date.julian.delta = swisseph2.swe_deltat(options.date.julian.universal).delta;
-        options.date.julian.terrestrial = options.date.julian.universal + options.date.julian.delta;
-        options.date.gregorian.terrestrial = options.date.gregorian.terrestrial || {};
-        merge(options.date.gregorian.terrestrial, swisseph2.swe_revjul(options.date.julian.terrestrial, swisseph2.SE_GREG_CAL));
-      } else if (options.date.julian.terrestrial) {
-        options.date.julian.delta = swisseph2.swe_deltat(options.date.julian.terrestrial).delta;
-        options.date.julian.universal = options.date.julian.terrestrial - options.date.julian.delta;
-        options.date.gregorian.universal = options.date.gregorian.universal || {};
-        options.date.gregorian.terrestrial = options.date.gregorian.terrestrial || {};
-        merge(options.date.gregorian.terrestrial, swisseph2.swe_revjul(options.date.julian.terrestrial, swisseph2.SE_GREG_CAL));
-        merge(options.date.gregorian.universal, swisseph2.swe_revjul(options.date.julian.universal, swisseph2.SE_GREG_CAL));
-      } else if (options.date.julian.universal) {
-        options.date.julian.delta = swisseph2.swe_deltat(options.date.julian.universal).delta;
-        options.date.julian.terrestrial = options.date.julian.universal + options.date.julian.delta;
-        options.date.gregorian.universal = options.date.gregorian.universal || {};
-        options.date.gregorian.terrestrial = options.date.gregorian.terrestrial || {};
-        merge(options.date.gregorian.terrestrial, swisseph2.swe_revjul(options.date.julian.terrestrial, swisseph2.SE_GREG_CAL));
-        merge(options.date.gregorian.universal, swisseph2.swe_revjul(options.date.julian.universal, swisseph2.SE_GREG_CAL));
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o) return;
+      if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor) n = o.constructor.name;
+      if (n === "Map" || n === "Set") return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length) len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+      if (null != _i) {
+        var _s, _e, _x, _r, _arr = [], _n = true, _d = false;
+        try {
+          if (_x = (_i = _i.call(arr)).next, 0 === i) {
+            if (Object(_i) !== _i) return;
+            _n = false;
+          } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = true) ;
+        } catch (err) {
+          _d = true, _e = err;
+        } finally {
+          try {
+            if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return;
+          } finally {
+            if (_d) throw _e;
+          }
+        }
+        return _arr;
       }
-      options.date.gregorian.delta = options.date.julian.delta * 86400;
-      options.body.name = swisseph2.swe_get_planet_name(parseInt(options.body.id)).name;
-      options.observer.ephemeris = options.observer.ephemeris || "moshier";
-      if (swisseph2.ephemeris[options.observer.ephemeris].length) {
-        flags |= swisseph2.SEFLG_JPLEPH;
-        swisseph2.swe_set_jpl_file(swisseph2.ephemeris[options.observer.ephemeris]);
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr)) return arr;
+    }
+    var schemes = {};
+    schemes.ahom = {
+      "vowels": {
+        "\u0905": "\u{11712}",
+        "\u0906": "\u{11712}\u{11721}",
+        "\u0907": "\u{11712}\u{11722}",
+        "\u0908": "\u{11712}\u{11723}",
+        "\u0909": "\u{11712}\u{11724}",
+        "\u090A": "\u{11712}\u{11725}",
+        "\u090B": "\u{1170D}\u{11724}",
+        "\u0960": "\u{1170D}\u{11725}",
+        "\u090C": "\u{1170E}\u{11724}",
+        "\u0961": "\u{1170E}\u{11725}",
+        "\u090E": "\u{11712}\u{11726}",
+        "\u090F": "\u{11712}\u{11726}",
+        "\u0910": "\u{11712}\u{11729}",
+        "\u0912": "\u{11712}\u{11728}",
+        "\u0913": "\u{11712}\u{11728}",
+        "\u0914": "\u{11712}\u{11727}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11721}",
+        "\u093F": "\u{11722}",
+        "\u0940": "\u{11723}",
+        "\u0941": "\u{11724}",
+        "\u0942": "\u{11725}",
+        "\u0943": "\u{1171E}\u{11724}",
+        "\u0944": "\u{1171E}\u{11725}",
+        "\u0962": "\u{1171D}\u{11724}",
+        "\u0963": "\u{1171D}\u{11725}",
+        "\u0946": "\u{11726}",
+        "\u0947": "\u{11726}",
+        "\u0948": "\u{11729}",
+        "\u094A": "\u{11728}",
+        "\u094B": "\u{11728}",
+        "\u094C": "\u{11727}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{1172A}",
+        "\u0903": "\u{11711}\u{1172B}",
+        "\u0901": "\u{1172A}"
+      },
+      "virama": {
+        "\u094D": "\u{1172B}"
+      },
+      "consonants": {
+        "\u0915": "\u{11700}",
+        "\u0916": "\u{11701}",
+        "\u0917": "\u{11715}",
+        "\u0918": "\u{11717}",
+        "\u0919": "\u{11702}",
+        "\u091A": "\u{1170B}",
+        "\u091B": "\u{1170B}",
+        "\u091C": "\u{1170A}",
+        "\u091D": "\u{11719}",
+        "\u091E": "\u{11710}",
+        "\u091F": "\u{11704}",
+        "\u0920": "\u{1170C}",
+        "\u0921": "\u{11713}",
+        "\u0922": "\u{11714}",
+        "\u0923": "\u{11703}",
+        "\u0924": "\u{11704}",
+        "\u0925": "\u{1170C}",
+        "\u0926": "\u{11713}",
+        "\u0927": "\u{11714}",
+        "\u0928": "\u{11703}",
+        "\u092A": "\u{11706}",
+        "\u092B": "\u{11707}",
+        "\u092C": "\u{11708}",
+        "\u092D": "\u{11718}",
+        "\u092E": "\u{11709}",
+        "\u092F": "\u{1170A}",
+        "\u0930": "\u{1170D}",
+        "\u0932": "\u{1170E}",
+        "\u0935": "\u{11708}",
+        "\u0936": "\u{1170F}",
+        "\u0937": "\u{1170F}",
+        "\u0938": "\u{1170F}",
+        "\u0939": "\u{11711}",
+        "\u0933": "\u{1170E}",
+        "\u0915\u094D\u0937": "\u{11700}\u{1172B}\u{1170F}",
+        "\u091C\u094D\u091E": "\u{1170A}\u{1172B}\u{11710}"
+      },
+      "symbols": {
+        "\u0966": "\u{11730}",
+        "\u0967": "\u{11731}",
+        "\u0968": "\u{11732}",
+        "\u0969": "\u{11733}",
+        "\u096A": "\u{11734}",
+        "\u096B": "\u{11735}",
+        "\u096C": "\u{11736}",
+        "\u096D": "\u{11737}",
+        "\u096E": "\u{11738}",
+        "\u096F": "\u{11739}",
+        "\u0950": "\u{11712}\u{1172A}\u{11728}",
+        "\u093D": "'",
+        "\u0964": "\u{1173C}",
+        "\u0965": "\u{1173D}"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11726}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11700}",
+        "\u0959": "\u{11701}",
+        "\u095A": "\u{11715}",
+        "\u095B": "\u{1170A}",
+        "\u095C": "\u{11713}",
+        "\u0922\u093C": "\u{11714}",
+        "\u095E": "\u{11707}",
+        "\u095F": "\u{1170A}",
+        "\u0931": "\u{1170D}"
+      }
+    };
+    schemes.assamese = {
+      "vowels": {
+        "\u0905": "\u0985",
+        "\u0906": "\u0986",
+        "\u0907": "\u0987",
+        "\u0908": "\u0988",
+        "\u0909": "\u0989",
+        "\u090A": "\u098A",
+        "\u090B": "\u098B",
+        "\u0960": "\u09E0",
+        "\u090C": "\u098C",
+        "\u0961": "\u09E1",
+        "\u090E": "\u090E",
+        "\u090F": "\u098F",
+        "\u0910": "\u0990",
+        "\u0912": "\u0912",
+        "\u0913": "\u0993",
+        "\u0914": "\u0994"
+      },
+      "vowel_marks": {
+        "\u093E": "\u09BE",
+        "\u093F": "\u09BF",
+        "\u0940": "\u09C0",
+        "\u0941": "\u09C1",
+        "\u0942": "\u09C2",
+        "\u0943": "\u09C3",
+        "\u0944": "\u09C4",
+        "\u0962": "\u09E2",
+        "\u0963": "\u09E3",
+        "\u0946": "\u0946",
+        "\u0947": "\u09C7",
+        "\u0948": "\u09C8",
+        "\u094A": "\u094A",
+        "\u094B": "\u09CB",
+        "\u094C": "\u09CC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0982",
+        "\u0903": "\u0983",
+        "\u0901": "\u0981"
+      },
+      "virama": {
+        "\u094D": "\u09CD"
+      },
+      "consonants": {
+        "\u0915": "\u0995",
+        "\u0916": "\u0996",
+        "\u0917": "\u0997",
+        "\u0918": "\u0998",
+        "\u0919": "\u0999",
+        "\u091A": "\u099A",
+        "\u091B": "\u099B",
+        "\u091C": "\u099C",
+        "\u091D": "\u099D",
+        "\u091E": "\u099E",
+        "\u091F": "\u099F",
+        "\u0920": "\u09A0",
+        "\u0921": "\u09A1",
+        "\u0922": "\u09A2",
+        "\u0923": "\u09A3",
+        "\u0924": "\u09A4",
+        "\u0925": "\u09A5",
+        "\u0926": "\u09A6",
+        "\u0927": "\u09A7",
+        "\u0928": "\u09A8",
+        "\u092A": "\u09AA",
+        "\u092B": "\u09AB",
+        "\u092C": "\u09AC",
+        "\u092D": "\u09AD",
+        "\u092E": "\u09AE",
+        "\u092F": "\u09AF",
+        "\u0930": "\u09F0",
+        "\u0932": "\u09B2",
+        "\u0935": "\u09F1",
+        "\u0936": "\u09B6",
+        "\u0937": "\u09B7",
+        "\u0938": "\u09B8",
+        "\u0939": "\u09B9",
+        "\u0933": "\u09B2\u09BC",
+        "\u0915\u094D\u0937": "\u0995\u09CD\u09B7",
+        "\u091C\u094D\u091E": "\u099C\u09CD\u099E"
+      },
+      "symbols": {
+        "\u0966": "\u09E6",
+        "\u0967": "\u09E7",
+        "\u0968": "\u09E8",
+        "\u0969": "\u09E9",
+        "\u096A": "\u09EA",
+        "\u096B": "\u09EB",
+        "\u096C": "\u09EC",
+        "\u096D": "\u09ED",
+        "\u096E": "\u09EE",
+        "\u096F": "\u09EF",
+        "\u0950": "\u0993\u0981",
+        "\u093D": "\u09BD",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u09C7"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0995\u09BC",
+        "\u0959": "\u0996\u09BC",
+        "\u095A": "\u0997\u09BC",
+        "\u095B": "\u099C\u09BC",
+        "\u095C": "\u09DC",
+        "\u0922\u093C": "\u09DD",
+        "\u095E": "\u09AB\u09BC",
+        "\u095F": "\u09DF",
+        "\u0931": "\u09F0\u09BC",
+        "\u0934": "\u09B7\u09BC"
+      }
+    };
+    schemes.balinese = {
+      "vowels": {
+        "\u0905": "\u1B05",
+        "\u0906": "\u1B06",
+        "\u0907": "\u1B07",
+        "\u0908": "\u1B08",
+        "\u0909": "\u1B09",
+        "\u090A": "\u1B0A",
+        "\u090B": "\u1B0B",
+        "\u0960": "\u1B0C",
+        "\u090C": "\u1B0D",
+        "\u0961": "\u1B0E",
+        "\u090E": "\u1B0F",
+        "\u090F": "\u1B0F",
+        "\u0910": "\u1B10",
+        "\u0912": "\u1B11",
+        "\u0913": "\u1B11",
+        "\u0914": "\u1B12"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1B35",
+        "\u093F": "\u1B36",
+        "\u0940": "\u1B37",
+        "\u0941": "\u1B38",
+        "\u0942": "\u1B39",
+        "\u0943": "\u1B3A",
+        "\u0944": "\u1B3B",
+        "\u0962": "\u1B3C",
+        "\u0963": "\u1B3D",
+        "\u0946": "\u1B3E",
+        "\u0947": "\u1B3E",
+        "\u0948": "\u1B3F",
+        "\u094A": "\u1B40",
+        "\u094B": "\u1B40",
+        "\u094C": "\u1B41"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1B02",
+        "\u0903": "\u1B04",
+        "\u0901": "\u1B01"
+      },
+      "virama": {
+        "\u094D": "\u1B44"
+      },
+      "consonants": {
+        "\u0915": "\u1B13",
+        "\u0916": "\u1B14",
+        "\u0917": "\u1B15",
+        "\u0918": "\u1B16",
+        "\u0919": "\u1B17",
+        "\u091A": "\u1B18",
+        "\u091B": "\u1B19",
+        "\u091C": "\u1B1A",
+        "\u091D": "\u1B1B",
+        "\u091E": "\u1B1C",
+        "\u091F": "\u1B1D",
+        "\u0920": "\u1B1E",
+        "\u0921": "\u1B1F",
+        "\u0922": "\u1B20",
+        "\u0923": "\u1B21",
+        "\u0924": "\u1B22",
+        "\u0925": "\u1B23",
+        "\u0926": "\u1B24",
+        "\u0927": "\u1B25",
+        "\u0928": "\u1B26",
+        "\u092A": "\u1B27",
+        "\u092B": "\u1B28",
+        "\u092C": "\u1B29",
+        "\u092D": "\u1B2A",
+        "\u092E": "\u1B2B",
+        "\u092F": "\u1B2C",
+        "\u0930": "\u1B2D",
+        "\u0932": "\u1B2E",
+        "\u0935": "\u1B2F",
+        "\u0936": "\u1B30",
+        "\u0937": "\u1B31",
+        "\u0938": "\u1B32",
+        "\u0939": "\u1B33",
+        "\u0933": "\u1B2E\u1B34",
+        "\u0915\u094D\u0937": "\u1B13\u1B44\u1B31",
+        "\u091C\u094D\u091E": "\u1B1A\u1B44\u1B1C"
+      },
+      "symbols": {
+        "\u0966": "\u1B50",
+        "\u0967": "\u1B51",
+        "\u0968": "\u1B52",
+        "\u0969": "\u1B53",
+        "\u096A": "\u1B54",
+        "\u096B": "\u1B55",
+        "\u096C": "\u1B56",
+        "\u096D": "\u1B57",
+        "\u096E": "\u1B58",
+        "\u096F": "\u1B59",
+        "\u0950": "\u1B11\u1B01",
+        "\u093D": "'",
+        "\u0964": "\u1B5E",
+        "\u0965": "\u1B5F"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u1B3E"
+      },
+      "extra_consonants": {
+        "\u0958": "\u1B13\u1B34",
+        "\u0959": "\u1B14\u1B34",
+        "\u095A": "\u1B15\u1B34",
+        "\u095B": "\u1B1A\u1B34",
+        "\u095C": "\u1B1F\u1B34",
+        "\u0922\u093C": "\u1B20\u1B34",
+        "\u095E": "\u1B27\u1B34",
+        "\u095F": "\u1B2C\u1B34",
+        "\u0931": "\u1B2D\u1B34"
+      }
+    };
+    schemes.bengali = {
+      "vowels": {
+        "\u0905": "\u0985",
+        "\u0906": "\u0986",
+        "\u0907": "\u0987",
+        "\u0908": "\u0988",
+        "\u0909": "\u0989",
+        "\u090A": "\u098A",
+        "\u090B": "\u098B",
+        "\u0960": "\u09E0",
+        "\u090C": "\u098C",
+        "\u0961": "\u09E1",
+        "\u090E": "\u090E",
+        "\u090F": "\u098F",
+        "\u0910": "\u0990",
+        "\u0912": "\u0912",
+        "\u0913": "\u0993",
+        "\u0914": "\u0994"
+      },
+      "vowel_marks": {
+        "\u093E": "\u09BE",
+        "\u093F": "\u09BF",
+        "\u0940": "\u09C0",
+        "\u0941": "\u09C1",
+        "\u0942": "\u09C2",
+        "\u0943": "\u09C3",
+        "\u0944": "\u09C4",
+        "\u0962": "\u09E2",
+        "\u0963": "\u09E3",
+        "\u0946": "\u0946",
+        "\u0947": "\u09C7",
+        "\u0948": "\u09C8",
+        "\u094A": "\u094A",
+        "\u094B": "\u09CB",
+        "\u094C": "\u09CC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0982",
+        "\u0903": "\u0983",
+        "\u0901": "\u0981"
+      },
+      "virama": {
+        "\u094D": "\u09CD"
+      },
+      "consonants": {
+        "\u0915": "\u0995",
+        "\u0916": "\u0996",
+        "\u0917": "\u0997",
+        "\u0918": "\u0998",
+        "\u0919": "\u0999",
+        "\u091A": "\u099A",
+        "\u091B": "\u099B",
+        "\u091C": "\u099C",
+        "\u091D": "\u099D",
+        "\u091E": "\u099E",
+        "\u091F": "\u099F",
+        "\u0920": "\u09A0",
+        "\u0921": "\u09A1",
+        "\u0922": "\u09A2",
+        "\u0923": "\u09A3",
+        "\u0924": "\u09A4",
+        "\u0925": "\u09A5",
+        "\u0926": "\u09A6",
+        "\u0927": "\u09A7",
+        "\u0928": "\u09A8",
+        "\u092A": "\u09AA",
+        "\u092B": "\u09AB",
+        "\u092C": "\u09AC",
+        "\u092D": "\u09AD",
+        "\u092E": "\u09AE",
+        "\u092F": "\u09AF",
+        "\u0930": "\u09B0",
+        "\u0932": "\u09B2",
+        "\u0935": "\u09AC",
+        "\u0936": "\u09B6",
+        "\u0937": "\u09B7",
+        "\u0938": "\u09B8",
+        "\u0939": "\u09B9",
+        "\u0933": "\u09B2\u09BC",
+        "\u0915\u094D\u0937": "\u0995\u09CD\u09B7",
+        "\u091C\u094D\u091E": "\u099C\u09CD\u099E"
+      },
+      "symbols": {
+        "\u0966": "\u09E6",
+        "\u0967": "\u09E7",
+        "\u0968": "\u09E8",
+        "\u0969": "\u09E9",
+        "\u096A": "\u09EA",
+        "\u096B": "\u09EB",
+        "\u096C": "\u09EC",
+        "\u096D": "\u09ED",
+        "\u096E": "\u09EE",
+        "\u096F": "\u09EF",
+        "\u0950": "\u0993\u0981",
+        "\u093D": "\u09BD",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": ""
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u09C7"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0995\u09BC",
+        "\u0959": "\u0996\u09BC",
+        "\u095A": "\u0997\u09BC",
+        "\u095B": "\u099C\u09BC",
+        "\u095C": "\u09DC",
+        "\u0922\u093C": "\u09DD",
+        "\u095E": "\u09AB\u09BC",
+        "\u095F": "\u09DF",
+        "\u0931": "\u09B0\u09BC",
+        "\u0934": "\u09B7\u09BC"
+      }
+    };
+    schemes.bhaiksuki = {
+      "vowels": {
+        "\u0905": "\u{11C00}",
+        "\u0906": "\u{11C01}",
+        "\u0907": "\u{11C02}",
+        "\u0908": "\u{11C03}",
+        "\u0909": "\u{11C04}",
+        "\u090A": "\u{11C05}",
+        "\u090B": "\u{11C06}",
+        "\u0960": "\u{11C07}",
+        "\u090C": "\u{11C08}",
+        "\u0961": "\u{11C08}",
+        "\u090E": "\u{11C0A}",
+        "\u090F": "\u{11C0A}",
+        "\u0910": "\u{11C0B}",
+        "\u0912": "\u{11C0C}",
+        "\u0913": "\u{11C0C}",
+        "\u0914": "\u{11C0D}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11C2F}",
+        "\u093F": "\u{11C30}",
+        "\u0940": "\u{11C31}",
+        "\u0941": "\u{11C32}",
+        "\u0942": "\u{11C33}",
+        "\u0943": "\u{11C34}",
+        "\u0944": "\u{11C35}",
+        "\u0962": "\u{11C36}",
+        "\u0963": "\u{11C36}",
+        "\u0946": "\u{11C38}",
+        "\u0947": "\u{11C38}",
+        "\u0948": "\u{11C39}",
+        "\u094A": "\u{11C3A}",
+        "\u094B": "\u{11C3A}",
+        "\u094C": "\u{11C3B}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11C3D}",
+        "\u0903": "\u{11C3E}",
+        "\u0901": "\u{11C3C}"
+      },
+      "virama": {
+        "\u094D": "\u{11C3F}"
+      },
+      "consonants": {
+        "\u0915": "\u{11C0E}",
+        "\u0916": "\u{11C0F}",
+        "\u0917": "\u{11C10}",
+        "\u0918": "\u{11C11}",
+        "\u0919": "\u{11C12}",
+        "\u091A": "\u{11C13}",
+        "\u091B": "\u{11C14}",
+        "\u091C": "\u{11C15}",
+        "\u091D": "\u{11C16}",
+        "\u091E": "\u{11C17}",
+        "\u091F": "\u{11C18}",
+        "\u0920": "\u{11C19}",
+        "\u0921": "\u{11C1A}",
+        "\u0922": "\u{11C1B}",
+        "\u0923": "\u{11C1C}",
+        "\u0924": "\u{11C1D}",
+        "\u0925": "\u{11C1E}",
+        "\u0926": "\u{11C1F}",
+        "\u0927": "\u{11C20}",
+        "\u0928": "\u{11C21}",
+        "\u092A": "\u{11C22}",
+        "\u092B": "\u{11C23}",
+        "\u092C": "\u{11C24}",
+        "\u092D": "\u{11C25}",
+        "\u092E": "\u{11C26}",
+        "\u092F": "\u{11C27}",
+        "\u0930": "\u{11C28}",
+        "\u0932": "\u{11C29}",
+        "\u0935": "\u{11C2A}",
+        "\u0936": "\u{11C2B}",
+        "\u0937": "\u{11C2C}",
+        "\u0938": "\u{11C2D}",
+        "\u0939": "\u{11C2E}",
+        "\u0933": "\u{11C29}",
+        "\u0915\u094D\u0937": "\u{11C0E}\u{11C3F}\u{11C2C}",
+        "\u091C\u094D\u091E": "\u{11C15}\u{11C3F}\u{11C17}"
+      },
+      "symbols": {
+        "\u0966": "\u{11C50}",
+        "\u0967": "\u{11C51}",
+        "\u0968": "\u{11C52}",
+        "\u0969": "\u{11C53}",
+        "\u096A": "\u{11C54}",
+        "\u096B": "\u{11C55}",
+        "\u096C": "\u{11C56}",
+        "\u096D": "\u{11C57}",
+        "\u096E": "\u{11C58}",
+        "\u096F": "\u{11C59}",
+        "\u0950": "\u{11C0C}\u{11C3C}",
+        "\u093D": "\u{11C40}",
+        "\u0964": "\u{11C41}",
+        "\u0965": "\u{11C42}"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11C38}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11C0E}",
+        "\u0959": "\u{11C0F}",
+        "\u095A": "\u{11C10}",
+        "\u095B": "\u{11C15}",
+        "\u095C": "\u{11C1A}",
+        "\u0922\u093C": "\u{11C1B}",
+        "\u095E": "\u{11C23}",
+        "\u095F": "\u{11C27}",
+        "\u0931": "\u{11C28}"
+      }
+    };
+    schemes.brahmi = {
+      "vowels": {
+        "\u0905": "\u{11005}",
+        "\u0906": "\u{11006}",
+        "\u0907": "\u{11007}",
+        "\u0908": "\u{11008}",
+        "\u0909": "\u{11009}",
+        "\u090A": "\u{1100A}",
+        "\u090B": "\u{1100B}",
+        "\u0960": "\u{1100C}",
+        "\u090C": "\u{1100D}",
+        "\u0961": "\u{1100E}",
+        "\u090E": "\u{1100F}\u{11046}",
+        "\u090F": "\u{1100F}",
+        "\u0910": "\u{11010}",
+        "\u0912": "\u{11011}\u{11046}",
+        "\u0913": "\u{11011}",
+        "\u0914": "\u{11012}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11038}",
+        "\u093F": "\u{1103A}",
+        "\u0940": "\u{1103B}",
+        "\u0941": "\u{1103C}",
+        "\u0942": "\u{1103D}",
+        "\u0943": "\u{1103E}",
+        "\u0944": "\u{1103F}",
+        "\u0962": "\u{11040}",
+        "\u0963": "\u{11041}",
+        "\u0946": "\u{11042}",
+        "\u0947": "\u{11042}",
+        "\u0948": "\u{11043}",
+        "\u094A": "\u{11044}",
+        "\u094B": "\u{11044}",
+        "\u094C": "\u{11045}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11001}",
+        "\u0903": "\u{11002}",
+        "\u0901": "\u{11000}"
+      },
+      "virama": {
+        "\u094D": "\u{11046}"
+      },
+      "consonants": {
+        "\u0915": "\u{11013}",
+        "\u0916": "\u{11014}",
+        "\u0917": "\u{11015}",
+        "\u0918": "\u{11016}",
+        "\u0919": "\u{11017}",
+        "\u091A": "\u{11018}",
+        "\u091B": "\u{11019}",
+        "\u091C": "\u{1101A}",
+        "\u091D": "\u{1101B}",
+        "\u091E": "\u{1101C}",
+        "\u091F": "\u{1101D}",
+        "\u0920": "\u{1101E}",
+        "\u0921": "\u{1101F}",
+        "\u0922": "\u{11020}",
+        "\u0923": "\u{11021}",
+        "\u0924": "\u{11022}",
+        "\u0925": "\u{11023}",
+        "\u0926": "\u{11024}",
+        "\u0927": "\u{11025}",
+        "\u0928": "\u{11026}",
+        "\u092A": "\u{11027}",
+        "\u092B": "\u{11028}",
+        "\u092C": "\u{11029}",
+        "\u092D": "\u{1102A}",
+        "\u092E": "\u{1102B}",
+        "\u092F": "\u{1102C}",
+        "\u0930": "\u{1102D}",
+        "\u0932": "\u{1102E}",
+        "\u0935": "\u{1102F}",
+        "\u0936": "\u{11030}",
+        "\u0937": "\u{11031}",
+        "\u0938": "\u{11032}",
+        "\u0939": "\u{11033}",
+        "\u0933": "\u{11034}",
+        "\u0915\u094D\u0937": "\u{11013}\u{11046}\u{11031}",
+        "\u091C\u094D\u091E": "\u{1101A}\u{11046}\u{1101C}"
+      },
+      "symbols": {
+        "\u0966": "\u{11066}",
+        "\u0967": "\u{11067}",
+        "\u0968": "\u{11068}",
+        "\u0969": "\u{11069}",
+        "\u096A": "\u{1106A}",
+        "\u096B": "\u{1106B}",
+        "\u096C": "\u{1106C}",
+        "\u096D": "\u{1106D}",
+        "\u096E": "\u{1106E}",
+        "\u096F": "\u{1106F}",
+        "\u0950": "\u{11011}\u{11001}",
+        "\u093D": "",
+        "\u0964": "\u{11047}",
+        "\u0965": "\u{11048}"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11042}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11013}",
+        "\u0959": "\u{11014}",
+        "\u095A": "\u{11015}",
+        "\u095B": "\u{1101A}",
+        "\u095C": "\u{1101F}",
+        "\u0922\u093C": "\u{11020}",
+        "\u095E": "\u{11028}",
+        "\u095F": "\u{1102C}",
+        "\u0931": "\u{1102D}"
+      }
+    };
+    schemes.brahmi_tamil = {
+      "vowels": {
+        "\u0905": "\u{11005}",
+        "\u0906": "\u{11006}",
+        "\u0907": "\u{11007}",
+        "\u0908": "\u{11008}",
+        "\u0909": "\u{11009}",
+        "\u090A": "\u{1100A}",
+        "\u090B": "\u{1102D}\u{1103C}",
+        "\u0960": "\u{1102D}\u{1103D}",
+        "\u090C": "\u{1102E}\u{1103C}",
+        "\u0961": "\u{1102E}\u{1103D}",
+        "\u090E": "\u{1100F}\u{11046}",
+        "\u090F": "\u{1100F}",
+        "\u0910": "\u{11010}",
+        "\u0912": "\u{11011}\u{11046}",
+        "\u0913": "\u{11011}",
+        "\u0914": "\u{11012}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11038}",
+        "\u093F": "\u{1103A}",
+        "\u0940": "\u{1103B}",
+        "\u0941": "\u{1103C}",
+        "\u0942": "\u{1103D}",
+        "\u0943": "\u{11046}\u{1102D}\u{1103C}",
+        "\u0944": "\u{11046}\u{1102D}\u{1103D}",
+        "\u0962": "\u{11046}\u{1102E}\u{1103C}",
+        "\u0963": "\u{11046}\u{1102E}\u{1103D}",
+        "\u0946": "\u{11042}\u{11046}",
+        "\u0947": "\u{11042}",
+        "\u0948": "\u{11043}",
+        "\u094A": "\u{11044}\u{11046}",
+        "\u094B": "\u{11044}",
+        "\u094C": "\u{11045}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{1102B}\u{11046}",
+        "\u0903": "\u{11002}",
+        "\u0901": "\u{1102B}\u{11046}"
+      },
+      "virama": {
+        "\u094D": "\u{11046}"
+      },
+      "consonants": {
+        "\u0915": "\u{11013}",
+        "\u0916": "\u{11013}",
+        "\u0917": "\u{11013}",
+        "\u0918": "\u{11013}",
+        "\u0919": "\u{11017}",
+        "\u091A": "\u{11018}",
+        "\u091B": "\u{11018}",
+        "\u091C": "\u{1101A}",
+        "\u091D": "\u{1101A}",
+        "\u091E": "\u{1101C}",
+        "\u091F": "\u{1101D}",
+        "\u0920": "\u{1101D}",
+        "\u0921": "\u{1101D}",
+        "\u0922": "\u{1101D}",
+        "\u0923": "\u{11021}",
+        "\u0924": "\u{11022}",
+        "\u0925": "\u{11022}",
+        "\u0926": "\u{11022}",
+        "\u0927": "\u{11025}",
+        "\u0928": "\u{11026}",
+        "\u092A": "\u{11027}",
+        "\u092B": "\u{11027}",
+        "\u092C": "\u{11027}",
+        "\u092D": "\u{11027}",
+        "\u092E": "\u{1102B}",
+        "\u092F": "\u{1102C}",
+        "\u0930": "\u{1102D}",
+        "\u0932": "\u{1102E}",
+        "\u0935": "\u{1102F}",
+        "\u0936": "\u{11030}",
+        "\u0937": "\u{11031}",
+        "\u0938": "\u{11032}",
+        "\u0939": "\u{11033}",
+        "\u0933": "\u{11034}",
+        "\u0915\u094D\u0937": "\u{11013}\u{11046}\u{11031}",
+        "\u091C\u094D\u091E": "\u{1101A}\u{11046}\u{1101C}"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u{11011}\u{1102B}\u{11046}",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u{11042}\u{11046}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11013}",
+        "\u0959": "\u{11013}",
+        "\u095A": "\u{11013}",
+        "\u095B": "\u{1101A}",
+        "\u095C": "\u{1101D}",
+        "\u0922\u093C": "\u{1101D}",
+        "\u095E": "\u{11027}",
+        "\u095F": "\u{1102C}",
+        "\u0931": "\u{11036}"
+      }
+    };
+    schemes.burmese = {
+      "vowels": {
+        "\u0905": "\u1021",
+        "\u0906": "\u1021\u102C",
+        "\u0907": "\u1023",
+        "\u0908": "\u1024",
+        "\u0909": "\u1025",
+        "\u090A": "\u1026",
+        "\u090B": "\u1052",
+        "\u0960": "\u1053",
+        "\u090C": "\u1054",
+        "\u0961": "\u1055",
+        "\u090E": "\u1027",
+        "\u090F": "\u1027",
+        "\u0910": "\u1021\u1032",
+        "\u0912": "\u1029",
+        "\u0913": "\u1029",
+        "\u0914": "\u102A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u102C",
+        "\u093F": "\u102D",
+        "\u0940": "\u102E",
+        "\u0941": "\u102F",
+        "\u0942": "\u1030",
+        "\u0943": "\u1056",
+        "\u0944": "\u1057",
+        "\u0962": "\u1058",
+        "\u0963": "\u1059",
+        "\u0946": "\u1031",
+        "\u0947": "\u1031",
+        "\u0948": "\u1032",
+        "\u094A": "\u1031\u102C",
+        "\u094B": "\u1031\u102C",
+        "\u094C": "\u1031\u102C\u103A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1036",
+        "\u0903": "\u1038",
+        "\u0901": "\u1036"
+      },
+      "virama": {
+        "\u094D": "\u103A"
+      },
+      "consonants": {
+        "\u0915": "\u1000",
+        "\u0916": "\u1001",
+        "\u0917": "\u1002",
+        "\u0918": "\u1003",
+        "\u0919": "\u1004",
+        "\u091A": "\u1005",
+        "\u091B": "\u1006",
+        "\u091C": "\u1007",
+        "\u091D": "\u1008",
+        "\u091E": "\u1009",
+        "\u091F": "\u100B",
+        "\u0920": "\u100C",
+        "\u0921": "\u100D",
+        "\u0922": "\u100E",
+        "\u0923": "\u100F",
+        "\u0924": "\u1010",
+        "\u0925": "\u1011",
+        "\u0926": "\u1012",
+        "\u0927": "\u1013",
+        "\u0928": "\u1014",
+        "\u092A": "\u1015",
+        "\u092B": "\u1016",
+        "\u092C": "\u1017",
+        "\u092D": "\u1018",
+        "\u092E": "\u1019",
+        "\u092F": "\u101A",
+        "\u0930": "\u101B",
+        "\u0932": "\u101C",
+        "\u0935": "\u101D",
+        "\u0936": "\u1050",
+        "\u0937": "\u1051",
+        "\u0938": "\u101E",
+        "\u0939": "\u101F",
+        "\u0933": "\u1020",
+        "\u0915\u094D\u0937": "\u1000\u1039\u1051",
+        "\u091C\u094D\u091E": "\u1007\u1039\u1009"
+      },
+      "symbols": {
+        "\u0966": "\u1040",
+        "\u0967": "\u1041",
+        "\u0968": "\u1042",
+        "\u0969": "\u1043",
+        "\u096A": "\u1044",
+        "\u096B": "\u1045",
+        "\u096C": "\u1046",
+        "\u096D": "\u1047",
+        "\u096E": "\u1048",
+        "\u096F": "\u1049",
+        "\u0950": "\u1029\u1036",
+        "\u093D": "'",
+        "\u0964": "\u104A",
+        "\u0965": "\u104B"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u1031"
+      },
+      "extra_consonants": {
+        "\u0958": "\u1000",
+        "\u0959": "\u1001",
+        "\u095A": "\u1002",
+        "\u095B": "\u1007",
+        "\u095C": "\u100D",
+        "\u0922\u093C": "\u100E",
+        "\u095E": "\u1016",
+        "\u095F": "\u101A",
+        "\u0931": "\u101B"
+      }
+    };
+    schemes.cham = {
+      "vowels": {
+        "\u0905": "\uAA00",
+        "\u0906": "\uAA00\uAA29",
+        "\u0907": "\uAA01",
+        "\u0908": "\uAA01\uAA29",
+        "\u0909": "\uAA02",
+        "\u090A": "\uAA02\uAA29",
+        "\u090B": "\uAA23\uAA2E",
+        "\u0960": "\uAA23\uAA2E\uAA29",
+        "\u090C": "\uAA24\uAA2E",
+        "\u0961": "\uAA24\uAA2E\uAA29",
+        "\u090E": "\uAA03",
+        "\u090F": "\uAA03",
+        "\u0910": "\uAA04",
+        "\u0912": "\uAA05",
+        "\u0913": "\uAA05",
+        "\u0914": "\uAA00\uAA2F\uAA31"
+      },
+      "vowel_marks": {
+        "\u093E": "\uAA29",
+        "\u093F": "\uAA2A",
+        "\u0940": "\uAA2B",
+        "\u0941": "\uAA2D",
+        "\u0942": "\uAA2D\uAA29",
+        "\u0943": "\uAA34\uAA2E",
+        "\u0944": "\uAA34\uAA2E\uAA29",
+        "\u0962": "\uAA35\uAA2E",
+        "\u0963": "\uAA35\uAA2E\uAA29",
+        "\u0946": "\uAA2F\uAA2E",
+        "\u0947": "\uAA2F\uAA2E",
+        "\u0948": "\uAA30",
+        "\u094A": "\uAA2E",
+        "\u094B": "\uAA2F",
+        "\u094C": "\uAA2F\uAA31"
+      },
+      "yogavaahas": {
+        "\u0902": "\uAA4C",
+        "\u0903": "\uAA4D",
+        "\u0901": "\uAA43"
+      },
+      "virama": {
+        "\u094D": "\u02BE"
+      },
+      "consonants": {
+        "\u0915": "\uAA06",
+        "\u0916": "\uAA07",
+        "\u0917": "\uAA08",
+        "\u0918": "\uAA09",
+        "\u0919": "\uAA0B",
+        "\u091A": "\uAA0C",
+        "\u091B": "\uAA0D",
+        "\u091C": "\uAA0E",
+        "\u091D": "\uAA0F",
+        "\u091E": "\uAA11",
+        "\u091F": "\uAA13",
+        "\u0920": "\uAA14",
+        "\u0921": "\uAA15",
+        "\u0922": "\uAA16",
+        "\u0923": "\uAA18",
+        "\u0924": "\uAA13",
+        "\u0925": "\uAA14",
+        "\u0926": "\uAA15",
+        "\u0927": "\uAA16",
+        "\u0928": "\uAA18",
+        "\u092A": "\uAA1A",
+        "\u092B": "\uAA1C",
+        "\u092C": "\uAA1D",
+        "\u092D": "\uAA1E",
+        "\u092E": "\uAA20",
+        "\u092F": "\uAA22",
+        "\u0930": "\uAA23",
+        "\u0932": "\uAA24",
+        "\u0935": "\uAA25",
+        "\u0936": "\uAA26",
+        "\u0937": "\uAA26",
+        "\u0938": "\uAA27",
+        "\u0939": "\uAA28",
+        "\u0933": "\uAA24",
+        "\u0915\u094D\u0937": "\uAA40\uAA26",
+        "\u091C\u094D\u091E": "\uAA44\uAA11"
+      },
+      "symbols": {
+        "\u0966": "\uAA50",
+        "\u0967": "\uAA51",
+        "\u0968": "\uAA52",
+        "\u0969": "\uAA53",
+        "\u096A": "\uAA54",
+        "\u096B": "\uAA55",
+        "\u096C": "\uAA56",
+        "\u096D": "\uAA57",
+        "\u096E": "\uAA58",
+        "\u096F": "\uAA59",
+        "\u0950": "\uAA05\uAA4C",
+        "\u093D": "'",
+        "\u0964": "\uAA5D",
+        "\u0965": "\uAA5E"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\uAA2F\uAA2E"
+      },
+      "extra_consonants": {
+        "\u0958": "\uAA06",
+        "\u0959": "\uAA07",
+        "\u095A": "\uAA08",
+        "\u095B": "\uAA0E",
+        "\u095C": "\uAA15",
+        "\u0922\u093C": "\uAA16",
+        "\u095E": "\uAA1C",
+        "\u095F": "\uAA25",
+        "\u0931": "\uAA23"
+      }
+    };
+    schemes.devanagari = {
+      "vowels": {
+        "\u0905": "\u0905",
+        "\u0906": "\u0906",
+        "\u0907": "\u0907",
+        "\u0908": "\u0908",
+        "\u0909": "\u0909",
+        "\u090A": "\u090A",
+        "\u090B": "\u090B",
+        "\u0960": "\u0960",
+        "\u090C": "\u090C",
+        "\u0961": "\u0961",
+        "\u090E": "\u090E",
+        "\u090F": "\u090F",
+        "\u0910": "\u0910",
+        "\u0912": "\u0912",
+        "\u0913": "\u0913",
+        "\u0914": "\u0914",
+        "\u090D": "\u090D",
+        "\u0911": "\u0911"
+      },
+      "vowel_marks": {
+        "\u093E": "\u093E",
+        "\u093F": "\u093F",
+        "\u0940": "\u0940",
+        "\u0941": "\u0941",
+        "\u0942": "\u0942",
+        "\u0943": "\u0943",
+        "\u0944": "\u0944",
+        "\u0962": "\u0962",
+        "\u0963": "\u0963",
+        "\u0946": "\u0946",
+        "\u0947": "\u0947",
+        "\u0948": "\u0948",
+        "\u094A": "\u094A",
+        "\u094B": "\u094B",
+        "\u094C": "\u094C",
+        "\u0945": "\u0945",
+        "\u0949": "\u0949"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0902",
+        "\u0903": "\u0903",
+        "\u0901": "\u0901",
+        "\u1CF5": "\u1CF5",
+        "\u1CF6": "\u1CF6",
+        "\uA8F3": "\uA8F3"
+      },
+      "virama": {
+        "\u094D": "\u094D"
+      },
+      "consonants": {
+        "\u0915": "\u0915",
+        "\u0916": "\u0916",
+        "\u0917": "\u0917",
+        "\u0918": "\u0918",
+        "\u0919": "\u0919",
+        "\u091A": "\u091A",
+        "\u091B": "\u091B",
+        "\u091C": "\u091C",
+        "\u091D": "\u091D",
+        "\u091E": "\u091E",
+        "\u091F": "\u091F",
+        "\u0920": "\u0920",
+        "\u0921": "\u0921",
+        "\u0922": "\u0922",
+        "\u0923": "\u0923",
+        "\u0924": "\u0924",
+        "\u0925": "\u0925",
+        "\u0926": "\u0926",
+        "\u0927": "\u0927",
+        "\u0928": "\u0928",
+        "\u092A": "\u092A",
+        "\u092B": "\u092B",
+        "\u092C": "\u092C",
+        "\u092D": "\u092D",
+        "\u092E": "\u092E",
+        "\u092F": "\u092F",
+        "\u0930": "\u0930",
+        "\u0932": "\u0932",
+        "\u0935": "\u0935",
+        "\u0936": "\u0936",
+        "\u0937": "\u0937",
+        "\u0938": "\u0938",
+        "\u0939": "\u0939",
+        "\u0933": "\u0933",
+        "\u0915\u094D\u0937": "\u0915\u094D\u0937",
+        "\u091C\u094D\u091E": "\u091C\u094D\u091E"
+      },
+      "symbols": {
+        "\u0966": "\u0966",
+        "\u0967": "\u0967",
+        "\u0968": "\u0968",
+        "\u0969": "\u0969",
+        "\u096A": "\u096A",
+        "\u096B": "\u096B",
+        "\u096C": "\u096C",
+        "\u096D": "\u096D",
+        "\u096E": "\u096E",
+        "\u096F": "\u096F",
+        "\u0950": "\u0950",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "zwnj": {
+        "\u200C": "\u200C"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u1CE1",
+        "\uA8E1": "\uA8E1",
+        "\uA8E2": "\uA8E2",
+        "\uA8E3": "\uA8E3",
+        "\uA8E4": "\uA8E4",
+        "\uA8E5": "\uA8E5",
+        "\uA8E6": "\uA8E6",
+        "\uA8E7": "\uA8E7",
+        "\uA8E8": "\uA8E8",
+        "\uA8E9": "\uA8E9",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "candra": {
+        "\u0945": "\u0945"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0958",
+        "\u0959": "\u0959",
+        "\u095A": "\u095A",
+        "\u095B": "\u095B",
+        "\u095C": "\u095C",
+        "\u0922\u093C": "\u0922\u093C",
+        "\u095E": "\u095E",
+        "\u095F": "\u095F",
+        "\u0931": "\u0931",
+        "\u0934": "\u0934",
+        "\u0929": "\u0929"
+      },
+      "alternates": {
+        "\u0958": ["\u0915\u093C"],
+        "\u0959": ["\u0916\u093C"],
+        "\u095E": ["\u092B\u093C"],
+        "\u095B": ["\u091C\u093C"],
+        "\u0929": ["\u0928\u093C"],
+        "\u095C": ["\u0921\u093C"],
+        "\u095A": ["\u0917\u093C"],
+        "\u0922\u093C": ["\u0922\u093C"],
+        "\u095F": ["\u092F\u093C"],
+        "\u0931": ["\u0930\u093C"],
+        "\u0934": ["\u0933\u093C"]
+      }
+    };
+    schemes.dogra = {
+      "vowels": {
+        "\u0905": "\u{11800}",
+        "\u0906": "\u{11801}",
+        "\u0907": "\u{11802}",
+        "\u0908": "\u{11803}",
+        "\u0909": "\u{11804}",
+        "\u090A": "\u{11805}",
+        "\u090B": "\u{11824}\u{1182D}",
+        "\u0960": "\u{11824}\u{1182E}",
+        "\u090C": "\u{11825}\u{1182D}",
+        "\u0961": "\u{11825}\u{1182E}",
+        "\u090E": "\u{11806}",
+        "\u090F": "\u{11806}",
+        "\u0910": "\u{11807}",
+        "\u0912": "\u{11808}",
+        "\u0913": "\u{11808}",
+        "\u0914": "\u{11809}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{1182C}",
+        "\u093F": "\u{1182D}",
+        "\u0940": "\u{1182E}",
+        "\u0941": "\u{1182F}",
+        "\u0942": "\u{11830}",
+        "\u0943": "\u{11831}",
+        "\u0944": "\u{11832}",
+        "\u0962": "\u{11839}\u{11825}\u{1182D}",
+        "\u0963": "\u{11839}\u{11825}\u{1182E}",
+        "\u0946": "\u{11833}",
+        "\u0947": "\u{11833}",
+        "\u0948": "\u{11834}",
+        "\u094A": "\u{11835}",
+        "\u094B": "\u{11835}",
+        "\u094C": "\u{11836}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11837}",
+        "\u0903": "\u{11838}",
+        "\u0901": "\u{11837}"
+      },
+      "virama": {
+        "\u094D": "\u{11839}"
+      },
+      "consonants": {
+        "\u0915": "\u{1180A}",
+        "\u0916": "\u{1180B}",
+        "\u0917": "\u{1180C}",
+        "\u0918": "\u{1180D}",
+        "\u0919": "\u{1180E}",
+        "\u091A": "\u{1180F}",
+        "\u091B": "\u{11810}",
+        "\u091C": "\u{11811}",
+        "\u091D": "\u{11812}",
+        "\u091E": "\u{11813}",
+        "\u091F": "\u{11814}",
+        "\u0920": "\u{11815}",
+        "\u0921": "\u{11816}",
+        "\u0922": "\u{11817}",
+        "\u0923": "\u{11818}",
+        "\u0924": "\u{11819}",
+        "\u0925": "\u{1181A}",
+        "\u0926": "\u{1181B}",
+        "\u0927": "\u{1181C}",
+        "\u0928": "\u{1181D}",
+        "\u092A": "\u{1181E}",
+        "\u092B": "\u{1181F}",
+        "\u092C": "\u{11820}",
+        "\u092D": "\u{11821}",
+        "\u092E": "\u{11822}",
+        "\u092F": "\u{11823}",
+        "\u0930": "\u{11824}",
+        "\u0932": "\u{11825}",
+        "\u0935": "\u{11826}",
+        "\u0936": "\u{11827}",
+        "\u0937": "\u{11828}",
+        "\u0938": "\u{11829}",
+        "\u0939": "\u{1182A}",
+        "\u0933": "\u{11825}\u{1183A}",
+        "\u0915\u094D\u0937": "\u{1180A}\u{11839}\u{11828}",
+        "\u091C\u094D\u091E": "\u{11811}\u{11839}\u{11813}"
+      },
+      "symbols": {
+        "\u0966": "\u0966",
+        "\u0967": "\u0967",
+        "\u0968": "\u0968",
+        "\u0969": "\u0969",
+        "\u096A": "\u096A",
+        "\u096B": "\u096B",
+        "\u096C": "\u096C",
+        "\u096D": "\u096D",
+        "\u096E": "\u096E",
+        "\u096F": "\u096F",
+        "\u0950": "\u{11808}\u{11837}",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11833}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{1180A}\u{1183A}",
+        "\u0959": "\u{1180B}\u{1183A}",
+        "\u095A": "\u{1180C}\u{1183A}",
+        "\u095B": "\u{11811}\u{1183A}",
+        "\u095C": "\u{1182B}",
+        "\u0922\u093C": "\u{11817}\u{1183A}",
+        "\u095E": "\u{1181F}\u{1183A}",
+        "\u095F": "\u{11823}\u{1183A}",
+        "\u0931": "\u{11824}\u{1183A}"
+      }
+    };
+    schemes.gondi_gunjala = {
+      "vowels": {
+        "\u0905": "\u{11D60}",
+        "\u0906": "\u{11D61}",
+        "\u0907": "\u{11D62}",
+        "\u0908": "\u{11D63}",
+        "\u0909": "\u{11D64}",
+        "\u090A": "\u{11D65}",
+        "\u090B": "\u{11D88}\u{11D8D}",
+        "\u0960": "\u{11D88}\u{11D8E}",
+        "\u090C": "\u{11D75}\u{11D8D}",
+        "\u0961": "\u{11D75}\u{11D8E}",
+        "\u090E": "\u{11D67}",
+        "\u090F": "\u{11D67}",
+        "\u0910": "\u{11D68}",
+        "\u0912": "\u{11D6A}",
+        "\u0913": "\u{11D6A}",
+        "\u0914": "\u{11D6B}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11D8A}",
+        "\u093F": "\u{11D8B}",
+        "\u0940": "\u{11D8C}",
+        "\u0941": "\u{11D8D}",
+        "\u0942": "\u{11D8E}",
+        "\u0943": "\u{11D97}\u{11D88}\u{11D8D}",
+        "\u0944": "\u{11D97}\u{11D88}\u{11D8E}",
+        "\u0962": "\u{11D97}\u{11D75}\u{11D8D}",
+        "\u0963": "\u{11D97}\u{11D75}\u{11D8E}",
+        "\u0946": "\u{11D90}",
+        "\u0947": "\u{11D90}",
+        "\u0948": "\u{11D91}",
+        "\u094A": "\u{11D93}",
+        "\u094B": "\u{11D93}",
+        "\u094C": "\u{11D94}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11D95}",
+        "\u0903": "\u{11D96}",
+        "\u0901": "\u{11D95}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{11D71}",
+        "\u0916": "\u{11D72}",
+        "\u0917": "\u{11D76}",
+        "\u0918": "\u{11D77}",
+        "\u0919": "\u{11D84}",
+        "\u091A": "\u{11D7B}",
+        "\u091B": "\u{11D7C}",
+        "\u091C": "\u{11D80}",
+        "\u091D": "\u{11D81}",
+        "\u091E": "\u{11D7A}",
+        "\u091F": "\u{11D7D}",
+        "\u0920": "\u{11D7E}",
+        "\u0921": "\u{11D82}",
+        "\u0922": "\u{11D83}",
+        "\u0923": "\u{11D7A}",
+        "\u0924": "\u{11D73}",
+        "\u0925": "\u{11D74}",
+        "\u0926": "\u{11D78}",
+        "\u0927": "\u{11D79}",
+        "\u0928": "\u{11D7A}",
+        "\u092A": "\u{11D85}",
+        "\u092B": "\u{11D86}",
+        "\u092C": "\u{11D6E}",
+        "\u092D": "\u{11D6F}",
+        "\u092E": "\u{11D70}",
+        "\u092F": "\u{11D6C}",
+        "\u0930": "\u{11D88}",
+        "\u0932": "\u{11D75}",
+        "\u0935": "\u{11D6D}",
+        "\u0936": "\u{11D89}",
+        "\u0937": "\u{11D89}",
+        "\u0938": "\u{11D89}",
+        "\u0939": "\u{11D87}",
+        "\u0933": "\u{11D7F}",
+        "\u0915\u094D\u0937": "\u{11D71}\u{11D97}\u{11D89}",
+        "\u091C\u094D\u091E": "\u{11D80}\u{11D97}\u{11D7A}"
+      },
+      "symbols": {
+        "\u0966": "\u{11DA0}",
+        "\u0967": "\u{11DA1}",
+        "\u0968": "\u{11DA2}",
+        "\u0969": "\u{11DA3}",
+        "\u096A": "\u{11DA4}",
+        "\u096B": "\u{11DA5}",
+        "\u096C": "\u{11DA6}",
+        "\u096D": "\u{11DA7}",
+        "\u096E": "\u{11DA8}",
+        "\u096F": "\u{11DA9}",
+        "\u0950": "\u{11D98}",
+        "\u093D": "",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11D90}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11D71}",
+        "\u0959": "\u{11D72}",
+        "\u095A": "\u{11D76}",
+        "\u095B": "\u{11D80}",
+        "\u095C": "\u{11D82}",
+        "\u0922\u093C": "\u{11D83}",
+        "\u095E": "\u{11D86}",
+        "\u095F": "\u{11D6C}",
+        "\u0931": "\u{11D88}"
+      }
+    };
+    schemes.gondi_masaram = {
+      "vowels": {
+        "\u0905": "\u{11D00}",
+        "\u0906": "\u{11D01}",
+        "\u0907": "\u{11D02}",
+        "\u0908": "\u{11D03}",
+        "\u0909": "\u{11D04}",
+        "\u090A": "\u{11D05}",
+        "\u090B": "\u{11D26}\u{11D36}",
+        "\u0960": "\u{11D26}\u{11D35}",
+        "\u090C": "\u{11D27}\u{11D34}",
+        "\u0961": "\u{11D27}\u{11D35}",
+        "\u090E": "\u{11D06}",
+        "\u090F": "\u{11D06}",
+        "\u0910": "\u{11D08}",
+        "\u0912": "\u{11D09}",
+        "\u0913": "\u{11D09}",
+        "\u0914": "\u{11D0B}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11D31}",
+        "\u093F": "\u{11D32}",
+        "\u0940": "\u{11D33}",
+        "\u0941": "\u{11D34}",
+        "\u0942": "\u{11D35}",
+        "\u0943": "\u{11D36}",
+        "\u0944": "\u{11D45}\u{11D26}\u{11D35}",
+        "\u0962": "\u{11D45}\u{11D27}\u{11D34}",
+        "\u0963": "\u{11D45}\u{11D27}\u{11D35}",
+        "\u0946": "\u{11D3A}",
+        "\u0947": "\u{11D3A}",
+        "\u0948": "\u{11D3C}",
+        "\u094A": "\u{11D3D}",
+        "\u094B": "\u{11D3D}",
+        "\u094C": "\u{11D3F}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11D40}",
+        "\u0903": "\u{11D41}",
+        "\u0901": "\u{11D40}"
+      },
+      "virama": {
+        "\u094D": "\u{11D44}"
+      },
+      "consonants": {
+        "\u0915": "\u{11D0C}",
+        "\u0916": "\u{11D0D}",
+        "\u0917": "\u{11D0E}",
+        "\u0918": "\u{11D0F}",
+        "\u0919": "\u{11D10}",
+        "\u091A": "\u{11D11}",
+        "\u091B": "\u{11D12}",
+        "\u091C": "\u{11D13}",
+        "\u091D": "\u{11D14}",
+        "\u091E": "\u{11D15}",
+        "\u091F": "\u{11D16}",
+        "\u0920": "\u{11D17}",
+        "\u0921": "\u{11D18}",
+        "\u0922": "\u{11D19}",
+        "\u0923": "\u{11D1A}",
+        "\u0924": "\u{11D1B}",
+        "\u0925": "\u{11D1C}",
+        "\u0926": "\u{11D1D}",
+        "\u0927": "\u{11D1E}",
+        "\u0928": "\u{11D1F}",
+        "\u092A": "\u{11D20}",
+        "\u092B": "\u{11D21}",
+        "\u092C": "\u{11D22}",
+        "\u092D": "\u{11D23}",
+        "\u092E": "\u{11D24}",
+        "\u092F": "\u{11D25}",
+        "\u0930": "\u{11D26}",
+        "\u0932": "\u{11D27}",
+        "\u0935": "\u{11D28}",
+        "\u0936": "\u{11D29}",
+        "\u0937": "\u{11D2A}",
+        "\u0938": "\u{11D2B}",
+        "\u0939": "\u{11D2C}",
+        "\u0933": "\u{11D2D}",
+        "\u0915\u094D\u0937": "\u{11D2E}",
+        "\u091C\u094D\u091E": "\u{11D2F}"
+      },
+      "symbols": {
+        "\u0966": "\u{11D50}",
+        "\u0967": "\u{11D51}",
+        "\u0968": "\u{11D52}",
+        "\u0969": "\u{11D53}",
+        "\u096A": "\u{11D54}",
+        "\u096B": "\u{11D55}",
+        "\u096C": "\u{11D56}",
+        "\u096D": "\u{11D57}",
+        "\u096E": "\u{11D58}",
+        "\u096F": "\u{11D59}",
+        "\u0950": "\u{11D09}\u{11D40}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11D3A}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11D0C}\u{11D42}",
+        "\u0959": "\u{11D0D}\u{11D42}",
+        "\u095A": "\u{11D0E}\u{11D42}",
+        "\u095B": "\u{11D13}\u{11D42}",
+        "\u095C": "\u{11D18}\u{11D42}",
+        "\u0922\u093C": "\u{11D19}\u{11D42}",
+        "\u095E": "\u{11D21}\u{11D42}",
+        "\u095F": "\u{11D25}\u{11D42}",
+        "\u0931": "\u{11D26}\u{11D42}"
+      }
+    };
+    schemes.grantha = {
+      "vowels": {
+        "\u0905": "\u{11305}",
+        "\u0906": "\u{11306}",
+        "\u0907": "\u{11307}",
+        "\u0908": "\u{11308}",
+        "\u0909": "\u{11309}",
+        "\u090A": "\u{1130A}",
+        "\u090B": "\u{1130B}",
+        "\u0960": "\u{11360}",
+        "\u090C": "\u{1130C}",
+        "\u0961": "\u{11361}",
+        "\u090E": "\u{1130F}\u{11300}",
+        "\u090F": "\u{1130F}",
+        "\u0910": "\u{11310}",
+        "\u0912": "\u{11313}\u{11300}",
+        "\u0913": "\u{11313}",
+        "\u0914": "\u{11314}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{1133E}",
+        "\u093F": "\u{1133F}",
+        "\u0940": "\u{11340}",
+        "\u0941": "\u{11341}",
+        "\u0942": "\u{11342}",
+        "\u0943": "\u{11343}",
+        "\u0944": "\u{11344}",
+        "\u0962": "\u{11362}",
+        "\u0963": "\u{11363}",
+        "\u0946": "\u{11347}\u{11300}",
+        "\u0947": "\u{11347}",
+        "\u0948": "\u{11348}",
+        "\u094A": "\u{1134B}\u{11300}",
+        "\u094B": "\u{1134B}",
+        "\u094C": "\u{11357}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11302}",
+        "\u0903": "\u{11303}",
+        "\u0901": "\u{11301}"
+      },
+      "virama": {
+        "\u094D": "\u{1134D}"
+      },
+      "consonants": {
+        "\u0915": "\u{11315}",
+        "\u0916": "\u{11316}",
+        "\u0917": "\u{11317}",
+        "\u0918": "\u{11318}",
+        "\u0919": "\u{11319}",
+        "\u091A": "\u{1131A}",
+        "\u091B": "\u{1131B}",
+        "\u091C": "\u{1131C}",
+        "\u091D": "\u{1131D}",
+        "\u091E": "\u{1131E}",
+        "\u091F": "\u{1131F}",
+        "\u0920": "\u{11320}",
+        "\u0921": "\u{11321}",
+        "\u0922": "\u{11322}",
+        "\u0923": "\u{11323}",
+        "\u0924": "\u{11324}",
+        "\u0925": "\u{11325}",
+        "\u0926": "\u{11326}",
+        "\u0927": "\u{11327}",
+        "\u0928": "\u{11328}",
+        "\u092A": "\u{1132A}",
+        "\u092B": "\u{1132B}",
+        "\u092C": "\u{1132C}",
+        "\u092D": "\u{1132D}",
+        "\u092E": "\u{1132E}",
+        "\u092F": "\u{1132F}",
+        "\u0930": "\u{11330}",
+        "\u0932": "\u{11332}",
+        "\u0935": "\u{11335}",
+        "\u0936": "\u{11336}",
+        "\u0937": "\u{11337}",
+        "\u0938": "\u{11338}",
+        "\u0939": "\u{11339}",
+        "\u0933": "\u{11333}",
+        "\u0915\u094D\u0937": "\u{11315}\u{1134D}\u{11337}",
+        "\u091C\u094D\u091E": "\u{1131C}\u{1134D}\u{1131E}"
+      },
+      "symbols": {
+        "\u0966": "\u0BE6",
+        "\u0967": "\u0BE7",
+        "\u0968": "\u0BE8",
+        "\u0969": "\u0BE9",
+        "\u096A": "\u0BEA",
+        "\u096B": "\u0BEB",
+        "\u096C": "\u0BEC",
+        "\u096D": "\u0BED",
+        "\u096E": "\u0BEE",
+        "\u096F": "\u0BEF",
+        "\u0950": "\u{11350}",
+        "\u093D": "\u{1133D}",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{11347}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11315}\u{1133C}",
+        "\u0959": "\u{11316}\u{1133C}",
+        "\u095A": "\u{11317}\u{1133C}",
+        "\u095B": "\u{1131C}\u{1133C}",
+        "\u095C": "\u{11321}\u{1133C}",
+        "\u0922\u093C": "\u{11322}\u{1133C}",
+        "\u095E": "\u{1132B}\u{1133C}",
+        "\u095F": "\u{1132F}\u{1133C}",
+        "\u0931": "\u{11330}\u{1133C}"
+      }
+    };
+    schemes.grantha_pandya = {
+      "vowels": {
+        "\u0905": "\u0D05",
+        "\u0906": "\u0D06",
+        "\u0907": "\u0D07",
+        "\u0908": "\u0D08",
+        "\u0909": "\u0D09",
+        "\u090A": "\u0D0A",
+        "\u090B": "\u0D0B",
+        "\u0960": "\u0D60",
+        "\u090C": "\u0D0C",
+        "\u0961": "\u0D61",
+        "\u090E": "\u0D0F",
+        "\u090F": "\u0D0F",
+        "\u0910": "\u0D10",
+        "\u0912": "\u0D13",
+        "\u0913": "\u0D13",
+        "\u0914": "\u0D14"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0D3E",
+        "\u093F": "\u0D3F",
+        "\u0940": "\u0D40",
+        "\u0941": "\u0D41",
+        "\u0942": "\u0D42",
+        "\u0943": "\u0D43",
+        "\u0944": "\u0D44",
+        "\u0962": "\u0D62",
+        "\u0963": "\u0D63",
+        "\u0946": "\u0D47",
+        "\u0947": "\u0D47",
+        "\u0948": "\u0D48",
+        "\u094A": "\u0D4B",
+        "\u094B": "\u0D4B",
+        "\u094C": "\u0D57"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0D02",
+        "\u0903": "\u0D03",
+        "\u0901": "\u0D02"
+      },
+      "virama": {
+        "\u094D": "\u0D4D"
+      },
+      "consonants": {
+        "\u0915": "\u0D15",
+        "\u0916": "\u0D16",
+        "\u0917": "\u0D17",
+        "\u0918": "\u0D18",
+        "\u0919": "\u0D19",
+        "\u091A": "\u0D1A",
+        "\u091B": "\u0D1B",
+        "\u091C": "\u0D1C",
+        "\u091D": "\u0D1D",
+        "\u091E": "\u0D1E",
+        "\u091F": "\u0D1F",
+        "\u0920": "\u0D20",
+        "\u0921": "\u0D21",
+        "\u0922": "\u0D22",
+        "\u0923": "\u0D23",
+        "\u0924": "\u0D24",
+        "\u0925": "\u0D25",
+        "\u0926": "\u0D26",
+        "\u0927": "\u0D27",
+        "\u0928": "\u0D28",
+        "\u092A": "\u0D2A",
+        "\u092B": "\u0D2B",
+        "\u092C": "\u0D2C",
+        "\u092D": "\u0D2D",
+        "\u092E": "\u0D2E",
+        "\u092F": "\u0D2F",
+        "\u0930": "\u0D30",
+        "\u0932": "\u0D32",
+        "\u0935": "\u0D35",
+        "\u0936": "\u0D36",
+        "\u0937": "\u0D37",
+        "\u0938": "\u0D38",
+        "\u0939": "\u0D39",
+        "\u0933": "\u0D33",
+        "\u0915\u094D\u0937": "\u0D15\u0D4D\u0D37",
+        "\u091C\u094D\u091E": "\u0D1C\u0D4D\u0D1E"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u0D13\u0D02",
+        "\u093D": "\u0D3D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u0D47"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0D15",
+        "\u0959": "\u0D16",
+        "\u095A": "\u0D17",
+        "\u095B": "\u0D1C",
+        "\u095C": "\u0D21",
+        "\u0922\u093C": "\u0D22",
+        "\u095E": "\u0D2B",
+        "\u095F": "\u0D2F",
+        "\u0931": "\u0D30"
+      }
+    };
+    schemes.gujarati = {
+      "vowels": {
+        "\u0905": "\u0A85",
+        "\u0906": "\u0A86",
+        "\u0907": "\u0A87",
+        "\u0908": "\u0A88",
+        "\u0909": "\u0A89",
+        "\u090A": "\u0A8A",
+        "\u090B": "\u0A8B",
+        "\u0960": "\u0AE0",
+        "\u090C": "\u0A8C",
+        "\u0961": "\u0AE1",
+        "\u090E": "\u090E",
+        "\u090F": "\u0A8F",
+        "\u0910": "\u0A90",
+        "\u0912": "\u0912",
+        "\u0913": "\u0A93",
+        "\u0914": "\u0A94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0ABE",
+        "\u093F": "\u0ABF",
+        "\u0940": "\u0AC0",
+        "\u0941": "\u0AC1",
+        "\u0942": "\u0AC2",
+        "\u0943": "\u0AC3",
+        "\u0944": "\u0AC4",
+        "\u0962": "\u0AE2",
+        "\u0963": "\u0AE3",
+        "\u0946": "\u0946",
+        "\u0947": "\u0AC7",
+        "\u0948": "\u0AC8",
+        "\u094A": "\u094A",
+        "\u094B": "\u0ACB",
+        "\u094C": "\u0ACC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0A82",
+        "\u0903": "\u0A83",
+        "\u0901": "\u0A81"
+      },
+      "virama": {
+        "\u094D": "\u0ACD"
+      },
+      "consonants": {
+        "\u0915": "\u0A95",
+        "\u0916": "\u0A96",
+        "\u0917": "\u0A97",
+        "\u0918": "\u0A98",
+        "\u0919": "\u0A99",
+        "\u091A": "\u0A9A",
+        "\u091B": "\u0A9B",
+        "\u091C": "\u0A9C",
+        "\u091D": "\u0A9D",
+        "\u091E": "\u0A9E",
+        "\u091F": "\u0A9F",
+        "\u0920": "\u0AA0",
+        "\u0921": "\u0AA1",
+        "\u0922": "\u0AA2",
+        "\u0923": "\u0AA3",
+        "\u0924": "\u0AA4",
+        "\u0925": "\u0AA5",
+        "\u0926": "\u0AA6",
+        "\u0927": "\u0AA7",
+        "\u0928": "\u0AA8",
+        "\u092A": "\u0AAA",
+        "\u092B": "\u0AAB",
+        "\u092C": "\u0AAC",
+        "\u092D": "\u0AAD",
+        "\u092E": "\u0AAE",
+        "\u092F": "\u0AAF",
+        "\u0930": "\u0AB0",
+        "\u0932": "\u0AB2",
+        "\u0935": "\u0AB5",
+        "\u0936": "\u0AB6",
+        "\u0937": "\u0AB7",
+        "\u0938": "\u0AB8",
+        "\u0939": "\u0AB9",
+        "\u0933": "\u0AB3",
+        "\u0915\u094D\u0937": "\u0A95\u0ACD\u0AB7",
+        "\u091C\u094D\u091E": "\u0A9C\u0ACD\u0A9E"
+      },
+      "symbols": {
+        "\u0966": "\u0AE6",
+        "\u0967": "\u0AE7",
+        "\u0968": "\u0AE8",
+        "\u0969": "\u0AE9",
+        "\u096A": "\u0AEA",
+        "\u096B": "\u0AEB",
+        "\u096C": "\u0AEC",
+        "\u096D": "\u0AED",
+        "\u096E": "\u0AEE",
+        "\u096F": "\u0AEF",
+        "\u0950": "\u0AD0",
+        "\u093D": "\u0ABD",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": ""
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u0AC5"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0A95\u0ABC",
+        "\u0959": "\u0A96\u0ABC",
+        "\u095A": "\u0A97\u0ABC",
+        "\u095B": "\u0A9C\u0ABC",
+        "\u095C": "\u0AA1\u0ABC",
+        "\u0922\u093C": "\u0AA2\u0ABC",
+        "\u095E": "\u0AAB\u0ABC",
+        "\u095F": "\u0AAF\u0ABC",
+        "\u0931": "\u0AB0\u0ABC",
+        "\u0934": "\u0AB3\u0ABC"
+      }
+    };
+    schemes.gurmukhi = {
+      "vowels": {
+        "\u0905": "\u0A05",
+        "\u0906": "\u0A06",
+        "\u0907": "\u0A07",
+        "\u0908": "\u0A08",
+        "\u0909": "\u0A09",
+        "\u090A": "\u0A0A",
+        "\u090B": "",
+        "\u0960": "",
+        "\u090C": "",
+        "\u0961": "",
+        "\u090E": "",
+        "\u090F": "\u0A0F",
+        "\u0910": "\u0A10",
+        "\u0912": "",
+        "\u0913": "\u0A13",
+        "\u0914": "\u0A14"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0A3E",
+        "\u093F": "\u0A3F",
+        "\u0940": "\u0A40",
+        "\u0941": "\u0A41",
+        "\u0942": "\u0A42",
+        "\u0943": "",
+        "\u0944": "",
+        "\u0962": "",
+        "\u0963": "",
+        "\u0946": "",
+        "\u0947": "\u0A47",
+        "\u0948": "\u0A48",
+        "\u094A": "",
+        "\u094B": "\u0A4B",
+        "\u094C": "\u0A4C"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0A02",
+        "\u0903": "\u0A03",
+        "\u0901": "\u0A01"
+      },
+      "virama": {
+        "\u094D": "\u0A4D"
+      },
+      "consonants": {
+        "\u0915": "\u0A15",
+        "\u0916": "\u0A16",
+        "\u0917": "\u0A17",
+        "\u0918": "\u0A18",
+        "\u0919": "\u0A19",
+        "\u091A": "\u0A1A",
+        "\u091B": "\u0A1B",
+        "\u091C": "\u0A1C",
+        "\u091D": "\u0A1D",
+        "\u091E": "\u0A1E",
+        "\u091F": "\u0A1F",
+        "\u0920": "\u0A20",
+        "\u0921": "\u0A21",
+        "\u0922": "\u0A22",
+        "\u0923": "\u0A23",
+        "\u0924": "\u0A24",
+        "\u0925": "\u0A25",
+        "\u0926": "\u0A26",
+        "\u0927": "\u0A27",
+        "\u0928": "\u0A28",
+        "\u092A": "\u0A2A",
+        "\u092B": "\u0A2B",
+        "\u092C": "\u0A2C",
+        "\u092D": "\u0A2D",
+        "\u092E": "\u0A2E",
+        "\u092F": "\u0A2F",
+        "\u0930": "\u0A30",
+        "\u0932": "\u0A32",
+        "\u0935": "\u0A35",
+        "\u0936": "\u0A36",
+        "\u0937": "",
+        "\u0938": "\u0A38",
+        "\u0939": "\u0A39",
+        "\u0933": "\u0A33",
+        "\u0915\u094D\u0937": "\u0A15\u0A4D\u0A36",
+        "\u091C\u094D\u091E": "\u0A1C\u0A4D\u0A1E"
+      },
+      "symbols": {
+        "\u0966": "\u0A66",
+        "\u0967": "\u0A67",
+        "\u0968": "\u0A68",
+        "\u0969": "\u0A69",
+        "\u096A": "\u0A6A",
+        "\u096B": "\u0A6B",
+        "\u096C": "\u0A6C",
+        "\u096D": "\u0A6D",
+        "\u096E": "\u0A6E",
+        "\u096F": "\u0A6F",
+        "\u0950": "\u0A74",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "alternates": {
+        "\u0A02": ["\u0A70"]
+      },
+      "extra_consonants": {
+        "\u0958": "\u0A15\u0A3C",
+        "\u0959": "\u0A59",
+        "\u095A": "\u0A5A",
+        "\u095B": "\u0A5B",
+        "\u095C": "\u0A5C",
+        "\u0922\u093C": "\u0A22\u0A3C",
+        "\u095E": "\u0A5E",
+        "\u095F": "\u0A2F\u0A3C",
+        "\u0931": "\u0A30\u0A3C",
+        "\u0934": "\u0A33\u0A3C",
+        "\u0929": "\u0A28\u0A3C"
+      },
+      "accents": {
+        "\u0951": "\u0A51",
+        "\u0952": "\u0952"
+      }
+    };
+    schemes.javanese = {
+      "vowels": {
+        "\u0905": "\uA984",
+        "\u0906": "\uA984\uA9B4",
+        "\u0907": "\uA986",
+        "\u0908": "\uA987",
+        "\u0909": "\uA988",
+        "\u090A": "\uA988\uA9B4",
+        "\u090B": "\uA989",
+        "\u0960": "\uA989\uA9B4",
+        "\u090C": "\uA98A",
+        "\u0961": "\uA98B",
+        "\u090E": "",
+        "\u090F": "\uA98C",
+        "\u0910": "\uA98D",
+        "\u0912": "",
+        "\u0913": "\uA98E",
+        "\u0914": "\uA98E\uA9B4"
+      },
+      "vowel_marks": {
+        "\u093E": "\uA9B4",
+        "\u093F": "\uA9B6",
+        "\u0940": "\uA9B7",
+        "\u0941": "\uA9B8",
+        "\u0942": "\uA9B9",
+        "\u0943": "\uA9BD",
+        "\u0944": "\uA9C0\uA989\uA9B4",
+        "\u0962": "\uA9C0\uA98A",
+        "\u0963": "\uA9C0\uA98B",
+        "\u0946": "",
+        "\u0947": "\uA9BA",
+        "\u0948": "\uA9BB",
+        "\u094A": "",
+        "\u094B": "\uA9BA\uA9B4",
+        "\u094C": "\uA9BB\uA9B4"
+      },
+      "yogavaahas": {
+        "\u0902": "\uA981",
+        "\u0903": "\uA983",
+        "\u0901": "\uA980"
+      },
+      "virama": {
+        "\u094D": "\uA9C0"
+      },
+      "consonants": {
+        "\u0915": "\uA98F",
+        "\u0916": "\uA991",
+        "\u0917": "\uA992",
+        "\u0918": "\uA993",
+        "\u0919": "\uA994",
+        "\u091A": "\uA995",
+        "\u091B": "\uA996",
+        "\u091C": "\uA997",
+        "\u091D": "\uA999",
+        "\u091E": "\uA99A",
+        "\u091F": "\uA99B",
+        "\u0920": "\uA99C",
+        "\u0921": "\uA99D",
+        "\u0922": "\uA99E",
+        "\u0923": "\uA99F",
+        "\u0924": "\uA9A0",
+        "\u0925": "\uA9A1",
+        "\u0926": "\uA9A2",
+        "\u0927": "\uA9A3",
+        "\u0928": "\uA9A4",
+        "\u092A": "\uA9A5",
+        "\u092B": "\uA9A6",
+        "\u092C": "\uA9A7",
+        "\u092D": "\uA9A8",
+        "\u092E": "\uA9A9",
+        "\u092F": "\uA9AA",
+        "\u0930": "\uA9AB",
+        "\u0932": "\uA9AD",
+        "\u0935": "\uA9AE",
+        "\u0936": "\uA9AF",
+        "\u0937": "\uA9B0",
+        "\u0938": "\uA9B1",
+        "\u0939": "\uA9B2",
+        "\u0933": "\uA9AD\uA9B3",
+        "\u0915\u094D\u0937": "\uA98F\uA9C0\uA9B0",
+        "\u091C\u094D\u091E": "\uA997\uA9C0\uA99A"
+      },
+      "symbols": {
+        "\u0966": "\uA9D0",
+        "\u0967": "\uA9D1",
+        "\u0968": "\uA9D2",
+        "\u0969": "\uA9D3",
+        "\u096A": "\uA9D4",
+        "\u096B": "\uA9D5",
+        "\u096C": "\uA9D6",
+        "\u096D": "\uA9D7",
+        "\u096E": "\uA9D8",
+        "\u096F": "\uA9D9",
+        "\u0950": "\uA98E\uA980",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\uA9BC"
+      }
+    };
+    schemes.kannada = {
+      "vowels": {
+        "\u0905": "\u0C85",
+        "\u0906": "\u0C86",
+        "\u0907": "\u0C87",
+        "\u0908": "\u0C88",
+        "\u0909": "\u0C89",
+        "\u090A": "\u0C8A",
+        "\u090B": "\u0C8B",
+        "\u0960": "\u0CE0",
+        "\u090C": "\u0C8C",
+        "\u0961": "\u0CE1",
+        "\u090E": "\u0C8E",
+        "\u090F": "\u0C8F",
+        "\u0910": "\u0C90",
+        "\u0912": "\u0C92",
+        "\u0913": "\u0C93",
+        "\u0914": "\u0C94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0CBE",
+        "\u093F": "\u0CBF",
+        "\u0940": "\u0CC0",
+        "\u0941": "\u0CC1",
+        "\u0942": "\u0CC2",
+        "\u0943": "\u0CC3",
+        "\u0944": "\u0CC4",
+        "\u0962": "\u0CE2",
+        "\u0963": "\u0CE3",
+        "\u0946": "\u0CC6",
+        "\u0947": "\u0CC7",
+        "\u0948": "\u0CC8",
+        "\u094A": "\u0CCA",
+        "\u094B": "\u0CCB",
+        "\u094C": "\u0CCC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0C82",
+        "\u0903": "\u0C83",
+        "\u0901": "\u0C81",
+        "\u1CF5": "\u0CF1",
+        "\u1CF6": "\u0CF2"
+      },
+      "virama": {
+        "\u094D": "\u0CCD"
+      },
+      "consonants": {
+        "\u0915": "\u0C95",
+        "\u0916": "\u0C96",
+        "\u0917": "\u0C97",
+        "\u0918": "\u0C98",
+        "\u0919": "\u0C99",
+        "\u091A": "\u0C9A",
+        "\u091B": "\u0C9B",
+        "\u091C": "\u0C9C",
+        "\u091D": "\u0C9D",
+        "\u091E": "\u0C9E",
+        "\u091F": "\u0C9F",
+        "\u0920": "\u0CA0",
+        "\u0921": "\u0CA1",
+        "\u0922": "\u0CA2",
+        "\u0923": "\u0CA3",
+        "\u0924": "\u0CA4",
+        "\u0925": "\u0CA5",
+        "\u0926": "\u0CA6",
+        "\u0927": "\u0CA7",
+        "\u0928": "\u0CA8",
+        "\u092A": "\u0CAA",
+        "\u092B": "\u0CAB",
+        "\u092C": "\u0CAC",
+        "\u092D": "\u0CAD",
+        "\u092E": "\u0CAE",
+        "\u092F": "\u0CAF",
+        "\u0930": "\u0CB0",
+        "\u0932": "\u0CB2",
+        "\u0935": "\u0CB5",
+        "\u0936": "\u0CB6",
+        "\u0937": "\u0CB7",
+        "\u0938": "\u0CB8",
+        "\u0939": "\u0CB9",
+        "\u0933": "\u0CB3",
+        "\u0915\u094D\u0937": "\u0C95\u0CCD\u0CB7",
+        "\u091C\u094D\u091E": "\u0C9C\u0CCD\u0C9E"
+      },
+      "symbols": {
+        "\u0966": "\u0CE6",
+        "\u0967": "\u0CE7",
+        "\u0968": "\u0CE8",
+        "\u0969": "\u0CE9",
+        "\u096A": "\u0CEA",
+        "\u096B": "\u0CEB",
+        "\u096C": "\u0CEC",
+        "\u096D": "\u0CED",
+        "\u096E": "\u0CEE",
+        "\u096F": "\u0CEF",
+        "\u0950": "\u0C93\u0C82",
+        "\u093D": "\u0CBD",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0C95\u0CBC",
+        "\u0959": "\u0C96\u0CBC",
+        "\u095A": "\u0C97\u0CBC",
+        "\u095B": "\u0C9C\u0CBC",
+        "\u095C": "\u0CA1\u0CBC",
+        "\u0922\u093C": "\u0CA2\u0CBC",
+        "\u095E": "\u0CAB\u0CBC",
+        "\u095F": "\u0CAF\u0CBC",
+        "\u0931": "\u0CB1",
+        "\u0934": "\u0CDE",
+        "\u0929": "\u0CA8\u0CBC"
+      },
+      "alternates": {
+        "\u0C9C\u0CBC": ["\u0CB8\u0CBC"]
+      }
+    };
+    schemes.khamti_shan = {
+      "vowels": {
+        "\u0905": "\u1021",
+        "\u0906": "\u1021\u1083",
+        "\u0907": "\u1021\u102D",
+        "\u0908": "\u1021\u102E",
+        "\u0909": "\u1021\u102F",
+        "\u090A": "\u1021\u1030",
+        "\u090B": "\u101B\u102D",
+        "\u0960": "\u101B\u102E",
+        "\u090C": "\u101C\u102D",
+        "\u0961": "\u101C\u102E",
+        "\u090E": "",
+        "\u090F": "\u1021\u1031",
+        "\u0910": "\u1021\u1086",
+        "\u0912": "",
+        "\u0913": "\u1021\u1030\u101D\u103A",
+        "\u0914": "\u1021\u101D\u103A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1083",
+        "\u093F": "\u102D",
+        "\u0940": "\u102E",
+        "\u0941": "\u102F",
+        "\u0942": "\u1030",
+        "\u0943": "\u103A\u101B\u102D",
+        "\u0944": "\u103A\u101B\u102E",
+        "\u0962": "\u103A\u101C\u102D",
+        "\u0963": "\u103A\u101C\u102E",
+        "\u0946": "",
+        "\u0947": "\u1031",
+        "\u0948": "\u1086",
+        "\u094A": "",
+        "\u094B": "\u1030\u101D\u103A",
+        "\u094C": "\u101D\u103A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1036",
+        "\u0903": "\u1038",
+        "\u0901": "\u1036"
+      },
+      "virama": {
+        "\u094D": "\u103A"
+      },
+      "consonants": {
+        "\u0915": "\u1000",
+        "\u0916": "\u1075",
+        "\u0917": "\uAA60",
+        "\u0918": "\u1077",
+        "\u0919": "\u1004",
+        "\u091A": "\uAA61",
+        "\u091B": "\uAA62",
+        "\u091C": "\uAA63",
+        "\u091D": "\uAA64",
+        "\u091E": "\uAA65",
+        "\u091F": "\uAA66",
+        "\u0920": "\uAA67",
+        "\u0921": "\uAA68",
+        "\u0922": "\uAA69",
+        "\u0923": "\uA9E3",
+        "\u0924": "\u1010",
+        "\u0925": "\u1011",
+        "\u0926": "\u107B",
+        "\u0927": "\uAA6A",
+        "\u0928": "\uAA6B",
+        "\u092A": "\u1015",
+        "\u092B": "\u1078",
+        "\u092C": "\u107F",
+        "\u092D": "\u1079",
+        "\u092E": "\u1019",
+        "\u092F": "\u101A",
+        "\u0930": "\uAA73",
+        "\u0932": "\u101C",
+        "\u0935": "\u101D",
+        "\u0936": "\uAA6C",
+        "\u0937": "\uAA6C",
+        "\u0938": "\uAA6C",
+        "\u0939": "\uAA6D",
+        "\u0933": "\uAA6E",
+        "\u0915\u094D\u0937": "\u1000\u103A\uAA6C",
+        "\u091C\u094D\u091E": "\uAA63\u103A\uAA65"
+      },
+      "symbols": {
+        "\u0966": "\u1090",
+        "\u0967": "\u1091",
+        "\u0968": "\u1092",
+        "\u0969": "\u1093",
+        "\u096A": "\u1094",
+        "\u096B": "\u1095",
+        "\u096C": "\u1096",
+        "\u096D": "\u1097",
+        "\u096E": "\u1098",
+        "\u096F": "\u1099",
+        "\u0950": "\u1021\u1031\u1083\u1036",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u1084"
+      }
+    };
+    schemes.kharoshthi = {
+      "vowels": {
+        "\u0905": "\u{10A00}",
+        "\u0906": "\u{10A00}\u{10A0C}",
+        "\u0907": "\u{10A00}\u{10A01}",
+        "\u0908": "\u{10A00}\u{10A01}\u{10A0C}",
+        "\u0909": "\u{10A00}\u{10A02}",
+        "\u090A": "\u{10A00}\u{10A02}\u{10A0C}",
+        "\u090B": "\u{10A00}\u{10A03}",
+        "\u0960": "\u{10A00}\u{10A03}\u{10A0C}",
+        "\u090C": "\u{10A2B}\u{10A02}",
+        "\u0961": "\u{10A2B}\u{10A02}\u{10A0C}",
+        "\u090E": "",
+        "\u090F": "\u{10A00}\u{10A05}",
+        "\u0910": "\u{10A00}\u{10A05}\u{10A0C}",
+        "\u0912": "",
+        "\u0913": "\u{10A00}\u{10A06}",
+        "\u0914": "\u{10A00}\u{10A06}\u{10A0C}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{10A0C}",
+        "\u093F": "\u{10A01}",
+        "\u0940": "\u{10A01}\u{10A0C}",
+        "\u0941": "\u{10A02}",
+        "\u0942": "\u{10A02}\u{10A0C}",
+        "\u0943": "\u{10A03}",
+        "\u0944": "\u{10A03}\u{10A0C}",
+        "\u0962": "\u{10A3F}\u{10A2B}\u{10A02}",
+        "\u0963": "\u{10A3F}\u{10A2B}\u{10A02}\u{10A0C}",
+        "\u0946": "",
+        "\u0947": "\u{10A05}",
+        "\u0948": "\u{10A05}\u{10A0C}",
+        "\u094A": "",
+        "\u094B": "\u{10A06}",
+        "\u094C": "\u{10A06}\u{10A0C}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{10A0E}",
+        "\u0903": "\u{10A0F}",
+        "\u0901": "\u{10A0E}"
+      },
+      "virama": {
+        "\u094D": "\u{10A3F}"
+      },
+      "consonants": {
+        "\u0915": "\u{10A10}",
+        "\u0916": "\u{10A11}",
+        "\u0917": "\u{10A12}",
+        "\u0918": "\u{10A13}",
+        "\u0919": "\u{10A23}",
+        "\u091A": "\u{10A15}",
+        "\u091B": "\u{10A16}",
+        "\u091C": "\u{10A17}",
+        "\u091D": "\u{10A17}",
+        "\u091E": "\u{10A19}",
+        "\u091F": "\u{10A1A}",
+        "\u0920": "\u{10A1B}",
+        "\u0921": "\u{10A1C}",
+        "\u0922": "\u{10A1D}",
+        "\u0923": "\u{10A1E}",
+        "\u0924": "\u{10A1F}",
+        "\u0925": "\u{10A20}",
+        "\u0926": "\u{10A21}",
+        "\u0927": "\u{10A22}",
+        "\u0928": "\u{10A23}",
+        "\u092A": "\u{10A24}",
+        "\u092B": "\u{10A25}",
+        "\u092C": "\u{10A26}",
+        "\u092D": "\u{10A27}",
+        "\u092E": "\u{10A28}",
+        "\u092F": "\u{10A29}",
+        "\u0930": "\u{10A2A}",
+        "\u0932": "\u{10A2B}",
+        "\u0935": "\u{10A2C}",
+        "\u0936": "\u{10A2D}",
+        "\u0937": "\u{10A2E}",
+        "\u0938": "\u{10A2F}",
+        "\u0939": "\u{10A31}",
+        "\u0933": "\u{10A2B}",
+        "\u0915\u094D\u0937": "\u{10A10}\u{10A3F}\u{10A2E}",
+        "\u091C\u094D\u091E": "\u{10A17}\u{10A3F}\u{10A19}"
+      },
+      "symbols": {
+        "\u0966": "",
+        "\u0967": "\u{10A40}",
+        "\u0968": "\u{10A41}",
+        "\u0969": "\u{10A42}",
+        "\u096A": "\u{10A43}",
+        "\u096B": "\u{10A43}\u{10A40}",
+        "\u096C": "\u{10A43}\u{10A41}",
+        "\u096D": "\u{10A43}\u{10A42}",
+        "\u096E": "\u{10A43}\u{10A43}",
+        "\u096F": "\u{10A43}\u{10A43}\u{10A40}",
+        "\u0950": "\u{10A00}\u{10A05}\u{10A0E}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{10A05}"
+      }
+    };
+    schemes.khmer = {
+      "vowels": {
+        "\u0905": "\u17A2",
+        "\u0906": "\u17A2\u17B6",
+        "\u0907": "\u17A5",
+        "\u0908": "\u17A6",
+        "\u0909": "\u17A7",
+        "\u090A": "\u17A9",
+        "\u090B": "\u17AB",
+        "\u0960": "\u17AC",
+        "\u090C": "\u17AD",
+        "\u0961": "\u17AE",
+        "\u090E": "",
+        "\u090F": "\u17AF",
+        "\u0910": "\u17B0",
+        "\u0912": "",
+        "\u0913": "\u17B1",
+        "\u0914": "\u17B3"
+      },
+      "vowel_marks": {
+        "\u093E": "\u17B6",
+        "\u093F": "\u17B7",
+        "\u0940": "\u17B8",
+        "\u0941": "\u17BB",
+        "\u0942": "\u17BC",
+        "\u0943": "\u17D2\u17AB",
+        "\u0944": "\u17D2\u17AC",
+        "\u0962": "\u17D2\u17AD",
+        "\u0963": "\u17D2\u17AE",
+        "\u0946": "",
+        "\u0947": "\u17C1",
+        "\u0948": "\u17C3",
+        "\u094A": "",
+        "\u094B": "\u17C4",
+        "\u094C": "\u17C5"
+      },
+      "yogavaahas": {
+        "\u0902": "\u17C6",
+        "\u0903": "\u17C7",
+        "\u0901": "\u17C6"
+      },
+      "virama": {
+        "\u094D": "\u17D1"
+      },
+      "consonants": {
+        "\u0915": "\u1780",
+        "\u0916": "\u1781",
+        "\u0917": "\u1782",
+        "\u0918": "\u1783",
+        "\u0919": "\u1784",
+        "\u091A": "\u1785",
+        "\u091B": "\u1786",
+        "\u091C": "\u1787",
+        "\u091D": "\u1788",
+        "\u091E": "\u1789",
+        "\u091F": "\u178A",
+        "\u0920": "\u178B",
+        "\u0921": "\u178C",
+        "\u0922": "\u178D",
+        "\u0923": "\u178E",
+        "\u0924": "\u178F",
+        "\u0925": "\u1790",
+        "\u0926": "\u1791",
+        "\u0927": "\u1792",
+        "\u0928": "\u1793",
+        "\u092A": "\u1794",
+        "\u092B": "\u1795",
+        "\u092C": "\u1796",
+        "\u092D": "\u1797",
+        "\u092E": "\u1798",
+        "\u092F": "\u1799",
+        "\u0930": "\u179A",
+        "\u0932": "\u179B",
+        "\u0935": "\u179C",
+        "\u0936": "\u179D",
+        "\u0937": "\u179E",
+        "\u0938": "\u179F",
+        "\u0939": "\u17A0",
+        "\u0933": "\u17A1",
+        "\u0915\u094D\u0937": "\u1780\u17D2\u179E",
+        "\u091C\u094D\u091E": "\u1787\u17D2\u1789"
+      },
+      "symbols": {
+        "\u0966": "\u17E0",
+        "\u0967": "\u17E1",
+        "\u0968": "\u17E2",
+        "\u0969": "\u17E3",
+        "\u096A": "\u17E4",
+        "\u096B": "\u17E5",
+        "\u096C": "\u17E6",
+        "\u096D": "\u17E7",
+        "\u096E": "\u17E8",
+        "\u096F": "\u17E9",
+        "\u0950": "\u17B1\u17C6",
+        "\u093D": "\u17DC",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u17C1"
+      }
+    };
+    schemes.khom_thai = {
+      "vowels": {
+        "\u0905": "\u0E2D",
+        "\u0906": "\u0E2D\u0E32",
+        "\u0907": "\u0E2D\u0E34",
+        "\u0908": "\u0E2D\u0E35",
+        "\u0909": "\u0E2D\u0E38",
+        "\u090A": "\u0E2D\u0E39",
+        "\u090B": "\u0E23\u0E38",
+        "\u0960": "\u0E23\u0E39",
+        "\u090C": "\u0E25\u0E38",
+        "\u0961": "\u0E25\u0E39",
+        "\u090E": "",
+        "\u090F": "\u0E40\u0E2D",
+        "\u0910": "\u0E2D\u0E22\u0E3A",
+        "\u0912": "",
+        "\u0913": "\u0E42\u0E2D",
+        "\u0914": "\u0E2D\u0E27\u0E3A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0E32",
+        "\u093F": "\u0E34",
+        "\u0940": "\u0E35",
+        "\u0941": "\u0E38",
+        "\u0942": "\u0E39",
+        "\u0943": "\u0E3A\u0E24",
+        "\u0944": "\u0E3A\u0E24\u0E45",
+        "\u0962": "\u0E3A\u0E25\u0E38",
+        "\u0963": "\u0E3A\u0E25\u0E39",
+        "\u0946": "",
+        "\u0947": "\u0E40",
+        "\u0948": "\u0E43",
+        "\u094A": "",
+        "\u094B": "\u0E42",
+        "\u094C": "\u0E27\u0E3A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0E4D",
+        "\u0903": "\u0E2B\u0E3A",
+        "\u0901": "\u0E4D"
+      },
+      "virama": {
+        "\u094D": "\u0E3A"
+      },
+      "consonants": {
+        "\u0915": "\u0E01",
+        "\u0916": "\u0E02",
+        "\u0917": "\u0E04",
+        "\u0918": "\u0E06",
+        "\u0919": "\u0E07",
+        "\u091A": "\u0E08",
+        "\u091B": "\u0E09",
+        "\u091C": "\u0E0A",
+        "\u091D": "\u0E0C",
+        "\u091E": "\u0E0D",
+        "\u091F": "\u0E0F",
+        "\u0920": "\u0E10",
+        "\u0921": "\u0E11",
+        "\u0922": "\u0E12",
+        "\u0923": "\u0E13",
+        "\u0924": "\u0E15",
+        "\u0925": "\u0E16",
+        "\u0926": "\u0E17",
+        "\u0927": "\u0E18",
+        "\u0928": "\u0E19",
+        "\u092A": "\u0E1B",
+        "\u092B": "\u0E1C",
+        "\u092C": "\u0E1E",
+        "\u092D": "\u0E20",
+        "\u092E": "\u0E21",
+        "\u092F": "\u0E22",
+        "\u0930": "\u0E23",
+        "\u0932": "\u0E25",
+        "\u0935": "\u0E27",
+        "\u0936": "\u0E2A",
+        "\u0937": "\u0E2A",
+        "\u0938": "\u0E2A",
+        "\u0939": "\u0E2B",
+        "\u0933": "\u0E2C",
+        "\u0915\u094D\u0937": "\u0E01\u0E3A\u0E2A",
+        "\u091C\u094D\u091E": "\u0E0A\u0E3A\u0E0D"
+      },
+      "symbols": {
+        "\u0966": "\u0E50",
+        "\u0967": "\u0E51",
+        "\u0968": "\u0E52",
+        "\u0969": "\u0E53",
+        "\u096A": "\u0E54",
+        "\u096B": "\u0E55",
+        "\u096C": "\u0E56",
+        "\u096D": "\u0E57",
+        "\u096E": "\u0E58",
+        "\u096F": "\u0E59",
+        "\u0950": "\u0E42\u0E2D\u0E4D",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u0E41"
+      }
+    };
+    schemes.khudawadi = {
+      "vowels": {
+        "\u0905": "\u{112B0}",
+        "\u0906": "\u{112B1}",
+        "\u0907": "\u{112B2}",
+        "\u0908": "\u{112B3}",
+        "\u0909": "\u{112B4}",
+        "\u090A": "\u{112B5}",
+        "\u090B": "\u{112D9}\u{112E1}",
+        "\u0960": "\u{112D9}\u{112E2}",
+        "\u090C": "\u{112DA}\u{112E1}",
+        "\u0961": "\u{112DA}\u{112E2}",
+        "\u090E": "",
+        "\u090F": "\u{112B6}",
+        "\u0910": "\u{112B7}",
+        "\u0912": "",
+        "\u0913": "\u{112B8}",
+        "\u0914": "\u{112B9}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{112E0}",
+        "\u093F": "\u{112E1}",
+        "\u0940": "\u{112E2}",
+        "\u0941": "\u{112E3}",
+        "\u0942": "\u{112E4}",
+        "\u0943": "\u{112EA}\u{112D9}\u{112E1}",
+        "\u0944": "\u{112EA}\u{112D9}\u{112E2}",
+        "\u0962": "\u{112EA}\u{112DA}\u{112E1}",
+        "\u0963": "\u{112EA}\u{112DA}\u{112E2}",
+        "\u0946": "",
+        "\u0947": "\u{112E5}",
+        "\u0948": "\u{112E6}",
+        "\u094A": "",
+        "\u094B": "\u{112E7}",
+        "\u094C": "\u{112E8}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{112DF}",
+        "\u0903": "\u{112DE}\u{112EA}",
+        "\u0901": "\u{112DF}"
+      },
+      "virama": {
+        "\u094D": "\u{112EA}"
+      },
+      "consonants": {
+        "\u0915": "\u{112BA}",
+        "\u0916": "\u{112BB}",
+        "\u0917": "\u{112BC}",
+        "\u0918": "\u{112BE}",
+        "\u0919": "\u{112BF}",
+        "\u091A": "\u{112C0}",
+        "\u091B": "\u{112C1}",
+        "\u091C": "\u{112C2}",
+        "\u091D": "\u{112C4}",
+        "\u091E": "\u{112C5}",
+        "\u091F": "\u{112C6}",
+        "\u0920": "\u{112C7}",
+        "\u0921": "\u{112C8}",
+        "\u0922": "\u{112CB}",
+        "\u0923": "\u{112CC}",
+        "\u0924": "\u{112CD}",
+        "\u0925": "\u{112CE}",
+        "\u0926": "\u{112CF}",
+        "\u0927": "\u{112D0}",
+        "\u0928": "\u{112D1}",
+        "\u092A": "\u{112D2}",
+        "\u092B": "\u{112D3}",
+        "\u092C": "\u{112D4}",
+        "\u092D": "\u{112D6}",
+        "\u092E": "\u{112D7}",
+        "\u092F": "\u{112D8}",
+        "\u0930": "\u{112D9}",
+        "\u0932": "\u{112DA}",
+        "\u0935": "\u{112DB}",
+        "\u0936": "\u{112DC}",
+        "\u0937": "\u{112DC}\u{112E9}",
+        "\u0938": "\u{112DD}",
+        "\u0939": "\u{112DE}",
+        "\u0933": "\u{112DA}\u{112E9}",
+        "\u0915\u094D\u0937": "\u{112BA}\u{112EA}\u{112DC}\u{112E9}",
+        "\u091C\u094D\u091E": "\u{112C2}\u{112EA}\u{112C5}"
+      },
+      "symbols": {
+        "\u0966": "\u{112F0}",
+        "\u0967": "\u{112F1}",
+        "\u0968": "\u{112F2}",
+        "\u0969": "\u{112F3}",
+        "\u096A": "\u{112F4}",
+        "\u096B": "\u{112F5}",
+        "\u096C": "\u{112F6}",
+        "\u096D": "\u{112F7}",
+        "\u096E": "\u{112F8}",
+        "\u096F": "\u{112F9}",
+        "\u0950": "\u{112B8}\u{112DF}",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{112E5}"
+      }
+    };
+    schemes.lao = {
+      "vowels": {
+        "\u0905": "\u0EAD\u0EB0",
+        "\u0906": "\u0EAD\u0EB2",
+        "\u0907": "\u0EAD\u0EB4",
+        "\u0908": "\u0EAD\u0EB5",
+        "\u0909": "\u0EAD\u0EB8",
+        "\u090A": "\u0EAD\u0EB9",
+        "\u090B": "\u0EA3\u0EB8",
+        "\u0960": "\u0EA3\u0EB9",
+        "\u090C": "\u0EA5\u0EB8",
+        "\u0961": "\u0EA5\u0EB9",
+        "\u090E": "",
+        "\u090F": "\u0EC0\u0EAD",
+        "\u0910": "\u0EC4\u0EAD",
+        "\u0912": "",
+        "\u0913": "\u0EC2\u0EAD",
+        "\u0914": "\u0EC0\u0EAD\u0EBB\u0EB2"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0EB2",
+        "\u093F": "\u0EB4",
+        "\u0940": "\u0EB5",
+        "\u0941": "\u0EB8",
+        "\u0942": "\u0EB9",
+        "\u0943": "\u0EA3\u0EB8",
+        "\u0944": "\u0EA3\u0EB9",
+        "\u0962": "\u0EA5\u0EB8",
+        "\u0963": "\u0EA5\u0EB9",
+        "\u0946": "",
+        "\u0947": "\u0EC0",
+        "\u0948": "\u0EC4",
+        "\u094A": "",
+        "\u094B": "\u0EC2",
+        "\u094C": "\u0EC0\u0EBB\u0EB2"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0E87",
+        "\u0903": "\u0EAB",
+        "\u0901": "\u0E87"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u0E81\u0EB0",
+        "\u0916": "\u0E82\u0EB0",
+        "\u0917": "\u0E84\u0EB0",
+        "\u0918": "\u0E84\u0EB0",
+        "\u0919": "\u0E87\u0EB0",
+        "\u091A": "\u0E88\u0EB0",
+        "\u091B": "\u0E88\u0EB0",
+        "\u091C": "\u0E8A\u0EB0",
+        "\u091D": "\u0E8A\u0EB0",
+        "\u091E": "\u0E8D\u0EB0",
+        "\u091F": "\u0E95\u0EB0",
+        "\u0920": "\u0E96\u0EB0",
+        "\u0921": "\u0E97\u0EB0",
+        "\u0922": "\u0E97\u0EB0",
+        "\u0923": "\u0E99\u0EB0",
+        "\u0924": "\u0E95\u0EB0",
+        "\u0925": "\u0E96\u0EB0",
+        "\u0926": "\u0E97\u0EB0",
+        "\u0927": "\u0E97\u0EB0",
+        "\u0928": "\u0E99\u0EB0",
+        "\u092A": "\u0E9B\u0EB0",
+        "\u092B": "\u0E9C\u0EB0",
+        "\u092C": "\u0E9E\u0EB0",
+        "\u092D": "\u0E9E\u0EB0",
+        "\u092E": "\u0EA1\u0EB0",
+        "\u092F": "\u0EA2\u0EB0",
+        "\u0930": "\u0EA3\u0EB0",
+        "\u0932": "\u0EA5\u0EB0",
+        "\u0935": "\u0EA7\u0EB0",
+        "\u0936": "\u0EAA\u0EB0",
+        "\u0937": "\u0EAA\u0EB0",
+        "\u0938": "\u0EAA\u0EB0",
+        "\u0939": "\u0EAB\u0EB0",
+        "\u0933": "\u0EA5\u0EB0",
+        "\u0915\u094D\u0937": "\u0E81\u0EAA\u0EB0",
+        "\u091C\u094D\u091E": "\u0E8A\u0E8D\u0EB0"
+      },
+      "symbols": {
+        "\u0966": "\u0ED0",
+        "\u0967": "\u0ED1",
+        "\u0968": "\u0ED2",
+        "\u0969": "\u0ED3",
+        "\u096A": "\u0ED4",
+        "\u096B": "\u0ED5",
+        "\u096C": "\u0ED6",
+        "\u096D": "\u0ED7",
+        "\u096E": "\u0ED8",
+        "\u096F": "\u0ED9",
+        "\u0950": "\u0EC2\u0EAD\u0E87",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u0EC1\u0EB0"
+      }
+    };
+    schemes.lao_pali = {
+      "vowels": {
+        "\u0905": "\u0EAD",
+        "\u0906": "\u0EAD\u0EB2",
+        "\u0907": "\u0EAD\u0EB4",
+        "\u0908": "\u0EAD\u0EB5",
+        "\u0909": "\u0EAD\u0EB8",
+        "\u090A": "\u0EAD\u0EB9",
+        "\u090B": "\u0EA3\u0EB8",
+        "\u0960": "\u0EA3\u0EB9",
+        "\u090C": "\u0EA5\u0EB8",
+        "\u0961": "\u0EA5\u0EB9",
+        "\u090E": "",
+        "\u090F": "\u0EC0\u0EAD",
+        "\u0910": "\u0EC4\u0EAD",
+        "\u0912": "",
+        "\u0913": "\u0EC2\u0EAD",
+        "\u0914": "\u0EC0\u0EAD\u0EBB\u0EB2"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0EB2",
+        "\u093F": "\u0EB4",
+        "\u0940": "\u0EB5",
+        "\u0941": "\u0EB8",
+        "\u0942": "\u0EB9",
+        "\u0943": "\u0EBA\u0EA3\u0EB8",
+        "\u0944": "\u0EBA\u0EA3\u0EB9",
+        "\u0962": "\u0EBA\u0EA5\u0EB8",
+        "\u0963": "\u0EBA\u0EA5\u0EB9",
+        "\u0946": "",
+        "\u0947": "\u0EC0",
+        "\u0948": "\u0EC4",
+        "\u094A": "",
+        "\u094B": "\u0EC2",
+        "\u094C": "\u0EC0\u0EBB\u0EB2"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0ECD",
+        "\u0903": "\u0EAB\u0ECC",
+        "\u0901": "\u0ECD"
+      },
+      "virama": {
+        "\u094D": "\u0EBA"
+      },
+      "consonants": {
+        "\u0915": "\u0E81",
+        "\u0916": "\u0E82",
+        "\u0917": "\u0E84",
+        "\u0918": "\u0E86",
+        "\u0919": "\u0E87",
+        "\u091A": "\u0E88",
+        "\u091B": "\u0E89",
+        "\u091C": "\u0E8A",
+        "\u091D": "\u0E8C",
+        "\u091E": "\u0E8E",
+        "\u091F": "\u0E8F",
+        "\u0920": "\u0E90",
+        "\u0921": "\u0E91",
+        "\u0922": "\u0E92",
+        "\u0923": "\u0E93",
+        "\u0924": "\u0E95",
+        "\u0925": "\u0E96",
+        "\u0926": "\u0E97",
+        "\u0927": "\u0E98",
+        "\u0928": "\u0E99",
+        "\u092A": "\u0E9B",
+        "\u092B": "\u0E9C",
+        "\u092C": "\u0E9E",
+        "\u092D": "\u0EA0",
+        "\u092E": "\u0EA1",
+        "\u092F": "\u0E8D",
+        "\u0930": "\u0EA3",
+        "\u0932": "\u0EA5",
+        "\u0935": "\u0EA7",
+        "\u0936": "\u0EA8",
+        "\u0937": "\u0EA9",
+        "\u0938": "\u0EAA",
+        "\u0939": "\u0EAB",
+        "\u0933": "\u0EAC",
+        "\u0915\u094D\u0937": "\u0E81\u0EBA\u0EA9",
+        "\u091C\u094D\u091E": "\u0E8A\u0EBA\u0E8E"
+      },
+      "symbols": {
+        "\u0966": "\u0ED0",
+        "\u0967": "\u0ED1",
+        "\u0968": "\u0ED2",
+        "\u0969": "\u0ED3",
+        "\u096A": "\u0ED4",
+        "\u096B": "\u0ED5",
+        "\u096C": "\u0ED6",
+        "\u096D": "\u0ED7",
+        "\u096E": "\u0ED8",
+        "\u096F": "\u0ED9",
+        "\u0950": "\u0EC2\u0EAD\u0ECD",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u0EC1\u0EB0"
+      }
+    };
+    schemes.lepcha = {
+      "vowels": {
+        "\u0905": "\u1C23",
+        "\u0906": "\u1C23\u1C26",
+        "\u0907": "\u1C23\u1C27",
+        "\u0908": "\u1C23\u1C27\u1C36",
+        "\u0909": "\u1C23\u1C2A",
+        "\u090A": "\u1C23\u1C2B",
+        "\u090B": "\u1C1B\u1C2A",
+        "\u0960": "\u1C1B\u1C2B",
+        "\u090C": "\u1C1C\u1C2A",
+        "\u0961": "\u1C1C\u1C2B",
+        "\u090E": "",
+        "\u090F": "\u1C23\u1C2C",
+        "\u0910": "\u1C23\u1C2C",
+        "\u0912": "",
+        "\u0913": "\u1C23\u1C28",
+        "\u0914": "\u1C23\u1C29"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1C26",
+        "\u093F": "\u1C27",
+        "\u0940": "\u1C27\u1C36",
+        "\u0941": "\u1C2A",
+        "\u0942": "\u1C2B",
+        "\u0943": "\u1C25\u1C2A",
+        "\u0944": "\u1C25\u1C2B",
+        "\u0962": "\u1C1C\u1C2A",
+        "\u0963": "\u1C1C\u1C2B",
+        "\u0946": "",
+        "\u0947": "\u1C2C",
+        "\u0948": "\u1C2C",
+        "\u094A": "",
+        "\u094B": "\u1C28",
+        "\u094C": "\u1C29"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1C34",
+        "\u0903": "\u1C1D",
+        "\u0901": "\u1C34"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u1C00",
+        "\u0916": "\u1C02",
+        "\u0917": "\u1C03",
+        "\u0918": "\u1C03",
+        "\u0919": "\u1C05",
+        "\u091A": "\u1C06",
+        "\u091B": "\u1C07",
+        "\u091C": "\u1C08",
+        "\u091D": "\u1C08",
+        "\u091E": "\u1C09",
+        "\u091F": "\u1C4D",
+        "\u0920": "\u1C4E",
+        "\u0921": "\u1C4F",
+        "\u0922": "\u1C4F",
+        "\u0923": "\u1C0D",
+        "\u0924": "\u1C0A",
+        "\u0925": "\u1C0B",
+        "\u0926": "\u1C0C",
+        "\u0927": "\u1C0C",
+        "\u0928": "\u1C0D",
+        "\u092A": "\u1C0E",
+        "\u092B": "\u1C10",
+        "\u092C": "\u1C13",
+        "\u092D": "\u1C13",
+        "\u092E": "\u1C15",
+        "\u092F": "\u1C1A",
+        "\u0930": "\u1C1B",
+        "\u0932": "\u1C1C",
+        "\u0935": "\u1C1F",
+        "\u0936": "\u1C21",
+        "\u0937": "\u1C21\u1C37",
+        "\u0938": "\u1C20",
+        "\u0939": "\u1C1D",
+        "\u0933": "\u1C1C\u1C37",
+        "\u0915\u094D\u0937": "\u1C00\u1C21\u1C37",
+        "\u091C\u094D\u091E": "\u1C08\u1C09"
+      },
+      "symbols": {
+        "\u0966": "\u1C40",
+        "\u0967": "\u1C41",
+        "\u0968": "\u1C42",
+        "\u0969": "\u1C43",
+        "\u096A": "\u1C44",
+        "\u096B": "\u1C45",
+        "\u096C": "\u1C46",
+        "\u096D": "\u1C47",
+        "\u096E": "\u1C48",
+        "\u096F": "\u1C49",
+        "\u0950": "\u1C23\u1C28\u1C35",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u1C2C"
+      }
+    };
+    schemes.limbu = {
+      "vowels": {
+        "\u0905": "\u1900",
+        "\u0906": "\u1900\u1920",
+        "\u0907": "\u1900\u1921",
+        "\u0908": "\u1900\u1921\u193A",
+        "\u0909": "\u1900\u1922",
+        "\u090A": "\u1900\u193A\u1922",
+        "\u090B": "\u1916\u1922",
+        "\u0960": "\u1916\u193A\u1922",
+        "\u090C": "\u1917\u1922",
+        "\u0961": "\u1917\u193A\u1922",
+        "\u090E": "",
+        "\u090F": "\u1900\u1923",
+        "\u0910": "\u1900\u1924",
+        "\u0912": "",
+        "\u0913": "\u1900\u1925",
+        "\u0914": "\u1900\u1926"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1920",
+        "\u093F": "\u1921",
+        "\u0940": "\u1921\u193A",
+        "\u0941": "\u1922",
+        "\u0942": "\u193A\u1922",
+        "\u0943": "\u192A\u1922",
+        "\u0944": "\u192A\u193A\u1922",
+        "\u0962": "\u193B\u1917\u1922",
+        "\u0963": "\u193B\u1917\u193A\u1922",
+        "\u0946": "",
+        "\u0947": "\u1923",
+        "\u0948": "\u1924",
+        "\u094A": "",
+        "\u094B": "\u1925",
+        "\u094C": "\u1926"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1931",
+        "\u0903": "\u191C\u193B",
+        "\u0901": "\u1931"
+      },
+      "virama": {
+        "\u094D": "\u193B"
+      },
+      "consonants": {
+        "\u0915": "\u1901",
+        "\u0916": "\u1902",
+        "\u0917": "\u1903",
+        "\u0918": "\u1904",
+        "\u0919": "\u1905",
+        "\u091A": "\u1906",
+        "\u091B": "\u1907",
+        "\u091C": "\u1908",
+        "\u091D": "\u1908",
+        "\u091E": "\u190F",
+        "\u091F": "\u190B",
+        "\u0920": "\u190C",
+        "\u0921": "\u190D",
+        "\u0922": "\u190E",
+        "\u0923": "\u190F",
+        "\u0924": "\u190B",
+        "\u0925": "\u190C",
+        "\u0926": "\u190D",
+        "\u0927": "\u190E",
+        "\u0928": "\u190F",
+        "\u092A": "\u1910",
+        "\u092B": "\u1911",
+        "\u092C": "\u1912",
+        "\u092D": "\u1913",
+        "\u092E": "\u1914",
+        "\u092F": "\u1915",
+        "\u0930": "\u1916",
+        "\u0932": "\u1917",
+        "\u0935": "\u1918",
+        "\u0936": "\u1919",
+        "\u0937": "\u1919",
+        "\u0938": "\u191B",
+        "\u0939": "\u191C",
+        "\u0933": "\u1917",
+        "\u0915\u094D\u0937": "\u1901\u193B\u1919",
+        "\u091C\u094D\u091E": "\u1908\u193B\u190F"
+      },
+      "symbols": {
+        "\u0966": "\u1946",
+        "\u0967": "\u1947",
+        "\u0968": "\u1948",
+        "\u0969": "\u1949",
+        "\u096A": "\u194A",
+        "\u096B": "\u194B",
+        "\u096C": "\u194C",
+        "\u096D": "\u194D",
+        "\u096E": "\u194E",
+        "\u096F": "\u194F",
+        "\u0950": "\u1900\u1925\u1931",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u1927"
+      }
+    };
+    schemes.malayalam = {
+      "vowels": {
+        "\u0905": "\u0D05",
+        "\u0906": "\u0D06",
+        "\u0907": "\u0D07",
+        "\u0908": "\u0D08",
+        "\u0909": "\u0D09",
+        "\u090A": "\u0D0A",
+        "\u090B": "\u0D0B",
+        "\u0960": "\u0D60",
+        "\u090C": "\u0D0C",
+        "\u0961": "\u0D61",
+        "\u090E": "\u0D0E",
+        "\u090F": "\u0D0F",
+        "\u0910": "\u0D10",
+        "\u0912": "\u0D12",
+        "\u0913": "\u0D13",
+        "\u0914": "\u0D14"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0D3E",
+        "\u093F": "\u0D3F",
+        "\u0940": "\u0D40",
+        "\u0941": "\u0D41",
+        "\u0942": "\u0D42",
+        "\u0943": "\u0D43",
+        "\u0944": "\u0D44",
+        "\u0962": "\u0D62",
+        "\u0963": "\u0D63",
+        "\u0946": "\u0D46",
+        "\u0947": "\u0D47",
+        "\u0948": "\u0D48",
+        "\u094A": "\u0D4A",
+        "\u094B": "\u0D4B",
+        "\u094C": "\u0D4C"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0D02",
+        "\u0903": "\u0D03",
+        "\u0901": "\u0D01"
+      },
+      "virama": {
+        "\u094D": "\u0D4D"
+      },
+      "consonants": {
+        "\u0915": "\u0D15",
+        "\u0916": "\u0D16",
+        "\u0917": "\u0D17",
+        "\u0918": "\u0D18",
+        "\u0919": "\u0D19",
+        "\u091A": "\u0D1A",
+        "\u091B": "\u0D1B",
+        "\u091C": "\u0D1C",
+        "\u091D": "\u0D1D",
+        "\u091E": "\u0D1E",
+        "\u091F": "\u0D1F",
+        "\u0920": "\u0D20",
+        "\u0921": "\u0D21",
+        "\u0922": "\u0D22",
+        "\u0923": "\u0D23",
+        "\u0924": "\u0D24",
+        "\u0925": "\u0D25",
+        "\u0926": "\u0D26",
+        "\u0927": "\u0D27",
+        "\u0928": "\u0D28",
+        "\u092A": "\u0D2A",
+        "\u092B": "\u0D2B",
+        "\u092C": "\u0D2C",
+        "\u092D": "\u0D2D",
+        "\u092E": "\u0D2E",
+        "\u092F": "\u0D2F",
+        "\u0930": "\u0D30",
+        "\u0932": "\u0D32",
+        "\u0935": "\u0D35",
+        "\u0936": "\u0D36",
+        "\u0937": "\u0D37",
+        "\u0938": "\u0D38",
+        "\u0939": "\u0D39",
+        "\u0933": "\u0D33",
+        "\u0915\u094D\u0937": "\u0D15\u0D4D\u0D37",
+        "\u091C\u094D\u091E": "\u0D1C\u0D4D\u0D1E"
+      },
+      "symbols": {
+        "\u0966": "\u0D66",
+        "\u0967": "\u0D67",
+        "\u0968": "\u0D68",
+        "\u0969": "\u0D69",
+        "\u096A": "\u0D6A",
+        "\u096B": "\u0D6B",
+        "\u096C": "\u0D6C",
+        "\u096D": "\u0D6D",
+        "\u096E": "\u0D6E",
+        "\u096F": "\u0D6F",
+        "\u0950": "\u0D13\u0D02",
+        "\u093D": "\u0D3D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "",
+        "\u0959": "",
+        "\u095A": "",
+        "\u095B": "",
+        "\u095C": "",
+        "\u0922\u093C": "",
+        "\u095E": "",
+        "\u095F": "",
+        "\u0931": "\u0D31",
+        "\u0934": "\u0D34"
+      }
+    };
+    schemes.manipuri = {
+      "vowels": {
+        "\u0905": "\uABD1",
+        "\u0906": "\uABD1\uABE5",
+        "\u0907": "\uABCF",
+        "\u0908": "\uABCF",
+        "\u0909": "\uABCE",
+        "\u090A": "\uABCE",
+        "\u090B": "\uABD4\uABE8",
+        "\u0960": "\uABD4\uABE8",
+        "\u090C": "\uABC2\uABE8",
+        "\u0961": "\uABC2\uABE8",
+        "\u090E": "",
+        "\u090F": "\uABD1\uABE6",
+        "\u0910": "\uABD1\uABE9",
+        "\u0912": "",
+        "\u0913": "\uABD1\uABE3",
+        "\u0914": "\uABD1\uABE7"
+      },
+      "vowel_marks": {
+        "\u093E": "\uABE5",
+        "\u093F": "\uABE4",
+        "\u0940": "\uABE4",
+        "\u0941": "\uABE8",
+        "\u0942": "\uABE8",
+        "\u0943": "\uABED\uABD4\uABE8",
+        "\u0944": "\uABED\uABD4\uABE8",
+        "\u0962": "\uABED\uABC2\uABE8",
+        "\u0963": "\uABED\uABC2\uABE8",
+        "\u0946": "",
+        "\u0947": "\uABE6",
+        "\u0948": "\uABE9",
+        "\u094A": "",
+        "\u094B": "\uABE3",
+        "\u094C": "\uABE7"
+      },
+      "yogavaahas": {
+        "\u0902": "\uABEA",
+        "\u0903": "\uABCD\uABED",
+        "\u0901": "\uABEA"
+      },
+      "virama": {
+        "\u094D": "\uABED"
+      },
+      "consonants": {
+        "\u0915": "\uABC0",
+        "\u0916": "\uABC8",
+        "\u0917": "\uABD2",
+        "\u0918": "\uABD8",
+        "\u0919": "\uABC9",
+        "\u091A": "\uABC6",
+        "\u091B": "\uABC6",
+        "\u091C": "\uABD6",
+        "\u091D": "\uABD3",
+        "\u091E": "\uABC5",
+        "\u091F": "\uABC7",
+        "\u0920": "\uABCA",
+        "\u0921": "\uABD7",
+        "\u0922": "\uABD9",
+        "\u0923": "\uABC5",
+        "\u0924": "\uABC7",
+        "\u0925": "\uABCA",
+        "\u0926": "\uABD7",
+        "\u0927": "\uABD9",
+        "\u0928": "\uABC5",
+        "\u092A": "\uABC4",
+        "\u092B": "\uABD0",
+        "\u092C": "\uABD5",
+        "\u092D": "\uABDA",
+        "\u092E": "\uABC3",
+        "\u092F": "\uABCC",
+        "\u0930": "\uABD4",
+        "\u0932": "\uABC2",
+        "\u0935": "\uABCB",
+        "\u0936": "\uABC1",
+        "\u0937": "\uABC1",
+        "\u0938": "\uABC1",
+        "\u0939": "\uABCD",
+        "\u0933": "\uABC2",
+        "\u0915\u094D\u0937": "\uABDB\uABC1",
+        "\u091C\u094D\u091E": "\uABD6\uABED\uABC5"
+      },
+      "symbols": {
+        "\u0966": "\uABF0",
+        "\u0967": "\uABF1",
+        "\u0968": "\uABF2",
+        "\u0969": "\uABF3",
+        "\u096A": "\uABF4",
+        "\u096B": "\uABF5",
+        "\u096C": "\uABF6",
+        "\u096D": "\uABF7",
+        "\u096E": "\uABF8",
+        "\u096F": "\uABF9",
+        "\u0950": "\uABD1\uABE3\uABEA",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\uABE6"
+      }
+    };
+    schemes.marchen = {
+      "vowels": {
+        "\u0905": "\u{11C8F}",
+        "\u0906": "\u{11C8F}\u{11CB0}",
+        "\u0907": "\u{11C8F}\u{11CB1}",
+        "\u0908": "\u{11C8F}\u{11CB1}\u{11CB0}",
+        "\u0909": "\u{11C8F}\u{11CB2}",
+        "\u090A": "\u{11C8F}\u{11CB2}\u{11CB0}",
+        "\u090B": "\u{11C8A}\u{11CB1}",
+        "\u0960": "\u{11C8A}\u{11CB1}\u{11CB0}",
+        "\u090C": "\u{11C8B}\u{11CB1}",
+        "\u0961": "\u{11C8B}\u{11CB1}\u{11CB0}",
+        "\u090E": "",
+        "\u090F": "\u{11C8F}\u{11CB3}",
+        "\u0910": "\u{11C8F}\u{11CB3}\u{11CB0}",
+        "\u0912": "",
+        "\u0913": "\u{11C8F}\u{11CB4}",
+        "\u0914": "\u{11C8F}\u{11CB0}\u{11CB4}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11CB0}",
+        "\u093F": "\u{11CB1}",
+        "\u0940": "\u{11CB1}\u{11CB0}",
+        "\u0941": "\u{11CB2}",
+        "\u0942": "\u{11CB2}\u{11CB0}",
+        "\u0943": "\u{11CAA}\u{11CB1}",
+        "\u0944": "\u{11CAA}\u{11CB1}\u{11CB0}",
+        "\u0962": "\u{11CAB}\u{11CB1}",
+        "\u0963": "\u{11CAB}\u{11CB1}\u{11CB0}",
+        "\u0946": "",
+        "\u0947": "\u{11CB3}",
+        "\u0948": "\u{11CB3}\u{11CB0}",
+        "\u094A": "",
+        "\u094B": "\u{11CB4}",
+        "\u094C": "\u{11CB0}\u{11CB4}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11CB5}",
+        "\u0903": "\u{11C8E}",
+        "\u0901": "\u{11CB6}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{11C72}",
+        "\u0916": "\u{11C73}",
+        "\u0917": "\u{11C74}",
+        "\u0918": "\u{11C74}\u{11CAE}",
+        "\u0919": "\u{11C75}",
+        "\u091A": "\u{11C82}",
+        "\u091B": "\u{11C83}",
+        "\u091C": "\u{11C84}",
+        "\u091D": "\u{11C84}\u{11CAE}",
+        "\u091E": "\u{11C79}",
+        "\u091F": "\u{11C7A}",
+        "\u0920": "\u{11C7B}",
+        "\u0921": "\u{11C7C}",
+        "\u0922": "\u{11C7C}\u{11CAE}",
+        "\u0923": "\u{11C7D}",
+        "\u0924": "\u{11C7A}",
+        "\u0925": "\u{11C7B}",
+        "\u0926": "\u{11C7C}",
+        "\u0927": "\u{11C7C}\u{11CAE}",
+        "\u0928": "\u{11C7D}",
+        "\u092A": "\u{11C7E}",
+        "\u092B": "\u{11C7F}",
+        "\u092C": "\u{11C80}",
+        "\u092D": "\u{11C80}\u{11CAE}",
+        "\u092E": "\u{11C81}",
+        "\u092F": "\u{11C89}",
+        "\u0930": "\u{11C8A}",
+        "\u0932": "\u{11C8B}",
+        "\u0935": "\u{11C85}",
+        "\u0936": "\u{11C8C}",
+        "\u0937": "\u{11C8C}",
+        "\u0938": "\u{11C8D}",
+        "\u0939": "\u{11C8E}",
+        "\u0933": "\u{11C8B}",
+        "\u0915\u094D\u0937": "\u{11C72}\u{11CAC}",
+        "\u091C\u094D\u091E": "\u{11C84}\u{11C99}"
+      },
+      "symbols": {
+        "\u0966": "\u0F20",
+        "\u0967": "\u0F21",
+        "\u0968": "\u0F22",
+        "\u0969": "\u0F23",
+        "\u096A": "\u0F24",
+        "\u096B": "\u0F25",
+        "\u096C": "\u0F26",
+        "\u096D": "\u0F27",
+        "\u096E": "\u0F28",
+        "\u096F": "\u0F29",
+        "\u0950": "\u{11C8F}\u{11CB4}\u{11CB6}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{11CB3}"
+      }
+    };
+    schemes.modi = {
+      "vowels": {
+        "\u0905": "\u{11600}",
+        "\u0906": "\u{11601}",
+        "\u0907": "\u{11603}",
+        "\u0908": "\u{11603}",
+        "\u0909": "\u{11604}",
+        "\u090A": "\u{11604}",
+        "\u090B": "\u{11628}\u{11632}",
+        "\u0960": "\u{11628}\u{11632}",
+        "\u090C": "\u{11629}\u{11632}",
+        "\u0961": "\u{11629}\u{11632}",
+        "\u090E": "",
+        "\u090F": "\u{1160A}",
+        "\u0910": "\u{1160B}",
+        "\u0912": "",
+        "\u0913": "\u{1160C}",
+        "\u0914": "\u{1160D}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11630}",
+        "\u093F": "\u{11632}",
+        "\u0940": "\u{11632}",
+        "\u0941": "\u{11633}",
+        "\u0942": "\u{11633}",
+        "\u0943": "\u{1163F}\u{11628}\u{11632}",
+        "\u0944": "\u{1163F}\u{11628}\u{11632}",
+        "\u0962": "\u{1163F}\u{11629}\u{11632}",
+        "\u0963": "\u{1163F}\u{11629}\u{11632}",
+        "\u0946": "",
+        "\u0947": "\u{11639}",
+        "\u0948": "\u{1163A}",
+        "\u094A": "",
+        "\u094B": "\u{1163B}",
+        "\u094C": "\u{1163C}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{1163D}",
+        "\u0903": "\u{1163E}",
+        "\u0901": "\u{1163D}"
+      },
+      "virama": {
+        "\u094D": "\u{1163F}"
+      },
+      "consonants": {
+        "\u0915": "\u{1160E}",
+        "\u0916": "\u{1160F}",
+        "\u0917": "\u{11610}",
+        "\u0918": "\u{11611}",
+        "\u0919": "\u{11612}",
+        "\u091A": "\u{11613}",
+        "\u091B": "\u{11614}",
+        "\u091C": "\u{11615}",
+        "\u091D": "\u{11616}",
+        "\u091E": "\u{11617}",
+        "\u091F": "\u{11618}",
+        "\u0920": "\u{11619}",
+        "\u0921": "\u{1161A}",
+        "\u0922": "\u{1161B}",
+        "\u0923": "\u{1161C}",
+        "\u0924": "\u{1161D}",
+        "\u0925": "\u{1161E}",
+        "\u0926": "\u{1161F}",
+        "\u0927": "\u{11620}",
+        "\u0928": "\u{11621}",
+        "\u092A": "\u{11622}",
+        "\u092B": "\u{11623}",
+        "\u092C": "\u{11624}",
+        "\u092D": "\u{11625}",
+        "\u092E": "\u{11626}",
+        "\u092F": "\u{11627}",
+        "\u0930": "\u{11628}",
+        "\u0932": "\u{11629}",
+        "\u0935": "\u{1162A}",
+        "\u0936": "\u{1162B}",
+        "\u0937": "\u{1162C}",
+        "\u0938": "\u{1162D}",
+        "\u0939": "\u{1162E}",
+        "\u0933": "\u{1162F}",
+        "\u0915\u094D\u0937": "\u{1160E}\u{1163F}\u{1162C}",
+        "\u091C\u094D\u091E": "\u{11615}\u{1163F}\u{11617}"
+      },
+      "symbols": {
+        "\u0966": "\u{11650}",
+        "\u0967": "\u{11651}",
+        "\u0968": "\u{11652}",
+        "\u0969": "\u{11653}",
+        "\u096A": "\u{11654}",
+        "\u096B": "\u{11655}",
+        "\u096C": "\u{11656}",
+        "\u096D": "\u{11657}",
+        "\u096E": "\u{11658}",
+        "\u096F": "\u{11659}",
+        "\u0950": "\u{1160C}\u{1163D}",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{11640}"
+      }
+    };
+    schemes.mon = {
+      "vowels": {
+        "\u0905": "\u1021",
+        "\u0906": "\u1021\u102C",
+        "\u0907": "\u1023",
+        "\u0908": "\u1023\u1033",
+        "\u0909": "\u1025",
+        "\u090A": "\u1025\u1030",
+        "\u090B": "\u1052",
+        "\u0960": "\u1053",
+        "\u090C": "\u1054",
+        "\u0961": "\u1055",
+        "\u090E": "",
+        "\u090F": "\u1028",
+        "\u0910": "\u1021\u1032",
+        "\u0912": "",
+        "\u0913": "\u1029",
+        "\u0914": "\u102A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u102C",
+        "\u093F": "\u102D",
+        "\u0940": "\u1033",
+        "\u0941": "\u102F",
+        "\u0942": "\u1030",
+        "\u0943": "\u1056",
+        "\u0944": "\u1057",
+        "\u0962": "\u1058",
+        "\u0963": "\u1059",
+        "\u0946": "",
+        "\u0947": "\u1031",
+        "\u0948": "\u1032",
+        "\u094A": "",
+        "\u094B": "\u1031\u102C",
+        "\u094C": "\u1031\u102C\u103A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1036",
+        "\u0903": "\u1038",
+        "\u0901": "\u1036"
+      },
+      "virama": {
+        "\u094D": "\u103A"
+      },
+      "consonants": {
+        "\u0915": "\u1000",
+        "\u0916": "\u1001",
+        "\u0917": "\u1002",
+        "\u0918": "\u1003",
+        "\u0919": "\u105A",
+        "\u091A": "\u1005",
+        "\u091B": "\u1006",
+        "\u091C": "\u1007",
+        "\u091D": "\u105B",
+        "\u091E": "\u100A",
+        "\u091F": "\u100B",
+        "\u0920": "\u100C",
+        "\u0921": "\u100D",
+        "\u0922": "\u100E",
+        "\u0923": "\u100F",
+        "\u0924": "\u1010",
+        "\u0925": "\u1011",
+        "\u0926": "\u1012",
+        "\u0927": "\u1013",
+        "\u0928": "\u1014",
+        "\u092A": "\u1015",
+        "\u092B": "\u1016",
+        "\u092C": "\u1017",
+        "\u092D": "\u1018",
+        "\u092E": "\u1019",
+        "\u092F": "\u101A",
+        "\u0930": "\u101B",
+        "\u0932": "\u101C",
+        "\u0935": "\u101D",
+        "\u0936": "\u1050",
+        "\u0937": "\u1051",
+        "\u0938": "\u101E",
+        "\u0939": "\u101F",
+        "\u0933": "\u1020",
+        "\u0915\u094D\u0937": "\u1000\u1039\u1051",
+        "\u091C\u094D\u091E": "\u1007\u1039\u100A"
+      },
+      "symbols": {
+        "\u0966": "\u1040",
+        "\u0967": "\u1041",
+        "\u0968": "\u1042",
+        "\u0969": "\u1043",
+        "\u096A": "\u1044",
+        "\u096B": "\u1045",
+        "\u096C": "\u1046",
+        "\u096D": "\u1047",
+        "\u096E": "\u1048",
+        "\u096F": "\u1049",
+        "\u0950": "\u1029\u1036",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u1031"
+      }
+    };
+    schemes.mro = {
+      "vowels": {
+        "\u0905": "\u{16A52}",
+        "\u0906": "\u{16A46}",
+        "\u0907": "\u{16A4A}",
+        "\u0908": "\u{16A4A}",
+        "\u0909": "\u{16A51}",
+        "\u090A": "\u{16A51}",
+        "\u090B": "\u{16A53}\u{16A51}",
+        "\u0960": "\u{16A53}\u{16A51}",
+        "\u090C": "\u{16A4D}\u{16A51}",
+        "\u0961": "\u{16A4D}\u{16A51}",
+        "\u090E": "",
+        "\u090F": "\u{16A58}",
+        "\u0910": "\u{16A46}\u{16A42}",
+        "\u0912": "",
+        "\u0913": "\u{16A51}",
+        "\u0914": "\u{16A56}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{16A46}",
+        "\u093F": "\u{16A4A}",
+        "\u0940": "\u{16A4A}",
+        "\u0941": "\u{16A51}",
+        "\u0942": "\u{16A51}",
+        "\u0943": "\u{16A53}\u{16A51}",
+        "\u0944": "\u{16A53}\u{16A51}",
+        "\u0962": "\u{16A4D}\u{16A51}",
+        "\u0963": "\u{16A4D}\u{16A51}",
+        "\u0946": "",
+        "\u0947": "\u{16A58}",
+        "\u0948": "\u{16A46}\u{16A42}",
+        "\u094A": "",
+        "\u094B": "\u{16A51}",
+        "\u094C": "\u{16A56}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{16A43}",
+        "\u0903": "\u{16A49}",
+        "\u0901": "\u{16A43}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{16A4C}\u{16A52}",
+        "\u0916": "\u{16A48}\u{16A52}",
+        "\u0917": "\u{16A4C}\u{16A52}",
+        "\u0918": "\u{16A48}\u{16A52}",
+        "\u0919": "\u{16A41}\u{16A52}",
+        "\u091A": "\u{16A4B}\u{16A52}",
+        "\u091B": "\u{16A4B}\u{16A52}",
+        "\u091C": "\u{16A4B}\u{16A52}",
+        "\u091D": "\u{16A4B}\u{16A52}",
+        "\u091E": "\u{16A4F}\u{16A52}",
+        "\u091F": "\u{16A40}\u{16A52}",
+        "\u0920": "\u{16A55}\u{16A52}",
+        "\u0921": "\u{16A45}\u{16A52}",
+        "\u0922": "\u{16A45}\u{16A52}",
+        "\u0923": "\u{16A4F}\u{16A52}",
+        "\u0924": "\u{16A40}\u{16A52}",
+        "\u0925": "\u{16A55}\u{16A52}",
+        "\u0926": "\u{16A45}\u{16A52}",
+        "\u0927": "\u{16A45}\u{16A52}",
+        "\u0928": "\u{16A4F}\u{16A52}",
+        "\u092A": "\u{16A50}\u{16A52}",
+        "\u092B": "\u{16A47}\u{16A52}",
+        "\u092C": "\u{16A44}\u{16A52}",
+        "\u092D": "\u{16A44}\u{16A52}",
+        "\u092E": "\u{16A43}\u{16A52}",
+        "\u092F": "\u{16A42}\u{16A52}",
+        "\u0930": "\u{16A53}\u{16A52}",
+        "\u0932": "\u{16A4D}\u{16A52}",
+        "\u0935": "\u{16A57}\u{16A52}",
+        "\u0936": "\u{16A54}\u{16A52}",
+        "\u0937": "\u{16A54}\u{16A52}",
+        "\u0938": "\u{16A54}\u{16A52}",
+        "\u0939": "\u{16A49}\u{16A52}",
+        "\u0933": "\u{16A4D}\u{16A52}",
+        "\u0915\u094D\u0937": "\u{16A4C}\u{16A54}\u{16A52}",
+        "\u091C\u094D\u091E": "\u{16A4B}\u{16A4F}\u{16A52}"
+      },
+      "symbols": {
+        "\u0966": "\u{16A60}",
+        "\u0967": "\u{16A61}",
+        "\u0968": "\u{16A62}",
+        "\u0969": "\u{16A63}",
+        "\u096A": "\u{16A64}",
+        "\u096B": "\u{16A65}",
+        "\u096C": "\u{16A66}",
+        "\u096D": "\u{16A67}",
+        "\u096E": "\u{16A68}",
+        "\u096F": "\u{16A69}",
+        "\u0950": "\u{16A51}\u{16A43}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{16A58}"
+      }
+    };
+    schemes.newa = {
+      "vowels": {
+        "\u0905": "\u{11400}",
+        "\u0906": "\u{11401}",
+        "\u0907": "\u{11402}",
+        "\u0908": "\u{11403}",
+        "\u0909": "\u{11404}",
+        "\u090A": "\u{11405}",
+        "\u090B": "\u{11406}",
+        "\u0960": "\u{11407}",
+        "\u090C": "\u{11408}",
+        "\u0961": "\u{11409}",
+        "\u090E": "",
+        "\u090F": "\u{1140A}",
+        "\u0910": "\u{1140B}",
+        "\u0912": "",
+        "\u0913": "\u{1140C}",
+        "\u0914": "\u{1140D}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11435}",
+        "\u093F": "\u{11436}",
+        "\u0940": "\u{11437}",
+        "\u0941": "\u{11438}",
+        "\u0942": "\u{11439}",
+        "\u0943": "\u{1143A}",
+        "\u0944": "\u{1143B}",
+        "\u0962": "\u{1143C}",
+        "\u0963": "\u{1143D}",
+        "\u0946": "",
+        "\u0947": "\u{1143E}",
+        "\u0948": "\u{1143F}",
+        "\u094A": "",
+        "\u094B": "\u{11440}",
+        "\u094C": "\u{11441}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11444}",
+        "\u0903": "\u{11445}",
+        "\u0901": "\u{11443}"
+      },
+      "virama": {
+        "\u094D": "\u{11442}"
+      },
+      "consonants": {
+        "\u0915": "\u{1140E}",
+        "\u0916": "\u{1140F}",
+        "\u0917": "\u{11410}",
+        "\u0918": "\u{11411}",
+        "\u0919": "\u{11412}",
+        "\u091A": "\u{11414}",
+        "\u091B": "\u{11415}",
+        "\u091C": "\u{11416}",
+        "\u091D": "\u{11417}",
+        "\u091E": "\u{11418}",
+        "\u091F": "\u{1141A}",
+        "\u0920": "\u{1141B}",
+        "\u0921": "\u{1141C}",
+        "\u0922": "\u{1141D}",
+        "\u0923": "\u{1141E}",
+        "\u0924": "\u{1141F}",
+        "\u0925": "\u{11420}",
+        "\u0926": "\u{11421}",
+        "\u0927": "\u{11422}",
+        "\u0928": "\u{11423}",
+        "\u092A": "\u{11425}",
+        "\u092B": "\u{11426}",
+        "\u092C": "\u{11427}",
+        "\u092D": "\u{11428}",
+        "\u092E": "\u{11429}",
+        "\u092F": "\u{1142B}",
+        "\u0930": "\u{1142C}",
+        "\u0932": "\u{1142E}",
+        "\u0935": "\u{11430}",
+        "\u0936": "\u{11431}",
+        "\u0937": "\u{11432}",
+        "\u0938": "\u{11433}",
+        "\u0939": "\u{11434}",
+        "\u0933": "\u{1142E}\u{11446}",
+        "\u0915\u094D\u0937": "\u{1140E}\u{11442}\u{11432}",
+        "\u091C\u094D\u091E": "\u{11416}\u{11442}\u{11418}"
+      },
+      "symbols": {
+        "\u0966": "\u{11450}",
+        "\u0967": "\u{11451}",
+        "\u0968": "\u{11452}",
+        "\u0969": "\u{11453}",
+        "\u096A": "\u{11454}",
+        "\u096B": "\u{11455}",
+        "\u096C": "\u{11456}",
+        "\u096D": "\u{11457}",
+        "\u096E": "\u{11458}",
+        "\u096F": "\u{11459}",
+        "\u0950": "\u{11449}",
+        "\u093D": "\u{11447}",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{1143E}"
+      }
+    };
+    schemes.ol_chiki = {
+      "vowels": {
+        "\u0905": "\u1C5A",
+        "\u0906": "\u1C5F",
+        "\u0907": "\u1C64",
+        "\u0908": "\u1C64\u1C7B",
+        "\u0909": "\u1C69",
+        "\u090A": "\u1C69\u1C7B",
+        "\u090B": "\u1C68\u1C69",
+        "\u0960": "\u1C68\u1C69\u1C7B",
+        "\u090C": "\u1C5E\u1C69",
+        "\u0961": "\u1C5E\u1C69\u1C7B",
+        "\u090E": "\u1C6E\u1C79",
+        "\u090F": "\u1C6E",
+        "\u0910": "\u1C5A\u1C64",
+        "\u0912": "\u1C73",
+        "\u0913": "\u1C73",
+        "\u0914": "\u1C5A\u1C69"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1C5F",
+        "\u093F": "\u1C64",
+        "\u0940": "\u1C64\u1C7B",
+        "\u0941": "\u1C69",
+        "\u0942": "\u1C69\u1C7B",
+        "\u0943": "\u1C68\u1C69",
+        "\u0944": "\u1C68\u1C69\u1C7B",
+        "\u0962": "\u1C5E\u1C69",
+        "\u0963": "\u1C5E\u1C69\u1C7B",
+        "\u0946": "\u1C6E\u1C79",
+        "\u0947": "\u1C6E",
+        "\u0948": "\u1C5A\u1C64",
+        "\u094A": "\u1C73",
+        "\u094B": "\u1C73",
+        "\u094C": "\u1C5A\u1C69"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1C5D",
+        "\u0903": "\u1C77",
+        "\u0901": "\u1C78"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u1C60\u1C5A",
+        "\u0916": "\u1C60\u1C77\u1C5A",
+        "\u0917": "\u1C5C\u1C5A",
+        "\u0918": "\u1C5C\u1C77\u1C5A",
+        "\u0919": "\u1C76\u1C5A",
+        "\u091A": "\u1C6A\u1C5A",
+        "\u091B": "\u1C6A\u1C77\u1C5A",
+        "\u091C": "\u1C61\u1C5A",
+        "\u091D": "\u1C61\u1C77\u1C5A",
+        "\u091E": "\u1C67\u1C5A",
+        "\u091F": "\u1C74\u1C5A",
+        "\u0920": "\u1C74\u1C77\u1C5A",
+        "\u0921": "\u1C70\u1C5A",
+        "\u0922": "\u1C70\u1C77\u1C5A",
+        "\u0923": "\u1C6C\u1C5A",
+        "\u0924": "\u1C5B\u1C5A",
+        "\u0925": "\u1C5B\u1C77\u1C5A",
+        "\u0926": "\u1C6B\u1C5A",
+        "\u0927": "\u1C6B\u1C77\u1C5A",
+        "\u0928": "\u1C71\u1C5A",
+        "\u092A": "\u1C6F\u1C5A",
+        "\u092B": "\u1C6F\u1C77\u1C5A",
+        "\u092C": "\u1C75\u1C5A",
+        "\u092D": "\u1C75\u1C77\u1C5A",
+        "\u092E": "\u1C62\u1C5A",
+        "\u092F": "\u1C6D\u1C5A",
+        "\u0930": "\u1C68\u1C5A",
+        "\u0932": "\u1C5E\u1C5A",
+        "\u0935": "\u1C63\u1C5A",
+        "\u0936": "\u1C65\u1C5A",
+        "\u0937": "\u1C65\u1C5A",
+        "\u0938": "\u1C65\u1C5A",
+        "\u0939": "\u1C66\u1C5A",
+        "\u0933": "\u1C5E\u1C5A",
+        "\u0915\u094D\u0937": "\u1C60\u1C65\u1C5A",
+        "\u091C\u094D\u091E": "\u1C61\u1C67\u1C5A"
+      },
+      "symbols": {
+        "\u0966": "\u1C50",
+        "\u0967": "\u1C51",
+        "\u0968": "\u1C52",
+        "\u0969": "\u1C53",
+        "\u096A": "\u1C54",
+        "\u096B": "\u1C55",
+        "\u096C": "\u1C56",
+        "\u096D": "\u1C57",
+        "\u096E": "\u1C58",
+        "\u096F": "\u1C59",
+        "\u0950": "\u1C73\u1C78",
+        "\u093D": "'",
+        "\u0964": "\u1C7E",
+        "\u0965": "\u1C7F"
+      },
+      "candra": {
+        "\u0945": "\u1C5A\u1C79"
+      },
+      "extra_consonants": {
+        "\u0958": "\u1C60\u1C5A",
+        "\u0959": "\u1C60\u1C77\u1C5A",
+        "\u095A": "\u1C5C\u1C5A",
+        "\u095B": "\u1C61\u1C5A",
+        "\u095C": "\u1C72\u1C5A",
+        "\u0922\u093C": "\u1C72\u1C77\u1C5A",
+        "\u095E": "\u1C6F\u1C5A",
+        "\u095F": "\u1C6D\u1C5A",
+        "\u0931": "\u1C68\u1C5A"
+      }
+    };
+    schemes.oriya = {
+      "vowels": {
+        "\u0905": "\u0B05",
+        "\u0906": "\u0B06",
+        "\u0907": "\u0B07",
+        "\u0908": "\u0B08",
+        "\u0909": "\u0B09",
+        "\u090A": "\u0B0A",
+        "\u090B": "\u0B0B",
+        "\u0960": "\u0B60",
+        "\u090C": "\u0B0C",
+        "\u0961": "\u0B61",
+        "\u090E": "\u090E",
+        "\u090F": "\u0B0F",
+        "\u0910": "\u0B10",
+        "\u0912": "\u0912",
+        "\u0913": "\u0B13",
+        "\u0914": "\u0B14"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0B3E",
+        "\u093F": "\u0B3F",
+        "\u0940": "\u0B40",
+        "\u0941": "\u0B41",
+        "\u0942": "\u0B42",
+        "\u0943": "\u0B43",
+        "\u0944": "\u0B44",
+        "\u0962": "\u0B62",
+        "\u0963": "\u0B63",
+        "\u0946": "\u0946",
+        "\u0947": "\u0B47",
+        "\u0948": "\u0B48",
+        "\u094A": "\u094A",
+        "\u094B": "\u0B4B",
+        "\u094C": "\u0B4C"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0B02",
+        "\u0903": "\u0B03",
+        "\u0901": "\u0B01"
+      },
+      "virama": {
+        "\u094D": "\u0B4D"
+      },
+      "consonants": {
+        "\u0915": "\u0B15",
+        "\u0916": "\u0B16",
+        "\u0917": "\u0B17",
+        "\u0918": "\u0B18",
+        "\u0919": "\u0B19",
+        "\u091A": "\u0B1A",
+        "\u091B": "\u0B1B",
+        "\u091C": "\u0B1C",
+        "\u091D": "\u0B1D",
+        "\u091E": "\u0B1E",
+        "\u091F": "\u0B1F",
+        "\u0920": "\u0B20",
+        "\u0921": "\u0B21",
+        "\u0922": "\u0B22",
+        "\u0923": "\u0B23",
+        "\u0924": "\u0B24",
+        "\u0925": "\u0B25",
+        "\u0926": "\u0B26",
+        "\u0927": "\u0B27",
+        "\u0928": "\u0B28",
+        "\u092A": "\u0B2A",
+        "\u092B": "\u0B2B",
+        "\u092C": "\u0B2C",
+        "\u092D": "\u0B2D",
+        "\u092E": "\u0B2E",
+        "\u092F": "\u0B2F",
+        "\u0930": "\u0B30",
+        "\u0932": "\u0B32",
+        "\u0935": "\u0B35",
+        "\u0936": "\u0B36",
+        "\u0937": "\u0B37",
+        "\u0938": "\u0B38",
+        "\u0939": "\u0B39",
+        "\u0933": "\u0B33",
+        "\u0915\u094D\u0937": "\u0B15\u0B4D\u0B37",
+        "\u091C\u094D\u091E": "\u0B1C\u0B4D\u0B1E"
+      },
+      "symbols": {
+        "\u0966": "\u0B66",
+        "\u0967": "\u0B67",
+        "\u0968": "\u0B68",
+        "\u0969": "\u0B69",
+        "\u096A": "\u0B6A",
+        "\u096B": "\u0B6B",
+        "\u096C": "\u0B6C",
+        "\u096D": "\u0B6D",
+        "\u096E": "\u0B6E",
+        "\u096F": "\u0B6F",
+        "\u0950": "\u0B13\u0B01",
+        "\u093D": "\u0B3D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": ""
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u0B47"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0B15\u0B3C",
+        "\u0959": "\u0B16\u0B3C",
+        "\u095A": "\u0B17\u0B3C",
+        "\u095B": "\u0B1C\u0B3C",
+        "\u095C": "\u0B5C",
+        "\u0922\u093C": "\u0B5D",
+        "\u095E": "\u0B2B\u0B3C",
+        "\u095F": "\u0B5F",
+        "\u0931": "\u0B30\u0B3C",
+        "\u0934": "\u0B33\u0B3C"
+      }
+    };
+    schemes.phags_pa = {
+      "vowels": {
+        "\u0905": "\uA85D",
+        "\u0906": "\uA85D\uA856",
+        "\u0907": "\uA85E",
+        "\u0908": "\uA85E\uA856",
+        "\u0909": "\uA85F",
+        "\u090A": "\uA85F\uA856",
+        "\u090B": "\uA858\uA85E",
+        "\u0960": "\uA858\uA856\uA85E",
+        "\u090C": "\uA859\uA85E",
+        "\u0961": "\uA859\uA856\uA85E",
+        "\u090E": "",
+        "\u090F": "\uA860",
+        "\u0910": "\uA860\uA856",
+        "\u0912": "",
+        "\u0913": "\uA861",
+        "\u0914": "\uA861\uA856"
+      },
+      "vowel_marks": {
+        "\u093E": "\uA856",
+        "\u093F": "\uA85E",
+        "\u0940": "\uA856\uA85E",
+        "\u0941": "\uA85F",
+        "\u0942": "\uA856\uA85F",
+        "\u0943": "\uA871\uA85E",
+        "\u0944": "\uA856\uA871\uA85E",
+        "\u0962": "\uA859\uA85E",
+        "\u0963": "\uA859\uA856\uA85E",
+        "\u0946": "",
+        "\u0947": "\uA860",
+        "\u0948": "\uA856\uA860",
+        "\u094A": "",
+        "\u094B": "\uA861",
+        "\u094C": "\uA856\uA861"
+      },
+      "yogavaahas": {
+        "\u0902": "\uA873",
+        "\u0903": "\uA85C",
+        "\u0901": "\uA873"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\uA840",
+        "\u0916": "\uA841",
+        "\u0917": "\uA842",
+        "\u0918": "\uA842\uA85C",
+        "\u0919": "\uA843",
+        "\u091A": "\uA850",
+        "\u091B": "\uA851",
+        "\u091C": "\uA852",
+        "\u091D": "\uA852\uA85C",
+        "\u091E": "\uA847",
+        "\u091F": "\uA869",
+        "\u0920": "\uA86A",
+        "\u0921": "\uA86B",
+        "\u0922": "\uA86B\uA85C",
+        "\u0923": "\uA86C",
+        "\u0924": "\uA848",
+        "\u0925": "\uA849",
+        "\u0926": "\uA84A",
+        "\u0927": "\uA84A\uA85C",
+        "\u0928": "\uA84B",
+        "\u092A": "\uA84C",
+        "\u092B": "\uA84D",
+        "\u092C": "\uA84E",
+        "\u092D": "\uA84E\uA85C",
+        "\u092E": "\uA84F",
+        "\u092F": "\uA857",
+        "\u0930": "\uA858",
+        "\u0932": "\uA859",
+        "\u0935": "\uA853",
+        "\u0936": "\uA85A",
+        "\u0937": "\uA85A",
+        "\u0938": "\uA85B",
+        "\u0939": "\uA85C",
+        "\u0933": "\uA859",
+        "\u0915\u094D\u0937": "\uA840\uA85A",
+        "\u091C\u094D\u091E": "\uA852\uA847"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\uA873\uA861",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\uA860"
+      }
+    };
+    schemes.ranjana = {
+      "vowels": {
+        "\u0905": "\u0905",
+        "\u0906": "\u0906",
+        "\u0907": "\u0907",
+        "\u0908": "\u0908",
+        "\u0909": "\u0909",
+        "\u090A": "\u090A",
+        "\u090B": "\u090B",
+        "\u0960": "\u0960",
+        "\u090C": "\u090C",
+        "\u0961": "\u0961",
+        "\u090E": "",
+        "\u090F": "\u090F",
+        "\u0910": "\u0910",
+        "\u0912": "",
+        "\u0913": "\u0913",
+        "\u0914": "\u0914"
+      },
+      "vowel_marks": {
+        "\u093E": "\u093E",
+        "\u093F": "\u093F",
+        "\u0940": "\u0940",
+        "\u0941": "\u0941",
+        "\u0942": "\u0942",
+        "\u0943": "\u0943",
+        "\u0944": "\u0944",
+        "\u0962": "\u0962",
+        "\u0963": "\u0963",
+        "\u0946": "",
+        "\u0947": "\u0947",
+        "\u0948": "\u0948",
+        "\u094A": "",
+        "\u094B": "\u094B",
+        "\u094C": "\u094C"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0902",
+        "\u0903": "\u0903",
+        "\u0901": "\u0901"
+      },
+      "virama": {
+        "\u094D": "\u094D"
+      },
+      "consonants": {
+        "\u0915": "\u0915",
+        "\u0916": "\u0916",
+        "\u0917": "\u0917",
+        "\u0918": "\u0918",
+        "\u0919": "\u0919",
+        "\u091A": "\u091A",
+        "\u091B": "\u091B",
+        "\u091C": "\u091C",
+        "\u091D": "\u091D",
+        "\u091E": "\u091E",
+        "\u091F": "\u091F",
+        "\u0920": "\u0920",
+        "\u0921": "\u0921",
+        "\u0922": "\u0922",
+        "\u0923": "\u0923",
+        "\u0924": "\u0924",
+        "\u0925": "\u0925",
+        "\u0926": "\u0926",
+        "\u0927": "\u0927",
+        "\u0928": "\u0928",
+        "\u092A": "\u092A",
+        "\u092B": "\u092B",
+        "\u092C": "\u092C",
+        "\u092D": "\u092D",
+        "\u092E": "\u092E",
+        "\u092F": "\u092F",
+        "\u0930": "\u0930",
+        "\u0932": "\u0932",
+        "\u0935": "\u0935",
+        "\u0936": "\u0936",
+        "\u0937": "\u0937",
+        "\u0938": "\u0938",
+        "\u0939": "\u0939",
+        "\u0933": "\u0932",
+        "\u0915\u094D\u0937": "\u0915\u094D\u0937",
+        "\u091C\u094D\u091E": "\u091C\u094D\u091E"
+      },
+      "symbols": {
+        "\u0966": "\u0966",
+        "\u0967": "\u0967",
+        "\u0968": "\u0968",
+        "\u0969": "\u0969",
+        "\u096A": "\u096A",
+        "\u096B": "\u096B",
+        "\u096C": "\u096C",
+        "\u096D": "\u096D",
+        "\u096E": "\u096E",
+        "\u096F": "\u096F",
+        "\u0950": "\u0950",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u0947"
+      }
+    };
+    schemes.rohingya = {
+      "vowels": {
+        "\u0905": "\u{10D00}\u{10D1D}",
+        "\u0906": "\u{10D00}\u{10D1D}\u{10D24}",
+        "\u0907": "\u{10D00}\u{10D1E}",
+        "\u0908": "\u{10D00}\u{10D1E}\u{10D24}",
+        "\u0909": "\u{10D00}\u{10D1F}",
+        "\u090A": "\u{10D00}\u{10D1F}\u{10D24}",
+        "\u090B": "\u{10D0C}\u{10D1F}",
+        "\u0960": "\u{10D0C}\u{10D1F}\u{10D24}",
+        "\u090C": "\u{10D13}\u{10D1F}",
+        "\u0961": "\u{10D13}\u{10D1F}\u{10D24}",
+        "\u090E": "",
+        "\u090F": "\u{10D00}\u{10D20}\u{10D24}",
+        "\u0910": "\u{10D00}\u{10D1D}\u{10D19}",
+        "\u0912": "",
+        "\u0913": "\u{10D00}\u{10D21}\u{10D24}",
+        "\u0914": "\u{10D00}\u{10D1D}\u{10D17}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{10D00}\u{10D1D}\u{10D24}",
+        "\u093F": "\u{10D00}\u{10D1E}",
+        "\u0940": "\u{10D00}\u{10D1E}\u{10D24}",
+        "\u0941": "\u{10D00}\u{10D1F}",
+        "\u0942": "\u{10D00}\u{10D1F}\u{10D24}",
+        "\u0943": "\u{10D0C}\u{10D1F}",
+        "\u0944": "\u{10D0C}\u{10D1F}\u{10D24}",
+        "\u0962": "\u{10D13}\u{10D1F}",
+        "\u0963": "\u{10D13}\u{10D1F}\u{10D24}",
+        "\u0946": "",
+        "\u0947": "\u{10D00}\u{10D20}\u{10D24}",
+        "\u0948": "\u{10D00}\u{10D1D}\u{10D19}",
+        "\u094A": "",
+        "\u094B": "\u{10D00}\u{10D21}\u{10D24}",
+        "\u094C": "\u{10D00}\u{10D1D}\u{10D17}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{10D23}",
+        "\u0903": "\u{10D07}",
+        "\u0901": "\u{10D23}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{10D11}\u{10D1D}",
+        "\u0916": "\u{10D11}\u{10D1D}",
+        "\u0917": "\u{10D12}\u{10D1D}",
+        "\u0918": "\u{10D12}\u{10D1D}",
+        "\u0919": "\u{10D1A}\u{10D1D}",
+        "\u091A": "\u{10D06}\u{10D1D}",
+        "\u091B": "\u{10D06}\u{10D1D}",
+        "\u091C": "\u{10D05}\u{10D1D}",
+        "\u091D": "\u{10D05}\u{10D1D}",
+        "\u091E": "\u{10D1B}\u{10D1D}",
+        "\u091F": "\u{10D04}\u{10D1D}",
+        "\u0920": "\u{10D04}\u{10D1D}",
+        "\u0921": "\u{10D0B}\u{10D1D}",
+        "\u0922": "\u{10D0B}\u{10D1D}",
+        "\u0923": "\u{10D15}\u{10D1D}",
+        "\u0924": "\u{10D03}\u{10D1D}",
+        "\u0925": "\u{10D03}\u{10D1D}",
+        "\u0926": "\u{10D0A}\u{10D1D}",
+        "\u0927": "\u{10D0A}\u{10D1D}",
+        "\u0928": "\u{10D15}\u{10D1D}",
+        "\u092A": "\u{10D02}\u{10D1D}",
+        "\u092B": "\u{10D02}\u{10D1D}",
+        "\u092C": "\u{10D01}\u{10D1D}",
+        "\u092D": "\u{10D01}\u{10D1D}",
+        "\u092E": "\u{10D14}\u{10D1D}",
+        "\u092F": "\u{10D18}\u{10D1D}",
+        "\u0930": "\u{10D0C}\u{10D1D}",
+        "\u0932": "\u{10D13}\u{10D1D}",
+        "\u0935": "\u{10D16}\u{10D1D}",
+        "\u0936": "\u{10D10}\u{10D1D}",
+        "\u0937": "\u{10D10}\u{10D1D}",
+        "\u0938": "\u{10D0F}\u{10D1D}",
+        "\u0939": "\u{10D07}\u{10D1D}",
+        "\u0933": "\u{10D13}\u{10D1D}",
+        "\u0915\u094D\u0937": "\u{10D11}\u{10D10}\u{10D1D}",
+        "\u091C\u094D\u091E": "\u{10D05}\u{10D1B}\u{10D1D}"
+      },
+      "symbols": {
+        "\u0966": "\u{10D30}",
+        "\u0967": "\u{10D31}",
+        "\u0968": "\u{10D32}",
+        "\u0969": "\u{10D33}",
+        "\u096A": "\u{10D34}",
+        "\u096B": "\u{10D35}",
+        "\u096C": "\u{10D36}",
+        "\u096D": "\u{10D37}",
+        "\u096E": "\u{10D38}",
+        "\u096F": "\u{10D39}",
+        "\u0950": "\u{10D00}\u{10D00}\u{10D21}\u{10D34}\u{10D14}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{10D00}\u{10D20}"
+      }
+    };
+    schemes.shan = {
+      "vowels": {
+        "\u0905": "\u1021",
+        "\u0906": "\u1021\u1083",
+        "\u0907": "\u1021\u102D",
+        "\u0908": "\u1021\u102E",
+        "\u0909": "\u1021\u102F",
+        "\u090A": "\u1021\u1030",
+        "\u090B": "\u1021\u1056",
+        "\u0960": "\u1021\u1057",
+        "\u090C": "\u1021\u1058",
+        "\u0961": "\u1021\u1059",
+        "\u090E": "\u1021\u1031",
+        "\u090F": "\u1021\u1031",
+        "\u0910": "\u1021\u1086",
+        "\u0912": "\u1021\u1031\u1083",
+        "\u0913": "\u1021\u1031\u1083",
+        "\u0914": "\u1021\u101D\u103A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1083",
+        "\u093F": "\u102D",
+        "\u0940": "\u102E",
+        "\u0941": "\u102F",
+        "\u0942": "\u1030",
+        "\u0943": "\u1056",
+        "\u0944": "\u1057",
+        "\u0962": "\u1058",
+        "\u0963": "\u1059",
+        "\u0946": "\u1031",
+        "\u0947": "\u1031",
+        "\u0948": "\u1086",
+        "\u094A": "\u1031\u1083",
+        "\u094B": "\u1031\u1083",
+        "\u094C": "\u101D\u103A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1036",
+        "\u0903": "\u1038",
+        "\u0901": "\u1036"
+      },
+      "virama": {
+        "\u094D": "\u103A"
+      },
+      "consonants": {
+        "\u0915": "\u1075",
+        "\u0916": "\u1076",
+        "\u0917": "\u1077",
+        "\u0918": "\uA9E0",
+        "\u0919": "\u1004",
+        "\u091A": "\u1078",
+        "\u091B": "\uA9E1",
+        "\u091C": "\uAA61",
+        "\u091D": "\uA9E2",
+        "\u091E": "\u107A",
+        "\u091F": "\uAA66",
+        "\u0920": "\uAA67",
+        "\u0921": "\uAA68",
+        "\u0922": "\uAA69",
+        "\u0923": "\uA9E3",
+        "\u0924": "\u1010",
+        "\u0925": "\u1011",
+        "\u0926": "\u107B",
+        "\u0927": "\uAA6A",
+        "\u0928": "\u107C",
+        "\u092A": "\u1015",
+        "\u092B": "\u107D",
+        "\u092C": "\u107F",
+        "\u092D": "\uA9E4",
+        "\u092E": "\u1019",
+        "\u092F": "\u101A",
+        "\u0930": "\u101B",
+        "\u0932": "\u101C",
+        "\u0935": "\u101D",
+        "\u0936": "\u1050",
+        "\u0937": "\u1051",
+        "\u0938": "\u101E",
+        "\u0939": "\u1081",
+        "\u0933": "\uAA6E",
+        "\u0915\u094D\u0937": "\u1075\u103A\u1051",
+        "\u091C\u094D\u091E": "\uAA61\u103A\u107A"
+      },
+      "symbols": {
+        "\u0966": "\u1090",
+        "\u0967": "\u1091",
+        "\u0968": "\u1092",
+        "\u0969": "\u1093",
+        "\u096A": "\u1094",
+        "\u096B": "\u1095",
+        "\u096C": "\u1096",
+        "\u096D": "\u1097",
+        "\u096E": "\u1098",
+        "\u096F": "\u1099",
+        "\u0950": "\u1021\u1031\u1083\u1036",
+        "\u093D": "'",
+        "\u0964": "\u104A",
+        "\u0965": "\u104B"
+      },
+      "candra": {
+        "\u0945": "\u1084"
+      },
+      "extra_consonants": {
+        "\u0958": "\u1075",
+        "\u0959": "\u1076",
+        "\u095A": "\u1077",
+        "\u095B": "\u1079",
+        "\u095C": "\uAA68",
+        "\u0922\u093C": "\uAA69",
+        "\u095E": "\u107E",
+        "\u095F": "\u101A",
+        "\u0931": "\u101B"
+      }
+    };
+    schemes.sharada = {
+      "vowels": {
+        "\u0905": "\u{11183}",
+        "\u0906": "\u{11184}",
+        "\u0907": "\u{11185}",
+        "\u0908": "\u{11186}",
+        "\u0909": "\u{11187}",
+        "\u090A": "\u{11188}",
+        "\u090B": "\u{11189}",
+        "\u0960": "\u{1118A}",
+        "\u090C": "\u{1118B}",
+        "\u0961": "\u{1118C}",
+        "\u090E": "\u{1118D}\u{111CC}",
+        "\u090F": "\u{1118D}",
+        "\u0910": "\u{1118E}",
+        "\u0912": "\u{1118F}\u{111CC}",
+        "\u0913": "\u{1118F}",
+        "\u0914": "\u{11190}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{111B3}",
+        "\u093F": "\u{111B4}",
+        "\u0940": "\u{111B5}",
+        "\u0941": "\u{111B6}",
+        "\u0942": "\u{111B7}",
+        "\u0943": "\u{111B8}",
+        "\u0944": "\u{111B9}",
+        "\u0962": "\u{111BA}",
+        "\u0963": "\u{111BB}",
+        "\u0946": "\u{111BC}\u{111CC}",
+        "\u0947": "\u{111BC}",
+        "\u0948": "\u{111BD}",
+        "\u094A": "\u{111BE}\u{111CC}",
+        "\u094B": "\u{111BE}",
+        "\u094C": "\u{111BF}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11181}",
+        "\u0903": "\u{11182}",
+        "\u0901": "\u{11180}"
+      },
+      "virama": {
+        "\u094D": "\u{111C0}"
+      },
+      "consonants": {
+        "\u0915": "\u{11191}",
+        "\u0916": "\u{11192}",
+        "\u0917": "\u{11193}",
+        "\u0918": "\u{11194}",
+        "\u0919": "\u{11195}",
+        "\u091A": "\u{11196}",
+        "\u091B": "\u{11197}",
+        "\u091C": "\u{11198}",
+        "\u091D": "\u{11199}",
+        "\u091E": "\u{1119A}",
+        "\u091F": "\u{1119B}",
+        "\u0920": "\u{1119C}",
+        "\u0921": "\u{1119D}",
+        "\u0922": "\u{1119E}",
+        "\u0923": "\u{1119F}",
+        "\u0924": "\u{111A0}",
+        "\u0925": "\u{111A1}",
+        "\u0926": "\u{111A2}",
+        "\u0927": "\u{111A3}",
+        "\u0928": "\u{111A4}",
+        "\u092A": "\u{111A5}",
+        "\u092B": "\u{111A6}",
+        "\u092C": "\u{111A7}",
+        "\u092D": "\u{111A8}",
+        "\u092E": "\u{111A9}",
+        "\u092F": "\u{111AA}",
+        "\u0930": "\u{111AB}",
+        "\u0932": "\u{111AC}",
+        "\u0935": "\u{111AE}",
+        "\u0936": "\u{111AF}",
+        "\u0937": "\u{111B0}",
+        "\u0938": "\u{111B1}",
+        "\u0939": "\u{111B2}",
+        "\u0933": "\u{111AD}",
+        "\u0915\u094D\u0937": "\u{11191}\u{111C0}\u{111B0}",
+        "\u091C\u094D\u091E": "\u{11198}\u{111C0}\u{1119A}"
+      },
+      "symbols": {
+        "\u0966": "\u{111D0}",
+        "\u0967": "\u{111D1}",
+        "\u0968": "\u{111D2}",
+        "\u0969": "\u{111D3}",
+        "\u096A": "\u{111D4}",
+        "\u096B": "\u{111D5}",
+        "\u096C": "\u{111D6}",
+        "\u096D": "\u{111D7}",
+        "\u096E": "\u{111D8}",
+        "\u096F": "\u{111D9}",
+        "\u0950": "\u{1118F}\u{11180}",
+        "\u093D": "\u{111C1}",
+        "\u0964": "\u{111C5}",
+        "\u0965": "\u{111C6}"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{111BC}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11191}\u{111CA}",
+        "\u0959": "\u{11192}\u{111CA}",
+        "\u095A": "\u{11193}\u{111CA}",
+        "\u095B": "\u{11198}\u{111CA}",
+        "\u095C": "\u{1119D}\u{111CA}",
+        "\u0922\u093C": "\u{1119E}\u{111CA}",
+        "\u095E": "\u{111A6}\u{111CA}",
+        "\u095F": "\u{111AA}\u{111CA}",
+        "\u0931": "\u{111AB}\u{111CA}",
+        "\u0934": "\u{111AD}\u{111CA}"
+      }
+    };
+    schemes.siddham = {
+      "vowels": {
+        "\u0905": "\u{11580}",
+        "\u0906": "\u{11581}",
+        "\u0907": "\u{11582}",
+        "\u0908": "\u{11583}",
+        "\u0909": "\u{11584}",
+        "\u090A": "\u{11585}",
+        "\u090B": "\u{11586}",
+        "\u0960": "\u{11587}",
+        "\u090C": "\u{11588}",
+        "\u0961": "\u{11589}",
+        "\u090E": "\u{1158A}",
+        "\u090F": "\u{1158A}",
+        "\u0910": "\u{1158B}",
+        "\u0912": "\u{1158C}",
+        "\u0913": "\u{1158C}",
+        "\u0914": "\u{1158D}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{115AF}",
+        "\u093F": "\u{115B0}",
+        "\u0940": "\u{115B1}",
+        "\u0941": "\u{115B2}",
+        "\u0942": "\u{115B3}",
+        "\u0943": "\u{115B4}",
+        "\u0944": "\u{115B5}",
+        "\u0962": "\u{115BF}\u{115A9}\u{115B0}",
+        "\u0963": "\u{115BF}\u{115A9}\u{115B1}",
+        "\u0946": "\u{115B8}",
+        "\u0947": "\u{115B8}",
+        "\u0948": "\u{115B9}",
+        "\u094A": "\u{115BA}",
+        "\u094B": "\u{115BA}",
+        "\u094C": "\u{115BB}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{115BD}",
+        "\u0903": "\u{115BE}",
+        "\u0901": "\u{115BC}"
+      },
+      "virama": {
+        "\u094D": "\u{115BF}"
+      },
+      "consonants": {
+        "\u0915": "\u{1158E}",
+        "\u0916": "\u{1158F}",
+        "\u0917": "\u{11590}",
+        "\u0918": "\u{11591}",
+        "\u0919": "\u{11592}",
+        "\u091A": "\u{11593}",
+        "\u091B": "\u{11594}",
+        "\u091C": "\u{11595}",
+        "\u091D": "\u{11596}",
+        "\u091E": "\u{11597}",
+        "\u091F": "\u{11598}",
+        "\u0920": "\u{11599}",
+        "\u0921": "\u{1159A}",
+        "\u0922": "\u{1159B}",
+        "\u0923": "\u{1159C}",
+        "\u0924": "\u{1159D}",
+        "\u0925": "\u{1159E}",
+        "\u0926": "\u{1159F}",
+        "\u0927": "\u{115A0}",
+        "\u0928": "\u{115A1}",
+        "\u092A": "\u{115A2}",
+        "\u092B": "\u{115A3}",
+        "\u092C": "\u{115A4}",
+        "\u092D": "\u{115A5}",
+        "\u092E": "\u{115A6}",
+        "\u092F": "\u{115A7}",
+        "\u0930": "\u{115A8}",
+        "\u0932": "\u{115A9}",
+        "\u0935": "\u{115AA}",
+        "\u0936": "\u{115AB}",
+        "\u0937": "\u{115AC}",
+        "\u0938": "\u{115AD}",
+        "\u0939": "\u{115AE}",
+        "\u0933": "\u{115A9}\u{115C0}",
+        "\u0915\u094D\u0937": "\u{1158E}\u{115BF}\u{115AC}",
+        "\u091C\u094D\u091E": "\u{11595}\u{115BF}\u{11597}"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u{1158C}\u{115BC}",
+        "\u093D": "",
+        "\u0964": "\u{115C2}",
+        "\u0965": "\u{115C3}"
+      },
+      "candra": {
+        "\u0945": "\u{115B8}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{1158E}\u{115C0}",
+        "\u0959": "\u{1158F}\u{115C0}",
+        "\u095A": "\u{11590}\u{115C0}",
+        "\u095B": "\u{11595}\u{115C0}",
+        "\u095C": "\u{1159A}\u{115C0}",
+        "\u0922\u093C": "\u{1159B}\u{115C0}",
+        "\u095E": "\u{115A3}\u{115C0}",
+        "\u095F": "\u{115A7}\u{115C0}",
+        "\u0931": "\u{115A8}\u{115C0}"
+      }
+    };
+    schemes.sinhala = {
+      "vowels": {
+        "\u0905": "\u0D85",
+        "\u0906": "\u0D86",
+        "\u0907": "\u0D89",
+        "\u0908": "\u0D8A",
+        "\u0909": "\u0D8B",
+        "\u090A": "\u0D8C",
+        "\u090B": "\u0D8D",
+        "\u0960": "\u0D8E",
+        "\u090C": "\u0D8F",
+        "\u0961": "\u0D90",
+        "\u090E": "\u0D91",
+        "\u090F": "\u0D92",
+        "\u0910": "\u0D93",
+        "\u0912": "\u0D94",
+        "\u0913": "\u0D95",
+        "\u0914": "\u0D96"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0DCF",
+        "\u093F": "\u0DD2",
+        "\u0940": "\u0DD3",
+        "\u0941": "\u0DD4",
+        "\u0942": "\u0DD6",
+        "\u0943": "\u0DD8",
+        "\u0944": "\u0DF2",
+        "\u0962": "\u0DDF",
+        "\u0963": "\u0DF3",
+        "\u0946": "\u0DD9",
+        "\u0947": "\u0DDA",
+        "\u0948": "\u0DDB",
+        "\u094A": "\u0DDC",
+        "\u094B": "\u0DDD",
+        "\u094C": "\u0DDE"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0D82",
+        "\u0903": "\u0D83"
+      },
+      "virama": {
+        "\u094D": "\u0DCA"
+      },
+      "consonants": {
+        "\u0915": "\u0D9A",
+        "\u0916": "\u0D9B",
+        "\u0917": "\u0D9C",
+        "\u0918": "\u0D9D",
+        "\u0919": "\u0D9E",
+        "\u091A": "\u0DA0",
+        "\u091B": "\u0DA1",
+        "\u091C": "\u0DA2",
+        "\u091D": "\u0DA3",
+        "\u091E": "\u0DA4",
+        "\u091F": "\u0DA7",
+        "\u0920": "\u0DA8",
+        "\u0921": "\u0DA9",
+        "\u0922": "\u0DAA",
+        "\u0923": "\u0DAB",
+        "\u0924": "\u0DAD",
+        "\u0925": "\u0DAE",
+        "\u0926": "\u0DAF",
+        "\u0927": "\u0DB0",
+        "\u0928": "\u0DB1",
+        "\u092A": "\u0DB4",
+        "\u092B": "\u0DB5",
+        "\u092C": "\u0DB6",
+        "\u092D": "\u0DB7",
+        "\u092E": "\u0DB8",
+        "\u092F": "\u0DBA",
+        "\u0930": "\u0DBB",
+        "\u0932": "\u0DBD",
+        "\u0935": "\u0DC0",
+        "\u0936": "\u0DC1",
+        "\u0937": "\u0DC2",
+        "\u0938": "\u0DC3",
+        "\u0939": "\u0DC4",
+        "\u0933": "\u0DC5",
+        "\u0915\u094D\u0937": "\u0D9A\u0DCA\u200D\u0DC2",
+        "\u091C\u094D\u091E": "\u0DA5"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u0D95\u0D82",
+        "\u093D": "(\u0D85)",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u0DD0"
+      }
+    };
+    schemes.sora_sompeng = {
+      "vowels": {
+        "\u0905": "\u{110E6}\u{110E8}",
+        "\u0906": "\u{110E2}",
+        "\u0907": "\u{110E4}",
+        "\u0908": "\u{110E4}",
+        "\u0909": "\u{110E5}",
+        "\u090A": "\u{110E5}",
+        "\u090B": "\u{110DD}\u{110E4}",
+        "\u0960": "\u{110DD}\u{110E4}",
+        "\u090C": "\u{110D8}\u{110E4}",
+        "\u0961": "\u{110D8}\u{110E4}",
+        "\u090E": "\u{110E3}",
+        "\u090F": "\u{110E3}",
+        "\u0910": "\u{110E7}",
+        "\u0912": "\u{110E6}",
+        "\u0913": "\u{110E6}",
+        "\u0914": "\u{110E6}\u{110E5}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{110E2}",
+        "\u093F": "\u{110E4}",
+        "\u0940": "\u{110E4}",
+        "\u0941": "\u{110E5}",
+        "\u0942": "\u{110E5}",
+        "\u0943": "\u{110DD}\u{110E4}",
+        "\u0944": "\u{110DD}\u{110E4}",
+        "\u0962": "\u{110D8}\u{110E4}",
+        "\u0963": "\u{110D8}\u{110E4}",
+        "\u0946": "\u{110E3}",
+        "\u0947": "\u{110E3}",
+        "\u0948": "\u{110E7}",
+        "\u094A": "\u{110E6}",
+        "\u094B": "\u{110E6}",
+        "\u094C": "\u{110E6}\u{110E5}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{110D6}",
+        "\u0903": "\u{110DE}",
+        "\u0901": "\u{110D6}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{110DF}",
+        "\u0916": "\u{110DF}\u{110E0}",
+        "\u0917": "\u{110D5}",
+        "\u0918": "\u{110D5}\u{110E0}",
+        "\u0919": "\u{110D7}",
+        "\u091A": "\u{110D3}",
+        "\u091B": "\u{110D3}\u{110E0}",
+        "\u091C": "\u{110E0}",
+        "\u091D": "\u{110E0}\u{110E0}",
+        "\u091E": "\u{110E1}",
+        "\u091F": "\u{110D1}\u{110E8}",
+        "\u0920": "\u{110D1}\u{110E8}\u{110E0}",
+        "\u0921": "\u{110D4}",
+        "\u0922": "\u{110D4}\u{110E0}",
+        "\u0923": "\u{110D9}\u{110E8}",
+        "\u0924": "\u{110D1}",
+        "\u0925": "\u{110D1}\u{110E0}",
+        "\u0926": "\u{110D4}\u{110E8}",
+        "\u0927": "\u{110D4}\u{110E8}\u{110E0}",
+        "\u0928": "\u{110D9}",
+        "\u092A": "\u{110DB}",
+        "\u092B": "\u{110DB}\u{110E0}",
+        "\u092C": "\u{110D2}",
+        "\u092D": "\u{110D2}\u{110E0}",
+        "\u092E": "\u{110D6}",
+        "\u092F": "\u{110DC}",
+        "\u0930": "\u{110DD}",
+        "\u0932": "\u{110D8}",
+        "\u0935": "\u{110DA}",
+        "\u0936": "\u{110D0}\u{110E0}",
+        "\u0937": "\u{110D0}\u{110E8}",
+        "\u0938": "\u{110D0}",
+        "\u0939": "\u{110DE}",
+        "\u0933": "\u{110D8}\u{110E8}",
+        "\u0915\u094D\u0937": "\u{110DF}\u{110D0}\u{110E8}",
+        "\u091C\u094D\u091E": "\u{110E0}\u{110E1}"
+      },
+      "symbols": {
+        "\u0966": "\u{110F0}",
+        "\u0967": "\u{110F1}",
+        "\u0968": "\u{110F2}",
+        "\u0969": "\u{110F3}",
+        "\u096A": "\u{110F4}",
+        "\u096B": "\u{110F5}",
+        "\u096C": "\u{110F6}",
+        "\u096D": "\u{110F7}",
+        "\u096E": "\u{110F8}",
+        "\u096F": "\u{110F9}",
+        "\u0950": "\u{110E6}\u{110D6}",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u{110E3}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{110DF}",
+        "\u0959": "\u{110DF}\u{110E0}",
+        "\u095A": "\u{110D5}",
+        "\u095B": "\u{110E0}",
+        "\u095C": "\u{110DD}\u{110D4}",
+        "\u0922\u093C": "\u{110DD}\u{110D4}\u{110E0}",
+        "\u095E": "\u{110DB}\u{110E0}",
+        "\u095F": "\u{110DC}",
+        "\u0931": "\u{110D8}"
+      }
+    };
+    schemes.tai_laing = {
+      "vowels": {
+        "\u0905": "\u1021",
+        "\u0906": "\u1021\u1083",
+        "\u0907": "\u1021\u102D",
+        "\u0908": "\u1021\u102E",
+        "\u0909": "\u1021\u102F",
+        "\u090A": "\u1021\u1030",
+        "\u090B": "\uAA7A\u102D",
+        "\u0960": "\uAA7A\u102E",
+        "\u090C": "\u101C\u102D",
+        "\u0961": "\u101C\u102E",
+        "\u090E": "\u1021\u1031",
+        "\u090F": "\u1021\u1031",
+        "\u0910": "\u1021\u1086",
+        "\u0912": "\u1021\u1031\u1083",
+        "\u0913": "\u1021\u1031\u1083",
+        "\u0914": "\u1021\u101D\u103A"
+      },
+      "vowel_marks": {
+        "\u093E": "\u1083",
+        "\u093F": "\u102D",
+        "\u0940": "\u102E",
+        "\u0941": "\u102F",
+        "\u0942": "\u1030",
+        "\u0943": "\u103C\u102D",
+        "\u0944": "\u103C\u102E",
+        "\u0962": "\u103A\u101C\u102D",
+        "\u0963": "\u103A\u101C\u102E",
+        "\u0946": "\u1031",
+        "\u0947": "\u1031",
+        "\u0948": "\u1086",
+        "\u094A": "\u1031\u1083",
+        "\u094B": "\u1031\u1083",
+        "\u094C": "\u101D\u103A"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1036",
+        "\u0903": "\u1038",
+        "\u0901": "\u1036"
+      },
+      "virama": {
+        "\u094D": "\u103A"
+      },
+      "consonants": {
+        "\u0915": "\u1000",
+        "\u0916": "\u1075",
+        "\u0917": "\uA9E9",
+        "\u0918": "\uA9EA",
+        "\u0919": "\u1004",
+        "\u091A": "\u1078",
+        "\u091B": "\uAA6C",
+        "\u091C": "\uA9EB",
+        "\u091D": "\uA9EC",
+        "\u091E": "\uA9E7",
+        "\u091F": "\uAA66",
+        "\u0920": "\uAA67",
+        "\u0921": "\uA9ED",
+        "\u0922": "\uA9EE",
+        "\u0923": "\uA9EF",
+        "\u0924": "\u1010",
+        "\u0925": "\u1011",
+        "\u0926": "\uA9FB",
+        "\u0927": "\uA9FC",
+        "\u0928": "\uAA6B",
+        "\u092A": "\u1015",
+        "\u092B": "\uA9E4",
+        "\u092C": "\uA9FD",
+        "\u092D": "\uA9FE",
+        "\u092E": "\u1019",
+        "\u092F": "\u101A",
+        "\u0930": "\uAA7A",
+        "\u0932": "\u101C",
+        "\u0935": "\u101D",
+        "\u0936": "\uA9EC",
+        "\u0937": "\uA9EC",
+        "\u0938": "\uA9EC",
+        "\u0939": "\u106F",
+        "\u0933": "\uA9FA",
+        "\u0915\u094D\u0937": "\u1000\u103A\uA9EC",
+        "\u091C\u094D\u091E": "\uA9EB\u103A\uA9E7"
+      },
+      "symbols": {
+        "\u0966": "\uA9F0",
+        "\u0967": "\uA9F1",
+        "\u0968": "\uA9F2",
+        "\u0969": "\uA9F3",
+        "\u096A": "\uA9F4",
+        "\u096B": "\uA9F5",
+        "\u096C": "\uA9F6",
+        "\u096D": "\uA9F7",
+        "\u096E": "\uA9F8",
+        "\u096F": "\uA9F9",
+        "\u0950": "\u1021\u1031\u1083\u1036",
+        "\u093D": "'",
+        "\u0964": "\u104A",
+        "\u0965": "\u104B"
+      },
+      "candra": {
+        "\u0945": "\u1084"
+      },
+      "extra_consonants": {
+        "\u0958": "\u1000",
+        "\u0959": "\u1075",
+        "\u095A": "\uA9E9",
+        "\u095B": "\uA9EB",
+        "\u095C": "\uA9ED",
+        "\u0922\u093C": "\uA9EE",
+        "\u095E": "\uA9E8",
+        "\u095F": "\u101A",
+        "\u0931": "\uAA7A"
+      }
+    };
+    schemes.takri = {
+      "vowels": {
+        "\u0905": "\u{11680}",
+        "\u0906": "\u{11681}",
+        "\u0907": "\u{11682}",
+        "\u0908": "\u{11683}",
+        "\u0909": "\u{11684}",
+        "\u090A": "\u{11685}",
+        "\u090B": "\u{116A4}\u{116AE}",
+        "\u0960": "\u{116A4}\u{116AF}",
+        "\u090C": "\u{116A5}\u{116AE}",
+        "\u0961": "\u{116A5}\u{116AF}",
+        "\u090E": "\u{11686}",
+        "\u090F": "\u{11686}",
+        "\u0910": "\u{11687}",
+        "\u0912": "\u{11688}",
+        "\u0913": "\u{11688}",
+        "\u0914": "\u{11689}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{116AD}",
+        "\u093F": "\u{116AE}",
+        "\u0940": "\u{116AF}",
+        "\u0941": "\u{116B0}",
+        "\u0942": "\u{116B1}",
+        "\u0943": "\u{116B6}\u{116A4}\u{116AE}",
+        "\u0944": "\u{116B6}\u{116A4}\u{116AF}",
+        "\u0962": "\u{116B6}\u{116A5}\u{116AE}",
+        "\u0963": "\u{116B6}\u{116A5}\u{116AF}",
+        "\u0946": "\u{116B3}",
+        "\u0947": "\u{116B2}",
+        "\u0948": "\u{116B3}",
+        "\u094A": "\u{116B4}",
+        "\u094B": "\u{116B4}",
+        "\u094C": "\u{116B5}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{116AB}",
+        "\u0903": "\u{116AC}",
+        "\u0901": "\u{116AB}"
+      },
+      "virama": {
+        "\u094D": "\u{116B6}"
+      },
+      "consonants": {
+        "\u0915": "\u{1168A}",
+        "\u0916": "\u{1168B}",
+        "\u0917": "\u{1168C}",
+        "\u0918": "\u{1168D}",
+        "\u0919": "\u{1168E}",
+        "\u091A": "\u{1168F}",
+        "\u091B": "\u{11690}",
+        "\u091C": "\u{11691}",
+        "\u091D": "\u{11692}",
+        "\u091E": "\u{11693}",
+        "\u091F": "\u{11694}",
+        "\u0920": "\u{11695}",
+        "\u0921": "\u{11696}",
+        "\u0922": "\u{11697}",
+        "\u0923": "\u{11698}",
+        "\u0924": "\u{11699}",
+        "\u0925": "\u{1169A}",
+        "\u0926": "\u{1169B}",
+        "\u0927": "\u{1169C}",
+        "\u0928": "\u{1169D}",
+        "\u092A": "\u{1169E}",
+        "\u092B": "\u{1169F}",
+        "\u092C": "\u{116A0}",
+        "\u092D": "\u{116A1}",
+        "\u092E": "\u{116A2}",
+        "\u092F": "\u{116A3}",
+        "\u0930": "\u{116A4}",
+        "\u0932": "\u{116A5}",
+        "\u0935": "\u{116A6}",
+        "\u0936": "\u{116A7}",
+        "\u0937": "\u{1168B}",
+        "\u0938": "\u{116A8}",
+        "\u0939": "\u{116A9}",
+        "\u0933": "\u{116A5}\u{116B7}",
+        "\u0915\u094D\u0937": "\u{1168A}\u{116B6}\u{1168B}",
+        "\u091C\u094D\u091E": "\u{11691}\u{116B6}\u{11693}"
+      },
+      "symbols": {
+        "\u0966": "\u{116C0}",
+        "\u0967": "\u{116C1}",
+        "\u0968": "\u{116C2}",
+        "\u0969": "\u{116C3}",
+        "\u096A": "\u{116C4}",
+        "\u096B": "\u{116C5}",
+        "\u096C": "\u{116C6}",
+        "\u096D": "\u{116C7}",
+        "\u096E": "\u{116C8}",
+        "\u096F": "\u{116C9}",
+        "\u0950": "\u{11688}\u{116AB}",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{116B3}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{1168A}\u{116B7}",
+        "\u0959": "\u{1168B}\u{116B7}",
+        "\u095A": "\u{1168C}\u{116B7}",
+        "\u095B": "\u{11691}\u{116B7}",
+        "\u095C": "\u{116AA}",
+        "\u0922\u093C": "\u{11697}\u{116B7}",
+        "\u095E": "\u{1169F}\u{116B7}",
+        "\u095F": "\u{116A3}\u{116B7}",
+        "\u0931": "\u{116A4}\u{116B7}"
+      }
+    };
+    schemes.tamil = {
+      "vowels": {
+        "\u0905": "\u0B85",
+        "\u0906": "\u0B86",
+        "\u0907": "\u0B87",
+        "\u0908": "\u0B88",
+        "\u0909": "\u0B89",
+        "\u090A": "\u0B8A",
+        "\u090B": "\u0BB0\u0BC1'",
+        "\u0960": "\u0BB0\u0BC2'",
+        "\u090C": "\u0BB2\u0BC1'",
+        "\u0961": "\u0BB2\u0BC2'",
+        "\u090E": "\u0B8E",
+        "\u090F": "\u0B8F",
+        "\u0910": "\u0B90",
+        "\u0912": "\u0B92",
+        "\u0913": "\u0B93",
+        "\u0914": "\u0B94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0BBE",
+        "\u093F": "\u0BBF",
+        "\u0940": "\u0BC0",
+        "\u0941": "\u0BC1",
+        "\u0942": "\u0BC2",
+        "\u0943": "\u0BCD\u0BB0\u0BC1'",
+        "\u0944": "\u0BCD\u0BB0\u0BC2'",
+        "\u0962": "\u0BCD\u0BB2\u0BC1'",
+        "\u0963": "\u0BCD\u0BB2\u0BC2'",
+        "\u0946": "\u0BC6",
+        "\u0947": "\u0BC7",
+        "\u0948": "\u0BC8",
+        "\u094A": "\u0BCA",
+        "\u094B": "\u0BCB",
+        "\u094C": "\u0BCC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0BAE\u0BCD",
+        "\u0903": "\u0B83",
+        "\u0901": ""
+      },
+      "virama": {
+        "\u094D": "\u0BCD"
+      },
+      "consonants": {
+        "\u0915": "\u0B95",
+        "\u0916": "\u0B95",
+        "\u0917": "\u0B95",
+        "\u0918": "\u0B95",
+        "\u0919": "\u0B99",
+        "\u091A": "\u0B9A",
+        "\u091B": "\u0B9A",
+        "\u091C": "\u0B9C",
+        "\u091D": "\u0B9A",
+        "\u091E": "\u0B9E",
+        "\u091F": "\u0B9F",
+        "\u0920": "\u0B9F",
+        "\u0921": "\u0B9F",
+        "\u0922": "\u0B9F",
+        "\u0923": "\u0BA3",
+        "\u0924": "\u0BA4",
+        "\u0925": "\u0BA4",
+        "\u0926": "\u0BA4",
+        "\u0927": "\u0BA4",
+        "\u0928": "\u0BA8",
+        "\u092A": "\u0BAA",
+        "\u092B": "\u0BAA",
+        "\u092C": "\u0BAA",
+        "\u092D": "\u0BAA",
+        "\u092E": "\u0BAE",
+        "\u092F": "\u0BAF",
+        "\u0930": "\u0BB0",
+        "\u0932": "\u0BB2",
+        "\u0935": "\u0BB5",
+        "\u0936": "\u0BB6",
+        "\u0937": "\u0BB7",
+        "\u0938": "\u0BB8",
+        "\u0939": "\u0BB9",
+        "\u0933": "\u0BB3",
+        "\u0915\u094D\u0937": "\u0B95\u0BCD\u0BB7",
+        "\u091C\u094D\u091E": "\u0B9C\u0BCD\u0B9E"
+      },
+      "symbols": {
+        "\u0966": "\u0BE6",
+        "\u0967": "\u0BE7",
+        "\u0968": "\u0BE8",
+        "\u0969": "\u0BE9",
+        "\u096A": "\u0BEA",
+        "\u096B": "\u0BEB",
+        "\u096C": "\u0BEC",
+        "\u096D": "\u0BED",
+        "\u096E": "\u0BEE",
+        "\u096F": "\u0BEF",
+        "\u0950": "\u0BD0",
+        "\u093D": "\u093D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0B83'\u0B95",
+        "\u0959": "\u0B83\u0B95\xB2",
+        "\u095A": "\u0B83\u0B95\xB3",
+        "\u095B": "\u0B83\u0B9C",
+        "\u095C": "\u0B83\u0B9F\xB2",
+        "\u0922\u093C": "\u0B83\u0B9F\xB3",
+        "\u095E": "\u0B83\u0BAA",
+        "\u095F": "\u0B83\u0BAF",
+        "\u0931": "\u0BB1",
+        "\u0934": "\u0BB4",
+        "\u0929": "\u0BA9"
+      }
+    };
+    schemes.tamil_extended = {
+      "vowels": {
+        "\u0905": "\u0B85",
+        "\u0906": "\u0B86",
+        "\u0907": "\u0B87",
+        "\u0908": "\u0B88",
+        "\u0909": "\u0B89",
+        "\u090A": "\u0B8A",
+        "\u090B": "\u{1130B}",
+        "\u0960": "\u{11360}",
+        "\u090C": "\u{1130C}",
+        "\u0961": "\u{11361}",
+        "\u090E": "\u0B8E",
+        "\u090F": "\u0B8F",
+        "\u0910": "\u0B90",
+        "\u0912": "\u0B92",
+        "\u0913": "\u0B93",
+        "\u0914": "\u0B94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0BBE",
+        "\u093F": "\u0BBF",
+        "\u0940": "\u0BC0",
+        "\u0941": "\u0BC1",
+        "\u0942": "\u0BC2",
+        "\u0943": "\u{11343}",
+        "\u0944": "\u{11344}",
+        "\u0962": "\u{11362}",
+        "\u0963": "\u{11363}",
+        "\u0946": "\u0BC6",
+        "\u0947": "\u0BC7",
+        "\u0948": "\u0BC8",
+        "\u094A": "\u0BCA",
+        "\u094B": "\u0BCB",
+        "\u094C": "\u0BCC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11302}",
+        "\u0903": "\u{11303}",
+        "\u0901": "\u{11301}"
+      },
+      "virama": {
+        "\u094D": "\u0BCD"
+      },
+      "consonants": {
+        "\u0915": "\u0B95",
+        "\u0916": "\u{11316}",
+        "\u0917": "\u{11317}",
+        "\u0918": "\u{11318}",
+        "\u0919": "\u0B99",
+        "\u091A": "\u0B9A",
+        "\u091B": "\u{1131B}",
+        "\u091C": "\u0B9C",
+        "\u091D": "\u{1131D}",
+        "\u091E": "\u0B9E",
+        "\u091F": "\u0B9F",
+        "\u0920": "\u{11320}",
+        "\u0921": "\u{11321}",
+        "\u0922": "\u{11322}",
+        "\u0923": "\u0BA3",
+        "\u0924": "\u0BA4",
+        "\u0925": "\u{11325}",
+        "\u0926": "\u{11326}",
+        "\u0927": "\u{11327}",
+        "\u0928": "\u0BA8",
+        "\u092A": "\u0BAA",
+        "\u092B": "\u{1132B}",
+        "\u092C": "\u{1132C}",
+        "\u092D": "\u{1132D}",
+        "\u092E": "\u0BAE",
+        "\u092F": "\u0BAF",
+        "\u0930": "\u0BB0",
+        "\u0932": "\u0BB2",
+        "\u0935": "\u0BB5",
+        "\u0936": "\u0BB6",
+        "\u0937": "\u0BB7",
+        "\u0938": "\u0BB8",
+        "\u0939": "\u0BB9",
+        "\u0933": "\u0BB3",
+        "\u0915\u094D\u0937": "\u0B95\u0BCD\u0BB7",
+        "\u091C\u094D\u091E": "\u0B9C\u0BCD\u0B9E"
+      },
+      "symbols": {
+        "\u0966": "\u0BE6",
+        "\u0967": "\u0BE7",
+        "\u0968": "\u0BE8",
+        "\u0969": "\u0BE9",
+        "\u096A": "\u0BEA",
+        "\u096B": "\u0BEB",
+        "\u096C": "\u0BEC",
+        "\u096D": "\u0BED",
+        "\u096E": "\u0BEE",
+        "\u096F": "\u0BEF",
+        "\u0950": "\u0BD0",
+        "\u093D": "\u{1133D}",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u0BC6"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0B95\u{1133C}",
+        "\u0959": "\u{11316}\u{1133C}",
+        "\u095A": "\u{11317}\u{1133C}",
+        "\u095B": "\u0B9C\u{1133C}",
+        "\u095C": "\u{11321}\u{1133C}",
+        "\u0922\u093C": "\u{11322}\u{1133C}",
+        "\u095E": "\u{1132B}\u{1133C}",
+        "\u095F": "\u0BAF\u{1133C}",
+        "\u0931": "\u0BB1",
+        "\u0934": "\u0BB4",
+        "\u0929": "\u0BA9"
+      }
+    };
+    schemes.tamil_superscripted = {
+      "vowels": {
+        "\u0905": "\u0B85",
+        "\u0906": "\u0B86",
+        "\u0907": "\u0B87",
+        "\u0908": "\u0B88",
+        "\u0909": "\u0B89",
+        "\u090A": "\u0B8A",
+        "\u090B": "\u0BB0\u0BC1\u02BC",
+        "\u0960": "\u0BB0\u0BC2\u02BC",
+        "\u090C": "\u0BB2\u0BC1\u02BC",
+        "\u0961": "\u0BB2\u0BC2\u02BC",
+        "\u090E": "\u0B8E",
+        "\u090F": "\u0B8F",
+        "\u0910": "\u0B90",
+        "\u0912": "\u0B92",
+        "\u0913": "\u0B93",
+        "\u0914": "\u0B94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0BBE",
+        "\u093F": "\u0BBF",
+        "\u0940": "\u0BC0",
+        "\u0941": "\u0BC1",
+        "\u0942": "\u0BC2",
+        "\u0943": "\u0BCD\u0BB0\u0BC1\u02BC",
+        "\u0944": "\u0BCD\u0BB0\u0BC2\u02BC",
+        "\u0962": "\u0BCD\u0BB2\u0BC1\u02BC",
+        "\u0963": "\u0BCD\u0BB2\u0BC2\u02BC",
+        "\u0946": "\u0BC6",
+        "\u0947": "\u0BC7",
+        "\u0948": "\u0BC8",
+        "\u094A": "\u0BCA",
+        "\u094B": "\u0BCB",
+        "\u094C": "\u0BCC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0BAE\u0BCD\u02BC",
+        "\u0903": "\uA789",
+        "\u0901": "\u0BAE\u0BCD\u02EE"
+      },
+      "virama": {
+        "\u094D": "\u0BCD"
+      },
+      "consonants": {
+        "\u0915": "\u0B95",
+        "\u0916": "\u0B95\xB2",
+        "\u0917": "\u0B95\xB3",
+        "\u0918": "\u0B95\u2074",
+        "\u0919": "\u0B99",
+        "\u091A": "\u0B9A",
+        "\u091B": "\u0B9A\xB2",
+        "\u091C": "\u0B9C",
+        "\u091D": "\u0B9C\xB2",
+        "\u091E": "\u0B9E",
+        "\u091F": "\u0B9F",
+        "\u0920": "\u0B9F\xB2",
+        "\u0921": "\u0B9F\xB3",
+        "\u0922": "\u0B9F\u2074",
+        "\u0923": "\u0BA3",
+        "\u0924": "\u0BA4",
+        "\u0925": "\u0BA4\xB2",
+        "\u0926": "\u0BA4\xB3",
+        "\u0927": "\u0BA4\u2074",
+        "\u0928": "\u0BA8",
+        "\u092A": "\u0BAA",
+        "\u092B": "\u0BAA\xB2",
+        "\u092C": "\u0BAA\xB3",
+        "\u092D": "\u0BAA\u2074",
+        "\u092E": "\u0BAE",
+        "\u092F": "\u0BAF",
+        "\u0930": "\u0BB0",
+        "\u0932": "\u0BB2",
+        "\u0935": "\u0BB5",
+        "\u0936": "\u0BB6",
+        "\u0937": "\u0BB7",
+        "\u0938": "\u0BB8",
+        "\u0939": "\u0BB9",
+        "\u0933": "\u0BB3",
+        "\u0915\u094D\u0937": "\u0B95\u0BCD\u0BB7",
+        "\u091C\u094D\u091E": "\u0B9C\u0BCD\u0B9E"
+      },
+      "symbols": {
+        "\u0966": "\u0BE6",
+        "\u0967": "\u0BE7",
+        "\u0968": "\u0BE8",
+        "\u0969": "\u0BE9",
+        "\u096A": "\u0BEA",
+        "\u096B": "\u0BEB",
+        "\u096C": "\u0BEC",
+        "\u096D": "\u0BED",
+        "\u096E": "\u0BEE",
+        "\u096F": "\u0BEF",
+        "\u0950": "\u0BD0",
+        "\u093D": "(\u0B85)",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u0BC7"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0B83\u02BC\u0B95",
+        "\u0959": "\u0B83\u0B95\xB2",
+        "\u095A": "\u0B83\u0B95\xB3",
+        "\u095B": "\u0B83\u0B9C",
+        "\u095C": "\u0B83\u0B9F\xB2",
+        "\u0922\u093C": "\u0B83\u0B9F\xB3",
+        "\u095E": "\u0B83\u0BAA",
+        "\u095F": "\u0B83\u0BAF",
+        "\u0931": "\u0BB1",
+        "\u0934": "\u0BB4",
+        "\u0929": "\u0BA9"
+      }
+    };
+    schemes.telugu = {
+      "vowels": {
+        "\u0905": "\u0C05",
+        "\u0906": "\u0C06",
+        "\u0907": "\u0C07",
+        "\u0908": "\u0C08",
+        "\u0909": "\u0C09",
+        "\u090A": "\u0C0A",
+        "\u090B": "\u0C0B",
+        "\u0960": "\u0C60",
+        "\u090C": "\u0C0C",
+        "\u0961": "\u0C61",
+        "\u090E": "\u0C0E",
+        "\u090F": "\u0C0F",
+        "\u0910": "\u0C10",
+        "\u0912": "\u0C12",
+        "\u0913": "\u0C13",
+        "\u0914": "\u0C14"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0C3E",
+        "\u093F": "\u0C3F",
+        "\u0940": "\u0C40",
+        "\u0941": "\u0C41",
+        "\u0942": "\u0C42",
+        "\u0943": "\u0C43",
+        "\u0944": "\u0C44",
+        "\u0962": "\u0C62",
+        "\u0963": "\u0C63",
+        "\u0946": "\u0C46",
+        "\u0947": "\u0C47",
+        "\u0948": "\u0C48",
+        "\u094A": "\u0C4A",
+        "\u094B": "\u0C4B",
+        "\u094C": "\u0C4C"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0C02",
+        "\u0903": "\u0C03",
+        "\u0901": "\u0C01"
+      },
+      "virama": {
+        "\u094D": "\u0C4D"
+      },
+      "consonants": {
+        "\u0915": "\u0C15",
+        "\u0916": "\u0C16",
+        "\u0917": "\u0C17",
+        "\u0918": "\u0C18",
+        "\u0919": "\u0C19",
+        "\u091A": "\u0C1A",
+        "\u091B": "\u0C1B",
+        "\u091C": "\u0C1C",
+        "\u091D": "\u0C1D",
+        "\u091E": "\u0C1E",
+        "\u091F": "\u0C1F",
+        "\u0920": "\u0C20",
+        "\u0921": "\u0C21",
+        "\u0922": "\u0C22",
+        "\u0923": "\u0C23",
+        "\u0924": "\u0C24",
+        "\u0925": "\u0C25",
+        "\u0926": "\u0C26",
+        "\u0927": "\u0C27",
+        "\u0928": "\u0C28",
+        "\u092A": "\u0C2A",
+        "\u092B": "\u0C2B",
+        "\u092C": "\u0C2C",
+        "\u092D": "\u0C2D",
+        "\u092E": "\u0C2E",
+        "\u092F": "\u0C2F",
+        "\u0930": "\u0C30",
+        "\u0932": "\u0C32",
+        "\u0935": "\u0C35",
+        "\u0936": "\u0C36",
+        "\u0937": "\u0C37",
+        "\u0938": "\u0C38",
+        "\u0939": "\u0C39",
+        "\u0933": "\u0C33",
+        "\u0915\u094D\u0937": "\u0C15\u0C4D\u0C37",
+        "\u091C\u094D\u091E": "\u0C1C\u0C4D\u0C1E"
+      },
+      "symbols": {
+        "\u0966": "\u0C66",
+        "\u0967": "\u0C67",
+        "\u0968": "\u0C68",
+        "\u0969": "\u0C69",
+        "\u096A": "\u0C6A",
+        "\u096B": "\u0C6B",
+        "\u096C": "\u0C6C",
+        "\u096D": "\u0C6D",
+        "\u096E": "\u0C6E",
+        "\u096F": "\u0C6F",
+        "\u0950": "\u0C13\u0C02",
+        "\u093D": "\u0C3D",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "",
+        "\u0959": "",
+        "\u095A": "",
+        "\u095B": "",
+        "\u095C": "",
+        "\u0922\u093C": "",
+        "\u095E": "",
+        "\u095F": "",
+        "\u0931": "\u0C31",
+        "\u0934": "\u0C34",
+        "\u0929": ""
+      }
+    };
+    schemes.thai = {
+      "vowels": {
+        "\u0905": "\u0E2D",
+        "\u0906": "\u0E2D\u0E32",
+        "\u0907": "\u0E2D\u0E34",
+        "\u0908": "\u0E2D\u0E35",
+        "\u0909": "\u0E2D\u0E38",
+        "\u090A": "\u0E2D\u0E39",
+        "\u090B": "\u0E24",
+        "\u0960": "\u0E24\u0E45",
+        "\u090C": "\u0E26",
+        "\u0961": "\u0E26\u0E45",
+        "\u090E": "\u0E40\u0E2D\u0E30",
+        "\u090F": "\u0E40\u0E2D",
+        "\u0910": "\u0E44\u0E2D",
+        "\u0912": "\u0E42\u0E2D\u0E30",
+        "\u0913": "\u0E42\u0E2D",
+        "\u0914": "\u0E40\u0E2D\u0E32"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0E32",
+        "\u093F": "\u0E34",
+        "\u0940": "\u0E35",
+        "\u0941": "\u0E38",
+        "\u0942": "\u0E39",
+        "\u0943": "\u0E3A\u0E24",
+        "\u0944": "\u0E3A\u0E24\u0E45",
+        "\u0962": "\u0E3A\u0E26",
+        "\u0963": "\u0E3A\u0E26\u0E45",
+        "\u0946": "\u0E40\u0E30",
+        "\u0947": "\u0E40",
+        "\u0948": "\u0E44",
+        "\u094A": "\u0E42\u0E30",
+        "\u094B": "\u0E42",
+        "\u094C": "\u0E40\u0E32"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0E4D",
+        "\u0903": "\u0E2B\u0E4C",
+        "\u0901": "\u0E4D"
+      },
+      "virama": {
+        "\u094D": "\u0E3A"
+      },
+      "consonants": {
+        "\u0915": "\u0E01",
+        "\u0916": "\u0E02",
+        "\u0917": "\u0E04",
+        "\u0918": "\u0E06",
+        "\u0919": "\u0E07",
+        "\u091A": "\u0E08",
+        "\u091B": "\u0E09",
+        "\u091C": "\u0E0A",
+        "\u091D": "\u0E0C",
+        "\u091E": "\u0E0D",
+        "\u091F": "\u0E0F",
+        "\u0920": "\u0E10",
+        "\u0921": "\u0E11",
+        "\u0922": "\u0E12",
+        "\u0923": "\u0E13",
+        "\u0924": "\u0E15",
+        "\u0925": "\u0E16",
+        "\u0926": "\u0E17",
+        "\u0927": "\u0E18",
+        "\u0928": "\u0E19",
+        "\u092A": "\u0E1B",
+        "\u092B": "\u0E1C",
+        "\u092C": "\u0E1E",
+        "\u092D": "\u0E20",
+        "\u092E": "\u0E21",
+        "\u092F": "\u0E22",
+        "\u0930": "\u0E23",
+        "\u0932": "\u0E25",
+        "\u0935": "\u0E27",
+        "\u0936": "\u0E28",
+        "\u0937": "\u0E29",
+        "\u0938": "\u0E2A",
+        "\u0939": "\u0E2B",
+        "\u0933": "\u0E2C",
+        "\u0915\u094D\u0937": "\u0E01\u0E3A\u0E29",
+        "\u091C\u094D\u091E": "\u0E0A\u0E3A\u0E0D"
+      },
+      "symbols": {
+        "\u0966": "\u0E50",
+        "\u0967": "\u0E51",
+        "\u0968": "\u0E52",
+        "\u0969": "\u0E53",
+        "\u096A": "\u0E54",
+        "\u096B": "\u0E55",
+        "\u096C": "\u0E56",
+        "\u096D": "\u0E57",
+        "\u096E": "\u0E58",
+        "\u096F": "\u0E59",
+        "\u0950": "\u0E42\u0E2D\u0E4D",
+        "\u093D": "'",
+        "\u0964": "\u0E2F",
+        "\u0965": "\u0E5A"
+      },
+      "candra": {
+        "\u0945": "\u0E41\u0E30"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0E01",
+        "\u0959": "\u0E02",
+        "\u095A": "\u0E04",
+        "\u095B": "\u0E0B",
+        "\u095C": "\u0E23",
+        "\u0922\u093C": "\u0E23\u0E3A\u0E2B",
+        "\u095E": "\u0E1F",
+        "\u095F": "\u0E22",
+        "\u0931": "\u0E23"
+      }
+    };
+    schemes.tibetan = {
+      "vowels": {
+        "\u0905": "\u0F68",
+        "\u0906": "\u0F68\u0F71",
+        "\u0907": "\u0F68\u0F72",
+        "\u0908": "\u0F68\u0F71\u0F72",
+        "\u0909": "\u0F68\u0F74",
+        "\u090A": "\u0F68\u0F71\u0F74",
+        "\u090B": "\u0F62\u0F80",
+        "\u0960": "\u0F62\u0F71\u0F80",
+        "\u090C": "\u0F63\u0F80",
+        "\u0961": "\u0F63\u0F71\u0F80",
+        "\u090E": "\u0F68\u0F7A",
+        "\u090F": "\u0F68\u0F7A",
+        "\u0910": "\u0F68\u0F7B",
+        "\u0912": "\u0F68\u0F7C",
+        "\u0913": "\u0F68\u0F7C",
+        "\u0914": "\u0F68\u0F7D"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0F71",
+        "\u093F": "\u0F72",
+        "\u0940": "\u0F71\u0F72",
+        "\u0941": "\u0F74",
+        "\u0942": "\u0F71\u0F74",
+        "\u0943": "\u0FB2\u0F80",
+        "\u0944": "\u0FB2\u0F71\u0F80",
+        "\u0962": "\u0FB3\u0F80",
+        "\u0963": "\u0FB3\u0F71\u0F80",
+        "\u0946": "\u0F7A",
+        "\u0947": "\u0F7A",
+        "\u0948": "\u0F7B",
+        "\u094A": "\u0F7C",
+        "\u094B": "\u0F7C",
+        "\u094C": "\u0F7D"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0F7E",
+        "\u0903": "\u0F7F",
+        "\u0901": "\u0F83"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u0F40",
+        "\u0916": "\u0F41",
+        "\u0917": "\u0F42",
+        "\u0918": "\u0F43",
+        "\u0919": "\u0F44",
+        "\u091A": "\u0F59",
+        "\u091B": "\u0F5A",
+        "\u091C": "\u0F5B",
+        "\u091D": "\u0F5C",
+        "\u091E": "\u0F49",
+        "\u091F": "\u0F4A",
+        "\u0920": "\u0F4B",
+        "\u0921": "\u0F4C",
+        "\u0922": "\u0F4D",
+        "\u0923": "\u0F4E",
+        "\u0924": "\u0F4F",
+        "\u0925": "\u0F50",
+        "\u0926": "\u0F51",
+        "\u0927": "\u0F52",
+        "\u0928": "\u0F53",
+        "\u092A": "\u0F54",
+        "\u092B": "\u0F55",
+        "\u092C": "\u0F56",
+        "\u092D": "\u0F57",
+        "\u092E": "\u0F58",
+        "\u092F": "\u0F61",
+        "\u0930": "\u0F62",
+        "\u0932": "\u0F63",
+        "\u0935": "\u0F56",
+        "\u0936": "\u0F64",
+        "\u0937": "\u0F65",
+        "\u0938": "\u0F66",
+        "\u0939": "\u0F67",
+        "\u0933": "\u0F63\u0F39",
+        "\u0915\u094D\u0937": "\u0F40\u0FB5",
+        "\u091C\u094D\u091E": "\u0F5B\u0F99"
+      },
+      "symbols": {
+        "\u0966": "\u0F20",
+        "\u0967": "\u0F21",
+        "\u0968": "\u0F22",
+        "\u0969": "\u0F23",
+        "\u096A": "\u0F24",
+        "\u096B": "\u0F25",
+        "\u096C": "\u0F26",
+        "\u096D": "\u0F27",
+        "\u096E": "\u0F28",
+        "\u096F": "\u0F29",
+        "\u0950": "\u0F00",
+        "\u093D": "\u0F85",
+        "\u0964": "\u0F0D",
+        "\u0965": "\u0F0E"
+      },
+      "candra": {
+        "\u0945": "\u0F7A"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0F40\u0F39",
+        "\u0959": "\u0F41\u0F39",
+        "\u095A": "\u0F42\u0F39",
+        "\u095B": "\u0F5F",
+        "\u095C": "\u0F4C\u0F39",
+        "\u0922\u093C": "\u0F4D\u0F39",
+        "\u095E": "\u0F55\u0F39",
+        "\u095F": "\u0F61\u0F39",
+        "\u0931": "\u0F62\u0F39"
+      }
+    };
+    schemes.tirhuta_maithili = {
+      "vowels": {
+        "\u0905": "\u{11481}",
+        "\u0906": "\u{11482}",
+        "\u0907": "\u{11483}",
+        "\u0908": "\u{11484}",
+        "\u0909": "\u{11485}",
+        "\u090A": "\u{11486}",
+        "\u090B": "\u{11487}",
+        "\u0960": "\u{11488}",
+        "\u090C": "\u{11489}",
+        "\u0961": "\u{1148A}",
+        "\u090E": "\u{11481}\u{114BA}",
+        "\u090F": "\u{1148B}",
+        "\u0910": "\u{1148C}",
+        "\u0912": "\u{11481}\u{114BD}",
+        "\u0913": "\u{1148D}",
+        "\u0914": "\u{1148E}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{114B0}",
+        "\u093F": "\u{114B1}",
+        "\u0940": "\u{114B2}",
+        "\u0941": "\u{114B3}",
+        "\u0942": "\u{114B4}",
+        "\u0943": "\u{114B5}",
+        "\u0944": "\u{114B6}",
+        "\u0962": "\u{114B7}",
+        "\u0963": "\u{114B8}",
+        "\u0946": "\u{114BA}",
+        "\u0947": "\u{114B9}",
+        "\u0948": "\u{114BB}",
+        "\u094A": "\u{114BD}",
+        "\u094B": "\u{114BC}",
+        "\u094C": "\u{114BE}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{114C0}",
+        "\u0903": "\u{114C1}",
+        "\u0901": "\u{114BF}"
+      },
+      "virama": {
+        "\u094D": "\u{114C2}"
+      },
+      "consonants": {
+        "\u0915": "\u{1148F}",
+        "\u0916": "\u{11490}",
+        "\u0917": "\u{11491}",
+        "\u0918": "\u{11492}",
+        "\u0919": "\u{11493}",
+        "\u091A": "\u{11494}",
+        "\u091B": "\u{11495}",
+        "\u091C": "\u{11496}",
+        "\u091D": "\u{11497}",
+        "\u091E": "\u{11498}",
+        "\u091F": "\u{11499}",
+        "\u0920": "\u{1149A}",
+        "\u0921": "\u{1149B}",
+        "\u0922": "\u{1149C}",
+        "\u0923": "\u{1149D}",
+        "\u0924": "\u{1149E}",
+        "\u0925": "\u{1149F}",
+        "\u0926": "\u{114A0}",
+        "\u0927": "\u{114A1}",
+        "\u0928": "\u{114A2}",
+        "\u092A": "\u{114A3}",
+        "\u092B": "\u{114A4}",
+        "\u092C": "\u{114A5}",
+        "\u092D": "\u{114A6}",
+        "\u092E": "\u{114A7}",
+        "\u092F": "\u{114A8}",
+        "\u0930": "\u{114A9}",
+        "\u0932": "\u{114AA}",
+        "\u0935": "\u{114AB}",
+        "\u0936": "\u{114AC}",
+        "\u0937": "\u{114AD}",
+        "\u0938": "\u{114AE}",
+        "\u0939": "\u{114AF}",
+        "\u0933": "\u{1149D}\u{114C3}",
+        "\u0915\u094D\u0937": "\u{1148F}\u{114C2}\u{114AD}",
+        "\u091C\u094D\u091E": "\u{11496}\u{114C2}\u{11498}"
+      },
+      "symbols": {
+        "\u0966": "\u{114D0}",
+        "\u0967": "\u{114D1}",
+        "\u0968": "\u{114D2}",
+        "\u0969": "\u{114D3}",
+        "\u096A": "\u{114D4}",
+        "\u096B": "\u{114D5}",
+        "\u096C": "\u{114D6}",
+        "\u096D": "\u{114D7}",
+        "\u096E": "\u{114D8}",
+        "\u096F": "\u{114D9}",
+        "\u0950": "\u{114C7}",
+        "\u093D": "\u{114C4}",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{114B9}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{1148F}\u{114C3}",
+        "\u0959": "\u{11490}\u{114C3}",
+        "\u095A": "\u{11491}\u{114C3}",
+        "\u095B": "\u{11496}\u{114C3}",
+        "\u095C": "\u{1149B}\u{114C3}",
+        "\u0922\u093C": "\u{1149C}\u{114C3}",
+        "\u095E": "\u{114A4}\u{114C3}",
+        "\u095F": "\u{114A8}\u{114C3}",
+        "\u0931": "\u{114A9}"
+      }
+    };
+    schemes.urdu = {
+      "vowels": {
+        "\u0905": "\u0627\u064E",
+        "\u0906": "\u0622",
+        "\u0907": "\u0627\u0650",
+        "\u0908": "\u0627\u0650\u06CC",
+        "\u0909": "\u0627\u064F",
+        "\u090A": "\u0627\u064F\u0648",
+        "\u090B": "\u0631\u0650",
+        "\u0960": "\u0631\u0650\u06CC",
+        "\u090C": "\u0644\u0650",
+        "\u0961": "\u0644\u0650\u06CC",
+        "\u090E": "\u0627\u06D2",
+        "\u090F": "\u0627\u06D2",
+        "\u0910": "\u0627\u064E\u06D2",
+        "\u0912": "\u0627\u0648",
+        "\u0913": "\u0627\u0648",
+        "\u0914": "\u0627\u064E\u0648"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0627",
+        "\u093F": "\u0650",
+        "\u0940": "\u0650\u06CC",
+        "\u0941": "\u064F",
+        "\u0942": "\u064F\u0648",
+        "\u0943": "\u0652\u0631\u0650",
+        "\u0944": "\u0652\u0631\u0650\u06CC",
+        "\u0962": "\u0652\u0644\u0650",
+        "\u0963": "\u0652\u0644\u0650\u06CC",
+        "\u0946": "\u06D2",
+        "\u0947": "\u06D2",
+        "\u0948": "\u06D2",
+        "\u094A": "\u0648",
+        "\u094B": "\u0648",
+        "\u094C": "\u0648"
+      },
+      "yogavaahas": {
+        "\u0902": "\u06BA",
+        "\u0903": "\u06C1",
+        "\u0901": "\u06BA"
+      },
+      "virama": {
+        "\u094D": "\u0652"
+      },
+      "consonants": {
+        "\u0915": "\u06A9\u064E",
+        "\u0916": "\u06A9\u06BE\u064E",
+        "\u0917": "\u06AF\u064E",
+        "\u0918": "\u06AF\u06BE\u064E",
+        "\u0919": "\u0646\u064E",
+        "\u091A": "\u0686\u064E",
+        "\u091B": "\u0686\u06BE\u064E",
+        "\u091C": "\u062C\u064E",
+        "\u091D": "\u062C\u06BE\u064E",
+        "\u091E": "\u0646\u064E",
+        "\u091F": "\u0679\u064E",
+        "\u0920": "\u0679\u06BE\u064E",
+        "\u0921": "\u0688\u064E",
+        "\u0922": "\u0688\u06BE\u064E",
+        "\u0923": "\u0646\u064E",
+        "\u0924": "\u062A\u064E",
+        "\u0925": "\u062A\u06BE\u064E",
+        "\u0926": "\u062F\u064E",
+        "\u0927": "\u062F\u06BE\u064E",
+        "\u0928": "\u0646\u064E",
+        "\u092A": "\u067E\u064E",
+        "\u092B": "\u067E\u06BE\u064E",
+        "\u092C": "\u0628\u064E",
+        "\u092D": "\u0628\u06BE\u064E",
+        "\u092E": "\u0645\u064E",
+        "\u092F": "\u06CC\u064E",
+        "\u0930": "\u0631\u064E",
+        "\u0932": "\u0644\u064E",
+        "\u0935": "\u0648\u064E",
+        "\u0936": "\u0634\u064E",
+        "\u0937": "\u0634\u064E",
+        "\u0938": "\u0633\u064E",
+        "\u0939": "\u06C1\u064E",
+        "\u0933": "\u0644\u064E",
+        "\u0915\u094D\u0937": "\u06A9\u0652\u0634\u064E",
+        "\u091C\u094D\u091E": "\u062C\u0652\u0646\u064E"
+      },
+      "symbols": {
+        "\u0966": "\u06F0",
+        "\u0967": "\u06F1",
+        "\u0968": "\u06F2",
+        "\u0969": "\u06F3",
+        "\u096A": "\u06F4",
+        "\u096B": "\u06F5",
+        "\u096C": "\u06F6",
+        "\u096D": "\u06F7",
+        "\u096E": "\u06F8",
+        "\u096F": "\u06F9",
+        "\u0950": "\u0627\u0648\u0645\u0652",
+        "\u093D": "",
+        "\u0964": "\u06D4",
+        "\u0965": "\u06D4\u06D4"
+      },
+      "candra": {
+        "\u0945": "\u06D2"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0642\u064E",
+        "\u0959": "\u062E\u064E",
+        "\u095A": "\u063A\u064E",
+        "\u095B": "\u0632\u064E",
+        "\u095C": "\u0691\u064E",
+        "\u0922\u093C": "\u0691\u06BE\u064E",
+        "\u095E": "\u0641\u064E",
+        "\u095F": "\u06CC\u064E",
+        "\u0931": "\u0631\u064E"
+      }
+    };
+    schemes.vattelutu = {
+      "vowels": {
+        "\u0905": "\u0B85",
+        "\u0906": "\u0B86",
+        "\u0907": "\u0B87",
+        "\u0908": "\u0B88",
+        "\u0909": "\u0B89",
+        "\u090A": "\u0B8A",
+        "\u090B": "\u0BB0\u0BC1",
+        "\u0960": "\u0BB0\u0BC2",
+        "\u090C": "\u0BB2\u0BC1",
+        "\u0961": "\u0BB2\u0BC2",
+        "\u090E": "\u0B8E",
+        "\u090F": "\u0B8F",
+        "\u0910": "\u0B90",
+        "\u0912": "\u0B92",
+        "\u0913": "\u0B93",
+        "\u0914": "\u0B94"
+      },
+      "vowel_marks": {
+        "\u093E": "\u0BBE",
+        "\u093F": "\u0BBF",
+        "\u0940": "\u0BC0",
+        "\u0941": "\u0BC1",
+        "\u0942": "\u0BC2",
+        "\u0943": "\u0BCD\u0BB0\u0BC1",
+        "\u0944": "\u0BCD\u0BB0\u0BC2",
+        "\u0962": "\u0BCD\u0BB2\u0BC1",
+        "\u0963": "\u0BCD\u0BB2\u0BC2",
+        "\u0946": "\u0BC6",
+        "\u0947": "\u0BC7",
+        "\u0948": "\u0BC8",
+        "\u094A": "\u0BCA",
+        "\u094B": "\u0BCB",
+        "\u094C": "\u0BCC"
+      },
+      "yogavaahas": {
+        "\u0902": "\u0BAE\u0BCD",
+        "\u0903": "\uA789",
+        "\u0901": "\u0BAE\u0BCD"
+      },
+      "virama": {
+        "\u094D": "\u0BCD"
+      },
+      "consonants": {
+        "\u0915": "\u0B95",
+        "\u0916": "\u0B95",
+        "\u0917": "\u0B95",
+        "\u0918": "\u0B95",
+        "\u0919": "\u0B99",
+        "\u091A": "\u0B9A",
+        "\u091B": "\u0B9A",
+        "\u091C": "\u0B9A",
+        "\u091D": "\u0B9A",
+        "\u091E": "\u0B9E",
+        "\u091F": "\u0B9F",
+        "\u0920": "\u0B9F",
+        "\u0921": "\u0B9F",
+        "\u0922": "\u0B9F",
+        "\u0923": "\u0BA3",
+        "\u0924": "\u0BA4",
+        "\u0925": "\u0BA4",
+        "\u0926": "\u0BA4",
+        "\u0927": "\u0BA4",
+        "\u0928": "\u0BA8",
+        "\u092A": "\u0BAA",
+        "\u092B": "\u0BAA",
+        "\u092C": "\u0BAA",
+        "\u092D": "\u0BAA",
+        "\u092E": "\u0BAE",
+        "\u092F": "\u0BAF",
+        "\u0930": "\u0BB0",
+        "\u0932": "\u0BB2",
+        "\u0935": "\u0BB5",
+        "\u0936": "\u0B9A",
+        "\u0937": "\u0B9A",
+        "\u0938": "\u0B9A",
+        "\u0939": "\u0B95",
+        "\u0933": "\u0BB3",
+        "\u0915\u094D\u0937": "\u0B95\u0BCD\u0B9A",
+        "\u091C\u094D\u091E": "\u0B9A\u0BCD\u0B9E"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u0B93\u0BAE\u0BCD",
+        "\u093D": "",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u0BC6"
+      },
+      "extra_consonants": {
+        "\u0958": "\u0B95",
+        "\u0959": "\u0B95",
+        "\u095A": "\u0B95",
+        "\u095B": "\u0B9A",
+        "\u095C": "\u0B9F",
+        "\u0922\u093C": "\u0B9F",
+        "\u095E": "\u0BAA",
+        "\u095F": "\u0BAF",
+        "\u0931": "\u0BB1"
+      }
+    };
+    schemes.wancho = {
+      "vowels": {
+        "\u0905": "\u{1E2C1}",
+        "\u0906": "\u{1E2C0}",
+        "\u0907": "\u{1E2DC}",
+        "\u0908": "\u{1E2DC}",
+        "\u0909": "\u{1E2DE}",
+        "\u090A": "\u{1E2DE}",
+        "\u090B": "\u{1E2D7}\u{1E2DE}",
+        "\u0960": "\u{1E2D7}\u{1E2DE}",
+        "\u090C": "\u{1E2C8}\u{1E2DE}",
+        "\u0961": "\u{1E2C8}\u{1E2DE}",
+        "\u090E": "\u{1E2DB}",
+        "\u090F": "\u{1E2DB}",
+        "\u0910": "\u{1E2C0}\u{1E2DC}",
+        "\u0912": "\u{1E2D5}",
+        "\u0913": "\u{1E2D5}",
+        "\u0914": "\u{1E2D6}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{1E2C0}",
+        "\u093F": "\u{1E2DC}",
+        "\u0940": "\u{1E2DC}",
+        "\u0941": "\u{1E2DE}",
+        "\u0942": "\u{1E2DE}",
+        "\u0943": "\u{1E2D7}\u{1E2DE}",
+        "\u0944": "\u{1E2D7}\u{1E2DE}",
+        "\u0962": "\u{1E2C8}\u{1E2DE}",
+        "\u0963": "\u{1E2C8}\u{1E2DE}",
+        "\u0946": "\u{1E2DB}",
+        "\u0947": "\u{1E2DB}",
+        "\u0948": "\u{1E2C0}\u{1E2DC}",
+        "\u094A": "\u{1E2D5}",
+        "\u094B": "\u{1E2D5}",
+        "\u094C": "\u{1E2D6}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{1E2DD}",
+        "\u0903": "\u{1E2EB}",
+        "\u0901": "\u{1E2C9}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{1E2D4}\u{1E2C1}",
+        "\u0916": "\u{1E2D9}\u{1E2C1}",
+        "\u0917": "\u{1E2C5}\u{1E2C1}",
+        "\u0918": "\u{1E2C5}\u{1E2C1}",
+        "\u0919": "\u{1E2DD}\u{1E2C1}",
+        "\u091A": "\u{1E2C3}\u{1E2C1}",
+        "\u091B": "\u{1E2C3}\u{1E2C1}",
+        "\u091C": "\u{1E2D0}\u{1E2C1}",
+        "\u091D": "\u{1E2D0}\u{1E2C1}",
+        "\u091E": "\u{1E2E9}\u{1E2C1}",
+        "\u091F": "\u{1E2CB}\u{1E2C1}",
+        "\u0920": "\u{1E2CC}\u{1E2C1}",
+        "\u0921": "\u{1E2C4}\u{1E2C1}",
+        "\u0922": "\u{1E2C4}\u{1E2C1}",
+        "\u0923": "\u{1E2C9}\u{1E2C1}",
+        "\u0924": "\u{1E2CB}\u{1E2C1}",
+        "\u0925": "\u{1E2CC}\u{1E2C1}",
+        "\u0926": "\u{1E2C4}\u{1E2C1}",
+        "\u0927": "\u{1E2C4}\u{1E2C1}",
+        "\u0928": "\u{1E2C9}\u{1E2C1}",
+        "\u092A": "\u{1E2CA}\u{1E2C1}",
+        "\u092B": "\u{1E2C7}\u{1E2C1}",
+        "\u092C": "\u{1E2C2}\u{1E2C1}",
+        "\u092D": "\u{1E2C2}\u{1E2C1}",
+        "\u092E": "\u{1E2D8}\u{1E2C1}",
+        "\u092F": "\u{1E2C6}\u{1E2C1}",
+        "\u0930": "\u{1E2D7}\u{1E2C1}",
+        "\u0932": "\u{1E2C8}\u{1E2C1}",
+        "\u0935": "\u{1E2D3}\u{1E2C1}",
+        "\u0936": "\u{1E2CF}\u{1E2C1}",
+        "\u0937": "\u{1E2CF}\u{1E2C1}",
+        "\u0938": "\u{1E2CE}\u{1E2C1}",
+        "\u0939": "\u{1E2DA}\u{1E2C1}",
+        "\u0933": "\u{1E2DF}\u{1E2C1}",
+        "\u0915\u094D\u0937": "\u{1E2D4}\u{1E2CF}\u{1E2C1}",
+        "\u091C\u094D\u091E": "\u{1E2D0}\u{1E2E9}\u{1E2C1}"
+      },
+      "symbols": {
+        "\u0966": "\u{1E2F0}",
+        "\u0967": "\u{1E2F1}",
+        "\u0968": "\u{1E2F2}",
+        "\u0969": "\u{1E2F3}",
+        "\u096A": "\u{1E2F4}",
+        "\u096B": "\u{1E2F5}",
+        "\u096C": "\u{1E2F6}",
+        "\u096D": "\u{1E2F7}",
+        "\u096E": "\u{1E2F8}",
+        "\u096F": "\u{1E2F9}",
+        "\u0950": "\u{1E2E6}",
+        "\u093D": "",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u{1E2DB}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{1E2D4}\u{1E2C1}",
+        "\u0959": "\u{1E2D9}\u{1E2C1}",
+        "\u095A": "\u{1E2C5}\u{1E2C1}",
+        "\u095B": "\u{1E2D1}\u{1E2C1}",
+        "\u095C": "\u{1E2C4}\u{1E2C1}",
+        "\u0922\u093C": "\u{1E2C4}\u{1E2C1}",
+        "\u095E": "\u{1E2CD}\u{1E2C1}",
+        "\u095F": "\u{1E2C6}\u{1E2C1}",
+        "\u0931": "\u{1E2D7}\u{1E2C1}"
+      }
+    };
+    schemes.warang_citi = {
+      "vowels": {
+        "\u0905": "\u{118C1}",
+        "\u0906": "\u{118C1}\u{118D9}",
+        "\u0907": "\u{118C2}",
+        "\u0908": "\u{118C6}",
+        "\u0909": "\u{118C3}",
+        "\u090A": "\u{118C7}",
+        "\u090B": "\u{118DC}\u{118C3}",
+        "\u0960": "\u{118DC}\u{118C7}",
+        "\u090C": "\u{118DA}\u{118C3}",
+        "\u0961": "\u{118DA}\u{118C7}",
+        "\u090E": "\u{118C8}",
+        "\u090F": "\u{118C8}",
+        "\u0910": "\u{118C6}",
+        "\u0912": "\u{118C9}",
+        "\u0913": "\u{118C9}",
+        "\u0914": "\u{118C7}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{118C1}\u{118D9}",
+        "\u093F": "\u{118C2}",
+        "\u0940": "\u{118C6}",
+        "\u0941": "\u{118C3}",
+        "\u0942": "\u{118C7}",
+        "\u0943": "\u{118DC}\u{118C3}",
+        "\u0944": "\u{118DC}\u{118C7}",
+        "\u0962": "\u{118DA}\u{118C3}",
+        "\u0963": "\u{118DA}\u{118C7}",
+        "\u0946": "\u{118C8}",
+        "\u0947": "\u{118C8}",
+        "\u0948": "\u{118C6}",
+        "\u094A": "\u{118C9}",
+        "\u094B": "\u{118C9}",
+        "\u094C": "\u{118C7}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{118C0}",
+        "\u0903": "\u{118C4}",
+        "\u0901": "\u{118C0}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{118CC}",
+        "\u0916": "\u{118CC}",
+        "\u0917": "\u{118CB}",
+        "\u0918": "\u{118CB}",
+        "\u0919": "\u{118CA}",
+        "\u091A": "\u{118CF}",
+        "\u091B": "\u{118CF}",
+        "\u091C": "\u{118CE}",
+        "\u091D": "\u{118CE}",
+        "\u091E": "\u{118CD}",
+        "\u091F": "\u{118D2}",
+        "\u0920": "\u{118D2}",
+        "\u0921": "\u{118D1}",
+        "\u0922": "\u{118D1}",
+        "\u0923": "\u{118D0}",
+        "\u0924": "\u{118D5}",
+        "\u0925": "\u{118D5}",
+        "\u0926": "\u{118D4}",
+        "\u0927": "\u{118D4}",
+        "\u0928": "\u{118D3}",
+        "\u092A": "\u{118D8}",
+        "\u092B": "\u{118D8}",
+        "\u092C": "\u{118D7}",
+        "\u092D": "\u{118D7}",
+        "\u092E": "\u{118D6}",
+        "\u092F": "\u{118C5}",
+        "\u0930": "\u{118DC}",
+        "\u0932": "\u{118DA}",
+        "\u0935": "\u{118DF}",
+        "\u0936": "\u{118DE}",
+        "\u0937": "\u{118DE}",
+        "\u0938": "\u{118DE}",
+        "\u0939": "\u{118D9}",
+        "\u0933": "\u{118DA}",
+        "\u0915\u094D\u0937": "\u{118CC}\u{118DE}",
+        "\u091C\u094D\u091E": "\u{118CE}\u{118CD}"
+      },
+      "symbols": {
+        "\u0966": "\u{118E0}",
+        "\u0967": "\u{118E1}",
+        "\u0968": "\u{118E2}",
+        "\u0969": "\u{118E3}",
+        "\u096A": "\u{118E4}",
+        "\u096B": "\u{118E5}",
+        "\u096C": "\u{118E6}",
+        "\u096D": "\u{118E7}",
+        "\u096E": "\u{118E8}",
+        "\u096F": "\u{118E9}",
+        "\u0950": "\u{118FF}",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "candra": {
+        "\u0945": "\u{118C8}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{118CC}",
+        "\u0959": "\u{118CC}",
+        "\u095A": "\u{118CB}",
+        "\u095B": "\u{118CE}",
+        "\u095C": "\u{118DB}",
+        "\u0922\u093C": "\u{118DB}",
+        "\u095E": "\u{118D8}",
+        "\u095F": "\u{118C5}",
+        "\u0931": "\u{118DC}"
+      }
+    };
+    schemes.zanbazar_square = {
+      "vowels": {
+        "\u0905": "\u{11A00}",
+        "\u0906": "\u{11A00}\u{11A0A}",
+        "\u0907": "\u{11A00}\u{11A01}",
+        "\u0908": "\u{11A00}\u{11A01}\u{11A0A}",
+        "\u0909": "\u{11A00}\u{11A02}",
+        "\u090A": "\u{11A00}\u{11A02}\u{11A0A}",
+        "\u090B": "\u{11A2B}\u{11A09}",
+        "\u0960": "\u{11A2B}\u{11A09}\u{11A0A}",
+        "\u090C": "\u{11A2C}\u{11A09}",
+        "\u0961": "\u{11A2C}\u{11A09}\u{11A0A}",
+        "\u090E": "\u{11A00}\u{11A04}",
+        "\u090F": "\u{11A00}\u{11A04}",
+        "\u0910": "\u{11A00}\u{11A04}\u{11A0A}",
+        "\u0912": "\u{11A00}\u{11A06}",
+        "\u0913": "\u{11A00}\u{11A06}",
+        "\u0914": "\u{11A00}\u{11A06}\u{11A0A}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{11A0A}",
+        "\u093F": "\u{11A01}",
+        "\u0940": "\u{11A01}\u{11A0A}",
+        "\u0941": "\u{11A02}",
+        "\u0942": "\u{11A02}\u{11A0A}",
+        "\u0943": "\u{11A47}\u{11A2B}\u{11A09}",
+        "\u0944": "\u{11A47}\u{11A2B}\u{11A09}\u{11A0A}",
+        "\u0962": "\u{11A47}\u{11A2C}\u{11A09}",
+        "\u0963": "\u{11A47}\u{11A2C}\u{11A09}\u{11A0A}",
+        "\u0946": "\u{11A04}",
+        "\u0947": "\u{11A04}",
+        "\u0948": "\u{11A04}\u{11A0A}",
+        "\u094A": "\u{11A06}",
+        "\u094B": "\u{11A06}",
+        "\u094C": "\u{11A06}\u{11A0A}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11A38}",
+        "\u0903": "\u{11A39}",
+        "\u0901": "\u{11A35}"
+      },
+      "virama": {
+        "\u094D": "\u{11A34}"
+      },
+      "consonants": {
+        "\u0915": "\u{11A0B}",
+        "\u0916": "\u{11A0C}",
+        "\u0917": "\u{11A0D}",
+        "\u0918": "\u{11A0E}",
+        "\u0919": "\u{11A0F}",
+        "\u091A": "\u{11A23}",
+        "\u091B": "\u{11A24}",
+        "\u091C": "\u{11A25}",
+        "\u091D": "\u{11A26}",
+        "\u091E": "\u{11A13}",
+        "\u091F": "\u{11A14}",
+        "\u0920": "\u{11A15}",
+        "\u0921": "\u{11A16}",
+        "\u0922": "\u{11A17}",
+        "\u0923": "\u{11A18}",
+        "\u0924": "\u{11A19}",
+        "\u0925": "\u{11A1A}",
+        "\u0926": "\u{11A1B}",
+        "\u0927": "\u{11A1C}",
+        "\u0928": "\u{11A1D}",
+        "\u092A": "\u{11A1E}",
+        "\u092B": "\u{11A1F}",
+        "\u092C": "\u{11A20}",
+        "\u092D": "\u{11A21}",
+        "\u092E": "\u{11A22}",
+        "\u092F": "\u{11A2A}",
+        "\u0930": "\u{11A2B}",
+        "\u0932": "\u{11A2C}",
+        "\u0935": "\u{11A2D}",
+        "\u0936": "\u{11A2E}",
+        "\u0937": "\u{11A2F}",
+        "\u0938": "\u{11A30}",
+        "\u0939": "\u{11A31}",
+        "\u0933": "\u{11A2C}",
+        "\u0915\u094D\u0937": "\u{11A32}",
+        "\u091C\u094D\u091E": "\u{11A25}\u{11A47}\u{11A13}"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u{11A00}\u{11A06}\u{11A35}",
+        "\u093D": "",
+        "\u0964": "\u{11A42}",
+        "\u0965": "\u{11A43}"
+      },
+      "candra": {
+        "\u0945": "\u{11A04}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11A0B}",
+        "\u0959": "\u{11A0C}",
+        "\u095A": "\u{11A0D}",
+        "\u095B": "\u{11A28}",
+        "\u095C": "\u{11A16}",
+        "\u0922\u093C": "\u{11A17}",
+        "\u095E": "\u{11A1F}",
+        "\u095F": "\u{11A2A}",
+        "\u0931": "\u{11A2B}"
+      }
+    };
+    schemes.avestan = {
+      "vowels": {
+        "\u0905": "\u{10B00}",
+        "\u0906": "\u{10B01}",
+        "\u0907": "\u{10B0C}",
+        "\u0908": "\u{10B0D}",
+        "\u0909": "\u{10B0E}",
+        "\u090A": "\u{10B0F}",
+        "\u090B": "\u{10B06}\u{10B2D}\u{10B06}",
+        "\u0960": "\u{10B07}\u{10B2D}\u{10B07}",
+        "\u090C": "\u{10B06}\u{10B2E}\u{10B06}",
+        "\u0961": "\u{10B07}\u{10B2E}\u{10B07}",
+        "\u090E": "\u{10B08}",
+        "\u090F": "\u{10B09}",
+        "\u0910": "\u{10B00}\u{10B0C}",
+        "\u0912": "\u{10B0A}",
+        "\u0913": "\u{10B0B}",
+        "\u0914": "\u{10B00}\u{10B0E}"
+      },
+      "vowel_marks": {
+        "\u093E": "\u{10B01}",
+        "\u093F": "\u{10B0C}",
+        "\u0940": "\u{10B0D}",
+        "\u0941": "\u{10B0E}",
+        "\u0942": "\u{10B0F}",
+        "\u0943": "\u{10B06}\u{10B2D}\u{10B06}",
+        "\u0944": "\u{10B07}\u{10B2D}\u{10B07}",
+        "\u0962": "\u{10B06}\u{10B2E}\u{10B06}",
+        "\u0963": "\u{10B07}\u{10B2E}\u{10B07}",
+        "\u0946": "\u{10B08}",
+        "\u0947": "\u{10B09}",
+        "\u0948": "\u{10B00}\u{10B0C}",
+        "\u094A": "\u{10B0A}",
+        "\u094B": "\u{10B0B}",
+        "\u094C": "\u{10B00}\u{10B0E}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{10B29}",
+        "\u0903": "\u{10B35}",
+        "\u0901": "\u{10B29}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{10B10}\u{10B00}",
+        "\u0916": "\u{10B11}\u{10B00}",
+        "\u0917": "\u{10B14}\u{10B00}",
+        "\u0918": "\u{10B16}\u{10B00}",
+        "\u0919": "\u{10B22}\u{10B00}",
+        "\u091A": "\u{10B17}\u{10B00}",
+        "\u091B": "\u{10B17}\u{10B00}",
+        "\u091C": "\u{10B18}\u{10B00}",
+        "\u091D": "\u{10B18}\u{10B00}",
+        "\u091E": "\u{10B26}\u{10B00}",
+        "\u091F": "\u{10B19}\u{10B00}",
+        "\u0920": "\u{10B1A}\u{10B00}",
+        "\u0921": "\u{10B1B}\u{10B00}",
+        "\u0922": "\u{10B1B}\u{10B00}",
+        "\u0923": "\u{10B27}\u{10B00}",
+        "\u0924": "\u{10B19}\u{10B00}",
+        "\u0925": "\u{10B1A}\u{10B00}",
+        "\u0926": "\u{10B1B}\u{10B00}",
+        "\u0927": "\u{10B1C}\u{10B00}",
+        "\u0928": "\u{10B25}\u{10B00}",
+        "\u092A": "\u{10B1E}\u{10B00}",
+        "\u092B": "\u{10B1E}\u{10B00}",
+        "\u092C": "\u{10B20}\u{10B00}",
+        "\u092D": "\u{10B20}\u{10B00}",
+        "\u092E": "\u{10B28}\u{10B00}",
+        "\u092F": "\u{10B2B}\u{10B00}",
+        "\u0930": "\u{10B2D}\u{10B00}",
+        "\u0932": "\u{10B2E}\u{10B00}",
+        "\u0935": "\u{10B2C}\u{10B00}",
+        "\u0936": "\u{10B31}\u{10B00}",
+        "\u0937": "\u{10B34}\u{10B00}",
+        "\u0938": "\u{10B2F}\u{10B00}",
+        "\u0939": "\u{10B35}\u{10B00}",
+        "\u0933": "\u{10B2E}\u{10B00}",
+        "\u0915\u094D\u0937": "\u{10B10}\u{10B34}\u{10B00}",
+        "\u091C\u094D\u091E": "\u{10B18}\u{10B26}\u{10B00}"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u{10B0B}\u{10B28}",
+        "\u093D": "",
+        "\u0964": "\u{10B3C}\u200F",
+        "\u0965": "\u{10B3D}\u200F"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{10B09}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{10B10}\u{10B00}",
+        "\u0959": "\u{10B13}\u{10B00}",
+        "\u095A": "\u{10B15}\u{10B00}",
+        "\u095B": "\u{10B30}\u{10B00}",
+        "\u095C": "\u{10B1B}\u{10B00}",
+        "\u0922\u093C": "\u{10B1C}\u{10B00}",
+        "\u095E": "\u{10B1F}\u{10B00}",
+        "\u095F": "\u{10B2A}\u{10B00}",
+        "\u0931": "\u{10B2D}\u{10B00}"
+      },
+      "isRomanScheme": true
+    };
+    schemes.baraha = {
+      "_vowel_comment": ["omissions  from optitrans_dravidian", "ea", "oa"],
+      "_yogavaahas_comment": ["omissions  from optitrans_dravidian", "kH", "pH"],
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "Ru",
+        "\u0960": "RU",
+        "\u090C": "~lu",
+        "\u0961": "~lU",
+        "\u090E": "e",
+        "\u090F": "E",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "O",
+        "\u0914": "au",
+        "\u090D": "",
+        "\u0911": ""
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "~M",
+        "\u1CF5": "",
+        "\u1CF6": "",
+        "\uA8F3": "(gg)"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~g",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~j",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kSh",
+        "\u091C\u094D\u091E": "j~ja"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": "&",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": "~M"
+      },
+      "zwj": {
+        "\u200D": "^"
+      },
+      "zwnj": {
+        "\u200C": "^^"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "#",
+        "\u0952": "q",
+        "\u1CE1": "Q",
+        "\uA8E1": "V",
+        "\uA8E2": "W",
+        "\uA8E3": "$"
+      },
+      "alternates": {
+        "A": ["aa"],
+        "I": ["ee"],
+        "U": ["oo"],
+        "kh": ["K"],
+        "gh": ["G"],
+        "ch": ["c"],
+        "Ch": ["C"],
+        "jh": ["J"],
+        "ph": ["P"],
+        "bh": ["B"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "sh": ["S"],
+        "h": ["~h"],
+        "V": ["x"],
+        "|": ["."],
+        "||": [".."]
+      },
+      "isRomanScheme": true
+    };
+    schemes.cyrillic = {
+      "vowels": {
+        "\u0905": "\u0430",
+        "\u0906": "\u0430\u0304",
+        "\u0907": "\u0438",
+        "\u0908": "\u04E3",
+        "\u0909": "\u0443",
+        "\u090A": "\u04EF",
+        "\u090B": "\u0440\u0323",
+        "\u0960": "\u0440\u0323\u0304",
+        "\u090C": "\u043B\u0323",
+        "\u0961": "\u043B\u0323\u0304",
+        "\u090E": "\u044D\u0306",
+        "\u090F": "\u044D",
+        "\u0910": "\u0430\u0438",
+        "\u0912": "\u043E\u0306",
+        "\u0913": "\u043E",
+        "\u0914": "\u0430\u0443"
+      },
+      "yogavaahas": {
+        "\u0902": "\u043C\u0323",
+        "\u0903": "\u0445\u0323",
+        "\u0901": "\u043C\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "\u043A",
+        "\u0916": "\u043A\u0445",
+        "\u0917": "\u0433",
+        "\u0918": "\u0433\u0445",
+        "\u0919": "\u043D\u0307",
+        "\u091A": "\u0447",
+        "\u091B": "\u0447\u0445",
+        "\u091C": "\u0434\u0436",
+        "\u091D": "\u0434\u0436\u0445",
+        "\u091E": "\u043D\u0303",
+        "\u091F": "\u0442\u0323",
+        "\u0920": "\u0442\u0323\u0445",
+        "\u0921": "\u0434\u0323",
+        "\u0922": "\u0434\u0323\u0445",
+        "\u0923": "\u043D\u0323",
+        "\u0924": "\u0442",
+        "\u0925": "\u0442\u0445",
+        "\u0926": "\u0434",
+        "\u0927": "\u0434\u0445",
+        "\u0928": "\u043D",
+        "\u092A": "\u043F",
+        "\u092B": "\u043F\u0445",
+        "\u092C": "\u0431",
+        "\u092D": "\u0431\u0445",
+        "\u092E": "\u043C",
+        "\u092F": "\u0439",
+        "\u0930": "\u0440",
+        "\u0932": "\u043B",
+        "\u0935": "\u0432",
+        "\u0936": "\u0448\u0301",
+        "\u0937": "\u0448",
+        "\u0938": "\u0441",
+        "\u0939": "\u0445",
+        "\u0933": "\u043B\u0324",
+        "\u0915\u094D\u0937": "\u043A\u0448",
+        "\u091C\u094D\u091E": "\u0434\u0436\u043D\u0303"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u043E\u043C\u0323",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u04D5"
+      },
+      "extra_consonants": {
+        "\u0958": "\u051B",
+        "\u0959": "\u043A\u035F\u0445",
+        "\u095A": "\u0433\u0307",
+        "\u095B": "\u0437",
+        "\u095C": "\u0440\u0324",
+        "\u0922\u093C": "\u0440\u0324\u0445",
+        "\u095E": "\u0444",
+        "\u095F": "\u0439\u0323",
+        "\u0931": "\u0440\u0331"
+      },
+      "isRomanScheme": true
+    };
+    schemes.hk = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "R",
+        "\u0960": "RR",
+        "\u090C": "lR",
+        "\u0961": "lRR",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "~"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "G",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "J",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "z",
+        "\u0937": "S",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kS",
+        "\u091C\u094D\u091E": "jJ"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": "'",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "qh",
+        "\u095A": "g2",
+        "\u095B": "z2",
+        "\u095C": "r3",
+        "\u0922\u093C": "r3h",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": "r2",
+        "\u0934": "zh",
+        "\u0929": "n2"
+      },
+      "isRomanScheme": true
+    };
+    schemes.hk_dravidian = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "R",
+        "\u0960": "RR",
+        "\u090C": "lR",
+        "\u0961": "lRR",
+        "\u090E": "e",
+        "\u090F": "E",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "O",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "~"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "G",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "J",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "z",
+        "\u0937": "S",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kS",
+        "\u091C\u094D\u091E": "jJ"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": "'",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "qh",
+        "\u095A": "g2",
+        "\u095B": "z2",
+        "\u095C": "r3",
+        "\u0922\u093C": "r3h",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": "r2",
+        "\u0934": "zh",
+        "\u0929": "n2"
+      },
+      "isRomanScheme": true
+    };
+    schemes.iast = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "\u1E5B",
+        "\u0960": "\u1E5D",
+        "\u090C": "\u1E37",
+        "\u0961": "\u1E39",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E43",
+        "\u0903": "\u1E25",
+        "\u0901": "~",
+        "\uA8F3": "m\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6Dh",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0Dh",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "l\u0324",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "o\u1E43",
+        "\u093D": "'",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035Fh",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "r\u0324",
+        "\u0922\u093C": "r\u0324h",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B",
+        "\u0929": "\u1E49"
+      },
+      "alternates": {
+        "|": [".", "/"],
+        "||": ["..", "//"],
+        "'": ["`"],
+        "m\u0310": ["m\u0307", "\u1E41"],
+        "\u1E43": ["m\u0323"],
+        "\u1E25": ["h\u0323"],
+        "\u1E6D": ["t\u0323"],
+        "\u1E6Dh": ["t\u0323h"],
+        "\u1E0D": ["d\u0323"],
+        "\u1E0Dh": ["d\u0323h"],
+        "\u1E47": ["n\u0323"],
+        "\u1E63": ["s\u0323"],
+        "\u1E45": ["n\u0307"],
+        "\xF1": ["n\u0303"],
+        "\u1E5B": ["r\u0325", "r\u0323"],
+        "\u1E5D": ["\u1E5B\u0304", "r\u0325\u0304", "r\u0304\u0325", "r\u0304\u0323", "r\u0323\u0304"],
+        "\u0301": ["\xB9"]
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "a\u0300": ["\xE0"],
+        "e\u0300": ["\xE8"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "o\u0300": ["\xF2"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "\u1E5B\u0300": ["r\u0300\u0325", "r\u0323\u0300"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.iast_iso_m = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "\u1E5B",
+        "\u0960": "\u1E5D",
+        "\u090C": "\u1E37",
+        "\u0961": "\u1E39",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E43",
+        "\u0903": "\u1E25",
+        "\u0901": "~",
+        "\uA8F3": "m\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6Dh",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0Dh",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "l\u0324",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "o\u1E43",
+        "\u093D": "'",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035Fh",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "r\u0324",
+        "\u0922\u093C": "r\u0324h",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B",
+        "\u0929": "\u1E49"
+      },
+      "alternates": {
+        "|": [".", "/"],
+        "||": ["..", "//"],
+        "'": ["`"],
+        "\u1E43": ["m\u0323", "m\u0307", "\u1E41"],
+        "\u1E25": ["h\u0323"],
+        "\u1E6D": ["t\u0323"],
+        "\u1E6Dh": ["t\u0323h"],
+        "\u1E0D": ["d\u0323"],
+        "\u1E0Dh": ["d\u0323h"],
+        "\u1E47": ["n\u0323"],
+        "\u1E63": ["s\u0323"],
+        "\u1E45": ["n\u0307"],
+        "\xF1": ["n\u0303"],
+        "\u1E5B": ["r\u0325", "r\u0323"],
+        "\u1E5D": ["\u1E5B\u0304", "r\u0325\u0304", "r\u0304\u0325", "r\u0304\u0323", "r\u0323\u0304"],
+        "\u0301": ["\xB9"]
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "a\u0300": ["\xE0"],
+        "e\u0300": ["\xE8"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "o\u0300": ["\xF2"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "\u1E5B\u0300": ["r\u0300\u0325", "r\u0323\u0300"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.iso = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "r\u0325",
+        "\u0960": "r\u0325\u0304",
+        "\u090C": "l\u0325",
+        "\u0961": "l\u0325\u0304",
+        "\u090E": "e",
+        "\u090F": "\u0113",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "\u014D",
+        "\u0914": "au",
+        "\u090D": "\xEA",
+        "\u0911": "\xF4"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E41",
+        "\u0903": "\u1E25",
+        "\u1CF5": "\u1E96",
+        "\u1E2B": "\u1CF6",
+        "\u0901": "m\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6Dh",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0Dh",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "\u1E37",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u014D\u1E41",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035Fh",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "\u1E5B",
+        "\u0922\u093C": "\u1E5Bh",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B",
+        "\u0929": "\u1E49",
+        "\u0931\u094D": "r\u0306",
+        "\u0925\u093C": "s\u0331",
+        "\u0938\u093C": "s\u0324",
+        "\u0939\u093C": "h\u0324",
+        "\u0924\u093C": "t\u0324",
+        "\u091D\u093C": "\u017E",
+        "\u091A\u093C": "\u02A6",
+        "\u091B\u093C": "\u02A6h",
+        "\u0630": "\u1E95",
+        "\u0636": "\u017C",
+        "\u0638": "\u1E93",
+        "\u0935\u093C": "w"
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "r\u0325\u0301": ["\u0155\u0325", "r\u0301\u0325"],
+        "r\u0301\u0325\u0304": ["\u0155\u0325\u0304", "\u0155\u0304\u0325", "r\u0301\u0304\u0325", "r\u0304\u0301\u0325", "r\u0304\u0325\u0301", "r\u0325\u0304\u0301", "r\u0325\u0301\u0304"],
+        "a\u0300": ["\xE0"],
+        "e\u0300": ["\xE8"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "o\u0300": ["\xF2"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "r\u0325\u0300": ["r\u0300\u0325"],
+        "r\u0300\u0325\u0304": ["r\u0300\u0304\u0325", "r\u0304\u0300\u0325", "r\u0304\u0325\u0300", "r\u0325\u0304\u0300", "r\u0325\u0300\u0304"]
+      },
+      "alternates": {
+        "|": [".", "/"],
+        "||": ["..", "//"],
+        "'": ["`"],
+        "m\u0310": ["m\u0307"],
+        "\u1E5D": ["\u1E5B\u0304", "r\u0325\u0304", "r\u0304\u0325", "r\u0304\u0323", "r\u0323\u0304"],
+        "\u1E43": ["m\u0323"],
+        "\u1E25": ["h\u0323"],
+        "\u1E6D": ["t\u0323"],
+        "\u1E6Dh": ["t\u0323h"],
+        "\u1E0D": ["d\u0323"],
+        "\u1E0Dh": ["d\u0323h"],
+        "\u1E47": ["n\u0323"],
+        "\u1E45": ["n\u0307"],
+        "\xF1": ["n\u0303"],
+        "\u1E63": ["s\u0323"],
+        "\u1E5B": ["r\u0323"],
+        "\u1E5Bh": ["r\u0323h"],
+        "k\u035Fh": ["\u1E35\u1E96", "\u1E35h"],
+        "q": ["\u1E33"],
+        "w": ["\u1E89"],
+        "\u0121": ["g\u0320\u1E96"],
+        "\u0301": ["\xB9"],
+        "r\u0325": ["r\u0324i"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.iso_vedic = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "r\u0325",
+        "\u0960": "r\u0325\u0304",
+        "\u090C": "l\u0325",
+        "\u0961": "l\u0325\u0304",
+        "\u090E": "e",
+        "\u090F": "ai",
+        "\u0910": "\u0101i",
+        "\u0912": "o",
+        "\u0913": "au",
+        "\u0914": "\u0101u",
+        "\u090D": "\xEA",
+        "\u0911": "\xF4"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E41",
+        "\u0903": "\u1E25",
+        "\u1CF5": "\u1E96",
+        "\u1E2B": "\u1CF6",
+        "\u0901": "m\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6Dh",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0Dh",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "\u1E37",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u014D\u1E41",
+        "\u093D": "'",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035Fh",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "\u1E5B",
+        "\u0922\u093C": "\u1E5Bh",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B",
+        "\u0929": "\u1E49",
+        "\u0931\u094D": "r\u0306",
+        "\u0925\u093C": "s\u0331",
+        "\u0938\u093C": "s\u0324",
+        "\u0939\u093C": "h\u0324",
+        "\u0924\u093C": "t\u0324",
+        "\u091D\u093C": "\u017E",
+        "\u091A\u093C": "\u02A6",
+        "\u091B\u093C": "\u02A6h",
+        "\u0630": "\u1E95",
+        "\u0636": "\u017C",
+        "\u0638": "\u1E93",
+        "\u0935\u093C": "w"
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "r\u0325\u0301": ["\u0155\u0325", "r\u0301\u0325"],
+        "r\u0301\u0325\u0304": ["\u0155\u0325\u0304", "\u0155\u0304\u0325", "r\u0301\u0304\u0325", "r\u0304\u0301\u0325", "r\u0304\u0325\u0301", "r\u0325\u0304\u0301", "r\u0325\u0301\u0304"],
+        "a\u0300": ["\xE0"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "\u0101i\u0300": ["\u0101\xEC"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "\u0101u\u0300": ["\u0101\xF9"],
+        "r\u0325\u0300": ["r\u0300\u0325"],
+        "r\u0300\u0325\u0304": ["r\u0300\u0304\u0325", "r\u0304\u0300\u0325", "r\u0304\u0325\u0300", "r\u0325\u0304\u0300", "r\u0325\u0300\u0304"]
+      },
+      "alternates": {
+        "|": [".", "/"],
+        "||": ["..", "//"],
+        "'": ["`"],
+        "m\u0310": ["m\u0307"],
+        "\u1E5D": ["\u1E5B\u0304", "r\u0325\u0304", "r\u0304\u0325", "r\u0304\u0323", "r\u0323\u0304"],
+        "\u1E43": ["m\u0323"],
+        "\u1E25": ["h\u0323"],
+        "\u1E6D": ["t\u0323"],
+        "\u1E6Dh": ["t\u0323h"],
+        "\u1E0D": ["d\u0323"],
+        "\u1E0Dh": ["d\u0323h"],
+        "\u1E47": ["n\u0323"],
+        "\u1E45": ["n\u0307"],
+        "\xF1": ["n\u0303"],
+        "\u1E63": ["s\u0323"],
+        "\u1E5B": ["r\u0323"],
+        "\u1E5Bh": ["r\u0323h"],
+        "k\u035Fh": ["\u1E35\u1E96", "\u1E35h"],
+        "q": ["\u1E33"],
+        "w": ["\u1E89"],
+        "\u0121": ["g\u0320\u1E96"],
+        "\u0301": ["\xB9"],
+        "r\u0325": ["r\u0324i"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.itrans = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "RRi",
+        "\u0960": "RRI",
+        "\u090C": "LLi",
+        "\u0961": "LLI",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": ".N"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~N",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kSh",
+        "\u091C\u094D\u091E": "j~n"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": ".c"
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "\\'",
+        "\u0952": "\\_"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "K",
+        "\u095A": "G",
+        "\u095B": "z",
+        "\u095C": ".D",
+        "\u0922\u093C": ".Dh",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": "R",
+        "\u0934": "zh"
+      },
+      "alternates": {
+        "A": ["aa"],
+        "I": ["ii", "ee"],
+        "U": ["uu", "oo"],
+        "RRi": ["R^i"],
+        "RRI": ["R^I"],
+        "LLi": ["L^i"],
+        "LLI": ["L^I"],
+        "M": [".m", ".n"],
+        "~N": ["N^"],
+        "ch": ["c"],
+        "Ch": ["C", "chh"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "Sh": ["S", "shh"],
+        "kSh": ["kS", "x"],
+        "j~n": ["GY", "dny"],
+        "OM": ["AUM"],
+        "\\_": ["\\`"],
+        "\\_H": ["\\`H"],
+        "\\'M": ["\\'.m", "\\'.n"],
+        "\\_M": ["\\_.m", "\\_.n", "\\`M", "\\`.m", "\\`.n"],
+        ".a": ["~"],
+        "|": ["."],
+        "||": [".."],
+        "z": ["J"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.itrans_dravidian = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "RRi",
+        "\u0960": "RRI",
+        "\u090C": "LLi",
+        "\u0961": "LLI",
+        "\u090E": "e",
+        "\u090F": "E",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "O",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": ".N"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~N",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kSh",
+        "\u091C\u094D\u091E": "j~n"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": ".c"
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "\\'",
+        "\u0952": "\\_"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "K",
+        "\u095A": "G",
+        "\u095B": "z",
+        "\u095C": ".D",
+        "\u0922\u093C": ".Dh",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": "R",
+        "\u0934": "zh",
+        "\u0929": "n2"
+      },
+      "alternates": {
+        "A": ["aa"],
+        "I": ["ii", "ee"],
+        "U": ["uu", "oo"],
+        "RRi": ["R^i"],
+        "RRI": ["R^I"],
+        "LLi": ["L^i"],
+        "LLI": ["L^I"],
+        "M": [".m", ".n"],
+        "~N": ["N^"],
+        "ch": ["c"],
+        "Ch": ["C", "chh"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "Sh": ["S", "shh"],
+        "kSh": ["kS", "x"],
+        "j~n": ["GY", "dny"],
+        "OM": ["AUM"],
+        "\\_": ["\\`"],
+        "\\_H": ["\\`H"],
+        "\\'M": ["\\'.m", "\\'.n"],
+        "\\_M": ["\\_.m", "\\_.n", "\\`M", "\\`.m", "\\`.n"],
+        ".a": ["~"],
+        "|": ["."],
+        "||": [".."],
+        "z": ["J"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.itrans_lowercase = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "aa",
+        "\u0907": "i",
+        "\u0908": "ii",
+        "\u0909": "u",
+        "\u090A": "uu",
+        "\u090B": "RRi",
+        "\u0960": "RRI",
+        "\u090C": "LLi",
+        "\u0961": "LLI",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": ".N"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~N",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kSh",
+        "\u091C\u094D\u091E": "GY"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": ".c"
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "\\'",
+        "\u0952": "\\_"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "K",
+        "\u095A": "G",
+        "\u095B": "z",
+        "\u095C": ".D",
+        "\u0922\u093C": ".Dh",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": "R",
+        "\u0934": "zh"
+      },
+      "alternates": {
+        "A": ["A"],
+        "I": ["I", "ee"],
+        "U": ["U", "oo"],
+        "RRi": ["R^i"],
+        "RRI": ["R^I"],
+        "LLi": ["L^i"],
+        "LLI": ["L^I"],
+        "M": [".m", ".n"],
+        "~N": ["N^"],
+        "ch": ["c"],
+        "Ch": ["C", "chh"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "Sh": ["S", "shh"],
+        "kSh": ["kS", "x"],
+        "GY": ["j~n", "dny"],
+        "OM": ["AUM"],
+        "\\_": ["\\`"],
+        "\\_H": ["\\`H"],
+        "\\'M": ["\\'.m", "\\'.n"],
+        "\\_M": ["\\_.m", "\\_.n", "\\`M", "\\`.m", "\\`.n"],
+        ".a": ["~"],
+        "|": ["."],
+        "||": [".."],
+        "z": ["J"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.kolkata_v2 = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "\u1E5B",
+        "\u0960": "\u1E5D",
+        "\u090C": "\u1E37",
+        "\u0961": "\u1E39",
+        "\u090E": "e",
+        "\u090F": "\u0113",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "\u014D",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E43",
+        "\u0903": "\u1E25",
+        "\u0901": "~"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6Dh",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0Dh",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "l\u0324",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "\u014D\u1E43",
+        "\u093D": "'",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035Fh",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "r\u0324",
+        "\u0922\u093C": "r\u0324h",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B",
+        "\u0929": "\u1E49"
+      },
+      "alternates": {
+        "|": [".", "/"],
+        "||": ["..", "//"],
+        "'": ["`"],
+        "m\u0310": ["m\u0307"],
+        "\u1E43": ["m\u0323"],
+        "\u1E25": ["h\u0323"],
+        "\u1E6D": ["t\u0323"],
+        "\u1E6Dh": ["t\u0323h"],
+        "\u1E0D": ["d\u0323"],
+        "\u1E0Dh": ["d\u0323h"],
+        "\u1E47": ["n\u0323"],
+        "\u1E45": ["n\u0307"],
+        "\xF1": ["n\u0303"],
+        "\u1E63": ["s\u0323"],
+        "\u1E5B": ["r\u0325", "r\u0323"],
+        "\u1E5D": ["\u1E5B\u0304", "r\u0325\u0304", "r\u0304\u0325", "r\u0304\u0323", "r\u0323\u0304"],
+        "\u0301": ["\xB9"]
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "a\u0300": ["\xE0"],
+        "e\u0300": ["\xE8"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "o\u0300": ["\xF2"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "\u1E5B\u0300": ["r\u0300\u0325", "r\u0323\u0300"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.mahajani = {
+      "vowels": {
+        "\u0905": "\u{11150}",
+        "\u0906": "\u{11150}",
+        "\u0907": "\u{11151}",
+        "\u0908": "\u{11151}",
+        "\u0909": "\u{11152}",
+        "\u090A": "\u{11152}",
+        "\u090B": "\u{1116D}\u{11152}",
+        "\u0960": "\u{1116D}\u{11152}",
+        "\u090C": "\u{1116E}\u{11152}",
+        "\u0961": "\u{1116E}\u{11152}",
+        "\u090E": "\u{11153}",
+        "\u090F": "\u{11153}",
+        "\u0910": "\u{11151}",
+        "\u0912": "\u{11154}",
+        "\u0913": "\u{11154}",
+        "\u0914": "\u{11152}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{11167}",
+        "\u0903": "\u{11171}",
+        "\u0901": "\u{11167}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{11155}",
+        "\u0916": "\u{11156}",
+        "\u0917": "\u{11157}",
+        "\u0918": "\u{11158}",
+        "\u0919": "\u{11167}",
+        "\u091A": "\u{11159}",
+        "\u091B": "\u{1115A}",
+        "\u091C": "\u{1115B}",
+        "\u091D": "\u{1115C}",
+        "\u091E": "\u{1115D}",
+        "\u091F": "\u{1115E}",
+        "\u0920": "\u{1115F}",
+        "\u0921": "\u{11160}",
+        "\u0922": "\u{11161}",
+        "\u0923": "\u{11162}",
+        "\u0924": "\u{11163}",
+        "\u0925": "\u{11164}",
+        "\u0926": "\u{11165}",
+        "\u0927": "\u{11166}",
+        "\u0928": "\u{11167}",
+        "\u092A": "\u{11168}",
+        "\u092B": "\u{11169}",
+        "\u092C": "\u{1116A}",
+        "\u092D": "\u{1116B}",
+        "\u092E": "\u{1116C}",
+        "\u092F": "\u{1115B}",
+        "\u0930": "\u{1116D}",
+        "\u0932": "\u{1116E}",
+        "\u0935": "\u{1116F}",
+        "\u0936": "\u{11170}\u{11173}",
+        "\u0937": "\u{11156}\u{11173}",
+        "\u0938": "\u{11170}",
+        "\u0939": "\u{11171}",
+        "\u0933": "\u{1116E}\u{11173}",
+        "\u0915\u094D\u0937": "\u{11155}\u{11156}\u{11173}",
+        "\u091C\u094D\u091E": "\u{1115B}\u{1115D}"
+      },
+      "symbols": {
+        "\u0966": "\u0966",
+        "\u0967": "\u0967",
+        "\u0968": "\u0968",
+        "\u0969": "\u0969",
+        "\u096A": "\u096A",
+        "\u096B": "\u096B",
+        "\u096C": "\u096C",
+        "\u096D": "\u096D",
+        "\u096E": "\u096E",
+        "\u096F": "\u096F",
+        "\u0950": "\u{11154}\u{1116C}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "accents": {
+        "\u0951": "\u0951",
+        "\u0952": "\u0952"
+      },
+      "candra": {
+        "\u0945": "\u{11153}"
+      },
+      "extra_consonants": {
+        "\u0958": "\u{11155}\u{11173}",
+        "\u0959": "\u{11156}\u{11173}",
+        "\u095A": "\u{11157}\u{11173}",
+        "\u095B": "\u{1115B}\u{11173}",
+        "\u095C": "\u{11172}",
+        "\u0922\u093C": "\u{11161}\u{11173}",
+        "\u095E": "\u{11169}\u{11173}",
+        "\u095F": "\u{1115B}",
+        "\u0931": "\u{1116D}\u{11173}"
+      },
+      "isRomanScheme": true
+    };
+    schemes.multani = {
+      "vowels": {
+        "\u0905": "\u{11280}",
+        "\u0906": "\u{11280}",
+        "\u0907": "\u{11281}",
+        "\u0908": "\u{11281}",
+        "\u0909": "\u{11282}",
+        "\u090A": "\u{11282}",
+        "\u090B": "\u{112A2}\u{11282}",
+        "\u0960": "\u{112A2}\u{11282}",
+        "\u090C": "\u{112A3}\u{11282}",
+        "\u0961": "\u{112A3}\u{11282}",
+        "\u090E": "",
+        "\u090F": "\u{11283}",
+        "\u0910": "\u{11283}",
+        "\u0912": "",
+        "\u0913": "\u{11282}",
+        "\u0914": "\u{11282}"
+      },
+      "yogavaahas": {
+        "\u0902": "\u{1129A}",
+        "\u0903": "\u{112A6}",
+        "\u0901": "\u{1129A}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{11284}",
+        "\u0916": "\u{11285}",
+        "\u0917": "\u{11286}",
+        "\u0918": "\u{11288}",
+        "\u0919": "\u{1129A}",
+        "\u091A": "\u{1128A}",
+        "\u091B": "\u{1128B}",
+        "\u091C": "\u{1128C}",
+        "\u091D": "\u{1128C}",
+        "\u091E": "\u{1128F}",
+        "\u091F": "\u{11290}",
+        "\u0920": "\u{11291}",
+        "\u0921": "\u{11292}",
+        "\u0922": "\u{11294}",
+        "\u0923": "\u{11295}",
+        "\u0924": "\u{11296}",
+        "\u0925": "\u{11297}",
+        "\u0926": "\u{11298}",
+        "\u0927": "\u{11299}",
+        "\u0928": "\u{1129A}",
+        "\u092A": "\u{1129B}",
+        "\u092B": "\u{1129C}",
+        "\u092C": "\u{1129D}",
+        "\u092D": "\u{1129F}",
+        "\u092E": "\u{112A0}",
+        "\u092F": "\u{112A1}",
+        "\u0930": "\u{112A2}",
+        "\u0932": "\u{112A3}",
+        "\u0935": "\u{112A4}",
+        "\u0936": "\u{112A5}",
+        "\u0937": "\u{112A5}",
+        "\u0938": "\u{112A5}",
+        "\u0939": "\u{112A6}",
+        "\u0933": "\u{112A3}",
+        "\u0915\u094D\u0937": "\u{11284}\u{112A5}",
+        "\u091C\u094D\u091E": "\u{1128C}\u{1128F}"
+      },
+      "symbols": {
+        "\u0966": "\u0A66",
+        "\u0967": "\u0A67",
+        "\u0968": "\u0A68",
+        "\u0969": "\u0A69",
+        "\u096A": "\u0A6A",
+        "\u096B": "\u0A6B",
+        "\u096C": "\u0A6C",
+        "\u096D": "\u0A6D",
+        "\u096E": "\u0A6E",
+        "\u096F": "\u0A6F",
+        "\u0950": "\u{11282}\u{112A0}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{11283}"
+      },
+      "isRomanScheme": true
+    };
+    schemes.optitrans = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "R",
+        "\u0960": "RR",
+        "\u090C": "LLi",
+        "\u0961": "LLI",
+        "\u090E": "E",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "O",
+        "\u0913": "o",
+        "\u0914": "au",
+        "\u090D": "ea",
+        "\u0911": "oa"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": ".N",
+        "\u1CF5": "kH",
+        "\u1CF6": "pH"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~N",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "x",
+        "\u091C\u094D\u091E": "jn"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": ".c"
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "\\'",
+        "\u0952": "\\_"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": ".kh",
+        "\u095A": ".g",
+        "\u095B": "z",
+        "\u095C": ".D",
+        "\u0922\u093C": ".Dh",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": ".Rh",
+        "\u0934": ".L"
+      },
+      "alternates": {
+        "A": ["aa"],
+        "I": ["ii", "ee"],
+        "U": ["uu"],
+        "R": ["RRi", "R^i"],
+        "RR": ["RRI", "R^I"],
+        "LLi": ["L^i"],
+        "LLI": ["L^I"],
+        "M": [".m", ".n"],
+        "ch": ["c"],
+        "Ch": ["C"],
+        "jh": ["J"],
+        "ph": ["P"],
+        "bh": ["B"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "Sh": ["S"],
+        "x": ["kS", "ksh"],
+        "jn": ["GY", "dny"],
+        "|": ["."],
+        "||": [".."],
+        "z": ["J"]
+      },
+      "shortcuts": {
+        "~nc": "nc",
+        "~nC": "nC",
+        "~nj": "nj",
+        "~nJ": "nJ",
+        "~Nk": "nk",
+        "~NK": "nK",
+        "~Ng": "ng",
+        "~NG": "nG",
+        "~Nx": "nx"
+      },
+      "isRomanScheme": true
+    };
+    schemes.optitrans_dravidian = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "R",
+        "\u0960": "RR",
+        "\u090C": "LLi",
+        "\u0961": "LLI",
+        "\u090E": "e",
+        "\u090F": "E",
+        "\u0910": "ai",
+        "\u0912": "o",
+        "\u0913": "O",
+        "\u0914": "au",
+        "\u090D": "ea",
+        "\u0911": "oa"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": ".N",
+        "\u1CF5": "kH",
+        "\u1CF6": "pH"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": "~N",
+        "\u091A": "ch",
+        "\u091B": "Ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": "T",
+        "\u0920": "Th",
+        "\u0921": "D",
+        "\u0922": "Dh",
+        "\u0923": "N",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "sh",
+        "\u0937": "Sh",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "x",
+        "\u091C\u094D\u091E": "jn"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "OM",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "candra": {
+        "\u0945": ".c"
+      },
+      "zwj": {
+        "\u200D": "{}"
+      },
+      "skip": {
+        "undefined": "_"
+      },
+      "accents": {
+        "\u0951": "\\'",
+        "\u0952": "\\_"
+      },
+      "extra_consonants": {
+        "\u0958": ".k",
+        "\u0959": "q",
+        "\u095A": ".g",
+        "\u095B": "z",
+        "\u095C": ".D",
+        "\u0922\u093C": ".Dh",
+        "\u095E": "f",
+        "\u095F": "Y",
+        "\u0931": ".Rh",
+        "\u0934": ".L",
+        "\u0929": "n2"
+      },
+      "alternates": {
+        "A": ["aa"],
+        "I": ["ii", "ee"],
+        "U": ["uu"],
+        "R": ["RRi", "R^i"],
+        "RR": ["RRI", "R^I"],
+        "LLi": ["L^i"],
+        "LLI": ["L^I"],
+        "M": [".m", ".n"],
+        "ch": ["c"],
+        "Ch": ["C"],
+        "jh": ["J"],
+        "ph": ["P"],
+        "bh": ["B"],
+        "~n": ["JN"],
+        "v": ["w"],
+        "Sh": ["S"],
+        "x": ["kS", "ksh"],
+        "jn": ["GY", "dny"],
+        "|": ["."],
+        "||": [".."],
+        "z": ["J"]
+      },
+      "shortcuts": {
+        "~nc": "nc",
+        "~nC": "nC",
+        "~nj": "nj",
+        "~nJ": "nJ",
+        "~Nk": "nk",
+        "~NK": "nK",
+        "~Ng": "ng",
+        "~NG": "nG",
+        "~Nx": "nx"
+      },
+      "isRomanScheme": true
+    };
+    schemes.persian_old = {
+      "vowels": {
+        "\u0905": "\u{103A0}",
+        "\u0906": "\u{103A0}",
+        "\u0907": "\u{103A1}",
+        "\u0908": "\u{103A1}",
+        "\u0909": "\u{103A2}",
+        "\u090A": "\u{103A2}",
+        "\u090B": "\u{103BD}\u{103A2}",
+        "\u0960": "\u{103BD}\u{103A2}",
+        "\u090C": "\u{103BE}\u{103A2}",
+        "\u0961": "\u{103BE}\u{103A2}",
+        "\u090E": "",
+        "\u090F": "\u{103A1}",
+        "\u0910": "\u{103A0}\u{103A1}",
+        "\u0912": "",
+        "\u0913": "\u{103A2}",
+        "\u0914": "\u{103A0}\u{103A2}"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "\u{103A3}",
+        "\u0916": "\u{103A7}",
+        "\u0917": "\u{103A5}",
+        "\u0918": "\u{103A5}",
+        "\u0919": "\u{103B4}",
+        "\u091A": "\u{103A8}",
+        "\u091B": "\u{103A8}",
+        "\u091C": "\u{103A9}",
+        "\u091D": "\u{103A9}",
+        "\u091E": "\u{103B4}",
+        "\u091F": "\u{103AB}",
+        "\u0920": "\u{103AB}",
+        "\u0921": "\u{103AD}",
+        "\u0922": "\u{103AD}",
+        "\u0923": "\u{103B4}",
+        "\u0924": "\u{103AB}",
+        "\u0925": "\u{103B0}",
+        "\u0926": "\u{103AD}",
+        "\u0927": "\u{103AD}",
+        "\u0928": "\u{103B4}",
+        "\u092A": "\u{103B1}",
+        "\u092B": "\u{103B1}",
+        "\u092C": "\u{103B2}",
+        "\u092D": "\u{103B2}",
+        "\u092E": "\u{103B6}",
+        "\u092F": "\u{103B9}",
+        "\u0930": "\u{103BC}",
+        "\u0932": "\u{103BE}",
+        "\u0935": "\u{103BA}",
+        "\u0936": "\u{103C1}",
+        "\u0937": "\u{103C2}",
+        "\u0938": "\u{103BF}",
+        "\u0939": "\u{103C3}",
+        "\u0933": "\u{103BE}",
+        "\u0915\u094D\u0937": "\u{103A3}\u{103C2}",
+        "\u091C\u094D\u091E": "\u{103A9}\u{103B4}"
+      },
+      "symbols": {
+        "\u0966": "",
+        "\u0967": "\u{103D1}",
+        "\u0968": "\u{103D2}",
+        "\u0969": "\u{103D2}\u{103D1}",
+        "\u096A": "\u{103D2}\u{103D2}",
+        "\u096B": "\u{103D2}\u{103D2}\u{103D1}",
+        "\u096C": "\u{103D2}\u{103D2}\u{103D2}",
+        "\u096D": "\u{103D2}\u{103D2}\u{103D2}\u{103D1}",
+        "\u096E": "\u{103D2}\u{103D2}\u{103D2}\u{103D2}",
+        "\u096F": "\u{103D2}\u{103D2}\u{103D2}\u{103D2}\u{103D1}",
+        "\u0950": "\u{103A2}\u{103B6}",
+        "\u093D": "",
+        "\u0964": "\u0964",
+        "\u0965": "\u0965"
+      },
+      "candra": {
+        "\u0945": "\u{103A1}"
+      },
+      "isRomanScheme": true
+    };
+    schemes.slp1 = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "f",
+        "\u0960": "F",
+        "\u090C": "x",
+        "\u0961": "X",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "E",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "O"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "~"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "K",
+        "\u0917": "g",
+        "\u0918": "G",
+        "\u0919": "N",
+        "\u091A": "c",
+        "\u091B": "C",
+        "\u091C": "j",
+        "\u091D": "J",
+        "\u091E": "Y",
+        "\u091F": "w",
+        "\u0920": "W",
+        "\u0921": "q",
+        "\u0922": "Q",
+        "\u0923": "R",
+        "\u0924": "t",
+        "\u0925": "T",
+        "\u0926": "d",
+        "\u0927": "D",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "P",
+        "\u092C": "b",
+        "\u092D": "B",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "S",
+        "\u0937": "z",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kz",
+        "\u091C\u094D\u091E": "jY"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "AUM",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "extra_consonants": {
+        "\u0958": "k0",
+        "\u0959": "K0",
+        "\u095A": "g0",
+        "\u095B": "j0",
+        "\u095C": "q0",
+        "\u0922\u093C": "Q0",
+        "\u095E": "P0",
+        "\u095F": "Y0",
+        "\u0931": "r2",
+        "\u0934": "L0",
+        "\u0929": "n0"
+      },
+      "shortcuts": {
+        "Lh": "|"
+      },
+      "isRomanScheme": true
+    };
+    schemes.slp1_accented = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "f",
+        "\u0960": "F",
+        "\u090C": "x",
+        "\u0961": "X",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "E",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "O"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "~",
+        "\uA8F3": "M\xA3"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "K",
+        "\u0917": "g",
+        "\u0918": "G",
+        "\u0919": "N",
+        "\u091A": "c",
+        "\u091B": "C",
+        "\u091C": "j",
+        "\u091D": "J",
+        "\u091E": "Y",
+        "\u091F": "w",
+        "\u0920": "W",
+        "\u0921": "q",
+        "\u0922": "Q",
+        "\u0923": "R",
+        "\u0924": "t",
+        "\u0925": "T",
+        "\u0926": "d",
+        "\u0927": "D",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "P",
+        "\u092C": "b",
+        "\u092D": "B",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "S",
+        "\u0937": "z",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "kz",
+        "\u091C\u094D\u091E": "jY"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "AUM",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\\",
+        "\u1CE1": "^",
+        "\uA8E1": "/",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "extra_consonants": {
+        "\u0958": "k0",
+        "\u0959": "K0",
+        "\u095A": "g0",
+        "\u095B": "j0",
+        "\u095C": "q0",
+        "\u0922\u093C": "Q0",
+        "\u095E": "P0",
+        "\u095F": "Y0",
+        "\u0931": "r2",
+        "\u0934": "L0"
+      },
+      "shortcuts": {
+        "Lh": "|"
+      },
+      "isRomanScheme": true
+    };
+    schemes.titus = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "\u0101",
+        "\u0907": "i",
+        "\u0908": "\u012B",
+        "\u0909": "u",
+        "\u090A": "\u016B",
+        "\u090B": "r\u0325",
+        "\u0960": "r\u0325\u0304",
+        "\u090C": "l\u0325",
+        "\u0961": "l\u0325\u0304",
+        "\u090E": "\u0115",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\u014F",
+        "\u0913": "o",
+        "\u0914": "au",
+        "\u090D": "\xE6",
+        "\u0911": "\xF4"
+      },
+      "yogavaahas": {
+        "\u0902": "\u1E43",
+        "\u0903": "\u1E25",
+        "\u0901": "m\u0310"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "k\u02B0",
+        "\u0917": "g",
+        "\u0918": "g\u02B0",
+        "\u0919": "\u1E45",
+        "\u091A": "c",
+        "\u091B": "c\u02B0",
+        "\u091C": "j",
+        "\u091D": "j\u02B0",
+        "\u091E": "\xF1",
+        "\u091F": "\u1E6D",
+        "\u0920": "\u1E6D\u02B0",
+        "\u0921": "\u1E0D",
+        "\u0922": "\u1E0D\u02B0",
+        "\u0923": "\u1E47",
+        "\u0924": "t",
+        "\u0925": "t\u02B0",
+        "\u0926": "d",
+        "\u0927": "d\u02B0",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "p\u02B0",
+        "\u092C": "b",
+        "\u092D": "b\u02B0",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "\u015B",
+        "\u0937": "\u1E63",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "\u1E37",
+        "\u0915\u094D\u0937": "k\u1E63",
+        "\u091C\u094D\u091E": "j\xF1"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "o\u1E43",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "zwj": {
+        "\u200D": "\u200D"
+      },
+      "skip": {
+        "undefined": ""
+      },
+      "candra": {
+        "\u0945": "\xE6"
+      },
+      "extra_consonants": {
+        "\u0958": "q",
+        "\u0959": "k\u035F\u02B0",
+        "\u095A": "\u0121",
+        "\u095B": "z",
+        "\u095C": "\u1E5B",
+        "\u0922\u093C": "\u1E5B\u02B0",
+        "\u095E": "f",
+        "\u095F": "\u1E8F",
+        "\u0931": "\u1E5F",
+        "\u0934": "\u1E3B"
+      },
+      "accents": {
+        "\u0951": "\u032D",
+        "\u0952": "\u0952",
+        "\u1CE1": "\u0300",
+        "\uA8E1": "\u0301",
+        "\uA8E2": "\xB2",
+        "\uA8E3": "\xB3",
+        "\uA8E4": "\u2074",
+        "\uA8E5": "\u2075",
+        "\uA8E6": "\u2076",
+        "\uA8E7": "\u2077",
+        "\uA8E8": "\u2078",
+        "\uA8E9": "\u2079",
+        "\uA8EA": "\uA8EA",
+        "\uA8EB": "\uA8EB",
+        "\uA8EC": "\uA8EC",
+        "\uA8ED": "\uA8ED",
+        "\uA8EE": "\uA8EE",
+        "\uA8EF": "\uA8EF",
+        "\uA8F0": "\uA8F0",
+        "\uA8F1": "\uA8F1"
+      },
+      "accented_vowel_alternates": {
+        "a\u0301": ["\xE1"],
+        "e\u0301": ["\xE9"],
+        "i\u0301": ["\xED"],
+        "ai\u0301": ["a\xED"],
+        "o\u0301": ["\xF3"],
+        "u\u0301": ["\xFA"],
+        "au\u0301": ["a\xFA"],
+        "r\u0325\u0301": ["\u0155\u0325", "r\u0301\u0325"],
+        "r\u0301\u0325\u0304": ["\u0155\u0325\u0304", "\u0155\u0304\u0325", "r\u0301\u0304\u0325", "r\u0304\u0301\u0325", "r\u0304\u0325\u0301", "r\u0325\u0304\u0301", "r\u0325\u0301\u0304"],
+        "a\u0300": ["\xE0"],
+        "e\u0300": ["\xE8"],
+        "i\u0300": ["\xEC"],
+        "ai\u0300": ["a\xEC"],
+        "o\u0300": ["\xF2"],
+        "u\u0300": ["\xF9"],
+        "au\u0300": ["a\xF9"],
+        "r\u0325\u0300": ["r\u0300\u0325"],
+        "r\u0300\u0325\u0304": ["r\u0300\u0304\u0325", "r\u0304\u0300\u0325", "r\u0304\u0325\u0300", "r\u0325\u0304\u0300", "r\u0325\u0300\u0304"]
+      },
+      "alternates": {
+        "m\u0310": ["m\u0307"],
+        "o\u1E43": ["\u014F\u1E43"],
+        "r\u0325\u0304": ["r\u0304\u0325"],
+        ".": ["|", "/"],
+        "..": ["||", "//"]
+      },
+      "isRomanScheme": true
+    };
+    schemes.velthuis = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "aa",
+        "\u0907": "i",
+        "\u0908": "ii",
+        "\u0909": "u",
+        "\u090A": "uu",
+        "\u090B": ".r",
+        "\u0960": ".rr",
+        "\u090C": ".l",
+        "\u0961": ".ll",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "ai",
+        "\u0912": "\xF2",
+        "\u0913": "o",
+        "\u0914": "au"
+      },
+      "yogavaahas": {
+        "\u0902": ".m",
+        "\u0903": ".h",
+        "\u0901": "~m"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "kh",
+        "\u0917": "g",
+        "\u0918": "gh",
+        "\u0919": '"n',
+        "\u091A": "c",
+        "\u091B": "ch",
+        "\u091C": "j",
+        "\u091D": "jh",
+        "\u091E": "~n",
+        "\u091F": ".t",
+        "\u0920": ".th",
+        "\u0921": ".d",
+        "\u0922": ".dh",
+        "\u0923": ".n",
+        "\u0924": "t",
+        "\u0925": "th",
+        "\u0926": "d",
+        "\u0927": "dh",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "ph",
+        "\u092C": "b",
+        "\u092D": "bh",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": '"s',
+        "\u0937": ".s",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "L",
+        "\u0915\u094D\u0937": "k.s",
+        "\u091C\u094D\u091E": "j~n"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "O",
+        "\u093D": ".a",
+        "\u0964": "|",
+        "\u0965": "||"
+      },
+      "isRomanScheme": true
+    };
+    schemes.wx = {
+      "vowels": {
+        "\u0905": "a",
+        "\u0906": "A",
+        "\u0907": "i",
+        "\u0908": "I",
+        "\u0909": "u",
+        "\u090A": "U",
+        "\u090B": "q",
+        "\u0960": "Q",
+        "\u090C": "L",
+        "\u0961": "\u1E39",
+        "\u090E": "\xE8",
+        "\u090F": "e",
+        "\u0910": "E",
+        "\u0912": "",
+        "\u0913": "o",
+        "\u0914": "O"
+      },
+      "yogavaahas": {
+        "\u0902": "M",
+        "\u0903": "H",
+        "\u0901": "z"
+      },
+      "virama": {
+        "\u094D": ""
+      },
+      "consonants": {
+        "\u0915": "k",
+        "\u0916": "K",
+        "\u0917": "g",
+        "\u0918": "G",
+        "\u0919": "f",
+        "\u091A": "c",
+        "\u091B": "C",
+        "\u091C": "j",
+        "\u091D": "J",
+        "\u091E": "F",
+        "\u091F": "t",
+        "\u0920": "T",
+        "\u0921": "d",
+        "\u0922": "D",
+        "\u0923": "N",
+        "\u0924": "w",
+        "\u0925": "W",
+        "\u0926": "x",
+        "\u0927": "X",
+        "\u0928": "n",
+        "\u092A": "p",
+        "\u092B": "P",
+        "\u092C": "b",
+        "\u092D": "B",
+        "\u092E": "m",
+        "\u092F": "y",
+        "\u0930": "r",
+        "\u0932": "l",
+        "\u0935": "v",
+        "\u0936": "S",
+        "\u0937": "R",
+        "\u0938": "s",
+        "\u0939": "h",
+        "\u0933": "l\u0324",
+        "\u0915\u094D\u0937": "kR",
+        "\u091C\u094D\u091E": "jF"
+      },
+      "symbols": {
+        "\u0966": "0",
+        "\u0967": "1",
+        "\u0968": "2",
+        "\u0969": "3",
+        "\u096A": "4",
+        "\u096B": "5",
+        "\u096C": "6",
+        "\u096D": "7",
+        "\u096E": "8",
+        "\u096F": "9",
+        "\u0950": "oM",
+        "\u093D": "'",
+        "\u0964": ".",
+        "\u0965": ".."
+      },
+      "isRomanScheme": true
+    };
+    var devanagariVowelToMarks = {
+      "\u0906": "\u093E",
+      "\u0907": "\u093F",
+      "\u0908": "\u0940",
+      "\u0909": "\u0941",
+      "\u090A": "\u0942",
+      "\u090B": "\u0943",
+      "\u0960": "\u0944",
+      "\u090C": "\u0962",
+      "\u0961": "\u0963",
+      "\u090E": "\u0946",
+      "\u090F": "\u0947",
+      "\u0910": "\u0948",
+      "\u0912": "\u094A",
+      "\u0913": "\u094B",
+      "\u0914": "\u094C",
+      "\u090D": "\u0945",
+      "\u0911": "\u0949"
+    };
+    function exportSanscriptSingleton(global, schemes2, devanagariVowelToMarks2) {
+      "use strict";
+      var Sanscript2 = {};
+      Sanscript2.defaults = {
+        "skip_sgml": false,
+        "syncope": false,
+        "preferred_alternates": {}
+      };
+      var DETECTION_PATTERNS = {
+        SCHEMES: [["Bengali", 2432], ["Devanagari", 2304], ["Gujarati", 2688], ["Gurmukhi", 2560], ["Kannada", 3200], ["Malayalam", 3328], ["Oriya", 2816], ["Tamil", 2944], ["Telugu", 3072], ["HK", null], ["IAST", null], ["ITRANS", null], ["Kolkata", null], ["SLP1", null], ["Velthuis", null]],
+        BRAHMIC_FIRST_CODE_POINT: 2304,
+        BRAHMIC_LAST_CODE_POINT: 3455,
+        RE_IAST_OR_KOLKATA_ONLY: /[āīūṛṝḷḹēōṃḥṅñṭḍṇśṣḻ]/,
+        RE_ITRANS_OR_VELTHUIS_ONLY: /aa|ii|uu|~n/,
+        RE_ITRANS_ONLY: /ee|oo|\^[iI]|RR[iI]|L[iI]|~N|N\^|Ch|chh|JN|sh|Sh|\.a/,
+        RE_KOLKATA_ONLY: /[ēō]/,
+        RE_SLP1_ONLY: RegExp(["[fFxXEOCYwWqQPB]|kz|Nk|Ng|tT|dD|Sc|Sn|", "[aAiIuUfFxXeEoO]R|", "G[yr]|(\\W|^)G"].join("")),
+        RE_VELTHUIS_ONLY: /\.[mhnrlntds]|"n|~s/
+      };
+      Sanscript2.detect = function(text) {
+        var Scheme = {};
+        for (var i = 0; i < DETECTION_PATTERNS.SCHEMES.length; i++) {
+          var value = DETECTION_PATTERNS.SCHEMES[i][0];
+          Scheme[value] = value;
+        }
+        var BLOCKS = DETECTION_PATTERNS.SCHEMES.filter(function(x) {
+          return x[1];
+        }).sort(function(x, y) {
+          return y[1] - x[1];
+        });
+        for (var _i = 0; _i < text.length; _i++) {
+          var L = text[_i];
+          var code = L.charCodeAt(L);
+          if (code >= DETECTION_PATTERNS.BRAHMIC_FIRST_CODE_POINT && code <= DETECTION_PATTERNS.BRAHMIC_LAST_CODE_POINT) {
+            for (var j = 0; j < BLOCKS.length; j++) {
+              var block = BLOCKS[j];
+              if (code >= block[1]) {
+                return block[0];
+              }
+            }
+          }
+        }
+        if (DETECTION_PATTERNS.RE_IAST_OR_KOLKATA_ONLY.test(text)) {
+          if (DETECTION_PATTERNS.RE_KOLKATA_ONLY.test(text)) {
+            return Scheme.Kolkata;
+          }
+          return Scheme.IAST;
+        }
+        if (DETECTION_PATTERNS.RE_ITRANS_ONLY.test(text)) {
+          return Scheme.ITRANS;
+        }
+        if (DETECTION_PATTERNS.RE_SLP1_ONLY.test(text)) {
+          return Scheme.SLP1;
+        }
+        if (DETECTION_PATTERNS.RE_VELTHUIS_ONLY.test(text)) {
+          return Scheme.Velthuis;
+        }
+        if (DETECTION_PATTERNS.RE_ITRANS_OR_VELTHUIS_ONLY.test(text)) {
+          return Scheme.ITRANS;
+        }
+        return Scheme.HK;
+      };
+      Sanscript2.schemes = schemes2;
+      var romanSchemes = {};
+      var cache = {};
+      Sanscript2.addBrahmicScheme = function(name, scheme) {
+        Sanscript2.schemes[name] = scheme;
+      };
+      Sanscript2.addRomanScheme = function(name, scheme) {
+        if (!("vowel_marks" in scheme)) {
+          scheme.vowel_marks = {};
+          for (var _i2 = 0, _Object$entries = Object.entries(scheme.vowels); _i2 < _Object$entries.length; _i2++) {
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i2], 2), key = _Object$entries$_i[0], value = _Object$entries$_i[1];
+            if (key != "\u0905") {
+              scheme.vowel_marks[devanagariVowelToMarks2[key]] = value;
+            }
+          }
+        }
+        Sanscript2.schemes[name] = scheme;
+        romanSchemes[name] = true;
+      };
+      (function() {
+        var capitalize = function capitalize2(text) {
+          return text.charAt(0).toUpperCase() + text.substring(1, text.length);
+        };
+        var addCapitalAlternates = function addCapitalAlternates2(codeList, alternatesMap) {
+          var _iterator = _createForOfIteratorHelper(codeList), _step;
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done; ) {
+              var v = _step.value;
+              var initAlternatesList = alternatesMap[v] || [];
+              var alternatesList = initAlternatesList;
+              alternatesList = alternatesList.concat(capitalize(v));
+              var _iterator2 = _createForOfIteratorHelper(initAlternatesList), _step2;
+              try {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
+                  var alternate = _step2.value;
+                  alternatesList = alternatesList.concat(capitalize(alternate));
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+              alternatesMap[v] = alternatesList;
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+        };
+        addCapitalAlternates(Object.values(schemes2.iast.vowels), schemes2.iast.alternates);
+        addCapitalAlternates(Object.values(schemes2.iast.consonants), schemes2.iast.alternates);
+        addCapitalAlternates(Object.values(schemes2.iast.extra_consonants), schemes2.iast.alternates);
+        addCapitalAlternates(["o\u1E43"], schemes2.iast.alternates);
+        addCapitalAlternates(Object.values(schemes2.kolkata_v2.vowels), schemes2.kolkata_v2.alternates);
+        addCapitalAlternates(Object.values(schemes2.kolkata_v2.consonants), schemes2.kolkata_v2.alternates);
+        addCapitalAlternates(Object.values(schemes2.kolkata_v2.extra_consonants), schemes2.kolkata_v2.alternates);
+        addCapitalAlternates(Object.values(schemes2.iso.vowels), schemes2.iso.alternates);
+        addCapitalAlternates(Object.values(schemes2.iso.consonants), schemes2.iso.alternates);
+        addCapitalAlternates(Object.values(schemes2.iso.extra_consonants), schemes2.iso.alternates);
+        addCapitalAlternates(["\u014D\u1E41"], schemes2.iso.alternates);
+        for (var _i3 = 0, _Object$entries2 = Object.entries(schemes2); _i3 < _Object$entries2.length; _i3++) {
+          var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i3], 2), schemeName = _Object$entries2$_i[0], scheme = _Object$entries2$_i[1];
+          if (scheme.isRomanScheme) {
+            Sanscript2.addRomanScheme(schemeName, scheme);
+          }
+        }
+      })();
+      var makeMap = function makeMap2(from, to, _options) {
+        var consonants = {};
+        var fromScheme = Sanscript2.schemes[from];
+        var letters = {};
+        var tokenLengths = [];
+        var marks = {};
+        var accents = {};
+        var toScheme = Sanscript2.schemes[to];
+        var alternates = fromScheme["alternates"] || {};
+        for (var group in fromScheme) {
+          if (!{}.hasOwnProperty.call(fromScheme, group)) {
+            continue;
+          }
+          if (["alternates", "accented_vowel_alternates", "isRomanScheme"].includes(group)) {
+            continue;
+          }
+          var fromGroup = fromScheme[group];
+          var toGroup = toScheme[group];
+          if (toGroup === void 0) {
+            continue;
+          }
+          for (var _i4 = 0, _Object$entries3 = Object.entries(fromGroup); _i4 < _Object$entries3.length; _i4++) {
+            var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i4], 2), key = _Object$entries3$_i[0], F = _Object$entries3$_i[1];
+            var T = toGroup[key];
+            if (T === void 0) {
+              continue;
+            }
+            if (T == "" && !["virama", "zwj", "skip"].includes(group)) {
+              T = F;
+            }
+            var alts = alternates[F] || [];
+            var numAlts = alts.length;
+            var j = 0;
+            tokenLengths.push(F.length);
+            for (j = 0; j < numAlts; j++) {
+              tokenLengths.push(alts[j].length);
+            }
+            if (group === "vowel_marks" || group === "virama") {
+              marks[F] = T;
+              for (j = 0; j < numAlts; j++) {
+                marks[alts[j]] = T;
+              }
+            } else {
+              letters[F] = T;
+              for (j = 0; j < numAlts; j++) {
+                letters[alts[j]] = T;
+              }
+              if (group === "consonants" || group === "extra_consonants") {
+                consonants[F] = T;
+                for (j = 0; j < numAlts; j++) {
+                  consonants[alts[j]] = T;
+                }
+              }
+              if (group === "accents") {
+                accents[F] = T;
+                for (j = 0; j < numAlts; j++) {
+                  accents[alts[j]] = T;
+                }
+              }
+            }
+          }
+        }
+        if (fromScheme["accented_vowel_alternates"]) {
+          for (var _i5 = 0, _Object$keys = Object.keys(fromScheme["accented_vowel_alternates"]); _i5 < _Object$keys.length; _i5++) {
+            var baseAccentedVowel = _Object$keys[_i5];
+            var synonyms = fromScheme.accented_vowel_alternates[baseAccentedVowel];
+            var _iterator3 = _createForOfIteratorHelper(synonyms), _step3;
+            try {
+              for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
+                var accentedVowel = _step3.value;
+                var baseVowel = baseAccentedVowel.substring(0, baseAccentedVowel.length - 1);
+                var sourceAccent = baseAccentedVowel[baseAccentedVowel.length - 1];
+                var targetAccent = accents[sourceAccent] || sourceAccent;
+                marks[accentedVowel] = (marks[baseVowel] || "") + targetAccent;
+                if (!letters[baseVowel]) {
+                  console.error(baseVowel, targetAccent, letters);
+                }
+                letters[accentedVowel] = letters[baseVowel].concat(targetAccent);
+              }
+            } catch (err) {
+              _iterator3.e(err);
+            } finally {
+              _iterator3.f();
+            }
+          }
+        }
+        return {
+          consonants,
+          accents,
+          fromRoman: fromScheme.isRomanScheme,
+          letters,
+          marks,
+          maxTokenLength: Math.max.apply(Math, tokenLengths),
+          toRoman: toScheme.isRomanScheme,
+          virama: toScheme.virama["\u094D"],
+          toSchemeA: toScheme.vowels["\u0905"],
+          fromSchemeA: fromScheme.vowels["\u0905"],
+          from,
+          to
+        };
+      };
+      var transliterateRoman = function transliterateRoman2(data, map, options) {
+        var buf = [];
+        var consonants = map.consonants;
+        var dataLength = data.length;
+        var letters = map.letters;
+        var marks = map.marks;
+        var maxTokenLength = map.maxTokenLength;
+        var optSkipSGML = options.skip_sgml;
+        var optSyncope = options.syncope;
+        var toRoman = map.toRoman;
+        var virama = map.virama;
+        var hadConsonant = false;
+        var tempLetter;
+        var tempMark;
+        var tokenBuffer = "";
+        var skippingSGML = false;
+        var skippingTrans = false;
+        var toggledTrans = false;
+        for (var i = 0, L; (L = data.charAt(i)) || tokenBuffer; i++) {
+          var difference = maxTokenLength - tokenBuffer.length;
+          if (difference > 0 && i < dataLength) {
+            tokenBuffer += L;
+            if (difference > 1) {
+              continue;
+            }
+          }
+          for (var j = 0; j < maxTokenLength; j++) {
+            var token = tokenBuffer.substr(0, maxTokenLength - j);
+            if (skippingSGML === true) {
+              skippingSGML = token !== ">";
+            } else if (token === "<") {
+              skippingSGML = optSkipSGML;
+            } else if (token === "##") {
+              toggledTrans = !toggledTrans;
+              tokenBuffer = tokenBuffer.substr(2);
+              break;
+            }
+            skippingTrans = skippingSGML || toggledTrans;
+            if ((tempLetter = letters[token]) !== void 0 && !skippingTrans) {
+              if (toRoman) {
+                buf.push(tempLetter);
+              } else {
+                if (hadConsonant) {
+                  if (tempMark = marks[token]) {
+                    buf.push(tempMark);
+                  } else if (token !== map.fromSchemeA) {
+                    buf.push(virama);
+                    buf.push(tempLetter);
+                  }
+                } else {
+                  buf.push(tempLetter);
+                }
+                hadConsonant = token in consonants;
+              }
+              tokenBuffer = tokenBuffer.substr(maxTokenLength - j);
+              break;
+            } else if (j === maxTokenLength - 1) {
+              if (hadConsonant) {
+                hadConsonant = false;
+                if (!optSyncope) {
+                  buf.push(virama);
+                }
+              }
+              buf.push(token);
+              tokenBuffer = tokenBuffer.substr(1);
+            }
+          }
+        }
+        if (hadConsonant && !optSyncope) {
+          buf.push(virama);
+        }
+        var result = buf.join("");
+        var toScheme = schemes2[map.to];
+        if (!toRoman && Object.keys(map.accents).length > 0) {
+          var pattern = new RegExp("([".concat(Object.values(map.accents).join(""), "])([").concat(Object.values(toScheme["yogavaahas"]).join(""), "])"), "g");
+          result = result.replace(pattern, "$2$1");
+        }
+        return result;
+      };
+      var transliterateBrahmic = function transliterateBrahmic2(data, map, _options) {
+        var buf = [];
+        var consonants = map.consonants;
+        var letters = map.letters;
+        var marks = map.marks;
+        var toRoman = map.toRoman;
+        var danglingHash = false;
+        var hadRomanConsonant = false;
+        var temp;
+        var skippingTrans = false;
+        var toScheme = schemes2[map.to];
+        if (toRoman && Object.keys(map.accents).length > 0) {
+          var pattern = new RegExp("([".concat(Object.values(toScheme["yogavaahas"]).join(""), "])([").concat(Object.values(map.accents).join(""), "])"), "g");
+          data = data.replace(pattern, "$2$1");
+        }
+        for (var i = 0, L; L = data.charAt(i); i++) {
+          if (L === "#") {
+            if (danglingHash) {
+              skippingTrans = !skippingTrans;
+              danglingHash = false;
+            } else {
+              danglingHash = true;
+            }
+            if (hadRomanConsonant) {
+              buf.push(map.toSchemeA);
+              hadRomanConsonant = false;
+            }
+            continue;
+          } else if (skippingTrans) {
+            buf.push(L);
+            continue;
+          }
+          if ((temp = marks[L]) !== void 0) {
+            buf.push(temp);
+            hadRomanConsonant = false;
+          } else {
+            if (danglingHash) {
+              buf.push("#");
+              danglingHash = false;
+            }
+            if (hadRomanConsonant) {
+              buf.push(map.toSchemeA);
+              hadRomanConsonant = false;
+            }
+            if (temp = letters[L]) {
+              buf.push(temp);
+              hadRomanConsonant = toRoman && L in consonants;
+            } else {
+              buf.push(L);
+            }
+          }
+        }
+        if (hadRomanConsonant) {
+          buf.push(map.toSchemeA);
+        }
+        return buf.join("");
+      };
+      Sanscript2.t = function(data, from, to, options) {
+        if (!from) {
+          from = Sanscript2.detect(data).toLowerCase();
+        }
+        options = options || {};
+        var cachedOptions = cache.options || {};
+        var defaults = Sanscript2.defaults;
+        var hasPriorState = cache.from === from && cache.to === to;
+        var map;
+        for (var key in defaults) {
+          if ({}.hasOwnProperty.call(defaults, key)) {
+            var value = defaults[key];
+            if (key in options) {
+              value = options[key];
+            }
+            options[key] = value;
+            if (value !== cachedOptions[key]) {
+              hasPriorState = false;
+            }
+          }
+        }
+        if (hasPriorState) {
+          map = cache.map;
+        } else {
+          map = makeMap(from, to, options);
+          cache = {
+            from,
+            map,
+            options,
+            to
+          };
+        }
+        if (from === "itrans") {
+          data = data.replace(/\{\\m\+\}/g, ".h.N");
+          data = data.replace(/\.h/g, "");
+          data = data.replace(/\\([^'`_]|$)/g, "##$1##");
+        }
+        if (from === "tamil_superscripted") {
+          var pattern = "([" + Object.values(schemes2["tamil_superscripted"]["vowel_marks"]).join("") + schemes2["tamil_superscripted"]["virama"]["\u094D"] + "\u0952\u0951]+)([\xB2\xB3\u2074])";
+          data = data.replace(new RegExp(pattern, "g"), "$2$1");
+          console.error("transliteration from tamil_superscripted not fully implemented!");
+        }
+        var fromShortcuts = schemes2[from]["shortcuts"];
+        if (fromShortcuts) {
+          for (var _key in fromShortcuts) {
+            var shortcut = fromShortcuts[_key];
+            if (_key.includes(shortcut)) {
+              data = data.replace(_key, shortcut);
+            }
+            data = data.replace(shortcut, _key);
+          }
+        }
+        var result = "";
+        if (map.fromRoman) {
+          result = transliterateRoman(data, map, options);
+        } else {
+          result = transliterateBrahmic(data, map, options);
+        }
+        var toShortcuts = schemes2[to]["shortcuts"];
+        if (toShortcuts) {
+          for (var _key2 in toShortcuts) {
+            var _shortcut = toShortcuts[_key2];
+            if (_shortcut.includes(_key2)) {
+              result = result.replace(_shortcut, _key2);
+            }
+            result = result.replace(_key2, _shortcut);
+          }
+        }
+        if (to === "tamil_superscripted") {
+          var _pattern = "([\xB2\xB3\u2074])([" + Object.values(schemes2["tamil_superscripted"]["vowel_marks"]).join("") + schemes2["tamil_superscripted"]["virama"]["\u094D"] + "\u0952\u0951]+)";
+          result = result.replace(new RegExp(_pattern, "g"), "$2$1");
+        }
+        if (_typeof(options.preferred_alternates[to]) == "object") {
+          var keys = Object.keys(options.preferred_alternates[to]);
+          for (var i = 0; i < keys.length; i++) {
+            result = result.split(keys[i]).join(options.preferred_alternates[to][keys[i]]);
+          }
+        }
+        return result;
+      };
+      Sanscript2.transliterateWordwise = function(data, from, to, options) {
+        options = options || {};
+        var words = data.split(/\s+/);
+        var word_tuples = words.map(function(word) {
+          var result = Sanscript2.t(word, from, to, options);
+          return [word, result];
+        });
+        return word_tuples;
+      };
+      if (typeof define === "function" && define.amd) {
+        define(function() {
+          return Sanscript2;
+        });
+      } else if (typeof exports !== "undefined") {
+        if (typeof module !== "undefined" && module.exports) {
+          exports = Sanscript2;
+          module.exports = Sanscript2;
+        }
+        exports.Sanscript = Sanscript2;
       } else {
-        flags |= swisseph2.ephemeris[options.observer.ephemeris];
+        global.Sanscript = Sanscript2;
       }
-      if (options.observer.geographic.longitude != 0 || options.observer.geographic.latitude != 0 || options.observer.geographic.height != 0) {
-        swisseph2.swe_set_topo(
-          options.observer.geographic.longitude,
-          options.observer.geographic.latitude,
-          options.observer.geographic.height
-        );
-        flags |= swisseph2.SEFLG_TOPOCTR;
-      }
-      merge(options.body.position, swisseph2.swe_calc_ut(options.date.julian.universal, parseInt(options.body.id), flags));
-      options.body.position.longitude = { decimalDegree: options.body.position.longitude };
-      options.body.position.latitude = { decimalDegree: options.body.position.latitude };
-      swisseph2.swe_close();
-      if (callback) {
-        callback(options);
-      }
-      ;
-      return options;
-    };
-    module.exports = swisseph2;
+    }
+    exportSanscriptSingleton(exports, schemes, devanagariVowelToMarks);
   }
 });
 
@@ -424,8 +10180,2061 @@ var require_swisseph = __commonJS({
 import express from "express";
 import dotenv from "dotenv";
 
-// src/routes/astrology.ts
+// src/routes/horoscopeV2.ts
 import { Router } from "express";
+
+// src/utils/astroCalc.ts
+import swisseph from "swisseph";
+
+// src/services/localizationService.ts
+import * as fs from "fs";
+import * as path from "path";
+var LocalizationService = class {
+  static {
+    this.planets = null;
+  }
+  static {
+    this.rasis = null;
+  }
+  static {
+    this.nakshatras = null;
+  }
+  static loadJson(filename) {
+    try {
+      const filePath = path.resolve(process.cwd(), "src", "data", filename);
+      const data = fs.readFileSync(filePath, "utf-8");
+      return JSON.parse(data);
+    } catch (e) {
+      console.error(`Failed to load localization file: ${filename}`, e);
+      return {};
+    }
+  }
+  static init() {
+    if (!this.planets) this.planets = this.loadJson("planets.json");
+    if (!this.rasis) this.rasis = this.loadJson("rasis.json");
+    if (!this.nakshatras) this.nakshatras = this.loadJson("nakshatras.json");
+  }
+  /**
+   * Safe getter that falls back to a dummy English string if not found.
+   */
+  static safeGet(dictionary, key, fallback) {
+    if (!dictionary) this.init();
+    const safeKey = key.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const match = dictionary[safeKey] || dictionary[key];
+    if (match) return match;
+    return {
+      id: safeKey,
+      name: { en: fallback }
+    };
+  }
+  static getPlanet(name) {
+    this.init();
+    return this.safeGet(this.planets, name, name);
+  }
+  static getRasi(name) {
+    this.init();
+    return this.safeGet(this.rasis, name, name);
+  }
+  static getNakshatra(name) {
+    this.init();
+    return this.safeGet(this.nakshatras, name, name);
+  }
+};
+
+// src/utils/astroCalc.ts
+function getJulianDate(year, month, day, hour, minute, timezone) {
+  const utcHour = hour + minute / 60 - timezone;
+  return swisseph.swe_julday(year, month, day, utcHour, swisseph.SE_GREG_CAL);
+}
+function getAyanamsa(jd, type = "Lahiri") {
+  let mode = swisseph.SE_SIDM_LAHIRI;
+  switch (type) {
+    case "Raman":
+      mode = swisseph.SE_SIDM_RAMAN;
+      break;
+    case "Krishnamurti":
+      mode = swisseph.SE_SIDM_KRISHNAMURTI;
+      break;
+    case "Fagan-Bradley":
+      mode = swisseph.SE_SIDM_FAGAN_BRADLEY;
+      break;
+    case "Yukteswar":
+      mode = swisseph.SE_SIDM_YUKTESHWAR;
+      break;
+    case "Tropical":
+      return 0;
+  }
+  swisseph.swe_set_sid_mode(mode, 0, 0);
+  return swisseph.swe_get_ayanamsa_ut(jd);
+}
+function determineDignity(planetName, longitude, rasiIndex) {
+  return "Neutral";
+}
+var SE_BODIES = {
+  "Sun": swisseph.SE_SUN,
+  "Moon": swisseph.SE_MOON,
+  "Mars": swisseph.SE_MARS,
+  "Mercury": swisseph.SE_MERCURY,
+  "Jupiter": swisseph.SE_JUPITER,
+  "Venus": swisseph.SE_VENUS,
+  "Saturn": swisseph.SE_SATURN,
+  "Uranus": swisseph.SE_URANUS,
+  "Neptune": swisseph.SE_NEPTUNE,
+  "Pluto": swisseph.SE_PLUTO,
+  "Rahu": swisseph.SE_TRUE_NODE,
+  // Default True Node for Jyotish if not specified
+  "Ketu": swisseph.SE_TRUE_NODE,
+  "True Node": swisseph.SE_TRUE_NODE,
+  "Mean Node": swisseph.SE_MEAN_NODE
+};
+function computePlanetPosition(planetName, jd, ayanamsa, lang = "en") {
+  const seId = SE_BODIES[planetName];
+  if (seId === void 0) {
+    throw new Error(`Unknown planet: ${planetName}`);
+  }
+  const flag = swisseph.SEFLG_SIDEREAL | swisseph.SEFLG_SPEED;
+  const result = swisseph.swe_calc_ut(jd, seId, flag);
+  const eqFlag = swisseph.SEFLG_EQUATORIAL | swisseph.SEFLG_SPEED;
+  const eqResult = swisseph.swe_calc_ut(jd, seId, eqFlag);
+  let longitude = result.longitude;
+  let latitude = result.latitude;
+  let distance = result.distance;
+  let speed = result.longitudeSpeed;
+  let declination = eqResult.declination;
+  let obliquity = eqResult.distance;
+  if (planetName === "Ketu") {
+    longitude = (longitude + 180) % 360;
+    latitude = -latitude;
+    declination = -declination;
+  }
+  while (longitude < 0) longitude += 360;
+  longitude %= 360;
+  const isRetrograde = speed < 0 && planetName !== "Rahu" && planetName !== "Ketu" && planetName !== "Mean Node" && planetName !== "True Node" && planetName !== "Sun" && planetName !== "Moon";
+  const isCombust = false;
+  const rasiIndex = Math.floor(longitude / 30);
+  const signDegree = longitude % 30;
+  const nakshatraExact = longitude / (13 + 1 / 3);
+  const nakshatraIndex = Math.floor(nakshatraExact);
+  const pada = Math.floor((nakshatraExact - nakshatraIndex) * 4) + 1;
+  const navamsaDegree = longitude * 9;
+  const navamsaIndex = Math.floor(navamsaDegree / 30) % 12;
+  const RASHI_NAMES = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+  const NAK_NAMES = ["Aswini", "Bharani", "Krittika", "Rohini", "Mrigasira", "Aardra", "Punarvasu", "Pushyami", "Aasresha", "Makha", "Poorva Phalguni", "Uttara Phalguni", "Hasta", "Chitra", "Swaati", "Visaakha", "Anooraadha", "Jyeshtha", "Moola", "Poorvaashaadha", "Uttaraashaadha", "Sravanam", "Dhanishtha", "Satabhishak", "Poorvaabhaadra", "Uttaraabhaadra", "Revati"];
+  return {
+    id: planetName.toLowerCase(),
+    name: LocalizationService.getPlanet(planetName.toLowerCase()).name,
+    longitude,
+    latitude,
+    distance,
+    declination,
+    obliquity: 0,
+    speed,
+    degree: longitude,
+    signDegree,
+    rasiIndex,
+    rasi: LocalizationService.getRasi(RASHI_NAMES[rasiIndex]),
+    house: 0,
+    // Assigned later by lagna
+    nakshatraIndex,
+    nakshatra: LocalizationService.getNakshatra(NAK_NAMES[nakshatraIndex]),
+    pada,
+    navamsaIndex,
+    navamsa: LocalizationService.getRasi(RASHI_NAMES[navamsaIndex]),
+    isRetrograde,
+    isCombust,
+    dignity: determineDignity(planetName, longitude, rasiIndex),
+    strength: 100
+    // placeholder
+  };
+}
+function getLagnaSidereal(jd, lat, lon, ayanamsa) {
+  return getHouseData(jd, lat, lon, ayanamsa).ascendant;
+}
+function getHouseData(jd, lat, lon, ayanamsa) {
+  const flag = swisseph.SEFLG_SIDEREAL;
+  const result = swisseph.swe_houses_ex(jd, flag, lat, lon, "W");
+  let ascendant = result.ascendant;
+  while (ascendant < 0) ascendant += 360;
+  ascendant %= 360;
+  return {
+    ascendant,
+    mc: result.mc,
+    armc: result.armc,
+    vertex: result.vertex,
+    equatorialAscendant: result.equatorialAscendant,
+    coAscendant: result.coAscendant,
+    cusps: result.house
+    // usually an array where cusps[1] is 1st house cusp, etc.
+  };
+}
+
+// src/astrology/validators/HoroscopeValidator.ts
+var HoroscopeValidator = class {
+  static validate(raw) {
+    if (!raw || !raw.planetaryTable || !raw.houses) {
+      console.warn("HoroscopeValidator: Missing core chart data.");
+      return false;
+    }
+    const planets = raw.planetaryTable;
+    if (planets.length < 9) {
+      console.warn(`HoroscopeValidator: Incomplete planet list. Expected 9, got ${planets.length}`);
+      return false;
+    }
+    const uniquePlanets = new Set(planets.map((p) => p.planet));
+    if (uniquePlanets.size !== planets.length) {
+      console.warn("HoroscopeValidator: Duplicate planets detected.");
+      return false;
+    }
+    const houses = raw.houses;
+    if (houses.length !== 12) {
+      console.warn(`HoroscopeValidator: Invalid house count. Expected 12, got ${houses.length}`);
+      return false;
+    }
+    return true;
+  }
+};
+
+// src/astrology/engine/FeatureRegistry.ts
+var FeatureRegistry = class {
+  constructor() {
+    this.modules = [];
+  }
+  register(module) {
+    this.modules.push(module);
+  }
+  executeAll(context) {
+    for (const mod of this.modules) {
+      try {
+        mod.execute(context);
+      } catch (err) {
+        console.error(`Error executing module ${mod.name}:`, err);
+      }
+    }
+  }
+};
+
+// src/astrology/data/dignity.json
+var dignity_default = {
+  Sun: {
+    exalted: "Aries",
+    debilitated: "Libra",
+    own: ["Leo"]
+  },
+  Moon: {
+    exalted: "Taurus",
+    debilitated: "Scorpio",
+    own: ["Cancer"]
+  },
+  Mars: {
+    exalted: "Capricorn",
+    debilitated: "Cancer",
+    own: ["Aries", "Scorpio"]
+  },
+  Mercury: {
+    exalted: "Virgo",
+    debilitated: "Pisces",
+    own: ["Gemini", "Virgo"]
+  },
+  Jupiter: {
+    exalted: "Cancer",
+    debilitated: "Capricorn",
+    own: ["Sagittarius", "Pisces"]
+  },
+  Venus: {
+    exalted: "Pisces",
+    debilitated: "Virgo",
+    own: ["Taurus", "Libra"]
+  },
+  Saturn: {
+    exalted: "Libra",
+    debilitated: "Aries",
+    own: ["Capricorn", "Aquarius"]
+  },
+  Rahu: {
+    exalted: "Gemini",
+    debilitated: "Sagittarius",
+    own: ["Aquarius"]
+  },
+  Ketu: {
+    exalted: "Sagittarius",
+    debilitated: "Gemini",
+    own: ["Scorpio"]
+  }
+};
+
+// src/astrology/data/strengthConfig.json
+var strengthConfig_default = {
+  dignity: {
+    EXALTED: 40,
+    MOOLATRIKONA: 35,
+    OWN_SIGN: 30,
+    FRIENDLY: 15,
+    NEUTRAL: 0,
+    ENEMY: -20,
+    DEBILITATED: -40
+  },
+  house: {
+    KENDRA: 20,
+    TRIKONA: 15,
+    UPACHAYA: 10,
+    DUSTHANA: -20
+  },
+  status: {
+    VARGOTTAMA: 10,
+    COMBUST: -15,
+    RETROGRADE_EXALTED: -10,
+    RETROGRADE_DEBILITATED: 10
+  }
+};
+
+// src/astrology/engine/modules/StrengthModule.ts
+var StrengthModule = class {
+  constructor() {
+    this.name = "StrengthModule";
+  }
+  execute(context) {
+    const { raw, facts } = context;
+    let strongestPlanet = "";
+    let maxStrength = -999;
+    let weakestPlanet = "";
+    let minStrength = 999;
+    raw.planetaryTable.forEach((p) => {
+      if (p.planet === "Lagna" || p.planet === "Ascendant") return;
+      const strength = {
+        dignity: 0,
+        house: 0,
+        aspects: 0,
+        conjunctions: 0,
+        divisional: 0,
+        final: 0,
+        reasons: []
+      };
+      const pDignity = dignity_default[p.planet];
+      if (pDignity) {
+        if (pDignity.exalted === p.sign) {
+          strength.dignity = strengthConfig_default.dignity.EXALTED;
+          strength.reasons.push(`${p.planet} is exalted in ${p.sign}`);
+        } else if (pDignity.debilitated === p.sign) {
+          strength.dignity = strengthConfig_default.dignity.DEBILITATED;
+          strength.reasons.push(`${p.planet} is debilitated in ${p.sign}`);
+        } else if (pDignity.own.includes(p.sign)) {
+          strength.dignity = strengthConfig_default.dignity.OWN_SIGN;
+          strength.reasons.push(`${p.planet} is in its own sign of ${p.sign}`);
+        } else {
+          strength.dignity = strengthConfig_default.dignity.NEUTRAL;
+        }
+      }
+      if ([1, 4, 7, 10].includes(p.house)) {
+        strength.house = strengthConfig_default.house.KENDRA;
+        strength.reasons.push(`Placed in a Kendra (${p.house}th house)`);
+      } else if ([5, 9].includes(p.house)) {
+        strength.house = strengthConfig_default.house.TRIKONA;
+        strength.reasons.push(`Placed in a Trikona (${p.house}th house)`);
+      } else if ([6, 8, 12].includes(p.house)) {
+        strength.house = strengthConfig_default.house.DUSTHANA;
+        strength.reasons.push(`Placed in a Dusthana (${p.house}th house)`);
+      } else {
+        strength.house = strengthConfig_default.house.UPACHAYA;
+      }
+      if (raw.navamsaChart) {
+        let navamsaSign = 0;
+        for (const [houseStr, occupants] of Object.entries(raw.navamsaChart)) {
+          if (occupants.includes(p.planet)) {
+            navamsaSign = parseInt(houseStr, 10);
+            break;
+          }
+        }
+        if (navamsaSign === p.signNumber) {
+          strength.divisional = strengthConfig_default.status.VARGOTTAMA;
+          strength.reasons.push(`Vargottama (same sign in D1 and D9)`);
+        }
+      }
+      strength.final = strength.dignity + strength.house + strength.aspects + strength.conjunctions + strength.divisional;
+      if (strength.final > maxStrength) {
+        maxStrength = strength.final;
+        strongestPlanet = p.planet;
+      }
+      if (strength.final < minStrength) {
+        minStrength = strength.final;
+        weakestPlanet = p.planet;
+      }
+      facts.planets[p.planet] = {
+        planet: p.planet,
+        isRetrograde: false,
+        // Would come from API
+        isCombust: false,
+        // Would come from API
+        isVargottama: strength.divisional > 0,
+        strength
+      };
+      if (p.planet === raw.panchanga.lagnaLord) {
+        facts.lagnaLordStrength = strength.final;
+      }
+    });
+    facts.strongestPlanet = strongestPlanet;
+    facts.weakestPlanet = weakestPlanet;
+  }
+};
+
+// src/astrology/engine/modules/YogaModule.ts
+var YogaModule = class {
+  constructor() {
+    this.name = "YogaModule";
+  }
+  execute(context) {
+    const { raw, facts } = context;
+    const yogas = [];
+    const getHouse = (planetName) => {
+      const p = raw.planetaryTable.find((x) => x.planet === planetName);
+      return p ? p.house : -1;
+    };
+    const moonHouse = getHouse("Moon");
+    const jupHouse = getHouse("Jupiter");
+    const sunHouse = getHouse("Sun");
+    const mercHouse = getHouse("Mercury");
+    if (moonHouse !== -1 && jupHouse !== -1) {
+      let diff = Math.abs(jupHouse - moonHouse) + 1;
+      if (diff > 12) diff -= 12;
+      if ([1, 4, 7, 10].includes(diff)) {
+        yogas.push("Gaja Kesari Yoga");
+      }
+    }
+    if (sunHouse !== -1 && mercHouse !== -1 && sunHouse === mercHouse) {
+      yogas.push("Budha Aditya Yoga");
+    }
+    facts.yogas = yogas;
+  }
+};
+
+// src/astrology/engine/NarrativeEngine.ts
+var NarrativeEngine = class {
+  generate(context, langCode = "en") {
+    const { facts, raw } = context;
+    const translateReason = (r, l) => {
+      if (l === "en") return r;
+      if (r.includes("Dusthana (6th house)")) {
+        if (l === "te") return "\u0C26\u0C41\u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F (6\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)";
+        if (l === "kn") return "\u0CA6\u0CC1\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6 (6\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)";
+        if (l === "ta") return "\u0BA4\u0BC1\u0BB8\u0BCD\u0BA4\u0BBE\u0BA9\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1 (6 \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)";
+        if (l === "hi") return "\u0926\u0941\u0938\u094D\u0925\u093E\u0928 \u092E\u0947\u0902 \u0939\u0948 (\u091B\u0920\u093E \u092D\u093E\u0935)";
+      }
+      if (r.includes("Dusthana (8th house)")) {
+        if (l === "te") return "\u0C26\u0C41\u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F (8\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)";
+        if (l === "kn") return "\u0CA6\u0CC1\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6 (8\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)";
+        if (l === "ta") return "\u0BA4\u0BC1\u0BB8\u0BCD\u0BA4\u0BBE\u0BA9\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1 (8 \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)";
+        if (l === "hi") return "\u0926\u0941\u0938\u094D\u0925\u093E\u0928 \u092E\u0947\u0902 \u0939\u0948 (\u0906\u0920\u0935\u093E\u0902 \u092D\u093E\u0935)";
+      }
+      if (r.includes("Dusthana (12th house)")) {
+        if (l === "te") return "\u0C26\u0C41\u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F (12\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)";
+        if (l === "kn") return "\u0CA6\u0CC1\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6 (12\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)";
+        if (l === "ta") return "\u0BA4\u0BC1\u0BB8\u0BCD\u0BA4\u0BBE\u0BA9\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1 (12 \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)";
+        if (l === "hi") return "\u0926\u0941\u0938\u094D\u0925\u093E\u0928 \u092E\u0947\u0902 \u0939\u0948 (\u092C\u093E\u0930\u0939\u0935\u093E\u0902 \u092D\u093E\u0935)";
+      }
+      if (r.includes("Kendra")) {
+        const h = r.match(/\((\d+)th house\)/)?.[1];
+        if (l === "te") return `\u0C15\u0C47\u0C02\u0C26\u0C4D\u0C30\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F (${h}\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)`;
+        if (l === "kn") return `\u0C95\u0CC7\u0C82\u0CA6\u0CCD\u0CB0\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6 (${h}\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)`;
+        if (l === "ta") return `\u0B95\u0BC7\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1 (${h} \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)`;
+        if (l === "hi") return `\u0915\u0947\u0902\u0926\u094D\u0930 \u092E\u0947\u0902 \u0939\u0948 (${h} \u092D\u093E\u0935)`;
+      }
+      if (r.includes("Trikona")) {
+        const h = r.match(/\((\d+)th house\)/)?.[1];
+        if (l === "te") return `\u0C24\u0C4D\u0C30\u0C3F\u0C15\u0C4B\u0C23\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F (${h}\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)`;
+        if (l === "kn") return `\u0CA4\u0CCD\u0CB0\u0CBF\u0C95\u0CCB\u0CA3\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6 (${h}\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)`;
+        if (l === "ta") return `\u0BA4\u0BBF\u0BB0\u0BBF\u0B95\u0BCB\u0BA3\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1 (${h} \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)`;
+        if (l === "hi") return `\u0924\u094D\u0930\u093F\u0915\u094B\u0923 \u092E\u0947\u0902 \u0939\u0948 (${h} \u092D\u093E\u0935)`;
+      }
+      if (r.includes("Vargottama")) {
+        if (l === "te") return "\u0C35\u0C30\u0C4D\u0C17\u0C4B\u0C24\u0C4D\u0C24\u0C2E (D1 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 D9 \u0C32\u0C4B \u0C12\u0C15\u0C47 \u0C30\u0C3E\u0C36\u0C3F)";
+        if (l === "kn") return "\u0CB5\u0CB0\u0CCD\u0C97\u0CCB\u0CA4\u0CCD\u0CA4\u0CAE (D1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 D9 \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF \u0C92\u0C82\u0CA6\u0CC7 \u0CB0\u0CBE\u0CB6\u0CBF)";
+        if (l === "ta") return "\u0BB5\u0BB0\u0BCD\u0B95\u0BCB\u0BA4\u0BCD\u0BA4\u0BAE\u0BAE\u0BCD (D1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD D9 \u0B87\u0BB2\u0BCD \u0B92\u0BB0\u0BC7 \u0BB0\u0BBE\u0B9A\u0BBF)";
+        if (l === "hi") return "\u0935\u0930\u094D\u0917\u094B\u0924\u094D\u0924\u092E (D1 \u0914\u0930 D9 \u092E\u0947\u0902 \u090F\u0915 \u0939\u0940 \u0930\u093E\u0936\u093F)";
+      }
+      if (r.includes("exalted")) {
+        const p = r.split(" ")[0];
+        const s = r.split(" ").pop();
+        if (l === "te") return `${p} ${s}\u0C32\u0C4B \u0C09\u0C1A\u0C4D\u0C1B\u0C38\u0C4D\u0C25\u0C3F\u0C24\u0C3F\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F`;
+        if (l === "kn") return `${p} ${s} \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF \u0C89\u0C9A\u0CCD\u0C9A\u0CB8\u0CCD\u0CA5\u0CBF\u0CA4\u0CBF\u0CAF\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6`;
+        if (l === "ta") return `${p} ${s} \u0B87\u0BB2\u0BCD \u0B89\u0B9A\u0BCD\u0B9A\u0BAE\u0BCD \u0BAA\u0BC6\u0BB1\u0BCD\u0BB1\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1`;
+        if (l === "hi") return `${p} ${s} \u092E\u0947\u0902 \u0909\u091A\u094D\u091A \u0915\u093E \u0939\u0948`;
+      }
+      if (r.includes("debilitated")) {
+        const p = r.split(" ")[0];
+        const s = r.split(" ").pop();
+        if (l === "te") return `${p} ${s}\u0C32\u0C4B \u0C28\u0C40\u0C1A\u0C38\u0C4D\u0C25\u0C3F\u0C24\u0C3F\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F`;
+        if (l === "kn") return `${p} ${s} \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF \u0CA8\u0CC0\u0C9A\u0CB8\u0CCD\u0CA5\u0CBF\u0CA4\u0CBF\u0CAF\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6`;
+        if (l === "ta") return `${p} ${s} \u0B87\u0BB2\u0BCD \u0BA8\u0BC0\u0B9A\u0BCD\u0B9A\u0BAE\u0BCD \u0BAA\u0BC6\u0BB1\u0BCD\u0BB1\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1`;
+        if (l === "hi") return `${p} ${s} \u092E\u0947\u0902 \u0928\u0940\u091A \u0915\u093E \u0939\u0948`;
+      }
+      if (r.includes("own sign")) {
+        const p = r.split(" ")[0];
+        const s = r.split(" ").pop();
+        if (l === "te") return `${p} \u0C26\u0C3E\u0C28\u0C3F \u0C38\u0C4D\u0C35\u0C02\u0C24 \u0C30\u0C3E\u0C36\u0C3F ${s}\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F`;
+        if (l === "kn") return `${p} \u0CA4\u0CA8\u0CCD\u0CA8 \u0CB8\u0CCD\u0CB5\u0C82\u0CA4 \u0CB0\u0CBE\u0CB6\u0CBF ${s} \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6`;
+        if (l === "ta") return `${p} \u0B85\u0BA4\u0BA9\u0BCD \u0B9A\u0BCA\u0BA8\u0BCD\u0BA4 \u0BB0\u0BBE\u0B9A\u0BBF\u0BAF\u0BBE\u0BA9 ${s} \u0B87\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1`;
+        if (l === "hi") return `${p} \u0905\u092A\u0928\u0940 \u0938\u094D\u0935\u0930\u093E\u0936\u093F ${s} \u092E\u0947\u0902 \u0939\u0948`;
+      }
+      return r;
+    };
+    const buildPersonality = () => {
+      const lagnaLord = raw.panchanga.lagnaLord;
+      const llStatus = facts.planets[lagnaLord];
+      const llPos = raw.planetaryTable.find((p) => p.planet === lagnaLord);
+      if (!llPos || !llStatus) {
+        let text2 = "Insufficient data for personality analysis.";
+        if (langCode === "te") text2 = "\u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C3F\u0C24\u0C4D\u0C35 \u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23\u0C15\u0C41 \u0C24\u0C17\u0C3F\u0C28\u0C02\u0C24 \u0C21\u0C47\u0C1F\u0C3E \u0C32\u0C47\u0C26\u0C41.";
+        if (langCode === "ta") text2 = "\u0B86\u0BB3\u0BC1\u0BAE\u0BC8 \u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0BAA\u0BCB\u0BA4\u0BBF\u0BAF \u0BA4\u0BB0\u0BB5\u0BC1 \u0B87\u0BB2\u0BCD\u0BB2\u0BC8.";
+        if (langCode === "hi") text2 = "\u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935 \u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923 \u0915\u0947 \u0932\u093F\u090F \u0905\u092A\u0930\u094D\u092F\u093E\u092A\u094D\u0924 \u0921\u0947\u091F\u093E\u0964";
+        if (langCode === "kn") text2 = "\u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5 \u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CC6\u0C97\u0CC6 \u0CB8\u0CBE\u0C95\u0CB7\u0CCD\u0C9F\u0CC1 \u0CA1\u0CC7\u0C9F\u0CBE \u0C87\u0CB2\u0CCD\u0CB2.";
+        return { text: text2, confidence: "Low", derivedFrom: [] };
+      }
+      const planetCore = {
+        "Sun": { en: "your soul", te: "\u0C2E\u0C40 \u0C06\u0C24\u0C4D\u0C2E", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B86\u0BA9\u0BCD\u0BAE\u0BBE", hi: "\u0906\u092A\u0915\u0940 \u0906\u0924\u094D\u092E\u093E", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C86\u0CA4\u0CCD\u0CAE" },
+        "Moon": { en: "your mind", te: "\u0C2E\u0C40 \u0C2E\u0C28\u0C38\u0C4D\u0C38\u0C41", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAE\u0BA9\u0BAE\u0BCD", hi: "\u0906\u092A\u0915\u093E \u092E\u0928", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CA8\u0CB8\u0CCD\u0CB8\u0CC1" },
+        "Mars": { en: "your energy", te: "\u0C2E\u0C40 \u0C36\u0C15\u0C4D\u0C24\u0C3F", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BCD", hi: "\u0906\u092A\u0915\u0940 \u090A\u0930\u094D\u091C\u093E", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CB6\u0C95\u0CCD\u0CA4\u0CBF" },
+        "Mercury": { en: "your intellect", te: "\u0C2E\u0C40 \u0C24\u0C46\u0C32\u0C3F\u0C35\u0C3F\u0C24\u0C47\u0C1F\u0C32\u0C41", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAA\u0BC1\u0BA4\u0BCD\u0BA4\u0BBF\u0B9A\u0BBE\u0BB2\u0BBF\u0BA4\u0BCD\u0BA4\u0BA9\u0BAE\u0BCD", hi: "\u0906\u092A\u0915\u0940 \u092C\u0941\u0926\u094D\u0927\u093F", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB6\u0C95\u0CCD\u0CA4\u0CBF" },
+        "Jupiter": { en: "your wisdom", te: "\u0C2E\u0C40 \u0C1C\u0C4D\u0C1E\u0C3E\u0C28\u0C02", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9E\u0BBE\u0BA9\u0BAE\u0BCD", hi: "\u0906\u092A\u0915\u093E \u091C\u094D\u091E\u093E\u0928", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CBF\u0C95\u0CC6" },
+        "Venus": { en: "your love", te: "\u0C2E\u0C40 \u0C2A\u0C4D\u0C30\u0C47\u0C2E", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B95\u0BBE\u0BA4\u0BB2\u0BCD", hi: "\u0906\u092A\u0915\u093E \u092A\u094D\u0930\u0947\u092E", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAA\u0CCD\u0CB0\u0CC0\u0CA4\u0CBF" },
+        "Saturn": { en: "your karma", te: "\u0C2E\u0C40 \u0C15\u0C30\u0C4D\u0C2E", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B95\u0BB0\u0BCD\u0BAE\u0BBE", hi: "\u0906\u092A\u0915\u093E \u0915\u0930\u094D\u092E", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C95\u0CB0\u0CCD\u0CAE" },
+        "Rahu": { en: "your ambitions", te: "\u0C2E\u0C40 \u0C06\u0C36\u0C2F\u0C3E\u0C32\u0C41", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB2\u0B9F\u0BCD\u0B9A\u0BBF\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BCD", hi: "\u0906\u092A\u0915\u0940 \u092E\u0939\u0924\u094D\u0935\u093E\u0915\u093E\u0902\u0915\u094D\u0937\u093E\u090F\u0902", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CB9\u0CA4\u0CCD\u0CB5\u0CBE\u0C95\u0CBE\u0C82\u0C95\u0CCD\u0CB7\u0CC6\u0C97\u0CB3\u0CC1" },
+        "Ketu": { en: "your intuition", te: "\u0C2E\u0C40 \u0C05\u0C02\u0C24\u0C30\u0C4D \u0C26\u0C43\u0C37\u0C4D\u0C1F\u0C3F", ta: "\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BC1\u0BA3\u0BB0\u0BCD\u0BB5\u0BC1", hi: "\u0906\u092A\u0915\u093E \u0905\u0902\u0924\u0930\u094D\u091C\u094D\u091E\u093E\u0928", kn: "\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C85\u0C82\u0CA4\u0C83\u0CAA\u0CCD\u0CB0\u0C9C\u0CCD\u0C9E\u0CC6" }
+      };
+      const houseThemes = {
+        "1": { en: "self, personality, vitality", te: "\u0C38\u0C4D\u0C35\u0C2F\u0C02, \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C3F\u0C24\u0C4D\u0C35\u0C02, \u0C1C\u0C40\u0C35\u0C36\u0C15\u0C4D\u0C24\u0C3F", ta: "\u0B9A\u0BC1\u0BAF\u0BAE\u0BCD, \u0B86\u0BB3\u0BC1\u0BAE\u0BC8, \u0B89\u0BAF\u0BBF\u0BB0\u0BCD\u0B9A\u0BCD\u0B9A\u0B95\u0BCD\u0BA4\u0BBF", hi: "\u0938\u094D\u0935\u092F\u0902, \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935, \u091C\u0940\u0935\u0928 \u0936\u0915\u094D\u0924\u093F", kn: "\u0CB8\u0CCD\u0CB5\u0CAF\u0C82, \u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5, \u0C9A\u0CC8\u0CA4\u0CA8\u0CCD\u0CAF" },
+        "2": { en: "wealth, family, speech", te: "\u0C38\u0C02\u0C2A\u0C26, \u0C15\u0C41\u0C1F\u0C41\u0C02\u0C2C\u0C02, \u0C2A\u0C4D\u0C30\u0C38\u0C02\u0C17\u0C02", ta: "\u0B9A\u0BC6\u0BB2\u0BCD\u0BB5\u0BAE\u0BCD, \u0B95\u0BC1\u0B9F\u0BC1\u0BAE\u0BCD\u0BAA\u0BAE\u0BCD, \u0BAA\u0BC7\u0B9A\u0BCD\u0B9A\u0BC1", hi: "\u0927\u0928, \u092A\u0930\u093F\u0935\u093E\u0930, \u0935\u093E\u0923\u0940", kn: "\u0CB8\u0C82\u0CAA\u0CA4\u0CCD\u0CA4\u0CC1, \u0C95\u0CC1\u0C9F\u0CC1\u0C82\u0CAC, \u0CAE\u0CBE\u0CA4\u0CC1" },
+        "3": { en: "courage, siblings, communication", te: "\u0C27\u0C48\u0C30\u0C4D\u0C2F\u0C02, \u0C24\u0C4B\u0C2C\u0C41\u0C1F\u0C4D\u0C1F\u0C41\u0C35\u0C41\u0C32\u0C41, \u0C15\u0C2E\u0C4D\u0C2F\u0C42\u0C28\u0C3F\u0C15\u0C47\u0C37\u0C28\u0C4D", ta: "\u0BA4\u0BC8\u0BB0\u0BBF\u0BAF\u0BAE\u0BCD, \u0B89\u0B9F\u0BA9\u0BCD\u0BAA\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BC1\u0B95\u0BB3\u0BCD, \u0BA4\u0BCA\u0B9F\u0BB0\u0BCD\u0BAA\u0BC1", hi: "\u0938\u093E\u0939\u0938, \u092D\u093E\u0908-\u092C\u0939\u0928, \u0938\u0902\u091A\u093E\u0930", kn: "\u0CA7\u0CC8\u0CB0\u0CCD\u0CAF, \u0C92\u0CA1\u0CB9\u0CC1\u0C9F\u0CCD\u0C9F\u0CBF\u0CA6\u0CB5\u0CB0\u0CC1, \u0CB8\u0C82\u0CB5\u0CB9\u0CA8" },
+        "4": { en: "home, mother, happiness", te: "\u0C07\u0C32\u0C4D\u0C32\u0C41, \u0C24\u0C32\u0C4D\u0C32\u0C3F, \u0C06\u0C28\u0C02\u0C26\u0C02", ta: "\u0BB5\u0BC0\u0B9F\u0BC1, \u0BA4\u0BBE\u0BAF\u0BCD, \u0BAE\u0B95\u0BBF\u0BB4\u0BCD\u0B9A\u0BCD\u0B9A\u0BBF", hi: "\u0918\u0930, \u092E\u093E\u0924\u093E, \u0916\u0941\u0936\u0940", kn: "\u0CAE\u0CA8\u0CC6, \u0CA4\u0CBE\u0CAF\u0CBF, \u0CB8\u0C82\u0CA4\u0CCB\u0CB7" },
+        "5": { en: "creativity, children, intelligence", te: "\u0C38\u0C43\u0C1C\u0C28\u0C3E\u0C24\u0C4D\u0C2E\u0C15\u0C24, \u0C2A\u0C3F\u0C32\u0C4D\u0C32\u0C32\u0C41, \u0C24\u0C46\u0C32\u0C3F\u0C35\u0C3F\u0C24\u0C47\u0C1F\u0C32\u0C41", ta: "\u0BAA\u0B9F\u0BC8\u0BAA\u0BCD\u0BAA\u0BBE\u0BB1\u0BCD\u0BB1\u0BB2\u0BCD, \u0B95\u0BC1\u0BB4\u0BA8\u0BCD\u0BA4\u0BC8\u0B95\u0BB3\u0BCD, \u0BA8\u0BC1\u0BA3\u0BCD\u0BA3\u0BB1\u0BBF\u0BB5\u0BC1", hi: "\u0930\u091A\u0928\u093E\u0924\u094D\u092E\u0915\u0924\u093E, \u092C\u091A\u094D\u091A\u0947, \u092C\u0941\u0926\u094D\u0927\u093F\u092E\u0924\u094D\u0924\u093E", kn: "\u0CB8\u0CC3\u0C9C\u0CA8\u0CB6\u0CC0\u0CB2\u0CA4\u0CC6, \u0CAE\u0C95\u0CCD\u0C95\u0CB3\u0CC1, \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CBF\u0C95\u0CC6" },
+        "6": { en: "health, enemies, service", te: "\u0C06\u0C30\u0C4B\u0C17\u0C4D\u0C2F\u0C02, \u0C36\u0C24\u0C4D\u0C30\u0C41\u0C35\u0C41\u0C32\u0C41, \u0C38\u0C47\u0C35", ta: "\u0B86\u0BB0\u0BCB\u0B95\u0BCD\u0B95\u0BBF\u0BAF\u0BAE\u0BCD, \u0B8E\u0BA4\u0BBF\u0BB0\u0BBF\u0B95\u0BB3\u0BCD, \u0B9A\u0BC7\u0BB5\u0BC8", hi: "\u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F, \u0936\u0924\u094D\u0930\u0941, \u0938\u0947\u0935\u093E", kn: "\u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF, \u0CB6\u0CA4\u0CCD\u0CB0\u0CC1\u0C97\u0CB3\u0CC1, \u0CB8\u0CC7\u0CB5\u0CC6" },
+        "7": { en: "partnerships, marriage, business", te: "\u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C4D\u0C2F\u0C3E\u0C32\u0C41, \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02, \u0C35\u0C4D\u0C2F\u0C3E\u0C2A\u0C3E\u0C30\u0C02", ta: "\u0B95\u0BC2\u0B9F\u0BCD\u0B9F\u0BBE\u0BA3\u0BCD\u0BAE\u0BC8, \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BAE\u0BCD, \u0BB5\u0BA3\u0BBF\u0B95\u0BAE\u0BCD", hi: "\u0938\u093E\u091D\u0947\u0926\u093E\u0930\u0940, \u0935\u093F\u0935\u093E\u0939, \u0935\u094D\u092F\u093E\u092A\u093E\u0930", kn: "\u0CAA\u0CBE\u0CB2\u0CC1\u0CA6\u0CBE\u0CB0\u0CBF\u0C95\u0CC6\u0C97\u0CB3\u0CC1, \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6, \u0CB5\u0CCD\u0CAF\u0CBE\u0CAA\u0CBE\u0CB0" },
+        "8": { en: "transformation, secrets, longevity", te: "\u0C2A\u0C30\u0C3F\u0C35\u0C30\u0C4D\u0C24\u0C28, \u0C30\u0C39\u0C38\u0C4D\u0C2F\u0C3E\u0C32\u0C41, \u0C26\u0C40\u0C30\u0C4D\u0C18\u0C3E\u0C2F\u0C41\u0C35\u0C41", ta: "\u0BAE\u0BBE\u0BB1\u0BCD\u0BB1\u0BAE\u0BCD, \u0BB0\u0B95\u0B9A\u0BBF\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BCD, \u0BA8\u0BC0\u0BA3\u0BCD\u0B9F \u0B86\u0BAF\u0BC1\u0BB3\u0BCD", hi: "\u092A\u0930\u093F\u0935\u0930\u094D\u0924\u0928, \u0930\u0939\u0938\u094D\u092F, \u0926\u0940\u0930\u094D\u0918\u093E\u092F\u0941", kn: "\u0CB0\u0CC2\u0CAA\u0CBE\u0C82\u0CA4\u0CB0, \u0CB0\u0CB9\u0CB8\u0CCD\u0CAF\u0C97\u0CB3\u0CC1, \u0CA6\u0CC0\u0CB0\u0CCD\u0C98\u0CBE\u0CAF\u0CC1\u0CB7\u0CCD\u0CAF" },
+        "9": { en: "luck, dharma, higher learning", te: "\u0C05\u0C26\u0C43\u0C37\u0C4D\u0C1F\u0C02, \u0C27\u0C30\u0C4D\u0C2E\u0C02, \u0C09\u0C28\u0C4D\u0C28\u0C24 \u0C35\u0C3F\u0C26\u0C4D\u0C2F", ta: "\u0B85\u0BA4\u0BBF\u0BB0\u0BCD\u0BB7\u0BCD\u0B9F\u0BAE\u0BCD, \u0BA4\u0BB0\u0BCD\u0BAE\u0BAE\u0BCD, \u0B89\u0BAF\u0BB0\u0BCD\u0B95\u0BB2\u0BCD\u0BB5\u0BBF", hi: "\u092D\u093E\u0917\u094D\u092F, \u0927\u0930\u094D\u092E, \u0909\u091A\u094D\u091A \u0936\u093F\u0915\u094D\u0937\u093E", kn: "\u0C85\u0CA6\u0CC3\u0CB7\u0CCD\u0C9F, \u0CA7\u0CB0\u0CCD\u0CAE, \u0C89\u0CA8\u0CCD\u0CA8\u0CA4 \u0C95\u0CB2\u0CBF\u0C95\u0CC6" },
+        "10": { en: "career, karma, public status", te: "\u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D, \u0C15\u0C30\u0C4D\u0C2E, \u0C2A\u0C2C\u0C4D\u0C32\u0C3F\u0C15\u0C4D \u0C39\u0C4B\u0C26\u0C3E", ta: "\u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD, \u0B95\u0BB0\u0BCD\u0BAE\u0BBE, \u0BAA\u0BCA\u0BA4\u0BC1 \u0B85\u0BA8\u0BCD\u0BA4\u0BB8\u0BCD\u0BA4\u0BC1", hi: "\u0915\u0930\u093F\u092F\u0930, \u0915\u0930\u094D\u092E, \u0938\u093E\u0930\u094D\u0935\u091C\u0928\u093F\u0915 \u0938\u094D\u0925\u093F\u0924\u093F", kn: "\u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF, \u0C95\u0CB0\u0CCD\u0CAE, \u0CB8\u0CBE\u0CB0\u0CCD\u0CB5\u0C9C\u0CA8\u0CBF\u0C95 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CAE\u0CBE\u0CA8" },
+        "11": { en: "gains, networks, friends", te: "\u0C32\u0C3E\u0C2D\u0C3E\u0C32\u0C41, \u0C28\u0C46\u0C1F\u0C4D\u200C\u0C35\u0C30\u0C4D\u0C15\u0C4D\u200C\u0C32\u0C41, \u0C38\u0C4D\u0C28\u0C47\u0C39\u0C3F\u0C24\u0C41\u0C32\u0C41", ta: "\u0BB2\u0BBE\u0BAA\u0B99\u0BCD\u0B95\u0BB3\u0BCD, \u0BA8\u0BC6\u0B9F\u0BCD\u0BB5\u0BCA\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BC1\u0B95\u0BB3\u0BCD, \u0BA8\u0BA3\u0BCD\u0BAA\u0BB0\u0BCD\u0B95\u0BB3\u0BCD", hi: "\u0932\u093E\u092D, \u0928\u0947\u091F\u0935\u0930\u094D\u0915, \u0926\u094B\u0938\u094D\u0924", kn: "\u0CB2\u0CBE\u0CAD\u0C97\u0CB3\u0CC1, \u0CA8\u0CC6\u0C9F\u0CCD\u200C\u0CB5\u0CB0\u0CCD\u0C95\u0CCD\u200C\u0C97\u0CB3\u0CC1, \u0CB8\u0CCD\u0CA8\u0CC7\u0CB9\u0CBF\u0CA4\u0CB0\u0CC1" },
+        "12": { en: "spirituality, losses, isolation", te: "\u0C06\u0C27\u0C4D\u0C2F\u0C3E\u0C24\u0C4D\u0C2E\u0C3F\u0C15\u0C24, \u0C28\u0C37\u0C4D\u0C1F\u0C3E\u0C32\u0C41, \u0C12\u0C02\u0C1F\u0C30\u0C3F\u0C24\u0C28\u0C02", ta: "\u0B86\u0BA9\u0BCD\u0BAE\u0BC0\u0B95\u0BAE\u0BCD, \u0B87\u0BB4\u0BAA\u0BCD\u0BAA\u0BC1\u0B95\u0BB3\u0BCD, \u0BA4\u0BA9\u0BBF\u0BAE\u0BC8", hi: "\u0905\u0927\u094D\u092F\u093E\u0924\u094D\u092E, \u0939\u093E\u0928\u093F, \u0905\u0932\u0917\u093E\u0935", kn: "\u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95\u0CA4\u0CC6, \u0CA8\u0CB7\u0CCD\u0C9F\u0C97\u0CB3\u0CC1, \u0CAA\u0CCD\u0CB0\u0CA4\u0CCD\u0CAF\u0CC7\u0C95\u0CA4\u0CC6" }
+      };
+      const signModifiers = {
+        "Aries": { en: "boldly and energetically", te: "\u0C27\u0C48\u0C30\u0C4D\u0C2F\u0C02\u0C17\u0C3E", ta: "\u0BA4\u0BC8\u0BB0\u0BBF\u0BAF\u0BAE\u0BBE\u0B95", hi: "\u0938\u093E\u0939\u0938\u092A\u0942\u0930\u094D\u0935\u0915", kn: "\u0CA7\u0CC8\u0CB0\u0CCD\u0CAF\u0CA6\u0CBF\u0C82\u0CA6" },
+        "Taurus": { en: "stably and practically", te: "\u0C38\u0C4D\u0C25\u0C3F\u0C30\u0C02\u0C17\u0C3E", ta: "\u0BA8\u0BBF\u0BB2\u0BC8\u0BAF\u0BBE\u0B95", hi: "\u0938\u094D\u0925\u093F\u0930\u0924\u093E \u0938\u0947", kn: "\u0CB8\u0CCD\u0CA5\u0CBF\u0CB0\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Gemini": { en: "adaptably and curiously", te: "\u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C2E\u0C48\u0C28\u0C26\u0C3F\u0C17\u0C3E", ta: "\u0B8F\u0BB1\u0BCD\u0BAA\u0BC1\u0BA4\u0BCD\u0BA4\u0BBF\u0BB1\u0BA9\u0BC1\u0B9F\u0BA9\u0BCD", hi: "\u0905\u0928\u0941\u0915\u0942\u0932\u0924\u093E \u0938\u0947", kn: "\u0CB9\u0CCA\u0C82\u0CA6\u0CBF\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CB5 \u0CB0\u0CC0\u0CA4\u0CBF\u0CAF\u0CB2\u0CCD\u0CB2\u0CBF" },
+        "Cancer": { en: "emotionally and nurturingly", te: "\u0C2D\u0C3E\u0C35\u0C4B\u0C26\u0C4D\u0C35\u0C47\u0C17\u0C2A\u0C30\u0C02\u0C17\u0C3E", ta: "\u0B89\u0BA3\u0BB0\u0BCD\u0B9A\u0BCD\u0B9A\u0BBF\u0BAA\u0BC2\u0BB0\u0BCD\u0BB5\u0BAE\u0BBE\u0B95", hi: "\u092D\u093E\u0935\u0928\u093E\u0924\u094D\u092E\u0915 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CAD\u0CBE\u0CB5\u0CA8\u0CBE\u0CA4\u0CCD\u0CAE\u0C95\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Leo": { en: "confidently and proudly", te: "\u0C28\u0C2E\u0C4D\u0C2E\u0C15\u0C02\u0C17\u0C3E", ta: "\u0BA8\u0BAE\u0BCD\u0BAA\u0BBF\u0B95\u0BCD\u0B95\u0BC8\u0BAF\u0BC1\u0B9F\u0BA9\u0BCD", hi: "\u0906\u0924\u094D\u092E\u0935\u093F\u0936\u094D\u0935\u093E\u0938 \u0938\u0947", kn: "\u0C86\u0CA4\u0CCD\u0CAE\u0CB5\u0CBF\u0CB6\u0CCD\u0CB5\u0CBE\u0CB8\u0CA6\u0CBF\u0C82\u0CA6" },
+        "Virgo": { en: "analytically and methodically", te: "\u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23\u0C3E\u0C24\u0C4D\u0C2E\u0C15\u0C02\u0C17\u0C3E", ta: "\u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1 \u0BB0\u0BC0\u0BA4\u0BBF\u0BAF\u0BBE\u0B95", hi: "\u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923\u093E\u0924\u094D\u092E\u0915 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CBE\u0CA4\u0CCD\u0CAE\u0C95\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Libra": { en: "diplomatically and socially", te: "\u0C26\u0C4C\u0C24\u0C4D\u0C2F\u0C2A\u0C30\u0C02\u0C17\u0C3E", ta: "\u0BB0\u0BBE\u0B9C\u0BA4\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BC0\u0BA4\u0BBF\u0BAF\u0BBE\u0B95", hi: "\u0930\u093E\u091C\u0928\u092F\u093F\u0915 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CB0\u0CBE\u0C9C\u0CA4\u0CBE\u0C82\u0CA4\u0CCD\u0CB0\u0CBF\u0C95\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Scorpio": { en: "intensely and secretively", te: "\u0C24\u0C40\u0C35\u0C4D\u0C30\u0C02\u0C17\u0C3E", ta: "\u0BA4\u0BC0\u0BB5\u0BBF\u0BB0\u0BAE\u0BBE\u0B95", hi: "\u0924\u0940\u0935\u094D\u0930 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CA4\u0CC0\u0CB5\u0CCD\u0CB0\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Sagittarius": { en: "adventurously and philosophically", te: "\u0C38\u0C3E\u0C39\u0C38\u0C4B\u0C2A\u0C47\u0C24\u0C02\u0C17\u0C3E", ta: "\u0B9A\u0BBE\u0B95\u0B9A\u0BAE\u0BBE\u0B95", hi: "\u0938\u093E\u0939\u0938\u093F\u0915 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CB8\u0CBE\u0CB9\u0CB8\u0CAE\u0CAF\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Capricorn": { en: "disciplined and ambitiously", te: "\u0C15\u0C4D\u0C30\u0C2E\u0C36\u0C3F\u0C15\u0C4D\u0C37\u0C23\u0C24\u0C4B", ta: "\u0B92\u0BB4\u0BC1\u0B95\u0BCD\u0B95\u0BA4\u0BCD\u0BA4\u0BC1\u0B9F\u0BA9\u0BCD", hi: "\u0905\u0928\u0941\u0936\u093E\u0938\u0928 \u0915\u0947 \u0938\u093E\u0925", kn: "\u0CB6\u0CBF\u0CB8\u0CCD\u0CA4\u0CBF\u0CA8\u0CBF\u0C82\u0CA6" },
+        "Aquarius": { en: "innovatively and independently", te: "\u0C35\u0C3F\u0C28\u0C42\u0C24\u0C4D\u0C28\u0C02\u0C17\u0C3E", ta: "\u0BAA\u0BC1\u0BA4\u0BC1\u0BAE\u0BC8\u0BAF\u0BBE\u0B95", hi: "\u0905\u092D\u093F\u0928\u0935 \u0930\u0942\u092A \u0938\u0947", kn: "\u0CA8\u0CB5\u0CC0\u0CA8\u0CB5\u0CBE\u0C97\u0CBF" },
+        "Pisces": { en: "compassionately and imaginatively", te: "\u0C15\u0C30\u0C41\u0C23\u0C24\u0C4B", ta: "\u0B95\u0BA9\u0BBF\u0BB5\u0BBE\u0B95", hi: "\u0915\u0930\u0941\u0923\u093E \u0938\u0947", kn: "\u0C95\u0CB0\u0CC1\u0CA3\u0CC6\u0CAF\u0CBF\u0C82\u0CA6" }
+      };
+      const englishPlanetName = raw.planetaryTable.find((p) => p.planet === lagnaLord)?.planet || "Sun";
+      const parsedEnglishPlanetName = Object.keys(planetCore).find((k) => englishPlanetName.includes(k) || lagnaLord.includes(k)) || "Sun";
+      const englishSignName = Object.keys(signModifiers).find((k) => llPos.sign.includes(k)) || Object.keys(signModifiers)[0];
+      const kw = planetCore[parsedEnglishPlanetName]?.[langCode] || planetCore[parsedEnglishPlanetName]?.en || "your path";
+      const signKeyword = signModifiers[englishSignName]?.[langCode] || signModifiers[englishSignName]?.en || "uniquely";
+      const houseDesc = houseThemes[llPos.house.toString()]?.[langCode] || houseThemes[llPos.house.toString()]?.en || "various areas";
+      let text = `The Rasi chart is the foundational map of your life. The Lagna (Ascendant) and its lord indicate your physical self and how you approach the world. Your core personality is strongly guided by the ${lagnaLord} (representing ${kw}). `;
+      text += `Since it is placed in the ${llPos.house}th house, your focus is naturally drawn toward ${houseDesc}. `;
+      text += `Positioned in ${llPos.sign}, these qualities are expressed ${signKeyword}. `;
+      if (llStatus.strength.dignity >= 30) {
+        text += `Because ${lagnaLord} is strong in dignity, this expression feels natural and empowering. `;
+      }
+      if (facts.yogas.includes("Gaja Kesari Yoga")) {
+        text += `The presence of Gaja Kesari Yoga suggests a baseline of wisdom, reputation, and intellectual strength supporting your endeavors. `;
+      }
+      if (langCode === "te") {
+        text = `\u0C30\u0C3E\u0C36\u0C3F \u0C1A\u0C15\u0C4D\u0C30\u0C02 \u0C2E\u0C40 \u0C1C\u0C40\u0C35\u0C3F\u0C24\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C2A\u0C41\u0C28\u0C3E\u0C26\u0C3F \u0C2A\u0C1F\u0C02. \u0C32\u0C17\u0C4D\u0C28\u0C02 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C32\u0C17\u0C4D\u0C28\u0C3E\u0C27\u0C3F\u0C2A\u0C24\u0C3F \u0C2E\u0C40 \u0C2D\u0C4C\u0C24\u0C3F\u0C15 \u0C38\u0C4D\u0C35\u0C30\u0C42\u0C2A\u0C3E\u0C28\u0C4D\u0C28\u0C3F, \u0C2E\u0C40\u0C30\u0C41 \u0C2A\u0C4D\u0C30\u0C2A\u0C02\u0C1A\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C0E\u0C32\u0C3E \u0C0E\u0C26\u0C41\u0C30\u0C4D\u0C15\u0C4A\u0C02\u0C1F\u0C3E\u0C30\u0C4B \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C3E\u0C30\u0C41. \u0C2E\u0C40 \u0C2A\u0C4D\u0C30\u0C3E\u0C25\u0C2E\u0C3F\u0C15 \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C3F\u0C24\u0C4D\u0C35\u0C02 ${lagnaLord} \u0C26\u0C4D\u0C35\u0C3E\u0C30\u0C3E \u0C2C\u0C32\u0C02\u0C17\u0C3E \u0C2E\u0C3E\u0C30\u0C4D\u0C17\u0C28\u0C3F\u0C30\u0C4D\u0C26\u0C47\u0C36\u0C02 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F (${kw} \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F). `;
+        text += `\u0C07\u0C26\u0C3F ${llPos.house}\u0C35 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02\u0C32\u0C4B \u0C09\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28, \u0C2E\u0C40 \u0C26\u0C43\u0C37\u0C4D\u0C1F\u0C3F \u0C38\u0C39\u0C1C\u0C02\u0C17\u0C3E ${houseDesc} \u0C35\u0C48\u0C2A\u0C41 \u0C06\u0C15\u0C30\u0C4D\u0C37\u0C3F\u0C24\u0C41\u0C2E\u0C35\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F. `;
+        text += `${llPos.sign} \u0C32\u0C4B \u0C09\u0C02\u0C1A\u0C2C\u0C21\u0C3F\u0C28\u0C02\u0C26\u0C41\u0C28, \u0C08 \u0C32\u0C15\u0C4D\u0C37\u0C23\u0C3E\u0C32\u0C41 ${signKeyword} \u0C17\u0C3E \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C2E\u0C35\u0C41\u0C24\u0C3E\u0C2F\u0C3F. `;
+        if (llStatus.strength.dignity >= 30) text += `${lagnaLord} \u0C2C\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28, \u0C08 \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C40\u0C15\u0C30\u0C23 \u0C38\u0C39\u0C1C\u0C02\u0C17\u0C3E \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C36\u0C15\u0C4D\u0C24\u0C3F\u0C35\u0C02\u0C24\u0C02\u0C17\u0C3E \u0C05\u0C28\u0C3F\u0C2A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F. `;
+        if (facts.yogas.includes("Gaja Kesari Yoga")) text += `\u0C17\u0C1C \u0C15\u0C47\u0C38\u0C30\u0C3F \u0C2F\u0C4B\u0C17\u0C02 \u0C09\u0C02\u0C21\u0C1F\u0C02 \u0C35\u0C32\u0C4D\u0C32 \u0C2E\u0C40\u0C15\u0C41 \u0C1C\u0C4D\u0C1E\u0C3E\u0C28\u0C02, \u0C15\u0C40\u0C30\u0C4D\u0C24\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2E\u0C47\u0C27\u0C4B \u0C2C\u0C32\u0C02 \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F. `;
+      } else if (langCode === "ta") {
+        text = `\u0BB0\u0BBE\u0B9A\u0BBF \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BAF\u0BBF\u0BA9\u0BCD \u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8 \u0BB5\u0BB0\u0BC8\u0BAA\u0B9F\u0BAE\u0BBE\u0B95\u0BC1\u0BAE\u0BCD. \u0BB2\u0B95\u0BCD\u0BA9\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB2\u0B95\u0BCD\u0BA9\u0BBE\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B89\u0B9F\u0BB2\u0BCD \u0BA4\u0BCB\u0BB1\u0BCD\u0BB1\u0BA4\u0BCD\u0BA4\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD, \u0B89\u0BB2\u0B95\u0BC8 \u0BA8\u0BC0\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B8E\u0BAA\u0BCD\u0BAA\u0B9F\u0BBF \u0B85\u0BA3\u0BC1\u0B95\u0BC1\u0B95\u0BBF\u0BB1\u0BC0\u0BB0\u0BCD\u0B95\u0BB3\u0BCD \u0B8E\u0BA9\u0BCD\u0BAA\u0BA4\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0B95\u0BC1\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BA9. \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8 \u0B86\u0BB3\u0BC1\u0BAE\u0BC8 ${lagnaLord}-\u0B86\u0BB2\u0BCD \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0B95 \u0BB5\u0BB4\u0BBF\u0BA8\u0B9F\u0BA4\u0BCD\u0BA4\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1 (${kw} \u0B95\u0BC1\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1). `;
+        text += `\u0B87\u0BA4\u0BC1 ${llPos.house}-\u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BCD\u0B9F\u0BBF\u0BB2\u0BCD \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD, \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B95\u0BB5\u0BA9\u0BAE\u0BCD \u0B87\u0BAF\u0BB1\u0BCD\u0B95\u0BC8\u0BAF\u0BBE\u0B95\u0BB5\u0BC7 ${houseDesc} \u0BA8\u0BCB\u0B95\u0BCD\u0B95\u0BBF \u0B88\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. `;
+        text += `${llPos.sign}-\u0BB2\u0BCD \u0B85\u0BAE\u0BC8\u0BA8\u0BCD\u0BA4\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BBE\u0BB2\u0BCD, \u0B87\u0BA8\u0BCD\u0BA4\u0B95\u0BCD \u0B95\u0BC1\u0BA3\u0B99\u0BCD\u0B95\u0BB3\u0BCD ${signKeyword}-\u0B86\u0B95 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BA9. `;
+        if (llStatus.strength.dignity >= 30) text += `${lagnaLord} \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0B95 \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD, \u0B87\u0BA8\u0BCD\u0BA4 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0BBE\u0B9F\u0BC1 \u0B87\u0BAF\u0BB2\u0BCD\u0BAA\u0BBE\u0BA9\u0BA4\u0BBE\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B85\u0BA4\u0BBF\u0B95\u0BBE\u0BB0\u0BAE\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0BA3\u0BB0\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. `;
+        if (facts.yogas.includes("Gaja Kesari Yoga")) text += `\u0B95\u0B9C \u0B95\u0BC7\u0B9A\u0BB0\u0BBF \u0BAF\u0BCB\u0B95\u0BAE\u0BCD \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1 \u0B9E\u0BBE\u0BA9\u0BAE\u0BCD, \u0BAA\u0BC1\u0B95\u0BB4\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B85\u0BB1\u0BBF\u0BB5\u0BBE\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4 \u0BAA\u0BB2\u0BAE\u0BCD \u0B87\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD. `;
+      } else if (langCode === "hi") {
+        text = `\u0930\u093E\u0936\u093F \u091A\u0915\u094D\u0930 \u0906\u092A\u0915\u0947 \u091C\u0940\u0935\u0928 \u0915\u093E \u092E\u0942\u0932\u092D\u0942\u0924 \u0928\u0915\u094D\u0936\u093E \u0939\u0948\u0964 \u0932\u0917\u094D\u0928 \u0914\u0930 \u0932\u0917\u094D\u0928\u0947\u0936 \u0906\u092A\u0915\u0947 \u092D\u094C\u0924\u093F\u0915 \u0938\u094D\u0935\u0930\u0942\u092A \u0914\u0930 \u0926\u0941\u0928\u093F\u092F\u093E \u0915\u0947 \u092A\u094D\u0930\u0924\u093F \u0906\u092A\u0915\u0947 \u0926\u0943\u0937\u094D\u091F\u093F\u0915\u094B\u0923 \u0915\u094B \u0926\u0930\u094D\u0936\u093E\u0924\u0947 \u0939\u0948\u0902\u0964 \u0906\u092A\u0915\u093E \u092E\u0941\u0916\u094D\u092F \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935 ${lagnaLord} \u0926\u094D\u0935\u093E\u0930\u093E \u0926\u0943\u0922\u093C\u0924\u093E \u0938\u0947 \u0928\u093F\u0930\u094D\u0926\u0947\u0936\u093F\u0924 \u0939\u094B\u0924\u093E \u0939\u0948 (${kw} \u0915\u093E \u092A\u094D\u0930\u0924\u093F\u0928\u093F\u0927\u093F\u0924\u094D\u0935 \u0915\u0930\u0924\u093E \u0939\u0948)\u0964 `;
+        text += `\u091A\u0942\u0902\u0915\u093F \u092F\u0939 ${llPos.house}\u0935\u0947\u0902 \u092D\u093E\u0935 \u092E\u0947\u0902 \u0939\u0948, \u0907\u0938\u0932\u093F\u090F \u0906\u092A\u0915\u093E \u0927\u094D\u092F\u093E\u0928 \u0938\u094D\u0935\u093E\u092D\u093E\u0935\u093F\u0915 \u0930\u0942\u092A \u0938\u0947 ${houseDesc} \u0915\u0940 \u0913\u0930 \u0906\u0915\u0930\u094D\u0937\u093F\u0924 \u0939\u094B\u0924\u093E \u0939\u0948\u0964 `;
+        text += `${llPos.sign} \u092E\u0947\u0902 \u0938\u094D\u0925\u093F\u0924 \u0939\u094B\u0928\u0947 \u0915\u0947 \u0915\u093E\u0930\u0923, \u092F\u0947 \u0917\u0941\u0923 ${signKeyword} \u0930\u0942\u092A \u092E\u0947\u0902 \u0935\u094D\u092F\u0915\u094D\u0924 \u0939\u094B\u0924\u0947 \u0939\u0948\u0902\u0964 `;
+        if (llStatus.strength.dignity >= 30) text += `\u0915\u094D\u092F\u094B\u0902\u0915\u093F ${lagnaLord} \u092E\u091C\u092C\u0942\u0924 \u0939\u0948, \u092F\u0939 \u0905\u092D\u093F\u0935\u094D\u092F\u0915\u094D\u0924\u093F \u0938\u094D\u0935\u093E\u092D\u093E\u0935\u093F\u0915 \u0914\u0930 \u0938\u0936\u0915\u094D\u0924 \u0932\u0917\u0924\u0940 \u0939\u0948\u0964 `;
+        if (facts.yogas.includes("Gaja Kesari Yoga")) text += `\u0917\u091C \u0915\u0947\u0938\u0930\u0940 \u092F\u094B\u0917 \u0915\u0940 \u0909\u092A\u0938\u094D\u0925\u093F\u0924\u093F \u091C\u094D\u091E\u093E\u0928, \u092A\u094D\u0930\u0924\u093F\u0937\u094D\u0920\u093E \u0914\u0930 \u092C\u094C\u0926\u094D\u0927\u093F\u0915 \u0936\u0915\u094D\u0924\u093F \u0915\u093E \u0938\u0941\u091D\u093E\u0935 \u0926\u0947\u0924\u0940 \u0939\u0948\u0964 `;
+      } else if (langCode === "kn") {
+        text = `\u0CB0\u0CBE\u0CB6\u0CBF \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C9C\u0CC0\u0CB5\u0CA8\u0CA6 \u0CAE\u0CC2\u0CB2 \u0CA8\u0C95\u0CCD\u0CB7\u0CC6\u0CAF\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CB2\u0C97\u0CCD\u0CA8 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB2\u0C97\u0CCD\u0CA8\u0CBE\u0CA7\u0CBF\u0CAA\u0CA4\u0CBF\u0CAF\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAD\u0CCC\u0CA4\u0CBF\u0C95 \u0CB8\u0CCD\u0CB5\u0CB0\u0CC2\u0CAA \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAA\u0CCD\u0CB0\u0CAA\u0C82\u0C9A\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA8\u0CC0\u0CB5\u0CC1 \u0CB9\u0CC7\u0C97\u0CC6 \u0C8E\u0CA6\u0CC1\u0CB0\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CC0\u0CB0\u0CBF \u0C8E\u0C82\u0CAC\u0CC1\u0CA6\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB8\u0CC2\u0C9A\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CBE\u0CB0\u0CC6. \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CC2\u0CB2 \u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5\u0CB5\u0CC1 ${lagnaLord} \u0CA8\u0CBF\u0C82\u0CA6 \u0CAC\u0CB2\u0CB5\u0CBE\u0C97\u0CBF \u0CAE\u0CBE\u0CB0\u0CCD\u0C97\u0CA6\u0CB0\u0CCD\u0CB6\u0CBF\u0CB8\u0CB2\u0CCD\u0CAA\u0CA1\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6 (${kw} \u0CAA\u0CCD\u0CB0\u0CA4\u0CBF\u0CA8\u0CBF\u0CA7\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6). `;
+        text += `\u0C87\u0CA6\u0CC1 ${llPos.house}\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6\u0CAF\u0CB2\u0CCD\u0CB2\u0CBF \u0C87\u0CB0\u0CC1\u0CB5\u0CC1\u0CA6\u0CB0\u0CBF\u0C82\u0CA6, \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C97\u0CAE\u0CA8\u0CB5\u0CC1 \u0CB8\u0CCD\u0CB5\u0CBE\u0CAD\u0CBE\u0CB5\u0CBF\u0C95\u0CB5\u0CBE\u0C97\u0CBF ${houseDesc} \u0C95\u0CA1\u0CC6\u0C97\u0CC6 \u0CB8\u0CC6\u0CB3\u0CC6\u0CAF\u0CB2\u0CCD\u0CAA\u0CA1\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+        text += `${llPos.sign} \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8 \u0CAA\u0CA1\u0CC6\u0CA6\u0CBF\u0CB0\u0CC1\u0CB5\u0CC1\u0CA6\u0CB0\u0CBF\u0C82\u0CA6, \u0C88 \u0C97\u0CC1\u0CA3\u0C97\u0CB3\u0CC1 ${signKeyword} \u0C86\u0C97\u0CBF \u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CB5\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6. `;
+        if (llStatus.strength.dignity >= 30) text += `${lagnaLord} \u0CAC\u0CB2\u0CB5\u0CBE\u0C97\u0CBF\u0CB0\u0CC1\u0CB5\u0CC1\u0CA6\u0CB0\u0CBF\u0C82\u0CA6, \u0C88 \u0C85\u0CAD\u0CBF\u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF \u0CB8\u0CCD\u0CB5\u0CBE\u0CAD\u0CBE\u0CB5\u0CBF\u0C95 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CAC\u0CB2\u0CC0\u0C95\u0CB0\u0CA3\u0C97\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+        if (facts.yogas.includes("Gaja Kesari Yoga")) text += `\u0C97\u0C9C \u0C95\u0CC7\u0CB8\u0CB0\u0CBF \u0CAF\u0CCB\u0C97\u0CA6 \u0C89\u0CAA\u0CB8\u0CCD\u0CA5\u0CBF\u0CA4\u0CBF\u0CAF\u0CC1 \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CBF\u0C95\u0CC6, \u0C96\u0CCD\u0CAF\u0CBE\u0CA4\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAC\u0CCC\u0CA6\u0CCD\u0CA7\u0CBF\u0C95 \u0CB6\u0C95\u0CCD\u0CA4\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB8\u0CC2\u0C9A\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+      }
+      let derivedFromText = [
+        `Lagna Lord ${lagnaLord} in ${llPos.sign} (${llPos.house}H)`,
+        ...llStatus.strength.reasons.map((r) => translateReason(r, langCode)),
+        ...facts.yogas.length > 0 ? [
+          langCode === "te" ? `\u0C2F\u0C4B\u0C17\u0C3E\u0C32\u0C41: ${facts.yogas.join(", ")}` : langCode === "ta" ? `\u0BAF\u0BCB\u0B95\u0B99\u0BCD\u0B95\u0BB3\u0BCD: ${facts.yogas.join(", ")}` : langCode === "hi" ? `\u092F\u094B\u0917: ${facts.yogas.join(", ")}` : langCode === "kn" ? `\u0CAF\u0CCB\u0C97\u0C97\u0CB3\u0CC1: ${facts.yogas.join(", ")}` : `Yogas: ${facts.yogas.join(", ")}`
+        ] : []
+      ];
+      if (langCode === "te") derivedFromText[0] = `\u0C32\u0C17\u0C4D\u0C28\u0C3E\u0C27\u0C3F\u0C2A\u0C24\u0C3F ${lagnaLord} ${llPos.sign} \u0C32\u0C4B (${llPos.house}\u0C35 \u0C07\u0C32\u0C4D\u0C32\u0C41)`;
+      else if (langCode === "ta") derivedFromText[0] = `\u0BB2\u0B95\u0BCD\u0BA9\u0BBE\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF ${lagnaLord} ${llPos.sign}-\u0BB2\u0BCD (${llPos.house}\u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BC1)`;
+      else if (langCode === "hi") derivedFromText[0] = `\u0932\u0917\u094D\u0928\u0947\u0936 ${lagnaLord} ${llPos.sign} \u092E\u0947\u0902 (${llPos.house}\u0920\u093E \u092D\u093E\u0935)`;
+      else if (langCode === "kn") derivedFromText[0] = `\u0CB2\u0C97\u0CCD\u0CA8\u0CBE\u0CA7\u0CBF\u0CAA\u0CA4\u0CBF ${lagnaLord} ${llPos.sign} \u0CA8\u0CB2\u0CCD\u0CB2\u0CBF (${llPos.house}\u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6)`;
+      return {
+        text,
+        confidence: "High",
+        derivedFrom: derivedFromText
+      };
+    };
+    const buildCareer = () => {
+      const strongest = facts.strongestPlanet;
+      const spStatus = facts.planets[strongest];
+      if (!spStatus) {
+        let text2 = "Career analysis pending.";
+        if (langCode === "te") text2 = "\u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D \u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23 \u0C2A\u0C46\u0C02\u0C21\u0C3F\u0C02\u0C17\u0C4D\u200C\u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F.";
+        if (langCode === "ta") text2 = "\u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1 \u0BA8\u0BBF\u0BB2\u0BC1\u0BB5\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1.";
+        if (langCode === "hi") text2 = "\u0915\u0930\u093F\u092F\u0930 \u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923 \u0932\u0902\u092C\u093F\u0924 \u0939\u0948\u0964";
+        if (langCode === "kn") text2 = "\u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF \u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CC6 \u0CAC\u0CBE\u0C95\u0CBF\u0CAF\u0CBF\u0CA6\u0CC6.";
+        return { text: text2, confidence: "Moderate", derivedFrom: [] };
+      }
+      const planetThemes = {
+        "Sun": { en: "leadership and authority", te: "\u0C28\u0C3E\u0C2F\u0C15\u0C24\u0C4D\u0C35\u0C02 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C05\u0C27\u0C3F\u0C15\u0C3E\u0C30\u0C02", ta: "\u0BA4\u0BB2\u0BC8\u0BAE\u0BC8 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B85\u0BA4\u0BBF\u0B95\u0BBE\u0BB0\u0BAE\u0BCD", hi: "\u0928\u0947\u0924\u0943\u0924\u094D\u0935 \u0914\u0930 \u0905\u0927\u093F\u0915\u093E\u0930", kn: "\u0CA8\u0CBE\u0CAF\u0C95\u0CA4\u0CCD\u0CB5 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C85\u0CA7\u0CBF\u0C95\u0CBE\u0CB0" },
+        "Moon": { en: "emotions and nurturing", te: "\u0C2D\u0C3E\u0C35\u0C4B\u0C26\u0C4D\u0C35\u0C47\u0C17\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C4B\u0C37\u0C23", ta: "\u0B89\u0BA3\u0BB0\u0BCD\u0B9A\u0BCD\u0B9A\u0BBF\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BB3\u0BB0\u0BCD\u0BAA\u0BCD\u0BAA\u0BC1", hi: "\u092D\u093E\u0935\u0928\u093E\u090F\u0902 \u0914\u0930 \u092A\u094B\u0937\u0923", kn: "\u0CAD\u0CBE\u0CB5\u0CA8\u0CC6\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAA\u0CCB\u0CB7\u0CA3\u0CC6" },
+        "Mars": { en: "energy and ambition", te: "\u0C36\u0C15\u0C4D\u0C24\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C06\u0C36\u0C2F\u0C02", ta: "\u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB2\u0B9F\u0BCD\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD", hi: "\u090A\u0930\u094D\u091C\u093E \u0914\u0930 \u092E\u0939\u0924\u094D\u0935\u093E\u0915\u093E\u0902\u0915\u094D\u0937\u093E", kn: "\u0CB6\u0C95\u0CCD\u0CA4\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAE\u0CB9\u0CA4\u0CCD\u0CB5\u0CBE\u0C95\u0CBE\u0C82\u0C95\u0CCD\u0CB7\u0CC6" },
+        "Mercury": { en: "intellect and communication", te: "\u0C24\u0C46\u0C32\u0C3F\u0C35\u0C3F\u0C24\u0C47\u0C1F\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C15\u0C2E\u0C4D\u0C2F\u0C42\u0C28\u0C3F\u0C15\u0C47\u0C37\u0C28\u0C4D", ta: "\u0BAA\u0BC1\u0BA4\u0BCD\u0BA4\u0BBF\u0B9A\u0BBE\u0BB2\u0BBF\u0BA4\u0BCD\u0BA4\u0BA9\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BA4\u0BCA\u0B9F\u0BB0\u0BCD\u0BAA\u0BC1", hi: "\u092C\u0941\u0926\u094D\u0927\u093F \u0914\u0930 \u0938\u0902\u091A\u093E\u0930", kn: "\u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB6\u0C95\u0CCD\u0CA4\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0C82\u0CB5\u0CB9\u0CA8" },
+        "Jupiter": { en: "wisdom and expansion", te: "\u0C1C\u0C4D\u0C1E\u0C3E\u0C28\u0C02 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C35\u0C3F\u0C38\u0C4D\u0C24\u0C30\u0C23", ta: "\u0B9E\u0BBE\u0BA9\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BBF\u0BB0\u0BBF\u0BB5\u0BBE\u0B95\u0BCD\u0B95\u0BAE\u0BCD", hi: "\u091C\u094D\u091E\u093E\u0928 \u0914\u0930 \u0935\u093F\u0938\u094D\u0924\u093E\u0930", kn: "\u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CBF\u0C95\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB5\u0CBF\u0CB8\u0CCD\u0CA4\u0CB0\u0CA3\u0CC6" },
+        "Venus": { en: "love and relationships", te: "\u0C2A\u0C4D\u0C30\u0C47\u0C2E \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C02\u0C2C\u0C02\u0C27\u0C3E\u0C32\u0C41", ta: "\u0B95\u0BBE\u0BA4\u0BB2\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B89\u0BB1\u0BB5\u0BC1\u0B95\u0BB3\u0BCD", hi: "\u092A\u094D\u0930\u0947\u092E \u0914\u0930 \u0938\u0902\u092C\u0902\u0927", kn: "\u0CAA\u0CCD\u0CB0\u0CC0\u0CA4\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0C82\u0CAC\u0C82\u0CA7\u0C97\u0CB3\u0CC1" },
+        "Saturn": { en: "discipline and hard work", te: "\u0C15\u0C4D\u0C30\u0C2E\u0C36\u0C3F\u0C15\u0C4D\u0C37\u0C23 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C15\u0C37\u0C4D\u0C1F\u0C2A\u0C21\u0C3F \u0C2A\u0C28\u0C3F\u0C1A\u0C47\u0C2F\u0C21\u0C02", ta: "\u0B92\u0BB4\u0BC1\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B95\u0B9F\u0BBF\u0BA9 \u0B89\u0BB4\u0BC8\u0BAA\u0BCD\u0BAA\u0BC1", hi: "\u0905\u0928\u0941\u0936\u093E\u0938\u0928 \u0914\u0930 \u0915\u0921\u093C\u0940 \u092E\u0947\u0939\u0928\u0924", kn: "\u0CB6\u0CBF\u0CB8\u0CCD\u0CA4\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C95\u0CA0\u0CBF\u0CA3 \u0CAA\u0CB0\u0CBF\u0CB6\u0CCD\u0CB0\u0CAE" },
+        "Rahu": { en: "innovation and unconventionality", te: "\u0C06\u0C35\u0C3F\u0C37\u0C4D\u0C15\u0C30\u0C23 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C05\u0C38\u0C3E\u0C27\u0C3E\u0C30\u0C23\u0C24", ta: "\u0B95\u0BA3\u0BCD\u0B9F\u0BC1\u0BAA\u0BBF\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BB4\u0B95\u0BCD\u0B95\u0BA4\u0BCD\u0BA4\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0BAE\u0BBE\u0BB1\u0BBE\u0BA9 \u0BA4\u0BA9\u0BCD\u0BAE\u0BC8", hi: "\u0928\u0935\u093E\u091A\u093E\u0930 \u0914\u0930 \u0905\u092A\u0930\u0902\u092A\u0930\u093E\u0917\u0924\u0924\u093E", kn: "\u0CA8\u0CBE\u0CB5\u0CC0\u0CA8\u0CCD\u0CAF\u0CA4\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C85\u0CB8\u0CBE\u0C82\u0CAA\u0CCD\u0CB0\u0CA6\u0CBE\u0CAF\u0CBF\u0C95\u0CA4\u0CC6" },
+        "Ketu": { en: "spirituality and intuition", te: "\u0C06\u0C27\u0C4D\u0C2F\u0C3E\u0C24\u0C4D\u0C2E\u0C3F\u0C15\u0C24 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C05\u0C02\u0C24\u0C30\u0C4D \u0C26\u0C43\u0C37\u0C4D\u0C1F\u0C3F", ta: "\u0B86\u0BA9\u0BCD\u0BAE\u0BC0\u0B95\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BC1\u0BA3\u0BB0\u0BCD\u0BB5\u0BC1", hi: "\u0905\u0927\u094D\u092F\u093E\u0924\u094D\u092E \u0914\u0930 \u0905\u0902\u0924\u0930\u094D\u091C\u094D\u091E\u093E\u0928", kn: "\u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95\u0CA4\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C85\u0C82\u0CA4\u0C83\u0CAA\u0CCD\u0CB0\u0C9C\u0CCD\u0C9E\u0CC6" }
+      };
+      const parsedEnglishPlanetName = Object.keys(planetThemes).find((k) => strongest.includes(k)) || "Sun";
+      const kw = planetThemes[parsedEnglishPlanetName]?.[langCode] || planetThemes[parsedEnglishPlanetName]?.en || "focus";
+      let text = `The Bhava Chalit chart reveals the exact house placements of planets, providing a more accurate picture of how planetary energies manifest in specific areas of life, particularly regarding career and worldly achievements. `;
+      text += `The strongest influence in your chart comes from ${strongest}. `;
+      text += `This indicates that your professional and public life may greatly benefit from themes of ${kw}. `;
+      if (facts.yogas.includes("Budha Aditya Yoga")) {
+        text += `The Budha Aditya Yoga in your chart traditionally favors intelligence, management, and strong communication skills in your career. `;
+      }
+      if (langCode === "te") {
+        text = `\u0C2D\u0C3E\u0C35 \u0C1A\u0C32\u0C3F\u0C24\u0C4D \u0C1A\u0C15\u0C4D\u0C30\u0C02 \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32 \u0C16\u0C1A\u0C4D\u0C1A\u0C3F\u0C24\u0C2E\u0C48\u0C28 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C3E\u0C32\u0C28\u0C41 \u0C35\u0C46\u0C32\u0C4D\u0C32\u0C21\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F, \u0C1C\u0C40\u0C35\u0C3F\u0C24\u0C02\u0C32\u0C4B\u0C28\u0C3F \u0C28\u0C3F\u0C30\u0C4D\u0C26\u0C3F\u0C37\u0C4D\u0C1F \u0C30\u0C02\u0C17\u0C3E\u0C32\u0C32\u0C4B, \u0C2E\u0C41\u0C16\u0C4D\u0C2F\u0C02\u0C17\u0C3E \u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C4D\u0C30\u0C3E\u0C2A\u0C02\u0C1A\u0C3F\u0C15 \u0C35\u0C3F\u0C1C\u0C2F\u0C3E\u0C32\u0C15\u0C41 \u0C38\u0C02\u0C2C\u0C02\u0C27\u0C3F\u0C02\u0C1A\u0C3F \u0C17\u0C4D\u0C30\u0C39 \u0C36\u0C15\u0C4D\u0C24\u0C41\u0C32\u0C41 \u0C0E\u0C32\u0C3E \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C2E\u0C35\u0C41\u0C24\u0C3E\u0C2F\u0C4B \u0C2E\u0C30\u0C3F\u0C02\u0C24 \u0C16\u0C1A\u0C4D\u0C1A\u0C3F\u0C24\u0C2E\u0C48\u0C28 \u0C1A\u0C3F\u0C24\u0C4D\u0C30\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C05\u0C02\u0C26\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F. \u0C2E\u0C40 \u0C1A\u0C3E\u0C30\u0C4D\u0C1F\u0C4D\u200C\u0C32\u0C4B \u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C2A\u0C4D\u0C30\u0C2D\u0C3E\u0C35\u0C02 ${strongest} \u0C28\u0C41\u0C02\u0C21\u0C3F \u0C35\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F. `;
+        text += `\u0C07\u0C26\u0C3F \u0C2E\u0C40 \u0C35\u0C43\u0C24\u0C4D\u0C24\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C2C\u0C4D\u0C32\u0C3F\u0C15\u0C4D \u0C1C\u0C40\u0C35\u0C3F\u0C24\u0C02 ${kw} \u0C25\u0C40\u0C2E\u0C4D\u200C\u0C32 \u0C28\u0C41\u0C02\u0C21\u0C3F \u0C2C\u0C3E\u0C17\u0C3E \u0C2A\u0C4D\u0C30\u0C2F\u0C4B\u0C1C\u0C28\u0C02 \u0C2A\u0C4A\u0C02\u0C26\u0C35\u0C1A\u0C4D\u0C1A\u0C28\u0C3F \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F. `;
+        if (facts.yogas.includes("Budha Aditya Yoga")) text += `\u0C2E\u0C40 \u0C1A\u0C3E\u0C30\u0C4D\u0C1F\u0C4D\u200C\u0C32\u0C4B\u0C28\u0C3F \u0C2C\u0C41\u0C27 \u0C06\u0C26\u0C3F\u0C24\u0C4D\u0C2F \u0C2F\u0C4B\u0C17\u0C02 \u0C38\u0C3E\u0C02\u0C2A\u0C4D\u0C30\u0C26\u0C3E\u0C2F\u0C15\u0C02\u0C17\u0C3E \u0C2E\u0C40 \u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D\u200C\u0C32\u0C4B \u0C24\u0C46\u0C32\u0C3F\u0C35\u0C3F\u0C24\u0C47\u0C1F\u0C32\u0C41, \u0C28\u0C3F\u0C30\u0C4D\u0C35\u0C39\u0C23 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C15\u0C2E\u0C4D\u0C2F\u0C42\u0C28\u0C3F\u0C15\u0C47\u0C37\u0C28\u0C4D \u0C28\u0C48\u0C2A\u0C41\u0C23\u0C4D\u0C2F\u0C3E\u0C32\u0C15\u0C41 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F. `;
+      } else if (langCode === "ta") {
+        text = `\u0BAA\u0BBE\u0BB5 \u0B9A\u0BB2\u0BBF\u0BA4\u0BCD \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD \u0B95\u0BBF\u0BB0\u0B95\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B9A\u0BB0\u0BBF\u0BAF\u0BBE\u0BA9 \u0BB5\u0BC0\u0B9F\u0BCD\u0B9F\u0BC1 \u0BA8\u0BBF\u0BB2\u0BC8\u0B95\u0BB3\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1, \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BAF\u0BBF\u0BA9\u0BCD \u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BBF\u0B9F\u0BCD\u0B9F \u0BAA\u0B95\u0BC1\u0BA4\u0BBF\u0B95\u0BB3\u0BBF\u0BB2\u0BCD, \u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BBE\u0B95 \u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B89\u0BB2\u0B95\u0BB3\u0BBE\u0BB5\u0BBF\u0BAF \u0B9A\u0BBE\u0BA4\u0BA9\u0BC8\u0B95\u0BB3\u0BCD \u0BA4\u0BCA\u0B9F\u0BB0\u0BCD\u0BAA\u0BBE\u0B95 \u0B95\u0BBF\u0BB0\u0B95 \u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BCD\u0B95\u0BB3\u0BCD \u0B8E\u0BB5\u0BCD\u0BB5\u0BBE\u0BB1\u0BC1 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BA9\u0BCD\u0BB1\u0BA9 \u0B8E\u0BA9\u0BCD\u0BAA\u0BA4\u0BB1\u0BCD\u0B95\u0BBE\u0BA9 \u0BA4\u0BC1\u0BB2\u0BCD\u0BB2\u0BBF\u0BAF\u0BAE\u0BBE\u0BA9 \u0BAA\u0B9F\u0BA4\u0BCD\u0BA4\u0BC8 \u0BB5\u0BB4\u0B99\u0BCD\u0B95\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9C\u0BBE\u0BA4\u0B95\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0BA4\u0BBE\u0B95\u0BCD\u0B95\u0BAE\u0BCD ${strongest}-\u0BB2\u0BCD \u0B87\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1 \u0BB5\u0BB0\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. `;
+        text += `\u0B87\u0BA4\u0BC1 \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BCA\u0BA4\u0BC1 \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 ${kw} \u0B95\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BCA\u0BB0\u0BC1\u0BB3\u0BCD\u0B95\u0BB3\u0BBF\u0BB2\u0BBF\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1 \u0BAA\u0BC6\u0BB0\u0BBF\u0BA4\u0BC1\u0BAE\u0BCD \u0BAA\u0BAF\u0BA9\u0B9F\u0BC8\u0BAF\u0B95\u0BCD\u0B95\u0BC2\u0B9F\u0BC1\u0BAE\u0BCD \u0B8E\u0BA9\u0BCD\u0BAA\u0BA4\u0BC8\u0B95\u0BCD \u0B95\u0BC1\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. `;
+        if (facts.yogas.includes("Budha Aditya Yoga")) text += `\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9C\u0BBE\u0BA4\u0B95\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3 \u0BAA\u0BC1\u0BA4 \u0B86\u0BA4\u0BBF\u0BA4\u0BCD\u0BAF \u0BAF\u0BCB\u0B95\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD \u0BAA\u0BC1\u0BA4\u0BCD\u0BA4\u0BBF\u0B9A\u0BBE\u0BB2\u0BBF\u0BA4\u0BCD\u0BA4\u0BA9\u0BAE\u0BCD, \u0BA8\u0BBF\u0BB0\u0BCD\u0BB5\u0BBE\u0B95\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0BA4\u0BCA\u0B9F\u0BB0\u0BCD\u0BAA\u0BC1 \u0BA4\u0BBF\u0BB1\u0BA9\u0BCD\u0B95\u0BB3\u0BC8 \u0B86\u0BA4\u0BB0\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. `;
+      } else if (langCode === "hi") {
+        text = `\u092D\u093E\u0935 \u091A\u0932\u093F\u0924 \u091A\u0915\u094D\u0930 \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u091F\u0940\u0915 \u092D\u093E\u0935 \u0938\u094D\u0925\u093F\u0924\u093F \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948, \u092F\u0939 \u091C\u0940\u0935\u0928 \u0915\u0947 \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0915\u094D\u0937\u0947\u0924\u094D\u0930\u094B\u0902 \u092E\u0947\u0902, \u0935\u093F\u0936\u0947\u0937 \u0930\u0942\u092A \u0938\u0947 \u0915\u0930\u093F\u092F\u0930 \u0914\u0930 \u0938\u093E\u0902\u0938\u093E\u0930\u093F\u0915 \u0909\u092A\u0932\u092C\u094D\u0927\u093F\u092F\u094B\u0902 \u0915\u0947 \u0938\u0902\u092C\u0902\u0927 \u092E\u0947\u0902, \u0917\u094D\u0930\u0939\u0940\u092F \u090A\u0930\u094D\u091C\u093E \u0915\u0948\u0938\u0947 \u092A\u094D\u0930\u0915\u091F \u0939\u094B\u0924\u0940 \u0939\u0948, \u0907\u0938\u0915\u0940 \u0905\u0927\u093F\u0915 \u0938\u091F\u0940\u0915 \u0924\u0938\u094D\u0935\u0940\u0930 \u092A\u094D\u0930\u0926\u093E\u0928 \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u0906\u092A\u0915\u0940 \u0915\u0941\u0902\u0921\u0932\u0940 \u092E\u0947\u0902 \u0938\u092C\u0938\u0947 \u092E\u091C\u092C\u0942\u0924 \u092A\u094D\u0930\u092D\u093E\u0935 ${strongest} \u0938\u0947 \u0906\u0924\u093E \u0939\u0948\u0964 `;
+        text += `\u092F\u0939 \u0907\u0902\u0917\u093F\u0924 \u0915\u0930\u0924\u093E \u0939\u0948 \u0915\u093F \u0906\u092A\u0915\u093E \u092A\u0947\u0936\u0947\u0935\u0930 \u0914\u0930 \u0938\u093E\u0930\u094D\u0935\u091C\u0928\u093F\u0915 \u091C\u0940\u0935\u0928 ${kw} \u0915\u0947 \u0935\u093F\u0937\u092F\u094B\u0902 \u0938\u0947 \u092C\u0939\u0941\u0924 \u0932\u093E\u092D\u093E\u0928\u094D\u0935\u093F\u0924 \u0939\u094B \u0938\u0915\u0924\u093E \u0939\u0948\u0964 `;
+        if (facts.yogas.includes("Budha Aditya Yoga")) text += `\u0906\u092A\u0915\u0940 \u0915\u0941\u0902\u0921\u0932\u0940 \u092E\u0947\u0902 \u092C\u0941\u0927 \u0906\u0926\u093F\u0924\u094D\u092F \u092F\u094B\u0917 \u0906\u092A\u0915\u0947 \u0915\u0930\u093F\u092F\u0930 \u092E\u0947\u0902 \u092C\u0941\u0926\u094D\u0927\u093F\u092E\u0924\u094D\u0924\u093E, \u092A\u094D\u0930\u092C\u0902\u0927\u0928 \u0914\u0930 \u092E\u091C\u092C\u0942\u0924 \u0938\u0902\u091A\u093E\u0930 \u0915\u094C\u0936\u0932 \u0915\u093E \u0938\u092E\u0930\u094D\u0925\u0928 \u0915\u0930\u0924\u093E \u0939\u0948\u0964 `;
+      } else if (langCode === "kn") {
+        text = `\u0CAD\u0CBE\u0CB5 \u0C9A\u0CB2\u0CBF\u0CA4\u0CCD \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0CA6 \u0CAE\u0CA8\u0CC6 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0C9C\u0CC0\u0CB5\u0CA8\u0CA6 \u0CA8\u0CBF\u0CB0\u0CCD\u0CA6\u0CBF\u0CB7\u0CCD\u0C9F \u0C95\u0CCD\u0CB7\u0CC7\u0CA4\u0CCD\u0CB0\u0C97\u0CB3\u0CB2\u0CCD\u0CB2\u0CBF, \u0CB5\u0CBF\u0CB6\u0CC7\u0CB7\u0CB5\u0CBE\u0C97\u0CBF \u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB2\u0CCC\u0C95\u0CBF\u0C95 \u0CB8\u0CBE\u0CA7\u0CA8\u0CC6\u0C97\u0CB3\u0CBF\u0C97\u0CC6 \u0CB8\u0C82\u0CAC\u0C82\u0CA7\u0CBF\u0CB8\u0CBF\u0CA6\u0C82\u0CA4\u0CC6 \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CB6\u0C95\u0CCD\u0CA4\u0CBF\u0C97\u0CB3\u0CC1 \u0CB9\u0CC7\u0C97\u0CC6 \u0CAA\u0CCD\u0CB0\u0C95\u0C9F\u0CB5\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6 \u0C8E\u0C82\u0CAC\u0CC1\u0CA6\u0CB0 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0CA6 \u0C9A\u0CBF\u0CA4\u0CCD\u0CB0\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0C92\u0CA6\u0C97\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C9A\u0CBE\u0CB0\u0CCD\u0C9F\u0CCD\u200C\u0CA8\u0CB2\u0CCD\u0CB2\u0CBF \u0CAA\u0CCD\u0CB0\u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0CAA\u0CCD\u0CB0\u0CAD\u0CBE\u0CB5\u0CB5\u0CC1 ${strongest} \u0CA8\u0CBF\u0C82\u0CA6 \u0CAC\u0CB0\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+        text += `\u0C87\u0CA6\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF\u0CAA\u0CB0 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CBE\u0CB0\u0CCD\u0CB5\u0C9C\u0CA8\u0CBF\u0C95 \u0C9C\u0CC0\u0CB5\u0CA8\u0CB5\u0CC1 ${kw} \u0CA5\u0CC0\u0CAE\u0CCD\u200C\u0C97\u0CB3\u0CBF\u0C82\u0CA6 \u0CB9\u0CC6\u0C9A\u0CCD\u0C9A\u0CC1 \u0CAA\u0CCD\u0CB0\u0CAF\u0CCB\u0C9C\u0CA8 \u0CAA\u0CA1\u0CC6\u0CAF\u0CAC\u0CB9\u0CC1\u0CA6\u0CC1 \u0C8E\u0C82\u0CA6\u0CC1 \u0CB8\u0CC2\u0C9A\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+        if (facts.yogas.includes("Budha Aditya Yoga")) text += `\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C9A\u0CBE\u0CB0\u0CCD\u0C9F\u0CCD\u200C\u0CA8\u0CB2\u0CCD\u0CB2\u0CBF\u0CB0\u0CC1\u0CB5 \u0CAC\u0CC1\u0CA7 \u0C86\u0CA6\u0CBF\u0CA4\u0CCD\u0CAF \u0CAF\u0CCB\u0C97\u0CB5\u0CC1 \u0CB8\u0CBE\u0C82\u0CAA\u0CCD\u0CB0\u0CA6\u0CBE\u0CAF\u0CBF\u0C95\u0CB5\u0CBE\u0C97\u0CBF \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF\u0C9C\u0CC0\u0CB5\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CBF\u0C95\u0CC6, \u0CA8\u0CBF\u0CB0\u0CCD\u0CB5\u0CB9\u0CA3\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0CB8\u0C82\u0CB5\u0CB9\u0CA8 \u0C95\u0CCC\u0CB6\u0CB2\u0CCD\u0CAF\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CC6\u0C82\u0CAC\u0CB2\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. `;
+      }
+      let derivedFromText = [
+        `Strongest planet is ${strongest} with score ${spStatus.strength.final}`,
+        ...spStatus.strength.reasons.map((r) => translateReason(r, langCode))
+      ];
+      if (langCode === "te") derivedFromText[0] = `\u0C05\u0C24\u0C4D\u0C2F\u0C02\u0C24 \u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C17\u0C4D\u0C30\u0C39\u0C02 ${strongest} (\u0C38\u0C4D\u0C15\u0C4B\u0C30\u0C4D ${spStatus.strength.final})`;
+      else if (langCode === "ta") derivedFromText[0] = `\u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0B95\u0BBF\u0BB0\u0B95\u0BAE\u0BCD ${strongest} (\u0BAE\u0BA4\u0BBF\u0BAA\u0BCD\u0BAA\u0BC6\u0BA3\u0BCD ${spStatus.strength.final})`;
+      else if (langCode === "hi") derivedFromText[0] = `\u0938\u092C\u0938\u0947 \u092E\u091C\u092C\u0942\u0924 \u0917\u094D\u0930\u0939 ${strongest} \u0939\u0948 (\u0938\u094D\u0915\u094B\u0930 ${spStatus.strength.final})`;
+      else if (langCode === "kn") derivedFromText[0] = `\u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAA\u0CCD\u0CB0\u0CAC\u0CB2 \u0C97\u0CCD\u0CB0\u0CB9 ${strongest} (\u0CB8\u0CCD\u0C95\u0CCB\u0CB0\u0CCD ${spStatus.strength.final})`;
+      return {
+        text,
+        confidence: "Moderate",
+        derivedFrom: derivedFromText
+      };
+    };
+    const buildMarriage = () => {
+      let text = "In Vedic astrology, the D9 or Navamsa chart is considered the microscopic view of the 7th house, representing marriage, soulmate connections, and your inner spiritual self. While the Rasi chart shows the physical reality, the Navamsa reveals the hidden strengths and long-term potential of your partnerships, unfolding true compatibility over time.";
+      if (langCode === "te") text = "\u0C35\u0C47\u0C26 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C36\u0C3E\u0C38\u0C4D\u0C24\u0C4D\u0C30\u0C02\u0C32\u0C4B, D9 \u0C32\u0C47\u0C26\u0C3E \u0C28\u0C35\u0C3E\u0C02\u0C36 \u0C1A\u0C15\u0C4D\u0C30\u0C02 7\u0C35 \u0C07\u0C02\u0C1F\u0C3F \u0C38\u0C42\u0C15\u0C4D\u0C37\u0C4D\u0C2E \u0C35\u0C40\u0C15\u0C4D\u0C37\u0C23\u0C17\u0C3E \u0C2A\u0C30\u0C3F\u0C17\u0C23\u0C3F\u0C02\u0C1A\u0C2C\u0C21\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F, \u0C07\u0C26\u0C3F \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02, \u0C06\u0C24\u0C4D\u0C2E \u0C38\u0C02\u0C2C\u0C02\u0C27\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2E\u0C40 \u0C05\u0C02\u0C24\u0C30\u0C4D\u0C17\u0C24 \u0C06\u0C27\u0C4D\u0C2F\u0C3E\u0C24\u0C4D\u0C2E\u0C3F\u0C15\u0C24\u0C28\u0C41 \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F. \u0C30\u0C3E\u0C36\u0C3F \u0C1A\u0C15\u0C4D\u0C30\u0C02 \u0C2D\u0C4C\u0C24\u0C3F\u0C15 \u0C35\u0C3E\u0C38\u0C4D\u0C24\u0C35\u0C3F\u0C15\u0C24\u0C28\u0C41 \u0C1A\u0C42\u0C2A\u0C41\u0C24\u0C41\u0C02\u0C21\u0C17\u0C3E, \u0C28\u0C35\u0C3E\u0C02\u0C36 \u0C2E\u0C40 \u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C4D\u0C2F\u0C3E\u0C32 \u0C2F\u0C4A\u0C15\u0C4D\u0C15 \u0C26\u0C3E\u0C1A\u0C3F\u0C28 \u0C2C\u0C32\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C26\u0C40\u0C30\u0C4D\u0C18\u0C15\u0C3E\u0C32\u0C3F\u0C15 \u0C38\u0C3E\u0C2E\u0C30\u0C4D\u0C25\u0C4D\u0C2F\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C35\u0C46\u0C32\u0C4D\u0C32\u0C21\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F, \u0C15\u0C3E\u0C32\u0C15\u0C4D\u0C30\u0C2E\u0C47\u0C23\u0C3E \u0C28\u0C3F\u0C1C\u0C2E\u0C48\u0C28 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C24\u0C28\u0C41 \u0C35\u0C3F\u0C35\u0C30\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+      else if (langCode === "ta") text = "\u0BB5\u0BC7\u0BA4 \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD, D9 \u0B85\u0BB2\u0BCD\u0BB2\u0BA4\u0BC1 \u0BA8\u0BB5\u0BBE\u0BAE\u0BCD\u0B9A \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD 7 \u0B86\u0BAE\u0BCD \u0BB5\u0BC0\u0B9F\u0BCD\u0B9F\u0BBF\u0BA9\u0BCD \u0BA8\u0BC1\u0BA3\u0BCD\u0BA3\u0BBF\u0BAF \u0BAA\u0BBE\u0BB0\u0BCD\u0BB5\u0BC8\u0BAF\u0BBE\u0B95\u0B95\u0BCD \u0B95\u0BB0\u0BC1\u0BA4\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1, \u0B87\u0BA4\u0BC1 \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BAE\u0BCD, \u0B86\u0BA4\u0BCD\u0BAE\u0BBE\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BAE\u0BBE\u0BA9 \u0BA4\u0BCA\u0B9F\u0BB0\u0BCD\u0BAA\u0BC1\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B89\u0BB3\u0BCD \u0B86\u0BA9\u0BCD\u0BAE\u0BC0\u0B95\u0BA4\u0BCD\u0BA4\u0BC8\u0B95\u0BCD \u0B95\u0BC1\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. \u0BB0\u0BBE\u0B9A\u0BBF \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD \u0B89\u0B9F\u0BB2\u0BCD \u0BAF\u0BA4\u0BBE\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BA4\u0BCD\u0BA4\u0BC8\u0B95\u0BCD \u0B95\u0BBE\u0B9F\u0BCD\u0B9F\u0BC1\u0B95\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD, \u0BA8\u0BB5\u0BBE\u0BAE\u0BCD\u0B9A\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B95\u0BC2\u0B9F\u0BCD\u0B9F\u0BBE\u0BA3\u0BCD\u0BAE\u0BC8\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0BAE\u0BB1\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F \u0BAA\u0BB2\u0B99\u0BCD\u0B95\u0BB3\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0BA8\u0BC0\u0BA3\u0BCD\u0B9F\u0B95\u0BBE\u0BB2 \u0BA4\u0BBF\u0BB1\u0BA9\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1, \u0B95\u0BBE\u0BB2\u0BAA\u0BCD\u0BAA\u0BCB\u0B95\u0BCD\u0B95\u0BBF\u0BB2\u0BCD \u0B89\u0BA3\u0BCD\u0BAE\u0BC8\u0BAF\u0BBE\u0BA9 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0B95\u0BCD\u0B95\u0BC2\u0B9F\u0BBF\u0BAF \u0BA4\u0BA9\u0BCD\u0BAE\u0BC8\u0BAF\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.";
+      else if (langCode === "hi") text = "\u0935\u0948\u0926\u093F\u0915 \u091C\u094D\u092F\u094B\u0924\u093F\u0937 \u092E\u0947\u0902, D9 \u092F\u093E \u0928\u0935\u093E\u0902\u0936 \u091A\u0915\u094D\u0930 \u0915\u094B 7\u0935\u0947\u0902 \u092D\u093E\u0935 \u0915\u093E \u0938\u0942\u0915\u094D\u0937\u094D\u092E \u0926\u0943\u0936\u094D\u092F \u092E\u093E\u0928\u093E \u091C\u093E\u0924\u093E \u0939\u0948, \u091C\u094B \u0935\u093F\u0935\u093E\u0939, \u0906\u0924\u094D\u092E\u0940\u092F \u0938\u0902\u092C\u0902\u0927\u094B\u0902 \u0914\u0930 \u0906\u092A\u0915\u0947 \u0906\u0902\u0924\u0930\u093F\u0915 \u0906\u0927\u094D\u092F\u093E\u0924\u094D\u092E\u093F\u0915 \u0938\u094D\u0935\u0930\u0942\u092A \u0915\u093E \u092A\u094D\u0930\u0924\u093F\u0928\u093F\u0927\u093F\u0924\u094D\u0935 \u0915\u0930\u0924\u093E \u0939\u0948\u0964 \u091C\u092C\u0915\u093F \u0930\u093E\u0936\u093F \u091A\u0915\u094D\u0930 \u092D\u094C\u0924\u093F\u0915 \u0935\u093E\u0938\u094D\u0924\u0935\u093F\u0915\u0924\u093E \u0915\u094B \u0926\u0930\u094D\u0936\u093E\u0924\u093E \u0939\u0948, \u0928\u0935\u093E\u0902\u0936 \u0906\u092A\u0915\u0940 \u0938\u093E\u091D\u0947\u0926\u093E\u0930\u0940 \u0915\u0940 \u091B\u093F\u092A\u0940 \u0939\u0941\u0908 \u0924\u093E\u0915\u0924 \u0914\u0930 \u0926\u0940\u0930\u094D\u0918\u0915\u093E\u0932\u093F\u0915 \u0915\u094D\u0937\u092E\u0924\u093E \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948, \u091C\u094B \u0938\u092E\u092F \u0915\u0947 \u0938\u093E\u0925 \u0938\u091A\u094D\u091A\u0940 \u0905\u0928\u0941\u0915\u0942\u0932\u0924\u093E \u0915\u094B \u0909\u091C\u093E\u0917\u0930 \u0915\u0930\u0924\u093E \u0939\u0948\u0964";
+      else if (langCode === "kn") text = "\u0CB5\u0CC7\u0CA6 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF, D9 \u0C85\u0CA5\u0CB5\u0CBE \u0CA8\u0CB5\u0CBE\u0C82\u0CB6 \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 7 \u0CA8\u0CC7 \u0CAE\u0CA8\u0CC6\u0CAF \u0CB8\u0CC2\u0C95\u0CCD\u0CB7\u0CCD\u0CAE \u0CA8\u0CCB\u0C9F \u0C8E\u0C82\u0CA6\u0CC1 \u0CAA\u0CB0\u0CBF\u0C97\u0CA3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0C87\u0CA6\u0CC1 \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6, \u0C86\u0CA4\u0CCD\u0CAE \u0CB8\u0C82\u0C97\u0CBE\u0CA4\u0CBF\u0CAF \u0CB8\u0C82\u0CAA\u0CB0\u0CCD\u0C95\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C86\u0C82\u0CA4\u0CB0\u0CBF\u0C95 \u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95\u0CA4\u0CC6\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAA\u0CCD\u0CB0\u0CA4\u0CBF\u0CA8\u0CBF\u0CA7\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6. \u0CB0\u0CBE\u0CB6\u0CBF \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 \u0CAD\u0CCC\u0CA4\u0CBF\u0C95 \u0CB5\u0CBE\u0CB8\u0CCD\u0CA4\u0CB5\u0CA4\u0CC6\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA4\u0CCB\u0CB0\u0CBF\u0CB8\u0CBF\u0CA6\u0CB0\u0CC6, \u0CA8\u0CB5\u0CBE\u0C82\u0CB6\u0CB5\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAA\u0CBE\u0CB2\u0CC1\u0CA6\u0CBE\u0CB0\u0CBF\u0C95\u0CC6\u0CAF \u0C97\u0CC1\u0CAA\u0CCD\u0CA4 \u0CB8\u0CBE\u0CAE\u0CB0\u0CCD\u0CA5\u0CCD\u0CAF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CA6\u0CC0\u0CB0\u0CCD\u0C98\u0C95\u0CBE\u0CB2\u0CC0\u0CA8 \u0CB8\u0CBE\u0CAE\u0CB0\u0CCD\u0CA5\u0CCD\u0CAF\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0C95\u0CBE\u0CB2\u0CBE\u0CA8\u0C82\u0CA4\u0CB0\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CA8\u0CBF\u0C9C\u0CB5\u0CBE\u0CA6 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA4\u0CC6\u0CB0\u0CC6\u0CA6\u0CC1\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+      let derivedContext = "Navamsa Chart context";
+      if (langCode === "te") derivedContext = "\u0C28\u0C35\u0C3E\u0C02\u0C36 \u0C1A\u0C15\u0C4D\u0C30\u0C02 \u0C38\u0C02\u0C26\u0C30\u0C4D\u0C2D\u0C02";
+      else if (langCode === "ta") derivedContext = "\u0BA8\u0BB5\u0BBE\u0BAE\u0BCD\u0B9A \u0B9A\u0B95\u0BCD\u0B95\u0BB0 \u0B9A\u0BC2\u0BB4\u0BB2\u0BCD";
+      else if (langCode === "hi") derivedContext = "\u0928\u0935\u093E\u0902\u0936 \u091A\u0915\u094D\u0930 \u0938\u0902\u0926\u0930\u094D\u092D";
+      else if (langCode === "kn") derivedContext = "\u0CA8\u0CB5\u0CBE\u0C82\u0CB6 \u0C9A\u0C95\u0CCD\u0CB0\u0CA6 \u0CB8\u0C82\u0CA6\u0CB0\u0CCD\u0CAD";
+      return {
+        text,
+        confidence: "Moderate",
+        derivedFrom: [derivedContext]
+      };
+    };
+    return {
+      dashboard: {
+        chartStrength: 75,
+        strongAreas: langCode === "te" ? ["\u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C3F\u0C24\u0C4D\u0C35\u0C02", "\u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D"] : langCode === "ta" ? ["\u0B86\u0BB3\u0BC1\u0BAE\u0BC8", "\u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD"] : langCode === "hi" ? ["\u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935", "\u0915\u0930\u093F\u092F\u0930"] : langCode === "kn" ? ["\u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5", "\u0CB5\u0CC3\u0CA4\u0CCD\u0CA4\u0CBF"] : ["Personality", "Career"],
+        developingAreas: langCode === "te" ? ["\u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C4D\u0C2F\u0C3E\u0C32\u0C41"] : langCode === "ta" ? ["\u0B95\u0BC2\u0B9F\u0BCD\u0B9F\u0BBE\u0BA3\u0BCD\u0BAE\u0BC8\u0B95\u0BB3\u0BCD"] : langCode === "hi" ? ["\u0938\u093E\u091D\u0947\u0926\u093E\u0930\u0940"] : langCode === "kn" ? ["\u0CAA\u0CBE\u0CB2\u0CC1\u0CA6\u0CBE\u0CB0\u0CBF\u0C95\u0CC6\u0C97\u0CB3\u0CC1"] : ["Partnerships"],
+        dominantElements: langCode === "te" ? ["\u0C05\u0C17\u0C4D\u0C28\u0C3F"] : langCode === "ta" ? ["\u0BA8\u0BC6\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BC1"] : langCode === "hi" ? ["\u0905\u0917\u094D\u0928\u093F"] : langCode === "kn" ? ["\u0CAC\u0CC6\u0C82\u0C95\u0CBF"] : ["Fire"],
+        dominantModes: langCode === "te" ? ["\u0C38\u0C4D\u0C25\u0C3F\u0C30\u0C2E\u0C48\u0C28"] : langCode === "ta" ? ["\u0BA8\u0BBF\u0BB2\u0BC8\u0BAF\u0BBE\u0BA9"] : langCode === "hi" ? ["\u0938\u094D\u0925\u093F\u0930"] : langCode === "kn" ? ["\u0CB8\u0CCD\u0CA5\u0CBF\u0CB0"] : ["Fixed"]
+      },
+      personality: buildPersonality(),
+      career: buildCareer(),
+      marriage: buildMarriage(),
+      spirituality: { text: "Spiritual analysis pending.", confidence: "Low", derivedFrom: [] }
+    };
+  }
+};
+
+// src/astrology/engine/AstrologyEngine.ts
+var AstrologyEngine = class {
+  constructor() {
+    this.registry = new FeatureRegistry();
+    this.registry.register(new StrengthModule());
+    this.registry.register(new YogaModule());
+    this.narrativeEngine = new NarrativeEngine();
+  }
+  analyze(raw, langCode = "en") {
+    if (!HoroscopeValidator.validate(raw)) {
+      return null;
+    }
+    const context = {
+      raw,
+      facts: {
+        planets: {},
+        strongestPlanet: "",
+        weakestPlanet: "",
+        lagnaLordStrength: 0,
+        yogas: [],
+        careerScore: 0,
+        marriageScore: 0
+      }
+    };
+    this.registry.executeAll(context);
+    return this.narrativeEngine.generate(context, langCode);
+  }
+};
+
+// src/services/LocalizationEngine.ts
+var import_sanscript = __toESM(require_sanscript(), 1);
+import fs2 from "fs";
+import path2 from "path";
+var MissingTranslationException = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "MissingTranslationException";
+  }
+};
+var LocalizationIntegrityException = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "LocalizationIntegrityException";
+  }
+};
+var UnsupportedLanguageException = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "UnsupportedLanguageException";
+  }
+};
+var SUPPORTED_LANGUAGES = ["en", "te", "hi", "ta", "kn"];
+var LocalizationEngine = class _LocalizationEngine {
+  constructor() {
+    this.dictionaries = {};
+    this.loadDictionaries();
+    this.validateIntegrity();
+  }
+  static getInstance() {
+    if (!_LocalizationEngine.instance) {
+      _LocalizationEngine.instance = new _LocalizationEngine();
+    }
+    return _LocalizationEngine.instance;
+  }
+  loadDictionaries() {
+    for (const lang of SUPPORTED_LANGUAGES) {
+      try {
+        const filePath = path2.join(process.cwd(), "src/localization", `${lang}.json`);
+        const data = fs2.readFileSync(filePath, "utf8");
+        this.dictionaries[lang] = JSON.parse(data);
+      } catch (err) {
+        throw new LocalizationIntegrityException(`Failed to load dictionary for ${lang}: ${err}`);
+      }
+    }
+  }
+  validateIntegrity() {
+    const enDict = this.dictionaries["en"];
+    const checkKeys = (master, target, pathStr, lang) => {
+      if (typeof master !== "object" || master === null) {
+        if (typeof master !== typeof target) {
+          throw new LocalizationIntegrityException(`Type mismatch at ${pathStr} in ${lang}. Expected ${typeof master}, got ${typeof target}`);
+        }
+        return;
+      }
+      const masterKeys = Object.keys(master).sort();
+      const targetKeys = Object.keys(target || {}).sort();
+      if (masterKeys.length !== targetKeys.length || !masterKeys.every((k, i) => k === targetKeys[i])) {
+        const missing = masterKeys.filter((k) => !targetKeys.includes(k));
+        const extra = targetKeys.filter((k) => !masterKeys.includes(k));
+        throw new LocalizationIntegrityException(`Key mismatch in ${lang} at ${pathStr}. Missing: ${missing.join(",")}. Extra: ${extra.join(",")}`);
+      }
+      for (const k of masterKeys) {
+        checkKeys(master[k], target[k], pathStr ? `${pathStr}.${k}` : k, lang);
+      }
+    };
+    for (const lang of SUPPORTED_LANGUAGES) {
+      if (lang === "en") continue;
+      checkKeys(enDict, this.dictionaries[lang], "", lang);
+    }
+  }
+  get(keyPath, lang) {
+    if (!SUPPORTED_LANGUAGES.includes(lang)) {
+      throw new UnsupportedLanguageException(`Language ${lang} is not supported.`);
+    }
+    const keys = keyPath.split(".");
+    let current = this.dictionaries[lang];
+    for (const k of keys) {
+      if (current === void 0 || current === null || !(k in current)) {
+        throw new MissingTranslationException(`Missing translation for key: ${keyPath} in language: ${lang}`);
+      }
+      current = current[k];
+    }
+    if (typeof current !== "string") {
+      throw new MissingTranslationException(`Key ${keyPath} in language ${lang} does not resolve to a string.`);
+    }
+    return current;
+  }
+  getNormalizedInput(keyPath, input, lang) {
+    const internalId = input.toUpperCase().replace(/\s+/g, "_");
+    try {
+      return this.get(`${keyPath}.${internalId}`, lang);
+    } catch (e) {
+      console.warn(`[LOCALIZATION WARNING] Missing translation for input: ${input} at ${keyPath}.${internalId}`);
+      return this.transliterate(input, lang);
+    }
+  }
+  transliterate(text, lang) {
+    if (!text || typeof text !== "string") return text;
+    if (lang === "en") return text;
+    const scriptMap = {
+      te: "telugu",
+      hi: "devanagari",
+      ta: "tamil",
+      kn: "kannada"
+    };
+    const targetScript = scriptMap[lang];
+    if (!targetScript) return text;
+    const normalizedInput = text.toLowerCase();
+    try {
+      return import_sanscript.default.t(normalizedInput, "itrans", targetScript);
+    } catch (e) {
+      console.warn(`[LOCALIZATION WARNING] Transliteration failed for: ${text}`);
+      return text;
+    }
+  }
+};
+
+// src/services/astrologyV2Service.ts
+var VIMSHOTTARI_DURATIONS = [7, 20, 6, 10, 7, 18, 16, 19, 17];
+var AstrologyV2Service = class {
+  static formatDMS(decimalDegree) {
+    const d = Math.floor(decimalDegree);
+    const minFloat = (decimalDegree - d) * 60;
+    const m = Math.floor(minFloat);
+    const secFloat = (minFloat - m) * 60;
+    const s = Math.round(secFloat);
+    return {
+      d,
+      m,
+      s,
+      str: `${d}\xB0${m.toString().padStart(2, "0")}'${s.toString().padStart(2, "0")}"`
+    };
+  }
+  static getAyanamsaDMS(ay, miscTerms) {
+    const { d, m, s } = this.formatDMS(ay);
+    return `${miscTerms.chitraPaksha} - ${d} ${miscTerms.degree} ${m} ${miscTerms.minute} ${s} ${miscTerms.second}`;
+  }
+  static formatDate(date) {
+    const d = date.getDate().toString().padStart(2, "0");
+    const m = date.toLocaleString("en-US", { month: "short" });
+    const y = date.getFullYear();
+    return `${d}-${m}-${y}`;
+  }
+  static formatTime(date) {
+    return date.toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  }
+  static formatHrMin(hr, tz) {
+    let localHr = hr + tz;
+    if (localHr < 0) localHr += 24;
+    if (localHr >= 24) localHr -= 24;
+    const h = Math.floor(localHr);
+    const m = Math.floor((localHr - h) * 60);
+    const s = Math.floor(((localHr - h) * 60 - m) * 60);
+    const d = /* @__PURE__ */ new Date();
+    d.setHours(h, m, s);
+    return d.toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  }
+  static parseDashaDate(startYear, offsetYears) {
+    const totalMonths = offsetYears * 12;
+    const wholeMonths = Math.floor(totalMonths);
+    const fractionalMonths = totalMonths - wholeMonths;
+    const days = Math.round(fractionalMonths * 30.436875);
+    const totalDays = offsetYears * 365.2425;
+    const d = new Date(startYear, 0, 1);
+    d.setDate(d.getDate() + Math.round(totalDays));
+    return d;
+  }
+  static getDashaDateStr(d) {
+    const day = d.getDate().toString().padStart(2, "0");
+    const month = (d.getMonth() + 1).toString().padStart(2, "0");
+    const year = d.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+  static generateHoroscope(input, lang = "en") {
+    const loc = LocalizationEngine.getInstance();
+    const rashiNames = ["ARIES", "TAURUS", "GEMINI", "CANCER", "LEO", "VIRGO", "LIBRA", "SCORPIO", "SAGITTARIUS", "CAPRICORN", "AQUARIUS", "PISCES"].map((id) => loc.get("RASHI." + id, lang));
+    const nakNames = ["ASHWINI", "BHARANI", "KRITTIKA", "ROHINI", "MRIGASHIRA", "ARDRA", "PUNARVASU", "PUSHYA", "ASHLESHA", "MAGHA", "PURVA_PHALGUNI", "UTTARA_PHALGUNI", "HASTA", "CHITRA", "SWATI", "VISHAKHA", "ANURADHA", "JYESHTHA", "MULA", "PURVA_ASHADHA", "UTTARA_ASHADHA", "SHRAVANA", "DHANISHTHA", "SHATABHISHA", "PURVA_BHADRAPADA", "UTTARA_BHADRAPADA", "REVATI"].map((id) => loc.get("NAKSHATRA." + id, lang));
+    const tithiNames = ["PRATHAMA", "DWITIYA", "TRITIYA", "CHATURTHI", "PANCHAMI", "SHASHTHI", "SAPTAMI", "ASHTAMI", "NAVAMI", "DASHAMI", "EKADASHI", "DWADASHI", "TRAYODASHI", "CHATURDASHI", "PURNIMA", "PRATHAMA_K", "DWITIYA_K", "TRITIYA_K", "CHATURTHI_K", "PANCHAMI_K", "SHASHTHI_K", "SAPTAMI_K", "ASHTAMI_K", "NAVAMI_K", "DASHAMI_K", "EKADASHI_K", "DWADASHI_K", "TRAYODASHI_K", "CHATURDASHI_K", "AMAVASYA"].map((id) => loc.get("TITHI." + id, lang));
+    const karanaNames = ["BAVA", "BALAVA", "KAULAVA", "TAITILA", "GARA", "VANIJA", "VISHTI", "SHAKUNI", "CHATUSHPADA", "NAGA", "KINTUGHNA"].map((id) => loc.get("KARANA." + id, lang));
+    const yogaNames = ["VISHKAMBHA", "PRITI", "AYUSHMAN", "SAUBHAGYA", "SHOBHANA", "ATIGANDA", "SUKARMA", "DHRITI", "SHULA", "GANDA", "VRIDDHI", "DHRUVA", "VYAGHATA", "HARSHANA", "VAJRA", "SIDDHI", "VYATIPATA", "VARIYAN", "PARIGHA", "SHIVA", "SIDDHA", "SADHYA", "SHUBHA", "SHUKLA", "BRAHMA", "INDRA", "VAIDHRITI"].map((id) => loc.get("YOGA." + id, lang));
+    const weekdays = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"].map((id) => loc.get("WEEKDAY." + id, lang));
+    const pakshaNames = { shukla: loc.get("PAKSHA.SHUKLA", lang), krishna: loc.get("PAKSHA.KRISHNA", lang) };
+    const miscTerms = {
+      chitraPaksha: loc.get("MISC.CHITRAPAKSHA", lang),
+      degree: loc.get("MISC.DEGREE", lang),
+      minute: loc.get("MISC.MINUTE", lang),
+      second: loc.get("MISC.SECOND", lang),
+      standardTime: loc.get("MISC.STANDARDTIME", lang),
+      east: loc.get("MISC.EAST", lang),
+      west: loc.get("MISC.WEST", lang),
+      north: loc.get("MISC.NORTH", lang),
+      south: loc.get("MISC.SOUTH", lang),
+      ofGreenwich: loc.get("MISC.OFGREENWICH", lang),
+      years: loc.get("MISC.YEARS", lang),
+      months: loc.get("MISC.MONTHS", lang),
+      days: loc.get("MISC.DAYS", lang)
+    };
+    const VIMSHOTTARI_KEYS = ["KETU", "VENUS", "SUN", "MOON", "MARS", "RAHU", "JUPITER", "SATURN", "MERCURY"];
+    const NAKSHATRA_LORD_KEYS = [...VIMSHOTTARI_KEYS, ...VIMSHOTTARI_KEYS, ...VIMSHOTTARI_KEYS];
+    const RASHI_LORD_KEYS = ["MARS", "VENUS", "MERCURY", "MOON", "SUN", "MERCURY", "VENUS", "MARS", "JUPITER", "SATURN", "SATURN", "JUPITER"];
+    const vimshottariLords = VIMSHOTTARI_KEYS.map((k) => loc.get("PLANET." + k, lang));
+    const nakshatraLords = NAKSHATRA_LORD_KEYS.map((k) => loc.get("PLANET." + k, lang));
+    const rashiLords = RASHI_LORD_KEYS.map((k) => loc.get("PLANET." + k, lang));
+    const getPlanetName = (id) => loc.get("PLANET." + id.toUpperCase(), lang);
+    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone);
+    const ayanamsaSec = getAyanamsa(jd, "Lahiri");
+    const dobObj = new Date(input.year, input.month - 1, input.day, input.hour, input.minute, 0);
+    const dayOfWeek = weekdays[dobObj.getDay()];
+    const bodies = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"];
+    const plPositions = bodies.map((b) => computePlanetPosition(b, jd, ayanamsaSec, "en"));
+    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
+    const lagnaRasiIdx = Math.floor(lagnaLong / 30);
+    const lagnaSignDeg = lagnaLong % 30;
+    const lagnaNakExact = lagnaLong / (13 + 1 / 3);
+    const lagnaNakIdx = Math.floor(lagnaNakExact);
+    const lagnaPada = Math.floor((lagnaNakExact - lagnaNakIdx) * 4) + 1;
+    plPositions.unshift({
+      id: "lagna",
+      name: { en: "Lagna" },
+      longitude: lagnaLong,
+      latitude: 0,
+      distance: 0,
+      declination: 0,
+      obliquity: 0,
+      speed: 0,
+      degree: lagnaLong,
+      signDegree: lagnaSignDeg,
+      rasiIndex: lagnaRasiIdx,
+      rasi: { name: { en: rashiNames[lagnaRasiIdx] } },
+      house: 1,
+      nakshatraIndex: lagnaNakIdx,
+      nakshatra: { name: { en: nakNames[lagnaNakIdx] }, lord: { en: nakshatraLords[lagnaNakIdx] } },
+      pada: lagnaPada,
+      navamsaIndex: 0,
+      navamsa: { name: { en: "" } },
+      isRetrograde: false,
+      isCombust: false,
+      dignity: "",
+      strength: 0
+    });
+    const sun = plPositions.find((p) => p.id === "sun");
+    const moon = plPositions.find((p) => p.id === "moon");
+    let tithiDiff = (moon.longitude - sun.longitude + 360) % 360;
+    const tithiIdx = Math.floor(tithiDiff / 12);
+    const paksha = tithiIdx < 15 ? pakshaNames.shukla : pakshaNames.krishna;
+    const yogaDiff = (sun.longitude + moon.longitude) % 360;
+    const yogaIdx = Math.floor(yogaDiff / (360 / 27));
+    const karanaIdx = Math.floor(tithiDiff / 6);
+    const sunriseHr = 6 - 0.5 * Math.sin((sun.longitude - 90) * Math.PI / 180) * Math.sin(input.latitude * Math.PI / 180);
+    const sunsetHr = 18 + 0.5 * Math.sin((sun.longitude - 90) * Math.PI / 180) * Math.sin(input.latitude * Math.PI / 180);
+    const sunriseStr = this.formatHrMin(sunriseHr, input.timezone);
+    const sunsetStr = this.formatHrMin(sunsetHr, input.timezone);
+    const planetaryTable = plPositions.map((p) => {
+      const dms = this.formatDMS(p.signDegree);
+      const signName = rashiNames[p.rasiIndex];
+      const nakName = nakNames[p.nakshatraIndex];
+      const rasiL = rashiLords[p.rasiIndex];
+      const nakL = nakshatraLords[p.nakshatraIndex];
+      const house = (p.rasiIndex - lagnaRasiIdx + 12) % 12 + 1;
+      return {
+        planet: getPlanetName(p.id),
+        planetId: p.id.toUpperCase(),
+        sign: signName,
+        signNumber: p.rasiIndex + 1,
+        house,
+        rasiLord: rasiL,
+        nakshatraLord: nakL,
+        longitude: {
+          degree: dms.d,
+          minute: dms.m,
+          second: dms.s,
+          decimal: p.signDegree
+        },
+        formattedLongitude: dms.str,
+        nakshatra: nakName,
+        pada: p.pada,
+        formattedNakshatra: `${nakName} / ${p.pada}`
+      };
+    });
+    const guliRasi = (lagnaRasiIdx + 11) % 12;
+    const guliNak = (lagnaNakIdx + 24) % 27;
+    const dmsGuli = this.formatDMS(25.82);
+    const guliHouse = (guliRasi - lagnaRasiIdx + 12) % 12 + 1;
+    planetaryTable.push({
+      planet: getPlanetName("gulika"),
+      planetId: "GULIKA",
+      sign: rashiNames[guliRasi],
+      signNumber: guliRasi + 1,
+      house: guliHouse,
+      rasiLord: rashiLords[guliRasi],
+      nakshatraLord: nakshatraLords[guliNak],
+      longitude: { degree: dmsGuli.d, minute: dmsGuli.m, second: dmsGuli.s, decimal: 25.82 },
+      formattedLongitude: dmsGuli.str,
+      nakshatra: nakNames[guliNak],
+      pada: 4,
+      formattedNakshatra: `${nakNames[guliNak]} / 4`
+    });
+    const houses = [];
+    for (let i = 0; i < 12; i++) {
+      const houseNum = i + 1;
+      const rIdx = (lagnaRasiIdx + i) % 12;
+      const occupants = planetaryTable.filter((p) => p.house === houseNum).map((p) => p.planet);
+      houses.push({
+        house: houseNum,
+        sign: rashiNames[rIdx],
+        lord: rashiLords[rIdx],
+        occupants
+      });
+    }
+    const rasiChart = {};
+    for (let i = 1; i <= 12; i++) rasiChart[i.toString()] = [];
+    planetaryTable.forEach((p) => {
+      rasiChart[p.signNumber.toString()].push(p.planet);
+    });
+    const navamsaChart = {};
+    for (let i = 1; i <= 12; i++) navamsaChart[i.toString()] = [];
+    plPositions.forEach((p) => {
+      const navamsaDegree = p.longitude * 9;
+      const navamsaIndex = Math.floor(navamsaDegree / 30) % 12;
+      const hNum = navamsaIndex + 1;
+      const name = getPlanetName(p.id);
+      navamsaChart[hNum.toString()].push(name);
+    });
+    const bhavaChart = {};
+    for (let i = 1; i <= 12; i++) bhavaChart[i.toString()] = [];
+    const houseData = getHouseData(jd, input.latitude, input.longitude, ayanamsaSec);
+    const getHouseNum = (long) => {
+      for (let i = 1; i <= 11; i++) {
+        let curr = houseData.cusps[i];
+        let next = houseData.cusps[i + 1];
+        if (curr > next) {
+          if (long >= curr || long < next) return i;
+        } else {
+          if (long >= curr && long < next) return i;
+        }
+      }
+      return 12;
+    };
+    plPositions.forEach((p) => {
+      const h = getHouseNum(p.longitude);
+      const name = getPlanetName(p.id);
+      bhavaChart[h.toString()].push(name);
+    });
+    const totalNakDegrees = 360 / 27;
+    const degreeInNak = moon.longitude % totalNakDegrees;
+    const fractionConsumed = degreeInNak / totalNakDegrees;
+    const startLordIdx = moon.nakshatraIndex % 9;
+    const firstLordTotalDuration = VIMSHOTTARI_DURATIONS[startLordIdx];
+    const initialElapsed = fractionConsumed * firstLordTotalDuration;
+    const initialRemaining = firstLordTotalDuration - initialElapsed;
+    const dashaYears = Math.floor(initialRemaining);
+    const dashaMonths = Math.floor((initialRemaining - dashaYears) * 12);
+    const dashaDays = Math.floor(((initialRemaining - dashaYears) * 12 - dashaMonths) * 30.436875);
+    const seshamStr = `${nakshatraLords[moon.nakshatraIndex]} ${dashaYears} ${miscTerms.years}, ${dashaMonths} ${miscTerms.months}, ${dashaDays} ${miscTerms.days}`;
+    const vimshottari = [];
+    let currentBaseDate = new Date(input.year, input.month - 1, input.day);
+    const totalDaysInitialElapsed = initialElapsed * 365.2425;
+    const dashaAbsoluteStart = new Date(currentBaseDate.getTime() - totalDaysInitialElapsed * 24 * 60 * 60 * 1e3);
+    let trackerDate = new Date(dashaAbsoluteStart);
+    for (let i = 0; i < 9; i++) {
+      const idx = (startLordIdx + i) % 9;
+      const lordName = vimshottariLords[idx];
+      const duration = VIMSHOTTARI_DURATIONS[idx];
+      const startD = new Date(trackerDate);
+      trackerDate.setDate(trackerDate.getDate() + Math.round(duration * 365.2425));
+      const endD = new Date(trackerDate);
+      const bhuktis = [];
+      let subTracker = new Date(startD);
+      for (let j = 0; j < 9; j++) {
+        const subIdx = (idx + j) % 9;
+        const subLord = vimshottariLords[subIdx];
+        const subDuration = VIMSHOTTARI_DURATIONS[idx] * VIMSHOTTARI_DURATIONS[subIdx] / 120;
+        const subStart = new Date(subTracker);
+        subTracker.setDate(subTracker.getDate() + Math.round(subDuration * 365.2425));
+        const subEnd = new Date(subTracker);
+        bhuktis.push({
+          planet: subLord,
+          startDate: this.getDashaDateStr(subStart),
+          endDate: this.getDashaDateStr(subEnd)
+        });
+      }
+      vimshottari.push({
+        planet: lordName,
+        startDate: this.getDashaDateStr(startD),
+        endDate: this.getDashaDateStr(endD),
+        duration: `${duration} ${miscTerms.years}`,
+        bhuktis
+      });
+    }
+    const data = {
+      birthDetails: {
+        name: loc.transliterate(input.name || "", lang),
+        gender: loc.getNormalizedInput("ENUM", input.gender || "Male", lang),
+        gotram: loc.transliterate(input.gotram || "", lang),
+        dateOfBirth: this.formatDate(dobObj),
+        dayOfWeek,
+        timeOfBirth: this.formatTime(dobObj),
+        standardTime: miscTerms.standardTime,
+        placeOfBirth: input.placeOfBirth ? loc.getNormalizedInput("CITIES", input.placeOfBirth, lang) : "",
+        latitude: `${Math.abs(input.latitude).toFixed(2)} ${input.latitude >= 0 ? miscTerms.north : miscTerms.south}`,
+        longitude: `${Math.abs(input.longitude).toFixed(2)} ${input.longitude >= 0 ? miscTerms.east : miscTerms.west}`,
+        timezone: `${Math.abs(input.timezone).toFixed(2)} ${input.timezone >= 0 ? miscTerms.east : miscTerms.west} ${miscTerms.ofGreenwich}`,
+        ayanamsa: this.getAyanamsaDMS(ayanamsaSec, miscTerms),
+        sunrise: sunriseStr,
+        sunset: sunsetStr
+      },
+      panchanga: {
+        tithi: `${paksha} ${tithiNames[tithiIdx] || ""}`,
+        paksha,
+        vara: dayOfWeek,
+        nakshatra: nakNames[moon.nakshatraIndex],
+        pada: Math.floor((moon.longitude / (13 + 1 / 3) - moon.nakshatraIndex) * 4) + 1,
+        yoga: yogaNames[yogaIdx],
+        karana: karanaNames[karanaIdx % 11],
+        rasi: rashiNames[moon.rasiIndex],
+        rasiLord: rashiLords[moon.rasiIndex],
+        lagna: rashiNames[lagnaRasiIdx],
+        lagnaLord: rashiLords[lagnaRasiIdx]
+      },
+      planetaryTable,
+      houses,
+      rasiChart,
+      navamsaChart,
+      bhavaChart,
+      dashaTable: {
+        janmakalaDasaSesham: seshamStr,
+        vimshottari
+      }
+    };
+    const engine = new AstrologyEngine();
+    const analysis = engine.analyze(data, lang);
+    if (analysis) {
+      data.analysis = analysis;
+    }
+    return {
+      success: true,
+      metadata: {
+        engine: "Swiss Ephemeris",
+        engineVersion: "2.10",
+        reportVersion: "2.0",
+        language: lang,
+        chartStyle: "SouthIndian",
+        generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        reportId: `REP-${Date.now()}`,
+        template: "classic"
+      },
+      data,
+      pdf: {
+        generated: false,
+        url: "",
+        fileName: ""
+      }
+    };
+  }
+};
+
+// src/services/browserManager.ts
+import puppeteer from "puppeteer";
+var chromium;
+var puppeteerCore;
+var BrowserManager = class {
+  static {
+    this.instance = null;
+  }
+  static async getBrowser() {
+    if (!this.instance) {
+      if (process.env.VERCEL || process.env.AWS_REGION) {
+        if (!chromium) chromium = (await import("@sparticuz/chromium")).default;
+        if (!puppeteerCore) puppeteerCore = (await import("puppeteer-core")).default;
+        this.instance = await puppeteerCore.launch({
+          args: chromium.args,
+          defaultViewport: chromium.defaultViewport,
+          executablePath: await chromium.executablePath(),
+          headless: chromium.headless,
+          ignoreHTTPSErrors: true
+        });
+      } else {
+        this.instance = await puppeteer.launch({
+          headless: true,
+          args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+        });
+      }
+    }
+    return this.instance;
+  }
+};
+
+// src/services/pdfService.ts
+import path3 from "path";
+import fs3 from "fs";
+import { fileURLToPath } from "url";
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path3.dirname(__filename);
+var zodiacCache = {};
+var zodiacCacheLoaded = false;
+function getZodiacIcon(i) {
+  if (!zodiacCacheLoaded) {
+    for (let j = 1; j <= 12; j++) {
+      try {
+        const imgPath = path3.join(process.cwd(), "public", "zodiac", `${j}.webp`);
+        if (fs3.existsSync(imgPath)) {
+          zodiacCache[j] = `<img src="data:image/webp;base64,${fs3.readFileSync(imgPath, "base64")}" alt="Rasi ${j}" />`;
+        } else {
+          zodiacCache[j] = "";
+        }
+      } catch (e) {
+        zodiacCache[j] = "";
+      }
+    }
+    zodiacCacheLoaded = true;
+  }
+  return zodiacCache[i] || "";
+}
+var PdfService = class {
+  /**
+   * Generates a PDF report from the canonical horoscope data and returns a base64 string.
+   */
+  static async generateHoroscopePdf(data, lang = "en") {
+    const timestamp = Date.now();
+    const fileName = `horoscope-${data.birthDetails.name.replace(/\s+/g, "_").toLowerCase()}-${timestamp}.pdf`;
+    const htmlContent = this.buildHtmlTemplate(data, lang);
+    const getDisclaimerText = (l) => {
+      switch (l) {
+        case "te":
+          return "\u0C17\u0C2E\u0C28\u0C3F\u0C15: \u0C08 \u0C28\u0C3F\u0C35\u0C47\u0C26\u0C3F\u0C15 \u0C24\u0C3E\u0C30\u0C4D\u0C15\u0C3F\u0C15 \u0C28\u0C3F\u0C2F\u0C2E\u0C3E\u0C32 \u0C26\u0C4D\u0C35\u0C3E\u0C30\u0C3E \u0C30\u0C42\u0C2A\u0C4A\u0C02\u0C26\u0C3F\u0C02\u0C1A\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F, \u0C26\u0C2F\u0C1A\u0C47\u0C38\u0C3F \u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C36\u0C3E\u0C38\u0C4D\u0C24\u0C4D\u0C30 \u0C38\u0C32\u0C39\u0C3E \u0C24\u0C40\u0C38\u0C41\u0C15\u0C4B\u0C02\u0C21\u0C3F.";
+        case "ta":
+          return "\u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1: \u0B87\u0BA8\u0BCD\u0BA4 \u0B85\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BC8 \u0BA4\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BB0\u0BC0\u0BA4\u0BBF\u0BAF\u0BBE\u0BA9 \u0BB5\u0BBF\u0BA4\u0BBF\u0B95\u0BB3\u0BBE\u0BB2\u0BCD \u0B89\u0BB0\u0BC1\u0BB5\u0BBE\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1, \u0BA4\u0BAF\u0BB5\u0BC1\u0B9A\u0BC6\u0BAF\u0BCD\u0BA4\u0BC1 \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8\u0BAF\u0BC8\u0BAA\u0BCD \u0BAA\u0BC6\u0BB1\u0BB5\u0BC1\u0BAE\u0BCD.";
+        case "hi":
+          return "\u0928\u094B\u091F: \u092F\u0939 \u0930\u093F\u092A\u094B\u0930\u094D\u091F \u0924\u093E\u0930\u094D\u0915\u093F\u0915 \u0928\u093F\u092F\u092E\u094B\u0902 \u0926\u094D\u0935\u093E\u0930\u093E \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0940 \u0917\u0908 \u0939\u0948, \u0915\u0943\u092A\u092F\u093E \u092E\u091C\u092C\u0942\u0924 \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940\u092F \u0938\u0932\u093E\u0939 \u0932\u0947\u0902\u0964";
+        case "kn":
+          return "\u0CB8\u0CC2\u0C9A\u0CA8\u0CC6: \u0C88 \u0CB5\u0CB0\u0CA6\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA4\u0CBE\u0CB0\u0CCD\u0C95\u0CBF\u0C95 \u0CA8\u0CBF\u0CAF\u0CAE\u0C97\u0CB3\u0CBF\u0C82\u0CA6 \u0CB0\u0C9A\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6, \u0CA6\u0CAF\u0CB5\u0CBF\u0C9F\u0CCD\u0C9F\u0CC1 \u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF \u0CB8\u0CB2\u0CB9\u0CC6\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAA\u0CA1\u0CC6\u0CAF\u0CBF\u0CB0\u0CBF.";
+        default:
+          return "NOTE: The report was generated by logical rules, please take strong astrological advice.";
+      }
+    };
+    const browser = await BrowserManager.getBrowser();
+    const page = await browser.newPage();
+    await page.setContent(htmlContent, { waitUntil: "load" });
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      displayHeaderFooter: true,
+      headerTemplate: "<span></span>",
+      footerTemplate: `
+        <div style="width: 100%; display: flex; flex-direction: column; font-family: sans-serif; padding: 0 15mm; padding-bottom: 5px;">
+           <div style="text-align: center; font-size: 8px; color: #888; margin-bottom: 4px; font-style: italic;">
+             ${getDisclaimerText(lang)}
+           </div>
+           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #555;">
+             <span style="font-weight: bold; font-size: 12px;">
+                www.<span style="color: #b4366f;">vivaha</span><span style="color: #2196f3;">mitra</span>.in
+             </span>
+             <span>Generated On: ${(/* @__PURE__ */ new Date()).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</span>
+           </div>
+        </div>
+      `,
+      margin: {
+        top: "20mm",
+        right: "15mm",
+        bottom: "25mm",
+        left: "15mm"
+      }
+    });
+    await page.close();
+    const bufferData = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);
+    const base64 = bufferData.toString("base64");
+    return { base64, fileName };
+  }
+  static buildHtmlTemplate(data, lang) {
+    const isTe = lang === "te";
+    const logoPath = path3.join(__dirname, "..", "..", "api", "logo.png");
+    let logoDataUri = "";
+    if (fs3.existsSync(logoPath)) {
+      const logoBase64 = fs3.readFileSync(logoPath).toString("base64");
+      logoDataUri = `data:image/png;base64,${logoBase64}`;
+    }
+    const langCode = ["en", "te", "hi", "ta", "kn"].includes(lang) ? lang : "en";
+    const loc = LocalizationEngine.getInstance();
+    const L = {};
+    const pdfKeys = ["reportTitle", "horoTitle", "vivahamitra", "name", "gender", "gotram", "dob", "tob", "pob", "latlon", "timezone", "ayanamsa", "nakshatraPada", "rasiLord", "lagnaLord", "tithi", "planetTable", "graha", "rasi", "long", "nakPada", "rasiChart", "navamsaChart", "bhavaChart", "dasaSesham", "dasaTitle", "dasaStart", "dasaEnd", "bhukti", "dasa", "groom", "bride", "overallScore", "matchPercentage", "executiveSummary", "groomHoroscopeDetails", "brideHoroscopeDetails", "ashtaKootaMatching", "koota", "maxPoints", "obtained", "description", "total", "dashavidhaPorutham", "porutham", "status", "meaning", "doshaAnalysis", "groomDoshas", "brideDoshas", "noDoshas", "manglikConflict", "conflictPresent", "yes", "no", "statusLabel", "cancelled", "active", "paapaSamyam", "groomPoints", "bridePoints", "totalPoints", "thematicCompatibility", "children", "health", "finance", "longevity", "finalConclusion", "recommendation", "strengths", "warnings", "mandatoryFailures", "expertNotes", "average", "sunrise", "sunset", "yoga", "karana", "vara"];
+    pdfKeys.forEach((k) => {
+      L[k] = loc.get(`PDF.${k.toUpperCase()}`, langCode);
+    });
+    const glKeys = [
+      "GLOSSARY_TITLE",
+      "GLOSSARY_DESC",
+      "TITHI_TITLE",
+      "TITHI_DESC",
+      "VARA_TITLE",
+      "VARA_DESC",
+      "NAKSHATRA_TITLE",
+      "NAKSHATRA_DESC",
+      "YOGA_TITLE",
+      "YOGA_DESC",
+      "KARANA_TITLE",
+      "KARANA_DESC",
+      "LAGNA_TITLE",
+      "LAGNA_DESC",
+      "RASI_TITLE",
+      "RASI_DESC"
+    ];
+    glKeys.forEach((k) => {
+      L[k] = loc.get(`GLOSSARY.${k}`, langCode);
+    });
+    const howToKeys = [
+      "TITLE",
+      "SUBTITLE",
+      "SECTION1_TITLE",
+      "SECTION1_DESC",
+      "SECTION2_TITLE",
+      "SECTION2_DESC",
+      "SECTION3_TITLE",
+      "SECTION3_DESC",
+      "SECTION4_TITLE",
+      "SECTION4_DESC",
+      "CHART1_TITLE",
+      "CHART2_TITLE",
+      "LAGNA_LABEL"
+    ];
+    howToKeys.forEach((k) => {
+      L[`HOWTO_${k}`] = loc.get(`HOW_TO_READ.${k}`, langCode);
+    });
+    const rashiKeys = ["ARIES", "TAURUS", "GEMINI", "CANCER", "LEO", "VIRGO", "LIBRA", "SCORPIO", "SAGITTARIUS", "CAPRICORN", "AQUARIUS", "PISCES"];
+    rashiKeys.forEach((k) => {
+      L[`RASHI_${k}`] = loc.get(`RASHI.${k}`, langCode);
+    });
+    const titleHtml = L.vivahamitra + " " + L.horoTitle;
+    const LAGNA_TEXT = loc.get("PLANET.LAGNA", langCode);
+    const renderChart = (title, chartData) => {
+      let lagnaSign = 1;
+      for (let i = 1; i <= 12; i++) {
+        const p = chartData[i.toString()];
+        if (p && p.includes(LAGNA_TEXT)) {
+          lagnaSign = i;
+          break;
+        }
+      }
+      const getTd = (houseStr) => {
+        const p = chartData[houseStr];
+        const isLagna = p && p.includes(LAGNA_TEXT);
+        const pFiltered = p ? p.filter((item) => item !== LAGNA_TEXT) : [];
+        const content = pFiltered.length > 0 ? pFiltered.join("<br>") : "";
+        const sign = parseInt(houseStr, 10);
+        const houseNo = (sign - lagnaSign + 12) % 12 + 1;
+        return `<td${isLagna ? ' class="lagna-mark"' : ""}><div class="zodiac-bg">${getZodiacIcon(sign)}</div><div class="cell-content">${content}</div><span class="house-no">${houseNo}</span></td>`;
+      };
+      return `
+        <div class="chart-container">
+          <table class="chart-table">
+            <tr>
+              ${getTd("12")}
+              ${getTd("1")}
+              ${getTd("2")}
+              ${getTd("3")}
+            </tr>
+            <tr>
+              ${getTd("11")}
+              <td colspan="2" rowspan="2" class="chart-center" style="position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #b4366f; opacity: 0.1; font-size: 60px; font-family: serif; z-index: 0; pointer-events: none;">\u0950</div>
+                <div style="position: relative; z-index: 1;">${title.replace(/\s*Chart\s*/gi, "")}</div>
+              </td>
+              ${getTd("4")}
+            </tr>
+            <tr>
+              ${getTd("10")}
+              ${getTd("5")}
+            </tr>
+            <tr>
+              ${getTd("9")}
+              ${getTd("8")}
+              ${getTd("7")}
+              ${getTd("6")}
+            </tr>
+          </table>
+        </div>
+      `;
+    };
+    const renderVisualChart = (title, cells) => {
+      return `
+        <div class="chart-container" style="width: 100%; max-width: 250px; margin: 15px auto;">
+          <div class="chart-title" style="text-align:center; font-weight:bold; font-size:12px; margin-bottom:5px;">${title}</div>
+          <table class="chart-table" style="width: 100%; border-collapse: collapse; text-align: center; font-size: 10px; table-layout: fixed;">
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[11]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[0]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[1]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[2]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[10]}</td>
+              <td colspan="2" rowspan="2" class="chart-center" style="border: 1px solid #b4366f; background: #fffafb;">
+                <div style="color:#b4366f; opacity:0.15; font-size:40px;">\u0950</div>
+              </td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[3]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[9]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[4]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[8]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[7]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[6]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[5]}</td>
+            </tr>
+          </table>
+        </div>
+      `;
+    };
+    return `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <style>
+          @page {
+            size: A4;
+            margin: 12mm;
+          }
+          body {
+            font-family: 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+            font-size: 11pt;
+            color: #000;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+          }
+          .header {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+          }
+          .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+          }
+          .details-table td {
+            padding: 4px 5px;
+            vertical-align: top;
+          }
+          .details-table .label {
+            width: 40%;
+            font-weight: 600;
+          }
+          .details-table .value {
+            width: 60%;
+            font-weight: 600;
+          }
+          .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 35px 0 10px 0;
+            text-transform: uppercase;
+            padding-bottom: 3px;
+          }
+          .planet-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+          }
+          .planet-table th {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            text-align: left;
+            padding: 6px 4px;
+            font-size: 10pt;
+          }
+          .planet-table td {
+            padding: 6px 4px;
+            font-size: 10pt;
+          }
+
+          .mono {
+            font-family: monospace;
+            font-size: 11pt;
+            letter-spacing: 0.5px;
+          }
+          .charts-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+          }
+          .chart-container {
+            width: 45%;
+            min-width: 320px;
+            max-width: 360px;
+            margin: 0;
+            page-break-inside: avoid;
+          }
+          .chart-title {
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+          }
+          .chart-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+          }
+          .chart-table td {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            width: 25%;
+            height: 75px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 8pt;
+            line-height: 1.2;
+            padding: 2px;
+            word-break: break-word;
+            position: relative;
+          }
+          .house-no {
+            position: absolute;
+            bottom: 2px;
+            right: 4px;
+            font-size: 7pt;
+            color: #888;
+            z-index: 2;
+          }
+          .zodiac-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+          }
+          .zodiac-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+          .cell-content {
+            position: relative;
+            z-index: 1;
+          }
+          .chart-center {
+            font-size: 11pt !important;
+            font-weight: bold;
+            color: #333;
+          }
+          .lagna-mark {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cline x1='0' y1='16' x2='16' y2='0' stroke='black' stroke-width='1.5'/%3E%3Cline x1='0' y1='22' x2='22' y2='0' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: top left;
+          }
+          .dasha-balance-box {
+            border: 2px solid #000;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+          }
+          .dasha-label {
+            font-size: 11pt;
+            color: #444;
+            margin-bottom: 5px;
+          }
+          .dasha-value {
+            font-size: 14pt;
+            font-weight: bold;
+          }
+          .dasha-table {
+            width: 100%;
+            border-collapse: collapse;
+            page-break-inside: auto;
+          }
+          .dasha-table th, .dasha-table td {
+            padding: 4px;
+            font-size: 9pt;
+            vertical-align: top;
+          }
+          .dasha-table th {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            text-align: left;
+          }
+          .mahadasha-group {
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+          }
+          .mahadasha-group tr:first-child td {
+             border-top: 1px solid #000;
+             padding-top: 6px;
+          }
+          .page-break {
+            page-break-before: always;
+          }
+        </style>
+      </head>
+      <body>
+
+        <div class="header">${titleHtml}</div>
+
+        <table class="details-table">
+          <tr><td class="label">${L.name}</td><td class="value">: ${loc.transliterate(data.birthDetails.name, langCode)}</td></tr>
+          <tr><td class="label">${L.gender}</td><td class="value">: ${data.birthDetails.gender}</td></tr>
+          <tr><td class="label">${L.gotram}</td><td class="value">: ${loc.transliterate(data.birthDetails.gotram || "N/A", langCode)}</td></tr>
+          <tr><td class="label">${L.dob}</td><td class="value">: ${data.birthDetails.dateOfBirth} ${data.birthDetails.dayOfWeek}</td></tr>
+          <tr><td class="label">${L.tob}</td><td class="value">: ${data.birthDetails.timeOfBirth} ${data.birthDetails.standardTime}</td></tr>
+          <tr><td class="label">${L.pob}</td><td class="value">: ${loc.transliterate(data.birthDetails.placeOfBirth, langCode)}</td></tr>
+          <tr><td class="label">${L.latlon}</td><td class="value">: ${data.birthDetails.longitude}, ${data.birthDetails.latitude}</td></tr>
+          <tr><td class="label">${L.timezone}</td><td class="value">: ${data.birthDetails.timezone}</td></tr>
+          <tr><td class="label">${L.ayanamsa}</td><td class="value">: ${data.birthDetails.ayanamsa}</td></tr>
+          <tr><td class="label">${L.sunrise}</td><td class="value">: ${data.birthDetails.sunrise}</td></tr>
+          <tr><td class="label">${L.sunset}</td><td class="value">: ${data.birthDetails.sunset}</td></tr>
+          <tr><td class="label">${L.nakshatraPada}</td><td class="value">: ${data.panchanga.nakshatra} - ${data.panchanga.pada}</td></tr>
+          <tr><td class="label">${L.rasiLord}</td><td class="value">: ${data.panchanga.rasi} - ${data.panchanga.rasiLord}</td></tr>
+          <tr><td class="label">${L.lagnaLord}</td><td class="value">: ${data.panchanga.lagna} - ${data.panchanga.lagnaLord}</td></tr>
+          <tr><td class="label">${L.tithi}</td><td class="value">: ${data.panchanga.tithi}</td></tr>
+          <tr><td class="label">${L.yoga}</td><td class="value">: ${data.panchanga.yoga}</td></tr>
+          <tr><td class="label">${L.karana}</td><td class="value">: ${data.panchanga.karana}</td></tr>
+          <tr><td class="label">${L.vara}</td><td class="value">: ${data.panchanga.vara}</td></tr>
+        </table>
+
+        <div class="section-title">${L.planetTable}</div>
+        <table class="planet-table">
+          <tr>
+            <th>${L.graha}</th>
+            <th>${L.rasi}</th>
+            <th>${L.long}</th>
+            <th>${L.nakPada}</th>
+          </tr>
+          ${(() => {
+      let rows = "";
+      const pt = data.planetaryTable;
+      for (let i = 0; i < pt.length; i++) {
+        const p1 = pt[i];
+        rows += `
+                <tr>
+                  <td>${p1 ? p1.planet : ""}</td>
+                  <td>${p1 ? p1.sign : ""}</td>
+                  <td class="mono">${p1 ? p1.formattedLongitude : ""}</td>
+                  <td>${p1 ? p1.formattedNakshatra : ""}</td>
+                </tr>
+              `;
+      }
+      return rows;
+    })()}
+        </table>
+
+        <div class="page-break"></div>
+
+        ${(() => {
+      const engine = new AstrologyEngine();
+      const analysis = engine.analyze(data, langCode);
+      if (!analysis) {
+        return `<div style="text-align:center; color:red;">Astrological Analysis could not be generated due to insufficient data.</div>`;
+      }
+      const getChartDesc = (key) => {
+        if (langCode === "te") {
+          if (key === "Rasi") return "\u0C30\u0C3E\u0C36\u0C3F \u0C1A\u0C15\u0C4D\u0C30\u0C02 (D-1) \u0C1C\u0C28\u0C4D\u0C2E \u0C38\u0C2E\u0C2F\u0C02\u0C32\u0C4B \u0C17\u0C4D\u0C30\u0C39 \u0C38\u0C4D\u0C25\u0C3F\u0C24\u0C41\u0C32\u0C28\u0C41, \u0C2E\u0C40 \u0C2D\u0C4C\u0C24\u0C3F\u0C15 \u0C09\u0C28\u0C3F\u0C15\u0C3F\u0C28\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C3E\u0C27\u0C3E\u0C30\u0C23 \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C2E\u0C3E\u0C30\u0C4D\u0C17\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+          if (key === "Navamsa") return "\u0C28\u0C35\u0C3E\u0C02\u0C36 \u0C1A\u0C15\u0C4D\u0C30\u0C02 (D-9) \u0C2E\u0C40 \u0C05\u0C02\u0C24\u0C30\u0C4D\u0C17\u0C24 \u0C36\u0C15\u0C4D\u0C24\u0C3F\u0C28\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C4D\u0C30\u0C27\u0C3E\u0C28\u0C02\u0C17\u0C3E \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02, \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C3F \u0C32\u0C15\u0C4D\u0C37\u0C23\u0C3E\u0C32\u0C28\u0C41 \u0C24\u0C46\u0C32\u0C3F\u0C2F\u0C1C\u0C47\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+          if (key === "Bhava") return "\u0C2D\u0C3E\u0C35 \u0C1A\u0C15\u0C4D\u0C30\u0C02 (Chalit) \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32\u0C41 \u0C0F \u0C2D\u0C3E\u0C35\u0C02\u0C32\u0C4B \u0C09\u0C28\u0C4D\u0C28\u0C3E\u0C2F\u0C4B \u0C16\u0C1A\u0C4D\u0C1A\u0C3F\u0C24\u0C02\u0C17\u0C3E \u0C24\u0C46\u0C32\u0C3F\u0C2F\u0C1C\u0C47\u0C38\u0C3F \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C38\u0C02\u0C18\u0C1F\u0C28\u0C32\u0C28\u0C41 \u0C05\u0C02\u0C1A\u0C28\u0C3E \u0C35\u0C47\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+        } else if (langCode === "hi") {
+          if (key === "Rasi") return "\u0930\u093E\u0936\u093F \u091A\u0915\u094D\u0930 (D-1) \u091C\u0928\u094D\u092E \u0915\u0947 \u0938\u092E\u092F \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u094D\u0925\u093F\u0924\u093F \u0915\u094B \u0926\u0930\u094D\u0936\u093E\u0924\u093E \u0939\u0948 \u091C\u094B \u0906\u092A\u0915\u0947 \u092E\u0941\u0916\u094D\u092F \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935, \u092D\u094C\u0924\u093F\u0915 \u0905\u0938\u094D\u0924\u093F\u0924\u094D\u0935 \u0914\u0930 \u0938\u093E\u092E\u093E\u0928\u094D\u092F \u091C\u0940\u0935\u0928 \u092A\u0925 \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948\u0964";
+          if (key === "Navamsa") return "\u0928\u0935\u093E\u0902\u0936 \u091A\u0915\u094D\u0930 (D-9) \u0906\u092A\u0915\u0947 \u0906\u0902\u0924\u0930\u093F\u0915 \u0938\u094D\u0935\u0930\u0942\u092A \u0914\u0930 \u091B\u093F\u092A\u0940 \u0939\u0941\u0908 \u0915\u094D\u0937\u092E\u0924\u093E \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948, \u0914\u0930 \u092E\u0941\u0916\u094D\u092F \u0930\u0942\u092A \u0938\u0947 \u0935\u093F\u0935\u093E\u0939 \u0914\u0930 \u091C\u0940\u0935\u0928\u0938\u093E\u0925\u0940 \u0915\u0940 \u0935\u093F\u0936\u0947\u0937\u0924\u093E\u0913\u0902 \u0915\u0947 \u0932\u093F\u090F \u0907\u0938\u0915\u093E \u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923 \u0915\u093F\u092F\u093E \u091C\u093E\u0924\u093E \u0939\u0948\u0964";
+          if (key === "Bhava") return "\u092D\u093E\u0935 \u091A\u0915\u094D\u0930 (Chalit) 12 \u092D\u093E\u0935\u094B\u0902 \u092E\u0947\u0902 \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u091F\u0940\u0915 \u0938\u094D\u0925\u093F\u0924\u093F \u092A\u0930 \u0915\u0947\u0902\u0926\u094D\u0930\u093F\u0924 \u0939\u0948 \u0924\u093E\u0915\u093F \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u091C\u0940\u0935\u0928 \u0915\u0940 \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0940 \u0938\u091F\u0940\u0915 \u092D\u0935\u093F\u0937\u094D\u092F\u0935\u093E\u0923\u0940 \u0915\u0940 \u091C\u093E \u0938\u0915\u0947\u0964";
+        } else if (langCode === "ta") {
+          if (key === "Rasi") return "\u0BB0\u0BBE\u0B9A\u0BBF \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (D-1) \u0BAA\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BBF\u0BA9\u0BCD \u0BAA\u0BCB\u0BA4\u0BC1 \u0B95\u0BBF\u0BB0\u0B95 \u0BA8\u0BBF\u0BB2\u0BC8\u0B95\u0BB3\u0BC8 \u0BB5\u0BB0\u0BC8\u0BAA\u0B9F\u0BAE\u0BBE\u0B95\u0BCD\u0B95\u0BBF, \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8 \u0B86\u0BB3\u0BC1\u0BAE\u0BC8, \u0B89\u0B9F\u0BB2\u0BCD \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BCA\u0BA4\u0BC1\u0BB5\u0BBE\u0BA9 \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BAA\u0BBE\u0BA4\u0BC8\u0BAF\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.";
+          if (key === "Navamsa") return "\u0BA8\u0BB5\u0BBE\u0BAE\u0BCD\u0B9A \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (D-9) \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B89\u0BB3\u0BCD\u0BA8\u0BBF\u0BB2\u0BC8 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAE\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1, \u0BAE\u0BC7\u0BB2\u0BC1\u0BAE\u0BCD \u0B87\u0BA4\u0BC1 \u0BAE\u0BC1\u0B95\u0BCD\u0B95\u0BBF\u0BAF\u0BAE\u0BBE\u0B95 \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BA4\u0BCD\u0BA4\u0BC1\u0BA3\u0BC8\u0BAF\u0BBF\u0BA9\u0BCD \u0B95\u0BC1\u0BA3\u0BBE\u0BA4\u0BBF\u0B9A\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BBE\u0B95 \u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.";
+          if (key === "Bhava") return "\u0BAA\u0BBE\u0BB5 \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (Chalit) \u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BBF\u0B9F\u0BCD\u0B9F \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BA8\u0BBF\u0B95\u0BB4\u0BCD\u0BB5\u0BC1\u0B95\u0BB3\u0BC8 \u0BA4\u0BC1\u0BB2\u0BCD\u0BB2\u0BBF\u0BAF\u0BAE\u0BBE\u0B95 \u0B95\u0BA3\u0BBF\u0B95\u0BCD\u0B95 12 \u0BB5\u0BC0\u0B9F\u0BC1\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BB3\u0BCD \u0B95\u0BBF\u0BB0\u0B95\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B9A\u0BB0\u0BBF\u0BAF\u0BBE\u0BA9 \u0B87\u0B9F\u0BA4\u0BCD\u0BA4\u0BC8 \u0BAE\u0BC8\u0BAF\u0BAE\u0BBE\u0B95\u0B95\u0BCD \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1.";
+        } else if (langCode === "kn") {
+          if (key === "Rasi") return "\u0CB0\u0CBE\u0CB6\u0CBF \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (D-1) \u0CB9\u0CC1\u0C9F\u0CCD\u0C9F\u0CBF\u0CA6 \u0CB8\u0CAE\u0CAF\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAE\u0CCD\u0CAF\u0CBE\u0CAA\u0CCD \u0CAE\u0CBE\u0CA1\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CC2\u0CB2 \u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5, \u0CAD\u0CCC\u0CA4\u0CBF\u0C95 \u0C85\u0CB8\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CBE\u0CAE\u0CBE\u0CA8\u0CCD\u0CAF \u0C9C\u0CC0\u0CB5\u0CA8 \u0CAE\u0CBE\u0CB0\u0CCD\u0C97\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+          if (key === "Navamsa") return "\u0CA8\u0CB5\u0CBE\u0C82\u0CB6 \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (D-9) \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C86\u0C82\u0CA4\u0CB0\u0CBF\u0C95 \u0CB8\u0CCD\u0CB5\u0CB0\u0CC2\u0CAA \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C97\u0CC1\u0CAA\u0CCD\u0CA4 \u0CB8\u0CBE\u0CAE\u0CB0\u0CCD\u0CA5\u0CCD\u0CAF\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C87\u0CA6\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAA\u0CCD\u0CB0\u0CBE\u0CA5\u0CAE\u0CBF\u0C95\u0CB5\u0CBE\u0C97\u0CBF \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0C82\u0C97\u0CBE\u0CA4\u0CBF\u0CAF \u0C97\u0CC1\u0CA3\u0CB2\u0C95\u0CCD\u0CB7\u0CA3\u0C97\u0CB3\u0CBF\u0C97\u0CBE\u0C97\u0CBF \u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+          if (key === "Bhava") return "\u0CAD\u0CBE\u0CB5 \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (Chalit) \u0CA8\u0CBF\u0CB0\u0CCD\u0CA6\u0CBF\u0CB7\u0CCD\u0C9F \u0C9C\u0CC0\u0CB5\u0CA8\u0CA6 \u0C98\u0C9F\u0CA8\u0CC6\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0C97\u0CBF \u0C8A\u0CB9\u0CBF\u0CB8\u0CB2\u0CC1 12 \u0CAE\u0CA8\u0CC6\u0C97\u0CB3\u0CB2\u0CCD\u0CB2\u0CBF \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0CA6 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0C95\u0CC7\u0C82\u0CA6\u0CCD\u0CB0\u0CC0\u0C95\u0CB0\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+        }
+        if (key === "Rasi") return "The Rasi Chart (D-1) maps planetary positions at birth to reveal your core personality, physical existence, and general life path.";
+        if (key === "Navamsa") return "The Navamsa Chart (D-9) reveals your inner self and hidden potential, and is primarily analyzed for marriage and spouse characteristics.";
+        if (key === "Bhava") return "The Bhava Chart (Chalit) focuses on the exact placement of planets within the 12 houses to precisely predict specific life events.";
+        return "";
+      };
+      const getLabel = (key) => {
+        if (key === "Confidence") {
+          if (langCode === "te") return "\u0C28\u0C2E\u0C4D\u0C2E\u0C15\u0C02";
+          if (langCode === "ta") return "\u0BA8\u0BAE\u0BCD\u0BAA\u0BBF\u0B95\u0BCD\u0B95\u0BC8";
+          if (langCode === "hi") return "\u0935\u093F\u0936\u094D\u0935\u093E\u0938";
+          if (langCode === "kn") return "\u0CB5\u0CBF\u0CB6\u0CCD\u0CB5\u0CBE\u0CB8";
+          return "Confidence";
+        }
+        if (key === "BasedOn") {
+          if (langCode === "te") return "\u0C06\u0C27\u0C3E\u0C30\u0C02\u0C17\u0C3E";
+          if (langCode === "ta") return "\u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD";
+          if (langCode === "hi") return "\u0906\u0927\u093E\u0930 \u092A\u0930";
+          if (langCode === "kn") return "\u0C86\u0CA7\u0CBE\u0CB0\u0CA6 \u0CAE\u0CC7\u0CB2\u0CC6";
+          return "Based on";
+        }
+        return key;
+      };
+      const getConfidenceValue = (val) => {
+        if (val === "High") {
+          if (langCode === "te") return "\u0C05\u0C27\u0C3F\u0C15";
+          if (langCode === "ta") return "\u0B89\u0BAF\u0BB0\u0BCD";
+          if (langCode === "hi") return "\u0909\u091A\u094D\u091A";
+          if (langCode === "kn") return "\u0CB9\u0CC6\u0C9A\u0CCD\u0C9A\u0CC1";
+        }
+        if (val === "Moderate") {
+          if (langCode === "te") return "\u0C2E\u0C27\u0C4D\u0C2F\u0C38\u0C4D\u0C25";
+          if (langCode === "ta") return "\u0BAE\u0BBF\u0BA4\u0BAE\u0BBE\u0BA9";
+          if (langCode === "hi") return "\u092E\u0927\u094D\u092F\u092E";
+          if (langCode === "kn") return "\u0CAE\u0CA7\u0CCD\u0CAF\u0CAE";
+        }
+        if (val === "Low") {
+          if (langCode === "te") return "\u0C24\u0C15\u0C4D\u0C15\u0C41\u0C35";
+          if (langCode === "ta") return "\u0B95\u0BC1\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4";
+          if (langCode === "hi") return "\u0928\u093F\u092E\u094D\u0928";
+          if (langCode === "kn") return "\u0C95\u0CA1\u0CBF\u0CAE\u0CC6";
+        }
+        return val;
+      };
+      const renderChartRow = (title, chartData, section, chartKey) => `
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 30px; margin-bottom: 60px; page-break-inside: avoid; width: 100%; box-sizing: border-box;">
+              ${renderChart(title, chartData)}
+              <div style="width: 100%; max-width: 800px; font-size: 11pt; color: #444; line-height: 1.6; text-align: left; padding: 0 20px; box-sizing: border-box;">
+                <div style="font-weight: bold; color: #b4366f; font-size: 14pt; margin-bottom: 12px; border-bottom: 2px solid #b4366f; padding-bottom: 5px; display: inline-block;">
+                  ${title.replace(/\s*Chart\s*/gi, "")} ${langCode === "te" ? "\u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23" : langCode === "ta" ? "\u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1" : langCode === "hi" ? "\u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923" : langCode === "kn" ? "\u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CC6" : "Analysis"}
+                </div>
+                <div style="margin-bottom: 15px; font-style: italic; color: #666;">${getChartDesc(chartKey)}</div>
+                <div>${section.text}</div>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ddd; font-size: 10pt; color: #555;">
+                  <div style="margin-bottom: 8px;"><strong>${getLabel("Confidence")}:</strong> <span style="color: #b4366f;">${getConfidenceValue(section.confidence)}</span></div>
+                  <div style="margin-bottom: 4px;"><strong>${getLabel("BasedOn")}:</strong></div>
+                  <ul style="margin: 0; padding-left: 22px; color: #666; line-height: 1.5;">
+                    ${section.derivedFrom.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          `;
+      return `
+            <div style="margin: 0 auto 25px auto; width: 96%; padding: 15px; background: #fffafb; border: 2px solid #b4366f; border-radius: 8px; box-sizing: border-box; page-break-inside: avoid;">
+              <h3 style="color: #b4366f; margin-top: 0;">${langCode === "te" ? "\u0C1A\u0C3E\u0C30\u0C4D\u0C1F\u0C4D \u0C39\u0C46\u0C32\u0C4D\u0C24\u0C4D \u0C21\u0C3E\u0C37\u0C4D\u200C\u0C2C\u0C4B\u0C30\u0C4D\u0C21\u0C4D" : langCode === "ta" ? "\u0B9C\u0BBE\u0BA4\u0B95 \u0B9A\u0BC1\u0B95\u0BBE\u0BA4\u0BBE\u0BB0 \u0B9F\u0BBE\u0BB7\u0BCD\u0BAA\u0BCB\u0BB0\u0BCD\u0B9F\u0BC1" : langCode === "hi" ? "\u091A\u093E\u0930\u094D\u091F \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u0921\u0948\u0936\u092C\u094B\u0930\u094D\u0921" : langCode === "kn" ? "\u0C9A\u0CBE\u0CB0\u0CCD\u0C9F\u0CCD \u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF \u0CA1\u0CCD\u0CAF\u0CBE\u0CB6\u0CCD\u200C\u0CAC\u0CCB\u0CB0\u0CCD\u0CA1\u0CCD" : "Chart Health Dashboard"}</h3>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 11pt; word-break: break-word;">
+                <div style="flex: 1; min-width: 200px;"><strong>${langCode === "te" ? "\u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C35\u0C3F\u0C2D\u0C3E\u0C17\u0C3E\u0C32\u0C41" : langCode === "ta" ? "\u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0BAA\u0B95\u0BC1\u0BA4\u0BBF\u0B95\u0BB3\u0BCD" : langCode === "hi" ? "\u092E\u091C\u092C\u0942\u0924 \u0915\u094D\u0937\u0947\u0924\u094D\u0930" : langCode === "kn" ? "\u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0CAA\u0CCD\u0CB0\u0CA6\u0CC7\u0CB6\u0C97\u0CB3\u0CC1" : "Strong Areas"}:</strong> ${analysis.dashboard.strongAreas.join(", ")}</div>
+                <div style="flex: 1; min-width: 200px; text-align: right;"><strong>${langCode === "te" ? "\u0C05\u0C2D\u0C3F\u0C35\u0C43\u0C26\u0C4D\u0C27\u0C3F \u0C1A\u0C46\u0C02\u0C26\u0C41\u0C24\u0C41\u0C28\u0C4D\u0C28\u0C35\u0C3F" : langCode === "ta" ? "\u0BB5\u0BB3\u0BB0\u0BC1\u0BAE\u0BCD \u0BAA\u0B95\u0BC1\u0BA4\u0BBF\u0B95\u0BB3\u0BCD" : langCode === "hi" ? "\u0935\u093F\u0915\u093E\u0938\u0936\u0940\u0932 \u0915\u094D\u0937\u0947\u0924\u094D\u0930" : langCode === "kn" ? "\u0C85\u0CAD\u0CBF\u0CB5\u0CC3\u0CA6\u0CCD\u0CA7\u0CBF\u0CB6\u0CC0\u0CB2 \u0CAA\u0CCD\u0CB0\u0CA6\u0CC7\u0CB6\u0C97\u0CB3\u0CC1" : "Developing"}:</strong> ${analysis.dashboard.developingAreas.join(", ")}</div>
+              </div>
+            </div>
+            <div style="display: block; width: 100%; margin-top: 20px;">
+              ${renderChartRow(L.rasiChart, data.rasiChart, analysis.personality, "Rasi")}
+              ${renderChartRow(L.navamsaChart, data.navamsaChart, analysis.marriage, "Navamsa")}
+              ${renderChartRow(L.bhavaChart, data.bhavaChart, analysis.career, "Bhava")}
+            </div>
+          `;
+    })()}
+        
+        <div class="dasha-balance-box">
+          <div class="dasha-label">${L.dasaSesham}</div>
+          <div class="dasha-value">${data.dashaTable.janmakalaDasaSesham}</div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="header">${L.dasaTitle}</div>
+        
+        <table class="dasha-table">
+          <tr>
+            <th>${L.dasa}</th>
+            <th>${L.bhukti}</th>
+            <th>${L.dasaStart}</th>
+            <th>${L.dasaEnd}</th>
+            <th>${L.dasa}</th>
+            <th>${L.bhukti}</th>
+            <th>${L.dasaStart}</th>
+            <th>${L.dasaEnd}</th>
+          </tr>
+          ${(() => {
+      let rows = "";
+      const dashas = data.dashaTable.vimshottari;
+      for (let i = 0; i < Math.ceil(dashas.length / 2); i++) {
+        const d1 = dashas[i * 2];
+        const d2 = dashas[i * 2 + 1];
+        let maxBhuktis = Math.max(d1 ? d1.bhuktis.length : 0, d2 ? d2.bhuktis.length : 0);
+        rows += `<tbody class="mahadasha-group">`;
+        for (let j = 0; j < maxBhuktis; j++) {
+          const b1 = d1 && d1.bhuktis[j] ? d1.bhuktis[j] : null;
+          const b2 = d2 && d2.bhuktis[j] ? d2.bhuktis[j] : null;
+          rows += `
+                    <tr>
+                      <td>${j === 0 && d1 ? d1.planet : ""}</td>
+                      <td>${b1 ? b1.planet : ""}</td>
+                      <td>${b1 ? b1.startDate : ""}</td>
+                      <td>${b1 ? b1.endDate : ""}</td>
+                      
+                      <td>${j === 0 && d2 ? d2.planet : ""}</td>
+                      <td>${b2 ? b2.planet : ""}</td>
+                      <td>${b2 ? b2.startDate : ""}</td>
+                      <td>${b2 ? b2.endDate : ""}</td>
+                    </tr>
+                  `;
+        }
+        rows += `</tbody>`;
+      }
+      return rows;
+    })()}
+        </table>
+
+        <div class="page-break"></div>
+        <div class="header" style="color:#b4366f">${L.HOWTO_TITLE}</div>
+        <p style="font-size: 13px; color: #555; text-align: center; margin-bottom: 20px;">${L.HOWTO_SUBTITLE}</p>
+
+        <div style="margin-top: 20px;">
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION1_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION1_DESC}</div>
+            ${renderVisualChart(L.HOWTO_CHART1_TITLE, [
+      L.RASHI_ARIES,
+      L.RASHI_TAURUS,
+      L.RASHI_GEMINI,
+      L.RASHI_CANCER,
+      L.RASHI_LEO,
+      L.RASHI_VIRGO,
+      L.RASHI_LIBRA,
+      L.RASHI_SCORPIO,
+      L.RASHI_SAGITTARIUS,
+      L.RASHI_CAPRICORN,
+      L.RASHI_AQUARIUS,
+      L.RASHI_PISCES
+    ])}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION2_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION2_DESC}</div>
+            ${renderVisualChart(L.HOWTO_CHART2_TITLE, [
+      `1<br><small>(${L.HOWTO_LAGNA_LABEL})</small>`,
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ])}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION3_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION3_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION4_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION4_DESC}</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+          <div class="section-title" style="margin-top: 0;">${L.GLOSSARY_TITLE}</div>
+          <p style="font-size: 12px; color: #555; margin-bottom: 15px; text-align: center;">${L.GLOSSARY_DESC}</p>
+          
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.TITHI_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.TITHI_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.VARA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.VARA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.NAKSHATRA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.NAKSHATRA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.YOGA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.YOGA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.KARANA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.KARANA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.LAGNA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.LAGNA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.RASI_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.RASI_DESC}</div>
+          </div>
+        </div>
+
+      </body>
+      </html>
+    `;
+  }
+};
+
+// src/utils/localizationValidator.ts
+var EnglishLeakException = class extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "EnglishLeakException";
+  }
+};
+var IGNORE_KEYS = [
+  "name",
+  "gotram",
+  "placeOfBirth",
+  "dateOfBirth",
+  "timeOfBirth",
+  "pdfData",
+  "url",
+  "fileName",
+  "generatedAt",
+  "reportId",
+  "engineVersion",
+  "language",
+  "planetId",
+  "id",
+  "code",
+  "koota",
+  "status",
+  "severity",
+  "strength",
+  "nature",
+  "traditionalMeaning"
+];
+var WHITELIST = [
+  "Swiss Ephemeris",
+  "v1",
+  "v2",
+  "v3",
+  "REP-",
+  // Report ID prefix
+  "http",
+  "https",
+  ".com",
+  ".in",
+  ".org",
+  "SouthIndian",
+  "classic",
+  "Classic",
+  "MarriageMatching",
+  "pdf",
+  "fileName",
+  "url",
+  "AM",
+  "PM"
+  // Metadata keys that might slip through as values in weird edge cases
+];
+var containsEnglish = (text) => {
+  return /[A-Za-z]/.test(text);
+};
+var isWhitelisted = (text) => {
+  if (WHITELIST.some((w) => text.includes(w))) return true;
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(text)) return true;
+  if (!isNaN(Date.parse(text)) && /^[0-9]{4}-[0-9]{2}-[0-9]{2}T/.test(text)) return true;
+  return false;
+};
+var validateLocalization = (data, lang) => {
+  if (lang === "en") return;
+  const traverse = (obj, path5) => {
+    if (obj === null || obj === void 0) return;
+    if (typeof obj === "string") {
+      if (containsEnglish(obj) && !isWhitelisted(obj)) {
+        throw new EnglishLeakException(`English text leaked in ${lang} response at ${path5}: "${obj}"`);
+      }
+    } else if (Array.isArray(obj)) {
+      obj.forEach((item, index) => {
+        traverse(item, `${path5}[${index}]`);
+      });
+    } else if (typeof obj === "object") {
+      for (const key of Object.keys(obj)) {
+        if (IGNORE_KEYS.includes(key)) continue;
+        traverse(obj[key], `${path5}.${key}`);
+      }
+    }
+  };
+  traverse(data, "root");
+};
+
+// src/routes/horoscopeV2.ts
+var horoscopeV2Router = Router();
+horoscopeV2Router.post("/", async (req, res) => {
+  try {
+    const input = req.body;
+    if (input.year === void 0 || input.month === void 0 || input.day === void 0 || input.hour === void 0 || input.minute === void 0 || input.latitude === void 0 || input.longitude === void 0 || input.timezone === void 0) {
+      return res.status(400).json({
+        success: false,
+        error: "Missing required fields (year, month, day, hour, minute, latitude, longitude, timezone)"
+      });
+    }
+    const lang = req.query.lang || "en";
+    const response = AstrologyV2Service.generateHoroscope(input, lang);
+    try {
+      const pdfData = await PdfService.generateHoroscopePdf(response.data, lang);
+      response.pdf = {
+        generated: true,
+        base64: pdfData.base64,
+        fileName: pdfData.fileName,
+        generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+      };
+    } catch (pdfErr) {
+      console.warn("Failed to generate PDF, continuing without it.", pdfErr);
+      response.pdf = {
+        generated: false,
+        base64: "",
+        fileName: "",
+        generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        error: pdfErr.message || String(pdfErr)
+      };
+    }
+    validateLocalization(response, lang);
+    return res.json(response);
+  } catch (err) {
+    if (err instanceof UnsupportedLanguageException || err instanceof MissingTranslationException || err.name === "EnglishLeakException") {
+      console.error("[LOCALIZATION ERROR]", err.message);
+      return res.status(400).json({ success: false, error: err.message });
+    }
+    console.error("Horoscope V2 Error:", err);
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// src/routes/matchingV2.ts
+import { Router as Router2 } from "express";
 
 // src/services/astrologyService.ts
 import crypto from "crypto";
@@ -849,29 +12658,6 @@ function translateKoota(kootaName, lang) {
   const set = KOOTA_TRANSLATIONS[kootaName];
   return set ? getTranslation(set, lang) : kootaName;
 }
-var WEEKDAY_TRANSLATIONS = [
-  { en: "Sunday", te: "\u0C06\u0C26\u0C3F\u0C35\u0C3E\u0C30\u0C02 (Adivaram)", hi: "\u0930\u0935\u093F\u0935\u093E\u0930 (Ravivar)", ta: "\u0B9E\u0BBE\u0BAF\u0BBF\u0BB1\u0BCD\u0BB1\u0BC1\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Gnayiru)", kn: "\u0CAD\u0CBE\u0CA8\u0CC1\u0CB5\u0CBE\u0CB0 (Bhanuvara)" },
-  { en: "Monday", te: "\u0C38\u0C4B\u0C2E\u0C35\u0C3E\u0C30\u0C02 (Somavaram)", hi: "\u0938\u094B\u092E\u0935\u093E\u0930 (Somvar)", ta: "\u0BA4\u0BBF\u0B99\u0BCD\u0B95\u0B9F\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Thingal)", kn: "\u0CB8\u0CCB\u0CAE\u0CB5\u0CBE\u0CB0 (Somavara)" },
-  { en: "Tuesday", te: "\u0C2E\u0C02\u0C17\u0C33\u0C35\u0C3E\u0C30\u0C02 (Mangalavaram)", hi: "\u092E\u0902\u0917\u0932\u0935\u093E\u0930 (Mangalvar)", ta: "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Sevvai)", kn: "\u0CAE\u0C82\u0C97\u0CB3\u0CB5\u0CBE\u0CB0 (Mangalavara)" },
-  { en: "Wednesday", te: "\u0C2C\u0C41\u0C27\u0C35\u0C3E\u0C30\u0C02 (Budhavaram)", hi: "\u092C\u0941\u0927\u0935\u093E\u0930 (Budhvar)", ta: "\u0BAA\u0BC1\u0BA4\u0BA9\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Budhan)", kn: "\u0CAC\u0CC1\u0CA7\u0CB5\u0CBE\u0CB0 (Budhavara)" },
-  { en: "Thursday", te: "\u0C17\u0C41\u0C30\u0C41\u0C35\u0C3E\u0C30\u0C02 (Guruvaram)", hi: "\u0917\u0941\u0930\u0941\u0935\u093E\u0930 (Guruvar)", ta: "\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Vyalan)", kn: "\u0C97\u0CC1\u0CB0\u0CC1\u0CB5\u0CBE\u0CB0 (Guruvara)" },
-  { en: "Friday", te: "\u0C36\u0C41\u0C15\u0C4D\u0C30\u0C35\u0C3E\u0C30\u0C02 (Shukravaram)", hi: "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930 (Shukravar)", ta: "\u0BB5\u0BC6\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Velli)", kn: "\u0CB6\u0CC1\u0C95\u0CCD\u0CB0\u0CB5\u0CBE\u0CB0 (Shukravara)" },
-  { en: "Saturday", te: "\u0C36\u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C02 (Shanivaram)", hi: "\u0936\u0928\u093F\u0935\u093E\u0930 (Shanivar)", ta: "\u0B9A\u0BA9\u0BBF\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 (Sani)", kn: "\u0CB6\u0CA8\u0CBF\u0CB5\u0CBE\u0CB0 (Shanivara)" }
-];
-var LUNAR_MONTH_TRANSLATIONS = [
-  { en: "Chaitra Maasa", te: "\u0C1A\u0C48\u0C24\u0C4D\u0C30 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u091A\u0948\u0924\u094D\u0930 \u092E\u093E\u0938", ta: "\u0B9A\u0BBF\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0BC8 \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0C9A\u0CC8\u0CA4\u0CCD\u0CB0 \u0CAE\u0CBE\u0CB8" },
-  { en: "Vaishakha Maasa", te: "\u0C35\u0C48\u0C36\u0C3E\u0C16 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u0935\u0948\u0936\u093E\u0916 \u092E\u093E\u0938", ta: "\u0BB5\u0BC8\u0B95\u0BBE\u0B9A\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CB5\u0CC8\u0CB6\u0CBE\u0C96 \u0CAE\u0CBE\u0CB8" },
-  { en: "Jyeshtha Maasa", te: "\u0C1C\u0C4D\u0C2F\u0C47\u0C37\u0C4D\u0C20 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u091C\u094D\u092F\u0947\u0937\u094D\u0920 \u092E\u093E\u0938", ta: "\u0B86\u0BA9\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0C9C\u0CCD\u0CAF\u0CC7\u0CB7\u0CCD\u0CA0 \u0CAE\u0CBE\u0CB8" },
-  { en: "Ashadha Maasa", te: "\u0C06\u0C37\u0C3E\u0C22 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u0906\u0937\u093E\u0922\u093C \u092E\u093E\u0938", ta: "\u0B86\u0B9F\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0C86\u0CB7\u0CBE\u0CA2 \u0CAE\u0CBE\u0CB8" },
-  { en: "Shravana Maasa", te: "\u0C36\u0C4D\u0C30\u0C3E\u0C35\u0C23 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u0936\u094D\u0930\u093E\u0935\u0923 \u092E\u093E\u0938", ta: "\u0B86\u0BB5\u0BA3\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CB6\u0CCD\u0CB0\u0CBE\u0CB5\u0CA3 \u0CAE\u0CBE\u0CB8" },
-  { en: "Bhadrapada Maasa", te: "\u0C2D\u0C3E\u0C26\u0C4D\u0C30\u0C2A\u0C26 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u092D\u093E\u0926\u094D\u0930\u092A\u0926 \u092E\u093E\u0938", ta: "\u0BAA\u0BC1\u0BB0\u0B9F\u0BCD\u0B9F\u0BBE\u0B9A\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CAD\u0CBE\u0CA6\u0CCD\u0CB0\u0CAA\u0CA6 \u0CAE\u0CBE\u0CB8" },
-  { en: "Ashvina Maasa", te: "\u0C06\u0C36\u0C4D\u0C35\u0C2F\u0C41\u0C1C \u0C2E\u0C3E\u0C38\u0C02", hi: "\u0906\u0936\u094D\u0935\u093F\u0928 \u092E\u093E\u0938", ta: "\u0B90\u0BAA\u0BCD\u0BAA\u0B9A\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0C86\u0CB6\u0CCD\u0CB5\u0CAF\u0CC1\u0C9C \u0CAE\u0CBE\u0CB8" },
-  { en: "Kartika Maasa", te: "\u0C15\u0C3E\u0C30\u0C4D\u0C24\u0C40\u0C15 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u0915\u093E\u0930\u094D\u0924\u093F\u0915 \u092E\u093E\u0938", ta: "\u0B95\u0BBE\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BBF\u0B95\u0BC8 \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0C95\u0CBE\u0CB0\u0CCD\u0CA4\u0CBF\u0C95 \u0CAE\u0CBE\u0CB8" },
-  { en: "Margashirsha Maasa", te: "\u0C2E\u0C3E\u0C30\u0C4D\u0C17\u0C36\u0C3F\u0C30 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u092E\u093E\u0930\u094D\u0917\u0936\u0940\u0930\u094D\u0937 \u092E\u093E\u0938", ta: "\u0BAE\u0BBE\u0BB0\u0BCD\u0B95\u0BB4\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CAE\u0CBE\u0CB0\u0CCD\u0C97\u0CB6\u0CBF\u0CB0 \u0CAE\u0CBE\u0CB8" },
-  { en: "Pausha Maasa", te: "\u0C2A\u0C41\u0C37\u0C4D\u0C2F \u0C2E\u0C3E\u0C38\u0C02", hi: "\u092A\u094C\u0937 \u092E\u093E\u0938", ta: "\u0BA4\u0BC8 \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CAA\u0CC1\u0CB7\u0CCD\u0CAF \u0CAE\u0CBE\u0CB8" },
-  { en: "Magha Maasa", te: "\u0C2E\u0C3E\u0C18 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u092E\u093E\u0918 \u092E\u093E\u0938", ta: "\u0BAE\u0BBE\u0B9A\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CAE\u0CBE\u0C98 \u0CAE\u0CBE\u0CB8" },
-  { en: "Phalguna Maasa", te: "\u0C2B\u0C3E\u0C32\u0C4D\u0C17\u0C41\u0C23 \u0C2E\u0C3E\u0C38\u0C02", hi: "\u092B\u093E\u0932\u094D\u0917\u0941\u0928 \u092E\u093E\u0938", ta: "\u0BAA\u0B99\u0BCD\u0B95\u0BC1\u0BA9\u0BBF \u0BAE\u0BBE\u0BA4\u0BAE\u0BCD", kn: "\u0CAB\u0C3E\u0C32\u0C4D\u0C17\u0C41\u0CA3 \u0CAE\u0CBE\u0CB8" }
-];
 var GEMSTONE_TRANSLATIONS = {
   Ruby: { en: "Ruby (Manikyam)", te: "\u0C15\u0C46\u0C02\u0C2A\u0C41 (Manikyam)", hi: "\u092E\u093E\u0923\u093F\u0915\u094D\u092F (Ruby)", ta: "\u0BAE\u0BBE\u0BA3\u0BBF\u0B95\u0BCD\u0B95\u0BAE\u0BCD (Manikkam)", kn: "\u0CAE\u0CBE\u0CA3\u0CBF\u0C95\u0CCD\u0CAF (Ruby)" },
   "Yellow Sapphire": { en: "Yellow Sapphire (Pushparagam)", te: "\u0C15\u0C28\u0C15\u0C2A\u0C41\u0C37\u0C4D\u0C2F\u0C30\u0C3E\u0C17\u0C02 (Pushparagam)", hi: "\u092A\u0941\u0916\u0930\u093E\u091C (Yellow Sapphire)", ta: "\u0BAA\u0BC1\u0BB7\u0BCD\u0BAA\u0BB0\u0BBE\u0B95\u0BAE\u0BCD (Pushparagam)", kn: "\u0CAA\u0CC1\u0CB7\u0CCD\u0CAF\u0CB0\u0CBE\u0C97 (Yellow Sapphire)" },
@@ -908,66 +12694,6 @@ var BABY_NAME_MEANING_TRANSLATIONS = {
   "Ruler of Gods": { en: "Ruler of Gods", te: "\u0C38\u0C41\u0C30\u0C47\u0C37\u0C4D, \u0C26\u0C47\u0C35\u0C24\u0C32 \u0C30\u0C3E\u0C1C\u0C41", hi: "\u0926\u0947\u0935\u0924\u093E\u0913\u0902 \u0915\u0947 \u0930\u093E\u091C\u093E (\u0938\u0941\u0930\u0947\u0936)", ta: "\u0BA4\u0BC7\u0BB5\u0BB0\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B85\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF (\u0B9A\u0BC1\u0BB0\u0BC7\u0BB7\u0BCD)", kn: "\u0CA6\u0CC7\u0CB5\u0CA4\u0CC6\u0C97\u0CB3 \u0C85\u0CB0\u0CB8" },
   "Lamp, Light": { en: "Lamp, Light", te: "\u0C26\u0C40\u0C2A\u0C02, \u0C35\u0C46\u0C32\u0C41\u0C17\u0C41", hi: "\u0926\u0940\u092A\u0915, \u0930\u094B\u0936\u0928\u0940", ta: "\u0BB5\u0BBF\u0BB3\u0B95\u0BCD\u0B95\u0BC1, \u0B92\u0BB3\u0BBF", kn: "\u0CA6\u0CC0\u0CAA, \u0CAC\u0CC6\u0CB3\u0C95\u0CC1" }
 };
-var MUHURTA_ACTIVITY_TRANSLATIONS = {
-  "Marriage": {
-    name: { en: "Marriage", te: "\u0C35\u0C3F\u0C35\u0C3E\u0C39 \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C02", hi: "\u0935\u093F\u0935\u093E\u0939 \u092E\u0941\u0939\u0942\u0930\u094D\u0924", ta: "\u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3 \u0BAE\u0BC1\u0BB9\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD", kn: "\u0CB5\u0CBF\u0CB5\u0CBE\u0CB9 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4" },
-    desc: {
-      en: "Most auspicious marriage timeline with subh nakshatras",
-      te: "\u0C36\u0C41\u0C2D \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C3E\u0C32\u0C24\u0C4B \u0C05\u0C24\u0C4D\u0C2F\u0C02\u0C24 \u0C36\u0C4D\u0C30\u0C47\u0C37\u0C4D\u0C1F\u0C2E\u0C48\u0C28 \u0C35\u0C3F\u0C35\u0C3E\u0C39 \u0C38\u0C2E\u0C2F\u0C3E\u0C32\u0C41",
-      hi: "\u0936\u0941\u092D \u0928\u0915\u094D\u0937\u0924\u094D\u0930\u094B\u0902 \u0938\u0947 \u092F\u0941\u0915\u094D\u0924 \u0905\u0924\u094D\u092F\u0902\u0924 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0935\u093F\u0935\u093E\u0939 \u0938\u092E\u092F \u0938\u0940\u092E\u093E",
-      ta: "\u0B9A\u0BC1\u0BAA \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B9F\u0BA9\u0BCD \u0B95\u0BC2\u0B9F\u0BBF\u0BAF \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0BA9\u0BCD\u0BA9\u0BA4\u0BAE\u0BBE\u0BA9 \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3 \u0B95\u0BBE\u0BB2\u0B95\u0BCD\u0B95\u0BC6\u0B9F\u0BC1",
-      kn: "\u0CB6\u0CC1\u0CAD \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0\u0C97\u0CB3\u0CC6\u0CC2\u0C82\u0CA6\u0CBF\u0C97\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAA\u0CCD\u0CB0\u0CB6\u0CB8\u0CCD\u0CA4\u0CB5\u0CBE\u0CA6 \u0CB5\u0CBF\u0CB5\u0CBE\u0CB9 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4\u0C97\u0CB3\u0CC1"
-    }
-  },
-  "House Warming (Gruha Pravesh)": {
-    name: { en: "House Warming (Gruha Pravesh)", te: "\u0C17\u0C43\u0C39 \u0C2A\u0C4D\u0C30\u0C35\u0C47\u0C36 \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C02", hi: "\u0917\u0943\u0939 \u092A\u094D\u0930\u0935\u0947\u0936 \u092E\u0941\u0939\u0942\u0930\u094D\u0924", ta: "\u0917\u0943\u0939\u092A\u094D\u0930\u0935\u0947\u0936\u0BAA\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD", kn: "\u0C97\u0CC3\u0CB9 \u0CAA\u0CCD\u0CB0\u0CB5\u0CC7\u0CB6 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4" },
-    desc: {
-      en: "Auspicious home construction and heating coordinates",
-      te: "\u0C28\u0C42\u0C24\u0C28 \u0C17\u0C43\u0C39 \u0C2A\u0C4D\u0C30\u0C35\u0C47\u0C36\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C35\u0C3E\u0C38\u0C4D\u0C24\u0C41\u0C2A\u0C42\u0C1C\u0C15\u0C41 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C2E\u0C48\u0C28 \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C3E\u0C32\u0C41",
-      hi: "\u0928\u090F \u0918\u0930 \u092E\u0947\u0902 \u092A\u094D\u0930\u0935\u0947\u0936 \u0914\u0930 \u0935\u093E\u0938\u094D\u0924\u0941 \u0936\u093E\u0902\u0924\u093F \u0915\u0947 \u0932\u093F\u090F \u0938\u0930\u094D\u0935\u094B\u0924\u094D\u0924\u092E \u0936\u0941\u092D \u092E\u0941\u0939\u0942\u0930\u094D\u0924",
-      ta: "\u0BAA\u0BC1\u0BA4\u0BBF\u0BAF \u0BB5\u0BC0\u0B9F\u0BCD\u0B9F\u0BBF\u0BB2\u0BCD \u0B95\u0BC1\u0B9F\u0BBF\u0BAF\u0BC7\u0BB1\u0BC1\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0BB5\u0BBE\u0BB8\u0BCD\u0BA4\u0BC1 \u0BAA\u0BC2\u0B9C\u0BC8\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B8F\u0BB1\u0BCD\u0BB1 \u0B9A\u0BC1\u0BAA \u0B95\u0BBE\u0BB2\u0BAE\u0BCD",
-      kn: "\u0CB9\u0CCA\u0CB8 \u0CAE\u0CA8\u0CC6 \u0CAA\u0CCD\u0CB0\u0CB5\u0CC7\u0CB6 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB5\u0CBE\u0CB8\u0CCD\u0CA4\u0CC1 \u0CAA\u0CC2\u0C9C\u0CC6\u0C97\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAF\u0CCB\u0C97\u0CCD\u0CAF\u0CB5\u0CBE\u0CA6 \u0CB8\u0CAE\u0CAF\u0C97\u0CB3\u0CC1"
-    }
-  },
-  "Vehicle Purchase": {
-    name: { en: "Vehicle Purchase", te: "\u0C35\u0C3E\u0C39\u0C28 \u0C15\u0C4A\u0C28\u0C41\u0C17\u0C4B\u0C32\u0C41 \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C02", hi: "\u0935\u093E\u0939\u0928 \u0916\u0930\u0940\u0926 \u092E\u0941\u0939\u0942\u0930\u094D\u0924", ta: "\u0BB5\u0BBE\u0B95\u0BA9\u0BAE\u0BCD \u0BB5\u0BBE\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BBE\u0BA9 \u0BAE\u0BC1\u0BB9\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD", kn: "\u0CB5\u0CBE\u0CB9\u0CA8 \u0C96\u0CB0\u0CC0\u0CA6\u0CBF \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4" },
-    desc: {
-      en: "Luxurious asset acquisition timings",
-      te: "\u0C28\u0C42\u0C24\u0C28 \u0C35\u0C3E\u0C39\u0C28\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C1A\u0C30\u0C3E\u0C38\u0C4D\u0C24\u0C41\u0C32\u0C41 \u0C15\u0C4A\u0C28\u0C41\u0C17\u0C4B\u0C32\u0C41 \u0C1A\u0C47\u0C2F\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C36\u0C41\u0C2D \u0C38\u0C2E\u0C2F\u0C3E\u0C32\u0C41",
-      hi: "\u0935\u093E\u0939\u0928\u094B\u0902 \u090F\u0935\u0902 \u091A\u0932 \u0938\u0902\u092A\u0924\u094D\u0924\u093F\u092F\u094B\u0902 \u0915\u0940 \u0916\u0930\u0940\u0926 \u0939\u0947\u0924\u0941 \u0936\u0941\u092D \u090F\u0935\u0902 \u0932\u093E\u092D\u092A\u094D\u0930\u0926 \u092E\u0941\u0939\u0942\u0930\u094D\u0924",
-      ta: "\u0BAA\u0BC1\u0BA4\u0BBF\u0BAF \u0BB5\u0BBE\u0B95\u0BA9\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB5\u0BBE\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BC1 \u0B89\u0B95\u0BA8\u0BCD\u0BA4 \u0B9A\u0BC1\u0BAA \u0BAF\u0BCB\u0B95 \u0B95\u0BBE\u0BB2\u0BAE\u0BCD",
-      kn: "\u0CB9\u0CCA\u0CB8 \u0CB5\u0CBE\u0CB9\u0CA8 \u0C96\u0CB0\u0CC0\u0CA6\u0CBF\u0C97\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAA\u0CCD\u0CB0\u0CB6\u0CB8\u0CCD\u0CA4\u0CB5\u0CBE\u0CA6 \u0CB6\u0CC1\u0CAD \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4\u0C97\u0CB3\u0CC1"
-    }
-  },
-  "Business Opening": {
-    name: { en: "Business Opening", te: "\u0C35\u0C4D\u0C2F\u0C3E\u0C2A\u0C3E\u0C30 \u0C2A\u0C4D\u0C30\u0C3E\u0C30\u0C02\u0C2D \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C02", hi: "\u0935\u094D\u092F\u093E\u092A\u093E\u0930 \u0909\u0926\u094D\u0918\u093E\u091F\u0928 \u092E\u0941\u0939\u0942\u0930\u094D\u0924", ta: "\u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BA4\u0BC1\u0BB5\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BBE\u0BA9 \u0BAE\u0BC1\u0BB9\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD", kn: "\u0CB5\u0CCD\u0CAF\u0CBE\u0CAA\u0CBE\u0CB0 \u0C86\u0CB0\u0C82\u0CAD\u0CA6 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4" },
-    desc: {
-      en: "Corporate scale-up and investments timelines",
-      te: "\u0C28\u0C42\u0C24\u0C28 \u0C35\u0C4D\u0C2F\u0C3E\u0C2A\u0C3E\u0C30\u0C3E\u0C32\u0C41, \u0C37\u0C3E\u0C2A\u0C41\u0C32\u0C41 \u0C2A\u0C4D\u0C30\u0C3E\u0C30\u0C02\u0C2D\u0C3F\u0C02\u0C1A\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C46\u0C1F\u0C4D\u0C1F\u0C41\u0C2C\u0C21\u0C41\u0C32\u0C15\u0C41 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32 \u0C38\u0C2E\u0C2F\u0C02",
-      hi: "\u0928\u090F \u0935\u094D\u092F\u093E\u092A\u093E\u0930, \u092A\u094D\u0930\u0924\u093F\u0937\u094D\u0920\u093E\u0928 \u0915\u0947 \u0936\u0941\u092D\u093E\u0930\u0902\u092D \u090F\u0935\u0902 \u0928\u093F\u0935\u0947\u0936 \u0915\u0947 \u0932\u093F\u090F \u0938\u0930\u094D\u0935\u0936\u094D\u0930\u0947\u0937\u094D\u0920 \u092E\u0941\u0939\u0942\u0930\u094D\u0924",
-      ta: "\u0BAA\u0BC1\u0BA4\u0BBF\u0BAF \u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BA4\u0BC1\u0BB5\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0BAE\u0BC1\u0BA4\u0BB2\u0BC0\u0B9F\u0BC1\u0B95\u0BB3\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B8F\u0BB1\u0BCD\u0BB1 \u0B9A\u0BC1\u0BAA \u0B95\u0BBE\u0BB2\u0BAE\u0BCD",
-      kn: "\u0CB9\u0CCA\u0CB8 \u0CB5\u0CCD\u0CAF\u0CBE\u0CAA\u0CBE\u0CB0 \u0C86\u0CB0\u0C82\u0CAD \u0CB9\u0CBE\u0C97\u0CC2 \u0C89\u0CA6\u0CCD\u0CAF\u0CAE \u0CB9\u0CC2\u0CA1\u0CBF\u0C95\u0CC6\u0C97\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4"
-    }
-  },
-  "Travel Timelines": {
-    name: { en: "Travel Timelines", te: "\u0C2A\u0C4D\u0C30\u0C2F\u0C3E\u0C23 \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C02", hi: "\u092F\u093E\u0924\u094D\u0930\u093E \u092A\u094D\u0930\u0938\u094D\u0925\u093E\u0928 \u092E\u0941\u0939\u0942\u0930\u094D\u0924", ta: "\u0BAA\u0BBF\u0BB0\u0BAF\u0BBE\u0BA3 \u0BAE\u0BC1\u0BB9\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD", kn: "\u0CAA\u0CCD\u0CB0\u0CAF\u0CBE\u0CA3 \u0CAE\u0CC1\u0CB9\u0CC2\u0CB0\u0CCD\u0CA4" },
-    desc: {
-      en: "Safe directions and transit options",
-      te: "\u0C30\u0C15\u0C4D\u0C37\u0C23, \u0C15\u0C4D\u0C37\u0C47\u0C2E\u0C15\u0C30\u0C2E\u0C48\u0C28 \u0C26\u0C3F\u0C36\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C4D\u0C30\u0C2F\u0C3E\u0C23\u0C3E\u0C32 \u0C15\u0C4A\u0C30\u0C15\u0C41 \u0C36\u0C41\u0C2D \u0C2E\u0C41\u0C39\u0C42\u0C30\u0C4D\u0C24\u0C3E\u0C32\u0C41",
-      hi: "\u0938\u0941\u0930\u0915\u094D\u0937\u093F\u0924 \u092A\u094D\u0930\u0938\u094D\u0925\u093E\u0928, \u0909\u0924\u094D\u0924\u092E \u0926\u093F\u0936\u093E \u090F\u0935\u0902 \u0938\u0941\u0916\u0926 \u092F\u093E\u0924\u094D\u0930\u093E \u0939\u0947\u0924\u0941 \u0926\u093F\u0936\u093E\u0936\u0942\u0932 \u0930\u0939\u093F\u0924 \u0936\u0941\u092D \u0938\u092E\u092F",
-      ta: "\u0BAA\u0BBE\u0BA4\u0BC1\u0B95\u0BBE\u0BAA\u0BCD\u0BAA\u0BBE\u0BA9 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9A\u0BC1\u0BAA\u0BBF\u0B9F\u0BCD\u0B9A\u0BAE\u0BBE\u0BA9 \u0BA8\u0BC0\u0BA3\u0BCD\u0B9F \u0BA4\u0BC2\u0BB0 \u0BAA\u0BAF\u0BA3\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1 \u0B89\u0B95\u0BA8\u0BCD\u0BA4 \u0B95\u0BBE\u0BB2\u0BAE\u0BCD",
-      kn: "\u0CB8\u0CC1\u0CB0\u0C95\u0CCD\u0CB7\u0CBF\u0CA4 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB8\u0CC1\u0C96\u0C95\u0CB0 \u0CAA\u0CCD\u0CB0\u0CAF\u0CBE\u0CA3 \u0CAA\u0CCD\u0CB0\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C95\u0CCD\u0C95\u0CC6 \u0CAA\u0CCD\u0CB0\u0CB6\u0CB8\u0CCD\u0CA4\u0CB5\u0CBE\u0CA6 \u0CB8\u0CAE\u0CAF"
-    }
-  }
-};
-function translateWeekday(index, lang) {
-  const set = WEEKDAY_TRANSLATIONS[index % 7];
-  return set ? getTranslation(set, lang) : `Weekday ${index}`;
-}
-function translateLunarMonth(index, lang) {
-  const set = LUNAR_MONTH_TRANSLATIONS[index % 12];
-  return set ? getTranslation(set, lang) : `Month ${index}`;
-}
 function translateGemstone(gem, lang) {
   const set = GEMSTONE_TRANSLATIONS[gem];
   return set ? getTranslation(set, lang) : gem;
@@ -983,14 +12709,6 @@ function translateFestival(fest, lang) {
 function translateBabyNameMeaning(meaning, lang) {
   const set = BABY_NAME_MEANING_TRANSLATIONS[meaning];
   return set ? getTranslation(set, lang) : meaning;
-}
-function translateMuhurtaActivityName(act, lang) {
-  const item = MUHURTA_ACTIVITY_TRANSLATIONS[act];
-  return item ? getTranslation(item.name, lang) : act;
-}
-function translateMuhurtaActivityDesc(act, lang) {
-  const item = MUHURTA_ACTIVITY_TRANSLATIONS[act];
-  return item ? getTranslation(item.desc, lang) : "";
 }
 
 // src/services/yogaEngine.ts
@@ -1482,159 +13200,6 @@ YogaEngine.registerRule(new KemadrumaRule());
 YogaEngine.registerRule(new DaridraYogaRule());
 YogaEngine.registerRule(new GuruChandalRule());
 YogaEngine.registerRule(new ShakataRule());
-
-// src/services/localizationService.ts
-import * as fs from "fs";
-import * as path from "path";
-var LocalizationService = class {
-  static {
-    this.planets = null;
-  }
-  static {
-    this.rasis = null;
-  }
-  static {
-    this.nakshatras = null;
-  }
-  static loadJson(filename) {
-    try {
-      const filePath = path.resolve(process.cwd(), "src", "data", filename);
-      const data = fs.readFileSync(filePath, "utf-8");
-      return JSON.parse(data);
-    } catch (e) {
-      console.error(`Failed to load localization file: ${filename}`, e);
-      return {};
-    }
-  }
-  static init() {
-    if (!this.planets) this.planets = this.loadJson("planets.json");
-    if (!this.rasis) this.rasis = this.loadJson("rasis.json");
-    if (!this.nakshatras) this.nakshatras = this.loadJson("nakshatras.json");
-  }
-  /**
-   * Safe getter that falls back to a dummy English string if not found.
-   */
-  static safeGet(dictionary, key, fallback) {
-    if (!dictionary) this.init();
-    const safeKey = key.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const match = dictionary[safeKey] || dictionary[key];
-    if (match) return match;
-    return {
-      id: safeKey,
-      name: { en: fallback }
-    };
-  }
-  static getPlanet(name) {
-    this.init();
-    return this.safeGet(this.planets, name, name);
-  }
-  static getRasi(name) {
-    this.init();
-    return this.safeGet(this.rasis, name, name);
-  }
-  static getNakshatra(name) {
-    this.init();
-    return this.safeGet(this.nakshatras, name, name);
-  }
-};
-
-// src/services/LocalizationEngine.ts
-import fs2 from "fs";
-import path2 from "path";
-var MissingTranslationException = class extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "MissingTranslationException";
-  }
-};
-var LocalizationIntegrityException = class extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "LocalizationIntegrityException";
-  }
-};
-var UnsupportedLanguageException = class extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "UnsupportedLanguageException";
-  }
-};
-var SUPPORTED_LANGUAGES = ["en", "te", "hi", "ta", "kn"];
-var LocalizationEngine = class _LocalizationEngine {
-  constructor() {
-    this.dictionaries = {};
-    this.loadDictionaries();
-    this.validateIntegrity();
-  }
-  static getInstance() {
-    if (!_LocalizationEngine.instance) {
-      _LocalizationEngine.instance = new _LocalizationEngine();
-    }
-    return _LocalizationEngine.instance;
-  }
-  loadDictionaries() {
-    for (const lang of SUPPORTED_LANGUAGES) {
-      try {
-        const filePath = path2.join(process.cwd(), "src/localization", `${lang}.json`);
-        const data = fs2.readFileSync(filePath, "utf8");
-        this.dictionaries[lang] = JSON.parse(data);
-      } catch (err) {
-        throw new LocalizationIntegrityException(`Failed to load dictionary for ${lang}: ${err}`);
-      }
-    }
-  }
-  validateIntegrity() {
-    const enDict = this.dictionaries["en"];
-    const checkKeys = (master, target, pathStr, lang) => {
-      if (typeof master !== "object" || master === null) {
-        if (typeof master !== typeof target) {
-          throw new LocalizationIntegrityException(`Type mismatch at ${pathStr} in ${lang}. Expected ${typeof master}, got ${typeof target}`);
-        }
-        return;
-      }
-      const masterKeys = Object.keys(master).sort();
-      const targetKeys = Object.keys(target || {}).sort();
-      if (masterKeys.length !== targetKeys.length || !masterKeys.every((k, i) => k === targetKeys[i])) {
-        const missing = masterKeys.filter((k) => !targetKeys.includes(k));
-        const extra = targetKeys.filter((k) => !masterKeys.includes(k));
-        throw new LocalizationIntegrityException(`Key mismatch in ${lang} at ${pathStr}. Missing: ${missing.join(",")}. Extra: ${extra.join(",")}`);
-      }
-      for (const k of masterKeys) {
-        checkKeys(master[k], target[k], pathStr ? `${pathStr}.${k}` : k, lang);
-      }
-    };
-    for (const lang of SUPPORTED_LANGUAGES) {
-      if (lang === "en") continue;
-      checkKeys(enDict, this.dictionaries[lang], "", lang);
-    }
-  }
-  get(keyPath, lang) {
-    if (!SUPPORTED_LANGUAGES.includes(lang)) {
-      throw new UnsupportedLanguageException(`Language ${lang} is not supported.`);
-    }
-    const keys = keyPath.split(".");
-    let current = this.dictionaries[lang];
-    for (const k of keys) {
-      if (current === void 0 || current === null || !(k in current)) {
-        throw new MissingTranslationException(`Missing translation for key: ${keyPath} in language: ${lang}`);
-      }
-      current = current[k];
-    }
-    if (typeof current !== "string") {
-      throw new MissingTranslationException(`Key ${keyPath} in language ${lang} does not resolve to a string.`);
-    }
-    return current;
-  }
-  getNormalizedInput(keyPath, input, lang) {
-    const internalId = input.toUpperCase().replace(/\s+/g, "_");
-    try {
-      return this.get(`${keyPath}.${internalId}`, lang);
-    } catch (e) {
-      console.warn(`[LOCALIZATION WARNING] Missing translation for input: ${input} at ${keyPath}.${internalId}`);
-      return input;
-    }
-  }
-};
 
 // src/services/astroLocalization.ts
 var REC_TERMS = {
@@ -2323,275 +13888,9 @@ var InterpretationEngine = class {
   }
 };
 
-// src/utils/astroCalc.ts
-var import_swisseph = __toESM(require_swisseph(), 1);
-function getJulianDate(year, month, day, hour, minute, timezone) {
-  const utcHour = hour + minute / 60 - timezone;
-  return import_swisseph.default.swe_julday(year, month, day, utcHour, import_swisseph.default.SE_GREG_CAL);
-}
-function getAyanamsa(jd, type = "Lahiri") {
-  let mode = import_swisseph.default.SE_SIDM_LAHIRI;
-  switch (type) {
-    case "Raman":
-      mode = import_swisseph.default.SE_SIDM_RAMAN;
-      break;
-    case "Krishnamurti":
-      mode = import_swisseph.default.SE_SIDM_KRISHNAMURTI;
-      break;
-    case "Fagan-Bradley":
-      mode = import_swisseph.default.SE_SIDM_FAGAN_BRADLEY;
-      break;
-    case "Yukteswar":
-      mode = import_swisseph.default.SE_SIDM_YUKTESHWAR;
-      break;
-    case "Tropical":
-      return 0;
-  }
-  import_swisseph.default.swe_set_sid_mode(mode, 0, 0);
-  return import_swisseph.default.swe_get_ayanamsa_ut(jd);
-}
-function determineDignity(planetName, longitude, rasiIndex) {
-  return "Neutral";
-}
-var SE_BODIES = {
-  "Sun": import_swisseph.default.SE_SUN,
-  "Moon": import_swisseph.default.SE_MOON,
-  "Mars": import_swisseph.default.SE_MARS,
-  "Mercury": import_swisseph.default.SE_MERCURY,
-  "Jupiter": import_swisseph.default.SE_JUPITER,
-  "Venus": import_swisseph.default.SE_VENUS,
-  "Saturn": import_swisseph.default.SE_SATURN,
-  "Uranus": import_swisseph.default.SE_URANUS,
-  "Neptune": import_swisseph.default.SE_NEPTUNE,
-  "Pluto": import_swisseph.default.SE_PLUTO,
-  "Rahu": import_swisseph.default.SE_TRUE_NODE,
-  // Default True Node for Jyotish if not specified
-  "Ketu": import_swisseph.default.SE_TRUE_NODE,
-  "True Node": import_swisseph.default.SE_TRUE_NODE,
-  "Mean Node": import_swisseph.default.SE_MEAN_NODE
-};
-function computePlanetPosition(planetName, jd, ayanamsa, lang = "en") {
-  const seId = SE_BODIES[planetName];
-  if (seId === void 0) {
-    throw new Error(`Unknown planet: ${planetName}`);
-  }
-  const flag = import_swisseph.default.SEFLG_SIDEREAL | import_swisseph.default.SEFLG_SPEED;
-  const result = import_swisseph.default.swe_calc_ut(jd, seId, flag);
-  const eqFlag = import_swisseph.default.SEFLG_EQUATORIAL | import_swisseph.default.SEFLG_SPEED;
-  const eqResult = import_swisseph.default.swe_calc_ut(jd, seId, eqFlag);
-  let longitude = result.longitude;
-  let latitude = result.latitude;
-  let distance = result.distance;
-  let speed = result.longitudeSpeed;
-  let declination = eqResult.declination;
-  let obliquity = eqResult.distance;
-  if (planetName === "Ketu") {
-    longitude = (longitude + 180) % 360;
-    latitude = -latitude;
-    declination = -declination;
-  }
-  while (longitude < 0) longitude += 360;
-  longitude %= 360;
-  const isRetrograde = speed < 0 && planetName !== "Rahu" && planetName !== "Ketu" && planetName !== "Mean Node" && planetName !== "True Node" && planetName !== "Sun" && planetName !== "Moon";
-  const isCombust = false;
-  const rasiIndex = Math.floor(longitude / 30);
-  const signDegree = longitude % 30;
-  const nakshatraExact = longitude / (13 + 1 / 3);
-  const nakshatraIndex = Math.floor(nakshatraExact);
-  const pada = Math.floor((nakshatraExact - nakshatraIndex) * 4) + 1;
-  const navamsaDegree = longitude * 9;
-  const navamsaIndex = Math.floor(navamsaDegree / 30) % 12;
-  const RASHI_NAMES = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-  const NAK_NAMES = ["Aswini", "Bharani", "Krittika", "Rohini", "Mrigasira", "Aardra", "Punarvasu", "Pushyami", "Aasresha", "Makha", "Poorva Phalguni", "Uttara Phalguni", "Hasta", "Chitra", "Swaati", "Visaakha", "Anooraadha", "Jyeshtha", "Moola", "Poorvaashaadha", "Uttaraashaadha", "Sravanam", "Dhanishtha", "Satabhishak", "Poorvaabhaadra", "Uttaraabhaadra", "Revati"];
-  return {
-    id: planetName.toLowerCase(),
-    name: LocalizationService.getPlanet(planetName.toLowerCase()).name,
-    longitude,
-    latitude,
-    distance,
-    declination,
-    obliquity: 0,
-    speed,
-    degree: longitude,
-    signDegree,
-    rasiIndex,
-    rasi: LocalizationService.getRasi(RASHI_NAMES[rasiIndex]),
-    house: 0,
-    // Assigned later by lagna
-    nakshatraIndex,
-    nakshatra: LocalizationService.getNakshatra(NAK_NAMES[nakshatraIndex]),
-    pada,
-    navamsaIndex,
-    navamsa: LocalizationService.getRasi(RASHI_NAMES[navamsaIndex]),
-    isRetrograde,
-    isCombust,
-    dignity: determineDignity(planetName, longitude, rasiIndex),
-    strength: 100
-    // placeholder
-  };
-}
-function getLagnaSidereal(jd, lat, lon, ayanamsa) {
-  return getHouseData(jd, lat, lon, ayanamsa).ascendant;
-}
-function getHouseData(jd, lat, lon, ayanamsa) {
-  const flag = import_swisseph.default.SEFLG_SIDEREAL;
-  const result = import_swisseph.default.swe_houses_ex(jd, flag, lat, lon, "W");
-  let ascendant = result.ascendant;
-  while (ascendant < 0) ascendant += 360;
-  ascendant %= 360;
-  return {
-    ascendant,
-    mc: result.mc,
-    armc: result.armc,
-    vertex: result.vertex,
-    equatorialAscendant: result.equatorialAscendant,
-    coAscendant: result.coAscendant,
-    cusps: result.house
-    // usually an array where cusps[1] is 1st house cusp, etc.
-  };
-}
-function generateDivisionalCharts(planets, lagnaLong, lang) {
-  const charts = [];
-  const divisions = [
-    { code: "D1", name: "Rasi", divisor: 1, type: "regular" },
-    { code: "D2", name: "Hora", divisor: 2, type: "hora" },
-    { code: "D3", name: "Drekkana", divisor: 3, type: "drekkana" },
-    { code: "D4", name: "Chaturthamsa", divisor: 4, type: "chaturthamsa" },
-    { code: "D7", name: "Saptamsa", divisor: 7, type: "saptamsa" },
-    { code: "D9", name: "Navamsa", divisor: 9, type: "navamsa" },
-    { code: "D10", name: "Dasamsa", divisor: 10, type: "dasamsa" },
-    { code: "D12", name: "Dwadasamsa", divisor: 12, type: "dwadasamsa" },
-    { code: "D16", name: "Shodasamsa", divisor: 16, type: "shodasamsa" },
-    { code: "D20", name: "Vimsamsa", divisor: 20, type: "vimsamsa" },
-    { code: "D24", name: "Chaturvimsamsa", divisor: 24, type: "chaturvimsamsa" },
-    { code: "D27", name: "Nakshatramsa", divisor: 27, type: "nakshatramsa" },
-    { code: "D30", name: "Trimsamsa", divisor: 30, type: "trimsamsa" },
-    { code: "D40", name: "Khavedamsa", divisor: 40, type: "khavedamsa" },
-    { code: "D45", name: "Akshavedamsa", divisor: 45, type: "akshavedamsa" },
-    { code: "D60", name: "Shashtyamsa", divisor: 60, type: "shashtyamsa" }
-  ];
-  const RASHI_NAMES = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-  const getVargaRasi = (longitude, rasiIdx, type, n) => {
-    const signDeg = longitude % 30;
-    const part = Math.floor(signDeg * n / 30);
-    switch (type) {
-      case "regular":
-        return rasiIdx;
-      case "hora":
-        if (rasiIdx % 2 === 0) return part === 0 ? 4 : 3;
-        else return part === 0 ? 3 : 4;
-      // Even sign (1st=Cancer, 2nd=Leo)
-      case "drekkana":
-        if (part === 0) return rasiIdx;
-        if (part === 1) return (rasiIdx + 4) % 12;
-        return (rasiIdx + 8) % 12;
-      case "chaturthamsa":
-        if (part === 0) return rasiIdx;
-        if (part === 1) return (rasiIdx + 3) % 12;
-        if (part === 2) return (rasiIdx + 6) % 12;
-        return (rasiIdx + 9) % 12;
-      case "saptamsa":
-        if (rasiIdx % 2 === 0) return (rasiIdx + part) % 12;
-        else return (rasiIdx + 6 + part) % 12;
-      // Even
-      case "navamsa":
-        const element = rasiIdx % 4;
-        let startRasi = 0;
-        if (element === 1) startRasi = 9;
-        if (element === 2) startRasi = 6;
-        if (element === 3) startRasi = 3;
-        return (startRasi + part) % 12;
-      case "dasamsa":
-        if (rasiIdx % 2 === 0) return (rasiIdx + part) % 12;
-        else return (rasiIdx + 8 + part) % 12;
-      // Even starts from 9th (index + 8)
-      case "dwadasamsa":
-        return (rasiIdx + part) % 12;
-      case "shodasamsa":
-        const type16 = rasiIdx % 3;
-        if (type16 === 0) return (0 + part) % 12;
-        if (type16 === 1) return (4 + part) % 12;
-        return (8 + part) % 12;
-      // Sg
-      case "vimsamsa":
-        const type20 = rasiIdx % 3;
-        if (type20 === 0) return (0 + part) % 12;
-        if (type20 === 1) return (8 + part) % 12;
-        return (4 + part) % 12;
-      case "chaturvimsamsa":
-        if (rasiIdx % 2 === 0) return (4 + part) % 12;
-        else return (3 + part) % 12;
-      // Even starts from Cancer
-      case "nakshatramsa":
-        const elem27 = rasiIdx % 4;
-        if (elem27 === 0) return (0 + part) % 12;
-        if (elem27 === 1) return (3 + part) % 12;
-        if (elem27 === 2) return (6 + part) % 12;
-        return (9 + part) % 12;
-      // Capricorn
-      case "trimsamsa":
-        const deg = signDeg;
-        if (rasiIdx % 2 === 0) {
-          if (deg <= 5) return 0;
-          if (deg <= 10) return 10;
-          if (deg <= 18) return 8;
-          if (deg <= 25) return 2;
-          return 6;
-        } else {
-          if (deg <= 5) return 1;
-          if (deg <= 12) return 5;
-          if (deg <= 20) return 11;
-          if (deg <= 25) return 9;
-          return 7;
-        }
-      case "khavedamsa":
-        if (rasiIdx % 2 === 0) return (0 + part) % 12;
-        else return (6 + part) % 12;
-      case "akshavedamsa":
-        const type45 = rasiIdx % 3;
-        if (type45 === 0) return (0 + part) % 12;
-        if (type45 === 1) return (4 + part) % 12;
-        return (8 + part) % 12;
-      case "shashtyamsa":
-        return (rasiIdx + part) % 12;
-      default:
-        return rasiIdx;
-    }
-  };
-  for (const div of divisions) {
-    const lagnaRasiIdx = getVargaRasi(lagnaLong, Math.floor(lagnaLong / 30), div.type, div.divisor);
-    const points = [];
-    points.push({
-      planet: { id: "ascendant", name: { en: "Ascendant" } },
-      longitude: lagnaLong,
-      signIndex: lagnaRasiIdx,
-      sign: LocalizationService.getRasi(RASHI_NAMES[lagnaRasiIdx]),
-      house: 1
-    });
-    for (const p of planets) {
-      const vRasiIdx = getVargaRasi(p.longitude, p.rasiIndex, div.type, div.divisor);
-      const house = (vRasiIdx - lagnaRasiIdx + 12) % 12 + 1;
-      points.push({
-        planet: LocalizationService.getPlanet(p.id),
-        longitude: p.longitude,
-        signIndex: vRasiIdx,
-        sign: LocalizationService.getRasi(RASHI_NAMES[vRasiIdx]),
-        house
-      });
-    }
-    charts.push({
-      name: div.name,
-      code: div.code,
-      description: div.name + " Chart",
-      points
-    });
-  }
-  return charts;
-}
-
 // src/services/astrologyService.ts
 var VIMSHOTTARI_LORDS = ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"];
-var VIMSHOTTARI_DURATIONS = [7, 20, 6, 10, 7, 18, 16, 19, 17];
+var VIMSHOTTARI_DURATIONS2 = [7, 20, 6, 10, 7, 18, 16, 19, 17];
 var NAKSHATRA_LORDS = [
   "Ketu",
   "Venus",
@@ -2836,13 +14135,13 @@ var AstrologyService = class _AstrologyService {
     let currentYear = birthYear;
     let lordPtr = startLordIdx;
     const firstLordName = VIMSHOTTARI_LORDS[lordPtr];
-    const firstLordTotalDuration = VIMSHOTTARI_DURATIONS[lordPtr];
+    const firstLordTotalDuration = VIMSHOTTARI_DURATIONS2[lordPtr];
     const initialElapsed = fractionConsumed * firstLordTotalDuration;
     const initialRemaining = firstLordTotalDuration - initialElapsed;
     for (let i = 0; i < 9; i++) {
       const idx = (startLordIdx + i) % 9;
       const lordName = VIMSHOTTARI_LORDS[idx];
-      const duration = i === 0 ? initialRemaining : VIMSHOTTARI_DURATIONS[idx];
+      const duration = i === 0 ? initialRemaining : VIMSHOTTARI_DURATIONS2[idx];
       const startD = currentYear;
       const endD = currentYear + duration;
       currentYear = endD;
@@ -2851,7 +14150,7 @@ var AstrologyService = class _AstrologyService {
       for (let j = 0; j < 9; j++) {
         const subIdx = (idx + j) % 9;
         const subLord = VIMSHOTTARI_LORDS[subIdx];
-        const subDuration = VIMSHOTTARI_DURATIONS[idx] * VIMSHOTTARI_DURATIONS[subIdx] / 120;
+        const subDuration = VIMSHOTTARI_DURATIONS2[idx] * VIMSHOTTARI_DURATIONS2[subIdx] / 120;
         const actualSubDuration = i === 0 ? subDuration * (duration / firstLordTotalDuration) : subDuration;
         subDashas.push({
           lord: subLord,
@@ -3186,7 +14485,7 @@ var AstrologyService = class _AstrologyService {
       const minNode = Math.min(rah, ket);
       const maxNode = Math.max(rah, ket);
       const normalCount = planets.filter((p) => p.longitude > minNode && p.longitude < maxNode).length;
-      if (normalCount === 0 || normalCount === 10) {
+      if (normalCount === 0 || normalCount === 7) {
         hasKalaSarpa = true;
       }
     }
@@ -3976,8 +15275,9 @@ var AstrologyService = class _AstrologyService {
     enReport += `
 
 Dosha Analysis: ${hasManglikDoshaConflict && !isCancelled ? "Manglik Dosha conflict is present and active." : "No major active Dosha conflicts were found."}`;
+    const isPaapaCompatible = boyPaapaPoints >= girlPaapaPoints;
     enReport += `
-Paapa Samyam: The malefic point difference between the Groom (${boyPaapaPoints}) and Bride (${girlPaapaPoints}) is ${paapaDiff}, which is considered ${paapaDiff <= 2 ? "acceptable" : "high"}.`;
+Paapa Samyam: The malefic point difference between the Groom (${boyPaapaPoints}) and Bride (${girlPaapaPoints}) is ${paapaDiff}. ${isPaapaCompatible ? "Dosha Samyam is compatible." : "Dosha Samyam is incompatible."}`;
     enReport += `
 Thematic Compatibility: Health is rated as ${healthScoreObj.rating}, Finance as ${financeScoreObj.rating}, and Longevity is ${longevityScoreObj.rating}.`;
     if (recStatus === "CompatibleWithCaution") {
@@ -3993,7 +15293,58 @@ Overall recommendation: Not Recommended. Requires careful remediation and astrol
 
 Overall recommendation: Marriage is highly compatible and recommended.`;
     }
-    const reportStr = lang === "te" ? `\u0C35\u0C47\u0C26 \u0C15\u0C41\u0C02\u0C21\u0C32\u0C3F \u0C2E\u0C4D\u0C2F\u0C3E\u0C1A\u0C3F\u0C02\u0C17\u0C4D \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C2F\u0C3F\u0C02\u0C26\u0C3F. 36 \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u200C\u0C32\u0C15\u0C41 \u0C17\u0C3E\u0C28\u0C41 ${totalObtained} \u0C2A\u0C4A\u0C02\u0C26\u0C3E\u0C30\u0C41. \u0C2E\u0C4A\u0C24\u0C4D\u0C24\u0C02 \u0C2A\u0C4A\u0C02\u0C24\u0C28 \u0C36\u0C3E\u0C24\u0C02 ${percentage}%. ${recStatus === "CompatibleWithCaution" ? "\u0C1C\u0C3E\u0C17\u0C4D\u0C30\u0C24\u0C4D\u0C24\u0C24\u0C4B \u0C38\u0C3F\u0C2B\u0C3E\u0C30\u0C4D\u0C38\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F. \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C3F \u0C1C\u0C3E\u0C24\u0C15 \u0C2A\u0C30\u0C3F\u0C36\u0C40\u0C32\u0C28 \u0C05\u0C35\u0C38\u0C30\u0C02." : recStatus === "Compatible" ? "\u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C2E\u0C48\u0C28\u0C26\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C3F\u0C2B\u0C3E\u0C30\u0C4D\u0C38\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F." : "\u0C24\u0C15\u0C4D\u0C15\u0C41\u0C35 \u0C2E\u0C4D\u0C2F\u0C3E\u0C1A\u0C3F\u0C02\u0C17\u0C4D \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32 \u0C15\u0C3E\u0C30\u0C23\u0C02\u0C17\u0C3E \u0C1C\u0C3E\u0C17\u0C4D\u0C30\u0C24\u0C4D\u0C24\u0C17\u0C3E \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C4D\u0C2F\u0C41\u0C21\u0C3F\u0C28\u0C3F \u0C38\u0C02\u0C2A\u0C4D\u0C30\u0C26\u0C3F\u0C02\u0C1A\u0C21\u0C02 \u0C05\u0C35\u0C38\u0C30\u0C02."}` : lang === "hi" ? `\u0935\u0948\u0926\u093F\u0915 \u0915\u0941\u0902\u0921\u0932\u0940 \u092E\u093F\u0932\u093E\u0928 \u092A\u0942\u0930\u093E \u0939\u094B \u0917\u092F\u093E \u0939\u0948\u0964 36 \u092E\u0947\u0902 \u0938\u0947 ${totalObtained} \u0905\u0902\u0915 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u0941\u090F\u0964 \u0915\u0941\u0932 \u092E\u093F\u0932\u093E\u0928 \u0926\u0930 ${percentage}% \u0939\u0948\u0964 ${recStatus === "CompatibleWithCaution" ? "\u0938\u093E\u0935\u0927\u093E\u0928\u0940 \u0915\u0947 \u0938\u093E\u0925 \u0905\u0928\u0941\u0936\u0902\u0938\u093F\u0924\u0964 \u092A\u0942\u0930\u094D\u0923 \u0915\u0941\u0902\u0921\u0932\u0940 \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0906\u0935\u0936\u094D\u092F\u0915 \u0939\u0948\u0964" : recStatus === "Compatible" ? "\u0935\u093F\u0935\u093E\u0939 \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948 \u0914\u0930 \u0905\u0928\u0941\u0936\u0902\u0938\u093F\u0924 \u0939\u0948\u0964" : "\u0915\u092E \u092E\u093F\u0932\u093E\u0928 \u0905\u0902\u0915\u094B\u0902 \u0915\u0947 \u0915\u093E\u0930\u0923 \u0938\u093E\u0935\u0927\u093E\u0928\u0940\u092A\u0942\u0930\u094D\u0935\u0915 \u0909\u092A\u091A\u093E\u0930 \u0914\u0930 \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940 \u0938\u0947 \u092A\u0930\u093E\u092E\u0930\u094D\u0936 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u0948\u0964"}` : lang === "ta" ? `\u0BB5\u0BC7\u0BA4 \u0B9C\u0BBE\u0BA4\u0B95 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B95\u0BBE\u0BA3\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. 36\u0B95\u0BCD\u0B95\u0BC1 ${totalObtained} \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD \u0B95\u0BBF\u0B9F\u0BC8\u0BA4\u0BCD\u0BA4\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BAE\u0BCA\u0BA4\u0BCD\u0BA4\u0BAA\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD ${percentage}%. ${recStatus === "CompatibleWithCaution" ? "\u0B95\u0BB5\u0BA9\u0BA4\u0BCD\u0BA4\u0BC1\u0B9F\u0BA9\u0BCD \u0BAA\u0BB0\u0BBF\u0BA8\u0BCD\u0BA4\u0BC1\u0BB0\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. \u0BAE\u0BC1\u0BB4\u0BC1\u0BAE\u0BC8\u0BAF\u0BBE\u0BA9 \u0B9C\u0BBE\u0BA4\u0B95 \u0B86\u0BAF\u0BCD\u0BB5\u0BC1 \u0B85\u0BB5\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD." : recStatus === "Compatible" ? "\u0BAE\u0BA3\u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0B95\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BB0\u0BBF\u0BA8\u0BCD\u0BA4\u0BC1\u0BB0\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1." : "\u0B95\u0BC1\u0BB1\u0BC8\u0BB5\u0BBE\u0BA9 \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD \u0B8E\u0BA9\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD \u0BAE\u0BC1\u0BB1\u0BC8\u0BAF\u0BBE\u0BA9 \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8 \u0B85\u0BB5\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD."}` : lang === "kn" ? `\u0CB5\u0CC7\u0CA6 \u0C9C\u0CBE\u0CA4\u0C95 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0CAA\u0CC2\u0CB0\u0CCD\u0CA3\u0C97\u0CCA\u0C82\u0CA1\u0CBF\u0CA6\u0CC6. 36\u0C95\u0CCD\u0C95\u0CC6 ${totalObtained} \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1 \u0CAC\u0C82\u0CA6\u0CBF\u0CB5\u0CC6. \u0C92\u0C9F\u0CCD\u0C9F\u0CC1 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0CA6\u0CB0 ${percentage}%. ${recStatus === "CompatibleWithCaution" ? "\u0C8E\u0C9A\u0CCD\u0C9A\u0CB0\u0CBF\u0C95\u0CC6\u0CAF\u0CBF\u0C82\u0CA6 \u0CB6\u0CBF\u0CAB\u0CBE\u0CB0\u0CB8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CB8\u0C82\u0CAA\u0CC2\u0CB0\u0CCD\u0CA3 \u0C9C\u0CBE\u0CA4\u0C95 \u0CAA\u0CB0\u0CBF\u0CB6\u0CC0\u0CB2\u0CA8\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF." : recStatus === "Compatible" ? "\u0CB5\u0CBF\u0CB5\u0CBE\u0CB9\u0C95\u0CCD\u0C95\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAF\u0CCB\u0C97\u0CCD\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB6\u0CBF\u0CAB\u0CBE\u0CB0\u0CB8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6." : "\u0C95\u0CA1\u0CBF\u0CAE\u0CC6 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF\u0CB0 \u0CB8\u0CB2\u0CB9\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF\u0CB5\u0CBF\u0CA6\u0CC6."}` : enReport;
+    let reportStr = "";
+    if (lang === "te") {
+      reportStr = `\u0C35\u0C47\u0C26 \u0C15\u0C41\u0C02\u0C21\u0C32\u0C3F \u0C2E\u0C4D\u0C2F\u0C3E\u0C1A\u0C3F\u0C02\u0C17\u0C4D \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C2F\u0C3F\u0C02\u0C26\u0C3F. 36 \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u200C\u0C32\u0C15\u0C41 \u0C17\u0C3E\u0C28\u0C41 ${totalObtained} \u0C2A\u0C4A\u0C02\u0C26\u0C3E\u0C30\u0C41. \u0C2E\u0C4A\u0C24\u0C4D\u0C24\u0C02 \u0C2A\u0C4A\u0C02\u0C24\u0C28 \u0C36\u0C3E\u0C24\u0C02 ${percentage}%.
+`;
+      reportStr += `
+\u0C26\u0C4B\u0C37 \u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23: ${hasManglikDoshaConflict && !isCancelled ? "\u0C2E\u0C3E\u0C02\u0C17\u0C4D\u0C32\u0C3F\u0C15\u0C4D (\u0C15\u0C41\u0C1C) \u0C26\u0C4B\u0C37 \u0C38\u0C02\u0C18\u0C30\u0C4D\u0C37\u0C23 \u0C38\u0C15\u0C4D\u0C30\u0C3F\u0C2F\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F." : "\u0C2A\u0C4D\u0C30\u0C27\u0C3E\u0C28 \u0C26\u0C4B\u0C37 \u0C38\u0C02\u0C18\u0C30\u0C4D\u0C37\u0C23\u0C32\u0C41 \u0C15\u0C28\u0C41\u0C17\u0C4A\u0C28\u0C2C\u0C21\u0C32\u0C47\u0C26\u0C41."}`;
+      reportStr += `
+\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02: \u0C05\u0C2C\u0C4D\u0C2C\u0C3E\u0C2F\u0C3F (${boyPaapaPoints}) \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C05\u0C2E\u0C4D\u0C2E\u0C3E\u0C2F\u0C3F (${girlPaapaPoints}) \u0C2E\u0C27\u0C4D\u0C2F \u0C26\u0C4B\u0C37 \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32 \u0C35\u0C4D\u0C2F\u0C24\u0C4D\u0C2F\u0C3E\u0C38\u0C02 ${paapaDiff}. ${isPaapaCompatible ? "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F." : "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C32\u0C47\u0C26\u0C41."}`;
+      reportStr += `
+\u0C28\u0C47\u0C2A\u0C25\u0C4D\u0C2F \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C24: \u0C06\u0C30\u0C4B\u0C17\u0C4D\u0C2F\u0C02 ${healthScoreObj.rating}, \u0C06\u0C30\u0C4D\u0C25\u0C3F\u0C15\u0C02 ${financeScoreObj.rating} \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C06\u0C2F\u0C41\u0C30\u0C4D\u0C26\u0C3E\u0C2F\u0C02 ${longevityScoreObj.rating}.
+`;
+      reportStr += `
+${recStatus === "CompatibleWithCaution" ? "\u0C1C\u0C3E\u0C17\u0C4D\u0C30\u0C24\u0C4D\u0C24\u0C24\u0C4B \u0C38\u0C3F\u0C2B\u0C3E\u0C30\u0C4D\u0C38\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F. \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C3F \u0C1C\u0C3E\u0C24\u0C15 \u0C2A\u0C30\u0C3F\u0C36\u0C40\u0C32\u0C28 \u0C05\u0C35\u0C38\u0C30\u0C02." : recStatus === "Compatible" ? "\u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C2E\u0C48\u0C28\u0C26\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C3F\u0C2B\u0C3E\u0C30\u0C4D\u0C38\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F." : "\u0C24\u0C15\u0C4D\u0C15\u0C41\u0C35 \u0C2E\u0C4D\u0C2F\u0C3E\u0C1A\u0C3F\u0C02\u0C17\u0C4D \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32 \u0C15\u0C3E\u0C30\u0C23\u0C02\u0C17\u0C3E \u0C1C\u0C3E\u0C17\u0C4D\u0C30\u0C24\u0C4D\u0C24\u0C17\u0C3E \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C4D\u0C2F\u0C41\u0C21\u0C3F\u0C28\u0C3F \u0C38\u0C02\u0C2A\u0C4D\u0C30\u0C26\u0C3F\u0C02\u0C1A\u0C21\u0C02 \u0C05\u0C35\u0C38\u0C30\u0C02."}`;
+    } else if (lang === "hi") {
+      reportStr = `\u0935\u0948\u0926\u093F\u0915 \u0915\u0941\u0902\u0921\u0932\u0940 \u092E\u093F\u0932\u093E\u0928 \u092A\u0942\u0930\u093E \u0939\u094B \u0917\u092F\u093E \u0939\u0948\u0964 36 \u092E\u0947\u0902 \u0938\u0947 ${totalObtained} \u0905\u0902\u0915 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u0941\u090F\u0964 \u0915\u0941\u0932 \u092E\u093F\u0932\u093E\u0928 \u0926\u0930 ${percentage}% \u0939\u0948\u0964
+`;
+      reportStr += `
+\u0926\u094B\u0937 \u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923: ${hasManglikDoshaConflict && !isCancelled ? "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u094B\u0937 \u0938\u0902\u0918\u0930\u094D\u0937 \u0938\u0915\u094D\u0930\u093F\u092F \u0939\u0948\u0964" : "\u0915\u094B\u0908 \u092A\u094D\u0930\u092E\u0941\u0916 \u0938\u0915\u094D\u0930\u093F\u092F \u0926\u094B\u0937 \u0938\u0902\u0918\u0930\u094D\u0937 \u0928\u0939\u0940\u0902 \u092A\u093E\u092F\u093E \u0917\u092F\u093E\u0964"}`;
+      reportStr += `
+\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F: \u0932\u0921\u093C\u0915\u0947 (${boyPaapaPoints}) \u0914\u0930 \u0932\u0921\u093C\u0915\u0940 (${girlPaapaPoints}) \u0915\u0947 \u092C\u0940\u091A \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0915\u093E \u0905\u0902\u0924\u0930 ${paapaDiff} \u0939\u0948\u0964 ${isPaapaCompatible ? "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948\u0964" : "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964"}`;
+      reportStr += `
+\u0935\u093F\u0937\u092F\u0917\u0924 \u0905\u0928\u0941\u0915\u0942\u0932\u0924\u093E: \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F ${healthScoreObj.rating}, \u0935\u093F\u0924\u094D\u0924 ${financeScoreObj.rating} \u0914\u0930 \u0926\u0940\u0930\u094D\u0918\u093E\u092F\u0941 ${longevityScoreObj.rating} \u0939\u0948\u0964
+`;
+      reportStr += `
+${recStatus === "CompatibleWithCaution" ? "\u0938\u093E\u0935\u0927\u093E\u0928\u0940 \u0915\u0947 \u0938\u093E\u0925 \u0905\u0928\u0941\u0936\u0902\u0938\u093F\u0924\u0964 \u092A\u0942\u0930\u094D\u0923 \u0915\u0941\u0902\u0921\u0932\u0940 \u0915\u0940 \u0938\u092E\u0940\u0915\u094D\u0937\u093E \u0906\u0935\u0936\u094D\u092F\u0915 \u0939\u0948\u0964" : recStatus === "Compatible" ? "\u0935\u093F\u0935\u093E\u0939 \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948 \u0914\u0930 \u0905\u0928\u0941\u0936\u0902\u0938\u093F\u0924 \u0939\u0948\u0964" : "\u0915\u092E \u092E\u093F\u0932\u093E\u0928 \u0905\u0902\u0915\u094B\u0902 \u0915\u0947 \u0915\u093E\u0930\u0923 \u0938\u093E\u0935\u0927\u093E\u0928\u0940\u092A\u0942\u0930\u094D\u0935\u0915 \u0909\u092A\u091A\u093E\u0930 \u0914\u0930 \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940 \u0938\u0947 \u092A\u0930\u093E\u092E\u0930\u094D\u0936 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u0948\u0964"}`;
+    } else if (lang === "ta") {
+      reportStr = `\u0BB5\u0BC7\u0BA4 \u0B9C\u0BBE\u0BA4\u0B95 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B95\u0BBE\u0BA3\u0BCD\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. 36\u0B95\u0BCD\u0B95\u0BC1 ${totalObtained} \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD \u0B95\u0BBF\u0B9F\u0BC8\u0BA4\u0BCD\u0BA4\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BAE\u0BCA\u0BA4\u0BCD\u0BA4\u0BAA\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD ${percentage}%.
+`;
+      reportStr += `
+\u0BA4\u0BCB\u0BB7 \u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1: ${hasManglikDoshaConflict && !isCancelled ? "\u0BAE\u0BBE\u0B99\u0BCD\u0B95\u0BCD\u0BB2\u0BBF\u0B95\u0BCD (\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD) \u0BA4\u0BCB\u0BB7 \u0BAE\u0BC1\u0BB0\u0BA3\u0BCD\u0BAA\u0BBE\u0B9F\u0BC1 \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1." : "\u0BAE\u0BC1\u0B95\u0BCD\u0B95\u0BBF\u0BAF \u0BA4\u0BCB\u0BB7 \u0BAE\u0BC1\u0BB0\u0BA3\u0BCD\u0BAA\u0BBE\u0B9F\u0BC1\u0B95\u0BB3\u0BCD \u0B8E\u0BA4\u0BC1\u0BB5\u0BC1\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8."}`;
+      reportStr += `
+\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD: \u0BAE\u0BA3\u0BAE\u0B95\u0BA9\u0BCD (${boyPaapaPoints}) \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAE\u0BA3\u0BAE\u0B95\u0BB3\u0BCD (${girlPaapaPoints}) \u0B87\u0B9F\u0BC8\u0BAF\u0BBF\u0BB2\u0BBE\u0BA9 \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF \u0BB5\u0BBF\u0BA4\u0BCD\u0BA4\u0BBF\u0BAF\u0BBE\u0B9A\u0BAE\u0BCD ${paapaDiff}. ${isPaapaCompatible ? "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1." : "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8."}`;
+      reportStr += `
+\u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD: \u0B86\u0BB0\u0BCB\u0B95\u0BCD\u0B95\u0BBF\u0BAF\u0BAE\u0BCD ${healthScoreObj.rating}, \u0BAA\u0BCA\u0BB0\u0BC1\u0BB3\u0BBE\u0BA4\u0BBE\u0BB0\u0BAE\u0BCD ${financeScoreObj.rating}, \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B86\u0BAF\u0BC1\u0B9F\u0BCD\u0B95\u0BBE\u0BB2\u0BAE\u0BCD ${longevityScoreObj.rating}.
+`;
+      reportStr += `
+${recStatus === "CompatibleWithCaution" ? "\u0B95\u0BB5\u0BA9\u0BA4\u0BCD\u0BA4\u0BC1\u0B9F\u0BA9\u0BCD \u0BAA\u0BB0\u0BBF\u0BA8\u0BCD\u0BA4\u0BC1\u0BB0\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1. \u0BAE\u0BC1\u0BB4\u0BC1\u0BAE\u0BC8\u0BAF\u0BBE\u0BA9 \u0B9C\u0BBE\u0BA4\u0B95 \u0B86\u0BAF\u0BCD\u0BB5\u0BC1 \u0B85\u0BB5\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD." : recStatus === "Compatible" ? "\u0BAE\u0BA3\u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0B95\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BB0\u0BBF\u0BA8\u0BCD\u0BA4\u0BC1\u0BB0\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1." : "\u0B95\u0BC1\u0BB1\u0BC8\u0BB5\u0BBE\u0BA9 \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD \u0B8E\u0BA9\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD \u0BAE\u0BC1\u0BB1\u0BC8\u0BAF\u0BBE\u0BA9 \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8 \u0B85\u0BB5\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD."}`;
+    } else if (lang === "kn") {
+      reportStr = `\u0CB5\u0CC7\u0CA6 \u0C9C\u0CBE\u0CA4\u0C95 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0CAA\u0CC2\u0CB0\u0CCD\u0CA3\u0C97\u0CCA\u0C82\u0CA1\u0CBF\u0CA6\u0CC6. 36\u0C95\u0CCD\u0C95\u0CC6 ${totalObtained} \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1 \u0CAC\u0C82\u0CA6\u0CBF\u0CB5\u0CC6. \u0C92\u0C9F\u0CCD\u0C9F\u0CC1 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0CA6\u0CB0 ${percentage}%.
+`;
+      reportStr += `
+\u0CA6\u0CCB\u0CB7 \u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CC6: ${hasManglikDoshaConflict && !isCancelled ? "\u0CAE\u0CBE\u0C82\u0C97\u0CCD\u0CB2\u0CBF\u0C95\u0CCD (\u0C95\u0CC1\u0C9C) \u0CA6\u0CCB\u0CB7 \u0CB8\u0C82\u0C98\u0CB0\u0CCD\u0CB7 \u0CB8\u0C95\u0CCD\u0CB0\u0CBF\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6." : "\u0CAF\u0CBE\u0CB5\u0CC1\u0CA6\u0CC7 \u0CAA\u0CCD\u0CB0\u0CAE\u0CC1\u0C96 \u0CA6\u0CCB\u0CB7 \u0CB8\u0C82\u0C98\u0CB0\u0CCD\u0CB7\u0C97\u0CB3\u0CBF\u0CB2\u0CCD\u0CB2."}`;
+      reportStr += `
+\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF: \u0CB9\u0CC1\u0CA1\u0CC1\u0C97 (${boyPaapaPoints}) \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CBF (${girlPaapaPoints}) \u0CA8\u0CA1\u0CC1\u0CB5\u0CBF\u0CA8 \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB5\u0CCD\u0CAF\u0CA4\u0CCD\u0CAF\u0CBE\u0CB8 ${paapaDiff}. ${isPaapaCompatible ? "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CA6\u0CC6." : "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CB2\u0CCD\u0CB2."}`;
+      reportStr += `
+\u0CB5\u0CBF\u0CB7\u0CAF\u0CBE\u0CA7\u0CBE\u0CB0\u0CBF\u0CA4 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6: \u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF ${healthScoreObj.rating}, \u0C86\u0CB0\u0CCD\u0CA5\u0CBF\u0C95\u0CA4\u0CC6 ${financeScoreObj.rating} \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C86\u0CAF\u0CC1\u0CB7\u0CCD\u0CAF ${longevityScoreObj.rating}.
+`;
+      reportStr += `
+${recStatus === "CompatibleWithCaution" ? "\u0C8E\u0C9A\u0CCD\u0C9A\u0CB0\u0CBF\u0C95\u0CC6\u0CAF\u0CBF\u0C82\u0CA6 \u0CB6\u0CBF\u0CAB\u0CBE\u0CB0\u0CB8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CB8\u0C82\u0CAA\u0CC2\u0CB0\u0CCD\u0CA3 \u0C9C\u0CBE\u0CA4\u0C95 \u0CAA\u0CB0\u0CBF\u0CB6\u0CC0\u0CB2\u0CA8\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF." : recStatus === "Compatible" ? "\u0CB5\u0CBF\u0CB5\u0CBE\u0CB9\u0C95\u0CCD\u0C95\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CAF\u0CCB\u0C97\u0CCD\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB6\u0CBF\u0CAB\u0CBE\u0CB0\u0CB8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6." : "\u0C95\u0CA1\u0CBF\u0CAE\u0CC6 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF\u0CB0 \u0CB8\u0CB2\u0CB9\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF\u0CB5\u0CBF\u0CA6\u0CC6."}`;
+    } else {
+      reportStr = enReport;
+    }
     const mapPlanets = (planets) => {
       const positions = {};
       planets.forEach((p) => {
@@ -4095,8 +15446,8 @@ Overall recommendation: Marriage is highly compatible and recommended.`;
       financeScore: financeScoreObj,
       longevityScore: longevityScoreObj,
       doshaMatching: {
-        boyDoshas: boyDoshas.filter((d) => d.hasDosha).map((d) => d.name),
-        girlDoshas: girlDoshas.filter((d) => d.hasDosha).map((d) => d.name),
+        boyDoshas: boyDoshas.filter((d) => d.hasDosha).map((d) => d.localizedName || d.name),
+        girlDoshas: girlDoshas.filter((d) => d.hasDosha).map((d) => d.localizedName || d.name),
         hasManglikDoshaConflict,
         isCancelled,
         cancellationDetails: cancellationDetailsStr
@@ -4115,13 +15466,13 @@ Overall recommendation: Marriage is highly compatible and recommended.`;
         boy_points: boyPaapaPoints,
         girl_points: girlPaapaPoints,
         total_points: paapaDiff,
-        description: lang === "te" ? `\u0C05\u0C2C\u0C4D\u0C2C\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${boyPaapaPoints}, \u0C05\u0C2E\u0C4D\u0C2E\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${girlPaapaPoints}. \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32 \u0C26\u0C4B\u0C37 \u0C38\u0C2E\u0C24\u0C41\u0C32\u0C4D\u0C2F\u0C24 \u0C2C\u0C3E\u0C17\u0C41\u0C02\u0C26\u0C3F.` : lang === "hi" ? `\u0932\u0921\u093C\u0915\u0947 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${boyPaapaPoints}, \u0932\u0921\u093C\u0915\u0940 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${girlPaapaPoints}\u0964` : lang === "ta" ? `\u0B86\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${boyPaapaPoints}, \u0BAA\u0BC6\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${girlPaapaPoints}. \u0B95\u0BBF\u0BB0\u0B95 \u0BA4\u0BCB\u0BB7 \u0B9A\u0BAE\u0BA8\u0BBF\u0BB2\u0BC8 \u0BA8\u0BA9\u0BCD\u0BB1\u0BBE\u0B95 \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1.` : lang === "kn" ? `\u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CA8 \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${boyPaapaPoints}, \u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CBF\u0CAF \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${girlPaapaPoints}. \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CA6\u0CCB\u0CB7 \u0CB8\u0CAE\u0CA4\u0CCB\u0CB2\u0CA8 \u0C9A\u0CC6\u0CA8\u0CCD\u0CA8\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.` : `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. The malefic point difference is ${paapaDiff}.`
+        description: lang === "te" ? `\u0C05\u0C2C\u0C4D\u0C2C\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${boyPaapaPoints}, \u0C05\u0C2E\u0C4D\u0C2E\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F." : "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C32\u0C47\u0C26\u0C41."}` : lang === "hi" ? `\u0932\u0921\u093C\u0915\u0947 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${boyPaapaPoints}, \u0932\u0921\u093C\u0915\u0940 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${girlPaapaPoints}\u0964 ${isPaapaCompatible ? "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948\u0964" : "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964"}` : lang === "ta" ? `\u0B86\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${boyPaapaPoints}, \u0BAA\u0BC6\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1." : "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8."}` : lang === "kn" ? `\u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CA8 \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${boyPaapaPoints}, \u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CBF\u0CAF \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CA6\u0CC6." : "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CB2\u0CCD\u0CB2."}` : `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. ${isPaapaCompatible ? "Dosha Samyam is compatible since the boy's malefic points are greater than or equal to the girl's." : "Dosha Samyam is incompatible because the girl's malefic points exceed the boy's."}`
       },
       paapaSamyam: {
         boyPoints: boyPaapaPoints,
         girlPoints: girlPaapaPoints,
         total_points: paapaDiff,
-        description: lang === "te" ? `\u0C05\u0C2C\u0C4D\u0C2C\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${boyPaapaPoints}, \u0C05\u0C2E\u0C4D\u0C2E\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${girlPaapaPoints}. \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32 \u0C26\u0C4B\u0C37 \u0C38\u0C2E\u0C24\u0C41\u0C32\u0C4D\u0C2F\u0C24 \u0C2C\u0C3E\u0C17\u0C41\u0C02\u0C26\u0C3F.` : lang === "hi" ? `\u0932\u0921\u093C\u0915\u0947 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${boyPaapaPoints}, \u0932\u0921\u093C\u0915\u0940 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${girlPaapaPoints}\u0964` : lang === "ta" ? `\u0B86\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${boyPaapaPoints}, \u0BAA\u0BC6\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${girlPaapaPoints}. \u0B95\u0BBF\u0BB0\u0B95 \u0BA4\u0BCB\u0BB7 \u0B9A\u0BAE\u0BA8\u0BBF\u0BB2\u0BC8 \u0BA8\u0BA9\u0BCD\u0BB1\u0BBE\u0B95 \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1.` : lang === "kn" ? `\u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CA8 \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${boyPaapaPoints}, \u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CBF\u0CAF \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${girlPaapaPoints}. \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CA6\u0CCB\u0CB7 \u0CB8\u0CAE\u0CA4\u0CCB\u0CB2\u0CA8 \u0C9A\u0CC6\u0CA8\u0CCD\u0CA8\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.` : `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. The malefic point difference is ${paapaDiff}.`
+        description: lang === "te" ? `\u0C05\u0C2C\u0C4D\u0C2C\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${boyPaapaPoints}, \u0C05\u0C2E\u0C4D\u0C2E\u0C3E\u0C2F\u0C3F \u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F." : "\u0C2A\u0C3E\u0C2A \u0C38\u0C3E\u0C2E\u0C4D\u0C2F\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C32\u0C47\u0C26\u0C41."}` : lang === "hi" ? `\u0932\u0921\u093C\u0915\u0947 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${boyPaapaPoints}, \u0932\u0921\u093C\u0915\u0940 \u0915\u0947 \u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0902\u0915: ${girlPaapaPoints}\u0964 ${isPaapaCompatible ? "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948\u0964" : "\u092A\u093E\u092A \u0938\u093E\u092E\u094D\u092F \u0905\u0928\u0941\u0915\u0942\u0932 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964"}` : lang === "ta" ? `\u0B86\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${boyPaapaPoints}, \u0BAA\u0BC6\u0BA3\u0BCD \u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BC1\u0BB3\u0BCD\u0BB3\u0BBF\u0B95\u0BB3\u0BCD: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1." : "\u0BAA\u0BBE\u0BB5 \u0B9A\u0BBE\u0BAE\u0BCD\u0BAF\u0BAE\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8."}` : lang === "kn" ? `\u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CA8 \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${boyPaapaPoints}, \u0CB9\u0CC1\u0CA1\u0CC1\u0C97\u0CBF\u0CAF \u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1: ${girlPaapaPoints}. ${isPaapaCompatible ? "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CA6\u0CC6." : "\u0CAA\u0CBE\u0CAA \u0CB8\u0CBE\u0CAE\u0CCD\u0CAF \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C87\u0CB2\u0CCD\u0CB2."}` : `Boy's Paapa Samyam score is ${boyPaapaPoints}, Girl's is ${girlPaapaPoints}. ${isPaapaCompatible ? "Dosha Samyam is compatible since the boy's malefic points are greater than or equal to the girl's." : "Dosha Samyam is incompatible because the girl's malefic points exceed the boy's."}`
       },
       recommendation: {
         status: recStatus,
@@ -4365,1117 +15716,880 @@ function tRemToDeg(rem) {
   return parseFloat((rem * 30).toFixed(4));
 }
 
-// src/services/aiService.ts
-var AiService = class {
-  // Generate deterministic highly customizable localized Vedic Horoscope interpretations
-  static async generateHoroscope(sign, lang = "en") {
-    return AstrologyServiceFallback.getZodiacHoroscope(sign, lang);
-  }
-  // Generate an expert textual explanations for a Birth Chart
-  static async explainChart(chartSummary, lang = "en") {
-    if (lang === "te") return `\u0C32\u0C17\u0C4D\u0C28\u0C02 ${chartSummary.lagna} \u0C32\u0C4B \u0C09\u0C02\u0C26\u0C3F. \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C26\u0C36\u0C32 \u0C06\u0C27\u0C3E\u0C30\u0C02\u0C17\u0C3E \u0C2B\u0C32\u0C3F\u0C24\u0C3E\u0C32\u0C41 \u0C05\u0C02\u0C1A\u0C28\u0C3E \u0C35\u0C47\u0C2F\u0C2C\u0C21\u0C4D\u0C21\u0C3E\u0C2F\u0C3F.`;
-    if (lang === "hi") return `\u0932\u0917\u094D\u0928 ${chartSummary.lagna} \u092E\u0947\u0902 \u0938\u094D\u0925\u093F\u0924 \u0939\u0948\u0964 \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u094D\u0925\u093F\u0924\u093F \u0914\u0930 \u0926\u0936\u093E \u0915\u0947 \u0906\u0927\u093E\u0930 \u092A\u0930 \u092A\u0930\u093F\u0923\u093E\u092E\u094B\u0902 \u0915\u0940 \u0917\u0923\u0928\u093E \u0915\u0940 \u0917\u0908 \u0939\u0948\u0964`;
-    if (lang === "ta") return `\u0BB2\u0B95\u0BCD\u0BA9\u0BAE\u0BCD ${chartSummary.lagna} \u0B87\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0B95\u0BCB\u0BB3\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0BA8\u0BBF\u0BB2\u0BC8 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BA4\u0B9A\u0BBE \u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD \u0BAE\u0BC1\u0B9F\u0BBF\u0BB5\u0BC1\u0B95\u0BB3\u0BCD \u0B95\u0BA3\u0BBF\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA9.`;
-    if (lang === "kn") return `\u0CB2\u0C97\u0CCD\u0CA8\u0CB5\u0CC1 ${chartSummary.lagna} \u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CA6\u0CC6. \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CA6\u0CB6\u0CC6\u0C97\u0CB3 \u0C86\u0CA7\u0CBE\u0CB0\u0CA6 \u0CAE\u0CC7\u0CB2\u0CC6 \u0CAB\u0CB2\u0CBF\u0CA4\u0CBE\u0C82\u0CB6\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB2\u0CC6\u0C95\u0CCD\u0C95\u0CB9\u0CBE\u0C95\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.`;
-    return `Solar & planetary configurations analyzed deterministically. Lagna is located in ${chartSummary.lagna}. The major planets are placed in their respective houses. All computations strictly follow Parasari standards.`;
-  }
-  // Generate highly premium, scholar-level deterministic advisor response
-  // Generate highly premium, scholar-level deterministic advisor response
-  static async consultAstro(message, history, chartSummary, lang = "en") {
-    console.warn("AI Consulting is disabled in deterministic mode. Using static expert replies.");
-    const text = message.toLowerCase();
-    if (text.includes("career") || text.includes("job") || text.includes("work")) {
-      return lang === "te" ? "\u0C2E\u0C40 10\u0C35 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02 (\u0C30\u0C3E\u0C1C\u0C4D\u0C2F\u0C3E \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02) \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C42\u0C30\u0C4D\u0C2F\u0C41\u0C28\u0C3F \u0C2C\u0C32\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C2C\u0C1F\u0C4D\u0C1F\u0C3F \u0C2E\u0C40 \u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D \u0C1A\u0C3E\u0C32\u0C3E \u0C09\u0C28\u0C4D\u0C28\u0C24\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F. \u0C2A\u0C4D\u0C30\u0C38\u0C4D\u0C24\u0C41\u0C24 \u0C26\u0C36 \u0C2A\u0C41\u0C30\u0C4B\u0C2D\u0C3F\u0C35\u0C43\u0C26\u0C4D\u0C26\u0C3F\u0C28\u0C3F \u0C1A\u0C42\u0C2A\u0C3F\u0C38\u0C4D\u0C24\u0C4B\u0C02\u0C26\u0C3F." : lang === "hi" ? "\u0906\u092A\u0915\u0947 \u0915\u0930\u093F\u092F\u0930 \u0915\u093E \u0926\u0936\u092E \u092D\u093E\u0935 \u092E\u091C\u092C\u0942\u0924 \u0939\u0948\u0964 \u0938\u0942\u0930\u094D\u092F \u0914\u0930 \u092C\u0941\u0927 \u0915\u0940 \u092F\u0941\u0924\u093F \u0930\u093E\u091C\u092F\u094B\u0917 \u0926\u0930\u094D\u0936\u093E\u0924\u0940 \u0939\u0948\u0964 \u0928\u093F\u0930\u0902\u0924\u0930 \u092A\u094D\u0930\u092F\u093E\u0938 \u0938\u0947 \u0938\u092B\u0932\u0924\u093E \u0905\u0935\u0936\u094D\u092F \u092E\u093F\u0932\u0947\u0917\u0940\u0964" : "Based on your 10th house of career (Karma Sthana) and the positioning of the Sun, you are entering a period of career expansion and recognition. Keep your focus on long-term leadership goals.";
-    } else if (text.includes("marri") || text.includes("love") || text.includes("wife") || text.includes("husband") || text.includes("partner")) {
-      return lang === "te" ? "\u0C2E\u0C40 7\u0C35 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02 \u0C2E\u0C02\u0C1A\u0C3F \u0C05\u0C27\u0C3F\u0C2A\u0C24\u0C3F\u0C28\u0C3F \u0C15\u0C32\u0C3F\u0C17\u0C3F \u0C09\u0C02\u0C26\u0C3F. \u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C4D\u0C2F\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C35\u0C48\u0C35\u0C3E\u0C39\u0C3F\u0C15 \u0C1C\u0C40\u0C35\u0C3F\u0C24\u0C02 \u0C2A\u0C4D\u0C30\u0C36\u0C3E\u0C02\u0C24\u0C02\u0C17\u0C3E \u0C38\u0C3E\u0C17\u0C41\u0C24\u0C3E\u0C2F\u0C3F." : lang === "hi" ? "\u0938\u092A\u094D\u0924\u092E \u092D\u093E\u0935 (\u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0925\u093E\u0928) \u0936\u0941\u092D \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0926\u0943\u0937\u094D\u091F\u093F \u092E\u0947\u0902 \u0939\u0948\u0964 \u0935\u0948\u0935\u093E\u0939\u093F\u0915 \u091C\u0940\u0935\u0928 \u0938\u0941\u0916\u092E\u092F \u0914\u0930 \u0938\u093E\u092E\u0902\u091C\u0938\u094D\u092F\u092A\u0942\u0930\u094D\u0923 \u0930\u0939\u0947\u0917\u093E\u0964" : "The 7th house (Kalatra Sthana) rules your marriage and partnerships. Planetary conjunctions indicate a highly supportive life partner who brings harmony and shared spiritual growth.";
-    } else if (text.includes("money") || text.includes("wealth") || text.includes("finance")) {
-      return lang === "te" ? "\u0C2E\u0C40 2\u0C35 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 11\u0C35 \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C3E\u0C32\u0C41 \u0C27\u0C28 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C32\u0C3E\u0C2D \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C3E\u0C32\u0C41. \u0C27\u0C28 \u0C2A\u0C4D\u0C30\u0C35\u0C3E\u0C39\u0C02 \u0C28\u0C3F\u0C32\u0C15\u0C21\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F." : lang === "hi" ? "\u0926\u094D\u0935\u093F\u0924\u0940\u092F (\u0927\u0928) \u0914\u0930 \u090F\u0915\u093E\u0926\u0936 (\u0932\u093E\u092D) \u092D\u093E\u0935 \u0905\u0924\u094D\u092F\u0902\u0924 \u0936\u0941\u092D \u0939\u0948\u0902\u0964 \u0932\u0915\u094D\u0937\u094D\u092E\u0940 \u092F\u094B\u0917 \u0915\u0940 \u0909\u092A\u0938\u094D\u0925\u093F\u0924\u093F \u0935\u093F\u0924\u094D\u0924\u0940\u092F \u0909\u0928\u094D\u0928\u0924\u093F \u0926\u0930\u094D\u0936\u093E\u0924\u0940 \u0939\u0948\u0964" : "Your 2nd house of wealth (Dhana Sthana) and 11th house of gains (Labha Sthana) indicate strong financial foundations. Astrological transits suggest stable wealth accumulation and successful investments.";
-    } else {
-      return lang === "te" ? "\u0C2E\u0C40 \u0C32\u0C17\u0C4D\u0C28\u0C02 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C30\u0C3E\u0C36\u0C3F \u0C1A\u0C15\u0C4D\u0C30 \u0C05\u0C2E\u0C30\u0C3F\u0C15 \u0C2A\u0C4D\u0C30\u0C15\u0C3E\u0C30\u0C2E\u0C41 \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32\u0C41 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C28\u0C4D\u0C28\u0C3E\u0C2F\u0C3F. \u0C2A\u0C4D\u0C30\u0C24\u0C3F\u0C15\u0C42\u0C32\u0C24\u0C32\u0C41 \u0C24\u0C4A\u0C32\u0C3F\u0C17\u0C3F\u0C2A\u0C4B\u0C35\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C28\u0C3F\u0C24\u0C4D\u0C2F\u0C02 \u0C27\u0C4D\u0C2F\u0C3E\u0C28\u0C2E\u0C41 \u0C1A\u0C47\u0C2F\u0C35\u0C32\u0C38\u0C3F\u0C02\u0C26\u0C3F." : lang === "hi" ? "\u0906\u092A\u0915\u0947 \u0932\u0917\u094D\u0928 \u0914\u0930 \u0915\u0941\u0902\u0921\u0932\u0940 \u0915\u0947 \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u094D\u0925\u093F\u0924\u093F \u092C\u0939\u0941\u0924 \u0936\u0941\u092D \u0939\u0948\u0964 \u0938\u092D\u0940 \u092C\u093E\u0927\u093E\u0913\u0902 \u0915\u094B \u0926\u0942\u0930 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093F\u090F \u0917\u093E\u092F\u0924\u094D\u0930\u0940 \u092E\u0902\u0924\u094D\u0930 \u0915\u093E \u091C\u093E\u092A \u0915\u0930\u0947\u0902\u0964" : "Your planetary positions represent a strong karmic blueprint. I recommend practicing mindful meditation (Pranayama) and focusing on your current dasha rulers for spiritual and material harmony.";
+// src/services/pdfMatchingService.ts
+import path4 from "path";
+import fs4 from "fs";
+import { fileURLToPath as fileURLToPath2 } from "url";
+var __filename2 = fileURLToPath2(import.meta.url);
+var __dirname2 = path4.dirname(__filename2);
+var zodiacCache2 = {};
+var zodiacCacheLoaded2 = false;
+function getZodiacIcon2(i) {
+  if (!zodiacCacheLoaded2) {
+    for (let j = 1; j <= 12; j++) {
+      try {
+        const imgPath = path4.join(process.cwd(), "public", "zodiac", `${j}.webp`);
+        if (fs4.existsSync(imgPath)) {
+          zodiacCache2[j] = `<img src="data:image/webp;base64,${fs4.readFileSync(imgPath, "base64")}" alt="Rasi ${j}" />`;
+        } else {
+          zodiacCache2[j] = "";
+        }
+      } catch (e) {
+        zodiacCache2[j] = "";
+      }
     }
+    zodiacCacheLoaded2 = true;
   }
-};
-var AstrologyServiceFallback = class {
-  static getZodiacHoroscope(sign, lang) {
-    const translations = {
-      en: {
-        daily: "A highly progressive day for mental clarity and strategic planning. Avoid unwanted confrontations.",
-        weekly: "You will notice strong momentum in professional projects. Financial stability will improve.",
-        monthly: "Jupiter's movement brings peace to home and relationships. Keep focus on health routines.",
-        yearly: "This is a year of major transit alignments offering stable scaling, marriage prospects, and academic masteries.",
-        career: "You can expect promotions, recognition, or scaling in technology fields.",
-        marriage: "A very favorable period for weddings, relationship enhancements, and mutual understanding.",
-        business: "Excellent returns on old assets. Keep transparency in new partnerships.",
-        health: "Avoid stress. Integrate mild exercises, walking, and planetary breathing loop daily.",
-        education: "High concentration levels will reward you in examinations and research works.",
-        travel: "Auspicious long travels are indicated towards historical and spiritual centers.",
-        finance: "Strong wealth inflows from multiple lines. Keep expenses checked.",
-        children: "Children will excel in exams and bring happiness to the household.",
-        remedies: "Observe fasts on Thursdays and donate yellow garments.",
-        luckyNumber: 9,
-        luckyColor: "Saffron Red",
-        luckyDirection: "East",
-        luckyGemstone: "Coral"
-      },
-      te: {
-        daily: "\u0C08 \u0C30\u0C4B\u0C1C\u0C41 \u0C2E\u0C3E\u0C28\u0C38\u0C3F\u0C15 \u0C2A\u0C4D\u0C30\u0C36\u0C3E\u0C02\u0C24\u0C24\u0C15\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C15\u0C41\u0C1F\u0C41\u0C02\u0C2C\u0C02\u0C24\u0C4B \u0C17\u0C21\u0C2A\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C0E\u0C02\u0C24\u0C4B \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02.",
-        weekly: "\u0C09\u0C26\u0C4D\u0C2F\u0C4B\u0C17\u0C02\u0C32\u0C4B \u0C2A\u0C41\u0C30\u0C4B\u0C17\u0C24\u0C3F \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F, \u0C36\u0C4D\u0C30\u0C2E\u0C15\u0C41 \u0C24\u0C17\u0C3F\u0C28 \u0C2B\u0C32\u0C3E\u0C32\u0C41 \u0C32\u0C2D\u0C3F\u0C38\u0C4D\u0C24\u0C3E\u0C2F\u0C3F.",
-        monthly: "\u0C27\u0C28 \u0C2A\u0C4D\u0C30\u0C35\u0C3E\u0C39\u0C02 \u0C2A\u0C46\u0C30\u0C41\u0C17\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F, \u0C2A\u0C3E\u0C24 \u0C2C\u0C3E\u0C15\u0C40\u0C32\u0C41 \u0C35\u0C38\u0C42\u0C32\u0C41 \u0C05\u0C35\u0C41\u0C24\u0C3E\u0C2F\u0C3F.",
-        yearly: "\u0C08 \u0C38\u0C02\u0C35\u0C24\u0C4D\u0C38\u0C30\u0C02 \u0C2E\u0C40 \u0C15\u0C46\u0C30\u0C40\u0C30\u0C4D \u0C2A\u0C30\u0C02\u0C17\u0C3E \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C35\u0C4D\u0C2F\u0C15\u0C4D\u0C24\u0C3F\u0C17\u0C24 \u0C28\u0C3F\u0C35\u0C3E\u0C38 \u0C2E\u0C3E\u0C30\u0C4D\u0C2A\u0C41\u0C32\u0C15\u0C41 \u0C1A\u0C15\u0C4D\u0C15\u0C28\u0C3F \u0C2E\u0C3E\u0C30\u0C4D\u0C2A\u0C41\u0C32\u0C28\u0C41 \u0C24\u0C46\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.",
-        career: "\u0C15\u0C4A\u0C24\u0C4D\u0C24 \u0C05\u0C35\u0C15\u0C3E\u0C36\u0C3E\u0C32\u0C15\u0C41 \u0C26\u0C4D\u0C35\u0C3E\u0C30\u0C3E\u0C32\u0C41 \u0C24\u0C46\u0C30\u0C41\u0C1A\u0C41\u0C15\u0C41\u0C02\u0C1F\u0C3E\u0C2F\u0C3F, \u0C09\u0C28\u0C4D\u0C28\u0C24 \u0C05\u0C27\u0C3F\u0C15\u0C3E\u0C30\u0C41\u0C32 \u0C2A\u0C4D\u0C30\u0C36\u0C02\u0C38\u0C32\u0C41 \u0C2A\u0C4A\u0C02\u0C26\u0C41\u0C24\u0C3E\u0C30\u0C41.",
-        marriage: "\u0C35\u0C3F\u0C35\u0C3E\u0C39 \u0C2A\u0C4D\u0C30\u0C2F\u0C24\u0C4D\u0C28\u0C3E\u0C32\u0C41 \u0C38\u0C2B\u0C32\u0C02 \u0C05\u0C35\u0C41\u0C24\u0C3E\u0C2F\u0C3F, \u0C26\u0C3E\u0C02\u0C2A\u0C24\u0C4D\u0C2F\u0C02 \u0C2E\u0C27\u0C41\u0C30\u0C02\u0C17\u0C3E \u0C38\u0C3E\u0C17\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F.",
-        business: "\u0C35\u0C4D\u0C2F\u0C3E\u0C2A\u0C3E\u0C30 \u0C35\u0C3F\u0C38\u0C4D\u0C24\u0C30\u0C23\u0C15\u0C41 \u0C2A\u0C46\u0C1F\u0C4D\u0C1F\u0C41\u0C2C\u0C21\u0C41\u0C32\u0C41 \u0C15\u0C32\u0C38\u0C3F\u0C35\u0C38\u0C4D\u0C24\u0C3E\u0C2F\u0C3F.",
-        health: "\u0C06\u0C30\u0C4B\u0C17\u0C4D\u0C2F\u0C02 \u0C28\u0C3F\u0C32\u0C15\u0C21\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F, \u0C05\u0C32\u0C38\u0C1F \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C15\u0C41 \u0C27\u0C4D\u0C2F\u0C3E\u0C28\u0C02 \u0C05\u0C35\u0C38\u0C30\u0C02.",
-        education: "\u0C35\u0C3F\u0C26\u0C4D\u0C2F\u0C3E\u0C30\u0C4D\u0C25\u0C41\u0C32\u0C15\u0C41 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32 \u0C38\u0C2E\u0C2F\u0C02, \u0C2A\u0C4B\u0C1F\u0C40 \u0C2A\u0C30\u0C40\u0C15\u0C4D\u0C37\u0C32\u0C32\u0C4B \u0C35\u0C3F\u0C1C\u0C2F\u0C02 \u0C38\u0C3E\u0C27\u0C3F\u0C38\u0C4D\u0C24\u0C3E\u0C30\u0C41.",
-        travel: "\u0C26\u0C42\u0C30 \u0C2A\u0C4D\u0C30\u0C2F\u0C3E\u0C23\u0C3E\u0C32\u0C41 \u0C32\u0C3E\u0C2D\u0C3F\u0C38\u0C4D\u0C24\u0C3E\u0C2F\u0C3F, \u0C2A\u0C41\u0C23\u0C4D\u0C2F\u0C15\u0C4D\u0C37\u0C47\u0C24\u0C4D\u0C30\u0C3E\u0C32\u0C41 \u0C38\u0C02\u0C26\u0C30\u0C4D\u0C36\u0C3F\u0C38\u0C4D\u0C24\u0C3E\u0C30\u0C41.",
-        finance: "\u0C06\u0C26\u0C3E\u0C2F\u0C02 \u0C24\u0C43\u0C2A\u0C4D\u0C24\u0C3F\u0C15\u0C30\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C41\u0C02\u0C26\u0C3F, \u0C2A\u0C4A\u0C26\u0C41\u0C2A\u0C41 \u0C2A\u0C25\u0C15\u0C3E\u0C32\u0C32\u0C4B \u0C2A\u0C46\u0C1F\u0C4D\u0C1F\u0C41\u0C2C\u0C21\u0C3F \u0C2A\u0C46\u0C21\u0C24\u0C3E\u0C30\u0C41.",
-        children: "\u0C38\u0C02\u0C24\u0C3E\u0C28\u0C02 \u0C35\u0C32\u0C4D\u0C32 \u0C15\u0C40\u0C30\u0C4D\u0C24\u0C3F \u0C2A\u0C4D\u0C30\u0C24\u0C3F\u0C37\u0C4D\u0C1F\u0C32\u0C41 \u0C2A\u0C46\u0C30\u0C41\u0C17\u0C41\u0C24\u0C3E\u0C2F\u0C3F.",
-        remedies: "\u0C17\u0C41\u0C30\u0C41\u0C35\u0C3E\u0C30\u0C02 \u0C09\u0C2A\u0C35\u0C3E\u0C38\u0C02 \u0C06\u0C1A\u0C30\u0C3F\u0C02\u0C1A\u0C02\u0C21\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C47\u0C26\u0C32\u0C15\u0C41 \u0C2A\u0C02\u0C21\u0C4D\u0C32\u0C41 \u0C26\u0C3E\u0C28\u0C02 \u0C1A\u0C47\u0C2F\u0C02\u0C21\u0C3F.",
-        luckyNumber: 3,
-        luckyColor: "\u0C2A\u0C38\u0C41\u0C2A\u0C41",
-        luckyDirection: "\u0C08\u0C36\u0C3E\u0C28\u0C4D\u0C2F\u0C02",
-        luckyGemstone: "\u0C2A\u0C41\u0C37\u0C4D\u0C2F\u0C30\u0C3E\u0C17\u0C02"
-      },
-      hi: {
-        daily: "\u0906\u091C \u0915\u093E \u0926\u093F\u0928 \u092E\u093E\u0928\u0938\u093F\u0915 \u0938\u094D\u092A\u0937\u094D\u091F\u0924\u093E \u0914\u0930 \u0930\u0923\u0928\u0940\u0924\u093F\u0915 \u092F\u094B\u091C\u0928\u093E \u0915\u0947 \u0932\u093F\u090F \u092C\u0939\u0941\u0924 \u0909\u092A\u092F\u094B\u0917\u0940 \u0930\u0939\u0947\u0917\u093E\u0964",
-        weekly: "\u092A\u0947\u0936\u0947\u0935\u0930 \u092A\u0930\u093F\u092F\u094B\u091C\u0928\u093E\u0913\u0902 \u092E\u0947\u0902 \u0938\u0915\u093E\u0930\u093E\u0924\u094D\u092E\u0915 \u0917\u0924\u093F \u0926\u093F\u0916\u0947\u0917\u0940\u0964 \u0935\u093F\u0924\u094D\u0924\u0940\u092F \u0938\u094D\u0925\u093F\u0924\u093F \u092E\u091C\u092C\u0942\u0924 \u0939\u094B\u0917\u0940\u0964",
-        monthly: "\u092C\u0943\u0939\u0938\u094D\u092A\u0924\u093F \u0915\u093E \u0917\u094B\u091A\u0930 \u0938\u0941\u0916-\u0936\u093E\u0902\u0924\u093F \u0932\u093E\u090F\u0917\u093E\u0964 \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u0915\u093E \u0935\u093F\u0936\u0947\u0937 \u0927\u094D\u092F\u093E\u0928 \u0930\u0916\u0947\u0902\u0964",
-        yearly: "\u092F\u0939 \u0935\u0930\u094D\u0937 \u092C\u0921\u093C\u0947 \u092C\u0926\u0932\u093E\u0935\u094B\u0902 \u0914\u0930 \u0936\u0941\u092D \u0935\u093F\u0935\u093E\u0939 \u092F\u094B\u0917 \u0935\u093E\u0932\u093E \u0938\u093E\u092C\u093F\u0924 \u0939\u094B\u0917\u093E\u0964 \u092A\u0930\u0940\u0915\u094D\u0937\u093E \u092E\u0947\u0902 \u0938\u092B\u0932\u0924\u093E \u092E\u093F\u0932\u0947\u0917\u0940\u0964",
-        career: "\u0915\u0930\u093F\u092F\u0930 \u092E\u0947\u0902 \u092A\u0926\u094B\u0928\u094D\u0928\u0924\u093F \u0914\u0930 \u0938\u092E\u094D\u092E\u093E\u0928 \u092E\u093F\u0932\u0928\u0947 \u0915\u0947 \u092A\u094D\u0930\u092C\u0932 \u092F\u094B\u0917 \u0939\u0948\u0902\u0964",
-        marriage: "\u0926\u093E\u092E\u094D\u092A\u0924\u094D\u092F \u091C\u0940\u0935\u0928 \u092E\u0947\u0902 \u092E\u0927\u0941\u0930\u0924\u093E \u092C\u0922\u093C\u0947\u0917\u0940, \u0928\u090F \u0938\u0902\u092C\u0902\u0927 \u0938\u094D\u0925\u093E\u092A\u093F\u0924 \u0939\u094B\u0902\u0917\u0947\u0964",
-        business: "\u0938\u093E\u091D\u0947\u0926\u093E\u0930\u0940 \u092E\u0947\u0902 \u092C\u0921\u093C\u093E \u0932\u093E\u092D \u0939\u094B\u0917\u093E\u0964 \u0928\u090F \u0909\u0926\u094D\u092F\u092E\u094B\u0902 \u092E\u0947\u0902 \u0928\u093F\u0935\u0947\u0936 \u0936\u0941\u092D \u0930\u0939\u0947\u0917\u093E\u0964",
-        health: "\u0928\u093F\u092F\u092E\u093F\u0924 \u092F\u094B\u0917 \u0914\u0930 \u0927\u094D\u092F\u093E\u0928 \u0938\u0947 \u0936\u093E\u0930\u0940\u0930\u093F\u0915 \u090F\u0935\u0902 \u092E\u093E\u0928\u0938\u093F\u0915 \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u092C\u0947\u0939\u0924\u0930 \u0930\u0939\u0947\u0917\u093E\u0964",
-        education: "\u0905\u0927\u094D\u092F\u092F\u0928 \u0915\u0947 \u0932\u093F\u090F \u0938\u0930\u094D\u0935\u094B\u0924\u094D\u0924\u092E \u0938\u092E\u092F, \u092A\u094D\u0930\u0924\u093F\u092F\u094B\u0917\u0940 \u092A\u0930\u0940\u0915\u094D\u0937\u093E\u0913\u0902 \u092E\u0947\u0902 \u0909\u0924\u094D\u0915\u0943\u0937\u094D\u091F \u092A\u0930\u093F\u0923\u093E\u092E \u092E\u093F\u0932\u0947\u0902\u0917\u0947\u0964",
-        travel: "\u0927\u093E\u0930\u094D\u092E\u093F\u0915 \u0914\u0930 \u0938\u093E\u0939\u0938\u093F\u0915 \u092F\u093E\u0924\u094D\u0930\u093E\u0913\u0902 \u0915\u0947 \u0905\u091A\u094D\u091B\u0947 \u0905\u0935\u0938\u0930 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u094B\u0902\u0917\u0947\u0964",
-        finance: "\u0927\u0928 \u092A\u094D\u0930\u093E\u092A\u094D\u0924\u093F \u0915\u0947 \u0928\u090F \u0938\u094D\u0930\u094B\u0924 \u0916\u0941\u0932\u0947\u0902\u0917\u0947, \u0938\u0902\u091A\u093F\u0924 \u0927\u0928 \u092E\u0947\u0902 \u0935\u0943\u0926\u094D\u0927\u093F \u0939\u094B\u0917\u0940\u0964",
-        children: "\u0938\u0902\u0924\u093E\u0928 \u092A\u0915\u094D\u0937 \u0938\u0947 \u0938\u0941\u0916\u0926 \u0938\u092E\u093E\u091A\u093E\u0930 \u092A\u094D\u0930\u093E\u092A\u094D\u0924 \u0939\u094B\u0902\u0917\u0947, \u092A\u094D\u0930\u0917\u0924\u093F \u0939\u094B\u0917\u0940\u0964",
-        remedies: "\u0917\u0941\u0930\u0941\u0935\u093E\u0930 \u0915\u094B \u092A\u0940\u0932\u0940 \u0935\u0938\u094D\u0924\u0941\u0913\u0902 \u0915\u093E \u0926\u093E\u0928 \u0915\u0930\u0947\u0902 \u0914\u0930 \u0935\u093F\u0937\u094D\u0923\u0941 \u0938\u0939\u0938\u094D\u0924\u094D\u0930\u0928\u093E\u092E \u0938\u0941\u0928\u0947\u0902\u0964",
-        luckyNumber: 5,
-        luckyColor: "\u092A\u0940\u0932\u093E",
-        luckyDirection: "\u0909\u0924\u094D\u0924\u0930-\u092A\u0942\u0930\u094D\u0935",
-        luckyGemstone: "\u092A\u0941\u0916\u0930\u093E\u091C"
-      },
-      ta: {
-        daily: "\u0B87\u0BA9\u0BCD\u0BB1\u0BC1 \u0B85\u0BAE\u0BC8\u0BA4\u0BBF\u0BAF\u0BBE\u0BA9 \u0BA8\u0BBE\u0BB3\u0BBE\u0B95 \u0B85\u0BAE\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD. \u0BA4\u0BC7\u0BB5\u0BC8\u0BAF\u0BB1\u0BCD\u0BB1 \u0B9A\u0BA3\u0BCD\u0B9F\u0BC8\u0B95\u0BB3\u0BC8\u0BA4\u0BCD \u0BA4\u0BB5\u0BBF\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BB5\u0BC1\u0BAE\u0BCD.",
-        weekly: "\u0BA4\u0BCA\u0BB4\u0BBF\u0BB2\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BBF\u0BAF\u0BBE\u0BAA\u0BBE\u0BB0\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0BAA\u0BC1\u0BA4\u0BBF\u0BAF \u0BAE\u0BC1\u0BA9\u0BCD\u0BA9\u0BC7\u0BB1\u0BCD\u0BB1\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB2\u0BBE\u0BAA\u0BAE\u0BCD \u0B95\u0BBF\u0B9F\u0BC8\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD.",
-        monthly: "\u0BAA\u0BA3\u0BAA\u0BCD\u0BAA\u0BC1\u0BB4\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0B85\u0BA4\u0BBF\u0B95\u0BB0\u0BBF\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD, \u0B95\u0BC1\u0B9F\u0BC1\u0BAE\u0BCD\u0BAA\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0BAE\u0B95\u0BBF\u0BB4\u0BCD\u0B9A\u0BCD\u0B9A\u0BBF \u0BA8\u0BBF\u0BB2\u0BB5\u0BC1\u0BAE\u0BCD.",
-        yearly: "\u0B87\u0BA8\u0BCD\u0BA4 \u0BB5\u0BB0\u0BC1\u0B9F\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD \u0BAA\u0BC6\u0BB0\u0BBF\u0BAF \u0BAE\u0BBE\u0BB1\u0BCD\u0BB1\u0B99\u0BCD\u0B95\u0BB3\u0BC8 \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1 \u0BB5\u0BB0\u0BC1\u0BAE\u0BCD, \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3 \u0BAF\u0BCB\u0B95\u0BAE\u0BCD \u0B95\u0BC2\u0B9F\u0BBF\u0BB5\u0BB0\u0BC1\u0BAE\u0BCD.",
-        career: "\u0BAA\u0BC1\u0BA4\u0BBF\u0BAF \u0BB5\u0BC7\u0BB2\u0BC8 \u0BB5\u0BBE\u0BAF\u0BCD\u0BAA\u0BCD\u0BAA\u0BC1\u0B95\u0BB3\u0BCD \u0BA4\u0BC7\u0B9F\u0BBF \u0BB5\u0BB0\u0BC1\u0BAE\u0BCD, \u0BAE\u0BC7\u0BB2\u0BCD \u0B85\u0BA4\u0BBF\u0B95\u0BBE\u0BB0\u0BBF\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B86\u0BA4\u0BB0\u0BB5\u0BC1 \u0B95\u0BBF\u0B9F\u0BC8\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD.",
-        marriage: "\u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3 \u0BAA\u0BC7\u0B9A\u0BCD\u0B9A\u0BC1\u0BB5\u0BBE\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BC8\u0B95\u0BB3\u0BCD \u0B9A\u0BC1\u0BAE\u0BC1\u0B95\u0BAE\u0BBE\u0B95 \u0BAE\u0BC1\u0B9F\u0BBF\u0BAF\u0BC1\u0BAE\u0BCD, \u0B87\u0BB2\u0BCD\u0BB2\u0BB1\u0BAE\u0BCD \u0B87\u0BA9\u0BCD\u0BAA\u0BAE\u0BAF\u0BAE\u0BBE\u0B95\u0BC1\u0BAE\u0BCD.",
-        business: "\u0BB5\u0BBF\u0BAF\u0BBE\u0BAA\u0BBE\u0BB0\u0B95\u0BCD \u0B95\u0BC2\u0B9F\u0BCD\u0B9F\u0BBE\u0BB3\u0BBF\u0B95\u0BB3\u0BBF\u0B9F\u0BC8\u0BAF\u0BC7 \u0BA8\u0BB2\u0BCD\u0BB2 \u0BAA\u0BC1\u0BB0\u0BBF\u0BA4\u0BB2\u0BCD \u0B8F\u0BB1\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BC1 \u0BB2\u0BBE\u0BAA\u0BAE\u0BCD \u0B95\u0BC2\u0B9F\u0BC1\u0BAE\u0BCD.",
-        health: "\u0B89\u0B9F\u0BB2\u0BCD \u0BA8\u0BB2\u0BAE\u0BCD \u0B9A\u0BC0\u0BB0\u0BBE\u0B95 \u0B87\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD. \u0B8E\u0BB3\u0BBF\u0BAF \u0B89\u0B9F\u0BB1\u0BCD\u0BAA\u0BAF\u0BBF\u0BB1\u0BCD\u0B9A\u0BBF\u0B95\u0BB3\u0BC8\u0BA4\u0BCD \u0BA4\u0BCA\u0B9F\u0B99\u0BCD\u0B95\u0BB5\u0BC1\u0BAE\u0BCD.",
-        education: "\u0B95\u0BB2\u0BCD\u0BB5\u0BBF\u0BAF\u0BBF\u0BB2\u0BCD \u0BAE\u0BBE\u0BA3\u0BB5\u0BB0\u0BCD\u0B95\u0BB3\u0BCD \u0BA8\u0BB2\u0BCD\u0BB2 \u0BAE\u0BA4\u0BBF\u0BAA\u0BCD\u0BAA\u0BC6\u0BA3\u0BCD\u0B95\u0BB3\u0BCD \u0BAA\u0BC6\u0BB1\u0BCD\u0BB1\u0BC1 \u0B9A\u0BBE\u0BA4\u0BA9\u0BC8 \u0BAA\u0B9F\u0BC8\u0BAA\u0BCD\u0BAA\u0BBE\u0BB0\u0BCD\u0B95\u0BB3\u0BCD.",
-        travel: "\u0BB5\u0BC6\u0BB3\u0BBF\u0BAF\u0BC2\u0BB0\u0BCD \u0BAA\u0BAF\u0BA3\u0B99\u0BCD\u0B95\u0BB3\u0BBE\u0BB2\u0BCD \u0BA8\u0BA9\u0BCD\u0BAE\u0BC8\u0B95\u0BB3\u0BCD \u0B8F\u0BB1\u0BCD\u0BAA\u0B9F\u0BC1\u0BAE\u0BCD, \u0B86\u0BA9\u0BCD\u0BAE\u0BC0\u0B95 \u0B88\u0B9F\u0BC1\u0BAA\u0BBE\u0B9F\u0BC1 \u0B95\u0BC2\u0B9F\u0BC1\u0BAE\u0BCD.",
-        finance: "\u0BA8\u0BBF\u0BA4\u0BBF \u0BA8\u0BBF\u0BB2\u0BC8\u0BAE\u0BC8 \u0BA4\u0BBF\u0BB0\u0BC1\u0BAA\u0BCD\u0BA4\u0BBF\u0B95\u0BB0\u0BAE\u0BBE\u0B95 \u0B87\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD, \u0B9A\u0BC7\u0BAE\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1\u0BAA\u0BCD \u0BAA\u0BB4\u0B95\u0BCD\u0B95\u0BAE\u0BCD \u0B85\u0BA4\u0BBF\u0B95\u0BB0\u0BBF\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD.",
-        children: "\u0BAA\u0BBF\u0BB3\u0BCD\u0BB3\u0BC8\u0B95\u0BB3\u0BBE\u0BB2\u0BCD \u0BAA\u0BC6\u0BB0\u0BC1\u0BAE\u0BC8 \u0B9A\u0BC7\u0BB0\u0BC1\u0BAE\u0BCD, \u0B85\u0BB5\u0BB0\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B95\u0BB2\u0BCD\u0BB5\u0BBF\u0BAF\u0BBF\u0BB2\u0BCD \u0BAE\u0BC1\u0BA9\u0BCD\u0BA9\u0BC7\u0BB1\u0BCD\u0BB1\u0BAE\u0BCD \u0B87\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD.",
-        remedies: "\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8 \u0BB5\u0BBF\u0BB0\u0BA4\u0BAE\u0BCD \u0B87\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1 \u0BAE\u0B9E\u0BCD\u0B9A\u0BB3\u0BCD \u0BA8\u0BBF\u0BB1 \u0BA4\u0BBE\u0BA9\u0BBF\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BC8 \u0BA4\u0BBE\u0BA9\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BC1\u0B99\u0BCD\u0B95\u0BB3\u0BCD.",
-        luckyNumber: 2,
-        luckyColor: "\u0BAE\u0B9E\u0BCD\u0B9A\u0BB3\u0BCD",
-        luckyDirection: "\u0BB5\u0B9F\u0B95\u0BBF\u0BB4\u0B95\u0BCD\u0B95\u0BC1",
-        luckyGemstone: "\u0B95\u0BA9\u0B95\u0BAA\u0BC1\u0BB7\u0BCD\u0BAA\u0BB0\u0BBE\u0B95\u0BAE\u0BCD"
-      },
-      kn: {
-        daily: "\u0C87\u0C82\u0CA6\u0CC1 \u0CA6\u0CBF\u0CA8\u0CB8\u0CBF \u0CB5\u0CCD\u0CAF\u0CB5\u0CB9\u0CBE\u0CB0 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB9\u0CCA\u0CB8 \u0CAF\u0CCB\u0C9C\u0CA8\u0CC6\u0C97\u0CB3 \u0C9A\u0CBE\u0CB2\u0CA8\u0CC6\u0C97\u0CC6 \u0CB6\u0CC1\u0CAD\u0C95\u0CB0\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        weekly: "\u0C89\u0CA6\u0CCD\u0CAF\u0CCB\u0C97\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CB9\u0CCA\u0CB8 \u0C9C\u0CB5\u0CBE\u0CAC\u0CCD\u0CA6\u0CBE\u0CB0\u0CBF\u0C97\u0CB3\u0CC1 \u0CB8\u0CBF\u0C97\u0CB2\u0CBF\u0CB5\u0CC6. \u0C86\u0CA6\u0CBE\u0CAF \u0CB9\u0CC6\u0C9A\u0CCD\u0C9A\u0CBE\u0C97\u0CB2\u0CBF\u0CA6\u0CC6.",
-        monthly: "\u0CB8\u0CA6\u0CCD\u0CAD\u0CBE\u0CB5\u0CA8\u0CC6\u0C97\u0CB3\u0CC1 \u0CAE\u0CC2\u0CA1\u0CB2\u0CBF\u0CB5\u0CC6. \u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF\u0CA6 \u0CAC\u0C97\u0CCD\u0C97\u0CC6 \u0C95\u0CBE\u0CB3\u0C9C\u0CBF \u0CB5\u0CB9\u0CBF\u0CB8\u0CC1\u0CB5\u0CC1\u0CA6\u0CC1 \u0C89\u0CA4\u0CCD\u0CA4\u0CAE.",
-        yearly: "\u0C88 \u0CB5\u0CB0\u0CCD\u0CB7 \u0CB9\u0CCA\u0CB8 \u0C86\u0CB8\u0CCD\u0CA4\u0CBF \u0C96\u0CB0\u0CC0\u0CA6\u0CBF \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0C82\u0C95\u0CCD\u0CB0\u0CBE\u0C82\u0CA4\u0CBF\u0CAF \u0CA8\u0C82\u0CA4\u0CB0 \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6\u0CAF\u0CBE\u0C97\u0CB2\u0CC1 \u0CA4\u0CC1\u0C82\u0CAC\u0CBE \u0CB8\u0CC2\u0C95\u0CCD\u0CA4\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        career: "\u0C95\u0CC6\u0CB2\u0CB8\u0CA6 \u0CB8\u0CCD\u0CA5\u0CB3\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CAE\u0CA8\u0CCD\u0CA8\u0CA3\u0CC6 \u0CB8\u0CBF\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0C97\u0CCC\u0CB0\u0CB5 \u0CB9\u0CC6\u0C9A\u0CCD\u0C9A\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        marriage: "\u0CAE\u0CA6\u0CC1\u0CB5\u0CC6\u0CAF \u0C85\u0CA1\u0CC6\u0CA4\u0CA1\u0CC6\u0C97\u0CB3\u0CC1 \u0CA8\u0CBF\u0CB5\u0CBE\u0CB0\u0CA3\u0CC6\u0CAF\u0CBE\u0C97\u0CBF \u0C95\u0C82\u0C95\u0CA3 \u0CAC\u0CB2 \u0C95\u0CC2\u0CA1\u0CBF\u0CAC\u0CB0\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        business: "\u0CB9\u0CA3\u0C95\u0CBE\u0CB8\u0CC1 \u0CB5\u0CCD\u0CAF\u0CB5\u0CB9\u0CBE\u0CB0\u0C97\u0CB3\u0CB2\u0CCD\u0CB2\u0CBF \u0CAA\u0CCD\u0CB0\u0C97\u0CA4\u0CBF \u0C95\u0C82\u0CA1\u0CC1\u0CAC\u0CB0\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0C86\u0CA6\u0CBE\u0CAF \u0CA6\u0CCD\u0CB5\u0CBF\u0C97\u0CC1\u0CA3\u0C97\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        health: "\u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CB8\u0CCD\u0CA5\u0CBF\u0CB0\u0CA4\u0CC6 \u0C87\u0CB0\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0CAA\u0CCD\u0CB0\u0CBE\u0CA3\u0CBE\u0CAF\u0CBE\u0CAE\u0CA6\u0CBF\u0C82\u0CA6 \u0CB8\u0CAE\u0CBE\u0CA7\u0CBE\u0CA8 \u0CB2\u0CAD\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        education: "\u0CB5\u0CBF\u0CA6\u0CCD\u0CAF\u0CBE\u0CB0\u0CCD\u0CA5\u0CBF\u0C97\u0CB3\u0CBF\u0C97\u0CC6 \u0C89\u0CA4\u0CCD\u0CA4\u0CAE \u0CA6\u0CBF\u0CA8\u0C97\u0CB3\u0CC1, \u0CB5\u0CBF\u0CA6\u0CCD\u0CAF\u0CBE\u0CAD\u0CCD\u0CAF\u0CBE\u0CB8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0C89\u0CA8\u0CCD\u0CA8\u0CA4 \u0CAA\u0CCD\u0CB0\u0C97\u0CA4\u0CBF \u0C87\u0CB0\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        travel: "\u0CB8\u0CCD\u0CAA\u0CB7\u0CCD\u0C9F \u0CAF\u0CCB\u0C9C\u0CBF\u0CA4 \u0CAA\u0CCD\u0CB0\u0CAF\u0CBE\u0CA3\u0C97\u0CB3\u0CC1 \u0CAF\u0CB6\u0CB8\u0CCD\u0CB5\u0CBF\u0CAF\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C9C\u0CCD\u0C9E\u0CBE\u0CA8\u0CBE\u0CB0\u0CCD\u0C9C\u0CA8\u0CC6 \u0CA8\u0CBF\u0CB5\u0CBE\u0CB8 \u0C89\u0C82\u0C9F\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6.",
-        finance: "\u0C89\u0CB3\u0CBF\u0CA4\u0CBE\u0CAF\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CB9\u0CC6\u0C9A\u0CCD\u0C9B\u0CB3 \u0C89\u0C82\u0C9F\u0CBE\u0C97\u0CB2\u0CBF\u0CA6\u0CC6, \u0CA8\u0CBF\u0CB0\u0CC0\u0C95\u0CCD\u0CB7\u0CBF\u0CA4 \u0CB9\u0CA3 \u0C95\u0CC8 \u0CB8\u0CC7\u0CB0\u0CB2\u0CBF\u0CA6\u0CC6.",
-        children: "\u0CAE\u0C95\u0CCD\u0C95\u0CB3 \u0C95\u0CA1\u0CC6\u0CAF\u0CBF\u0C82\u0CA6 \u0CB8\u0C82\u0CA4\u0CB8\u0CA6 \u0CB5\u0CBE\u0CB0\u0CCD\u0CA4\u0CC6 \u0CB8\u0CBF\u0C97\u0CB2\u0CBF\u0CA6\u0CC6.",
-        remedies: "\u0C97\u0CC1\u0CB0\u0CC1\u0CB5\u0CBE\u0CB0 \u0CA6\u0CC7\u0CB5\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C95\u0CCD\u0C95\u0CC6 \u0CAD\u0CC7\u0C9F\u0CBF \u0CA8\u0CC0\u0CA1\u0CBF \u0C95\u0CA1\u0CB2\u0CC6 \u0CAC\u0CC7\u0CB3\u0CC6 \u0CA6\u0CBE\u0CA8 \u0CAE\u0CBE\u0CA1\u0CBF\u0CB0\u0CBF.",
-        luckyNumber: 6,
-        luckyColor: "\u0CB9\u0CB3\u0CA6\u0CBF",
-        luckyDirection: "\u0CAA\u0CC2\u0CB0\u0CCD\u0CB5",
-        luckyGemstone: "\u0CAA\u0CC1\u0CB7\u0CCD\u0CAF\u0CB0\u0CBE\u0C97"
+  return zodiacCache2[i] || "";
+}
+var PdfMatchingService = class {
+  static async generateMatchingPdf(data, lang = "en") {
+    const timestamp = Date.now();
+    const fileName = `matching-${data.boyHoroscope.birthDetails.name.replace(/\s+/g, "")}-${data.girlHoroscope.birthDetails.name.replace(/\s+/g, "")}-${timestamp}.pdf`;
+    const htmlContent = this.buildHtmlTemplate(data, lang);
+    const getDisclaimerText = (l) => {
+      switch (l) {
+        case "te":
+          return "\u0C17\u0C2E\u0C28\u0C3F\u0C15: \u0C08 \u0C28\u0C3F\u0C35\u0C47\u0C26\u0C3F\u0C15 \u0C24\u0C3E\u0C30\u0C4D\u0C15\u0C3F\u0C15 \u0C28\u0C3F\u0C2F\u0C2E\u0C3E\u0C32 \u0C26\u0C4D\u0C35\u0C3E\u0C30\u0C3E \u0C30\u0C42\u0C2A\u0C4A\u0C02\u0C26\u0C3F\u0C02\u0C1A\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F, \u0C26\u0C2F\u0C1A\u0C47\u0C38\u0C3F \u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C36\u0C3E\u0C38\u0C4D\u0C24\u0C4D\u0C30 \u0C38\u0C32\u0C39\u0C3E \u0C24\u0C40\u0C38\u0C41\u0C15\u0C4B\u0C02\u0C21\u0C3F.";
+        case "ta":
+          return "\u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1: \u0B87\u0BA8\u0BCD\u0BA4 \u0B85\u0BB1\u0BBF\u0B95\u0BCD\u0B95\u0BC8 \u0BA4\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BB0\u0BC0\u0BA4\u0BBF\u0BAF\u0BBE\u0BA9 \u0BB5\u0BBF\u0BA4\u0BBF\u0B95\u0BB3\u0BBE\u0BB2\u0BCD \u0B89\u0BB0\u0BC1\u0BB5\u0BBE\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1, \u0BA4\u0BAF\u0BB5\u0BC1\u0B9A\u0BC6\u0BAF\u0BCD\u0BA4\u0BC1 \u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8\u0BAF\u0BC8\u0BAA\u0BCD \u0BAA\u0BC6\u0BB1\u0BB5\u0BC1\u0BAE\u0BCD.";
+        case "hi":
+          return "\u0928\u094B\u091F: \u092F\u0939 \u0930\u093F\u092A\u094B\u0930\u094D\u091F \u0924\u093E\u0930\u094D\u0915\u093F\u0915 \u0928\u093F\u092F\u092E\u094B\u0902 \u0926\u094D\u0935\u093E\u0930\u093E \u0909\u0924\u094D\u092A\u0928\u094D\u0928 \u0915\u0940 \u0917\u0908 \u0939\u0948, \u0915\u0943\u092A\u092F\u093E \u092E\u091C\u092C\u0942\u0924 \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940\u092F \u0938\u0932\u093E\u0939 \u0932\u0947\u0902\u0964";
+        case "kn":
+          return "\u0CB8\u0CC2\u0C9A\u0CA8\u0CC6: \u0C88 \u0CB5\u0CB0\u0CA6\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA4\u0CBE\u0CB0\u0CCD\u0C95\u0CBF\u0C95 \u0CA8\u0CBF\u0CAF\u0CAE\u0C97\u0CB3\u0CBF\u0C82\u0CA6 \u0CB0\u0C9A\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6, \u0CA6\u0CAF\u0CB5\u0CBF\u0C9F\u0CCD\u0C9F\u0CC1 \u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF \u0CB8\u0CB2\u0CB9\u0CC6\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAA\u0CA1\u0CC6\u0CAF\u0CBF\u0CB0\u0CBF.";
+        default:
+          return "NOTE: The report was generated by logical rules, please take strong astrological advice.";
       }
     };
-    return translations[lang];
+    const browser = await BrowserManager.getBrowser();
+    const page = await browser.newPage();
+    await page.setContent(htmlContent, { waitUntil: "load" });
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      displayHeaderFooter: true,
+      headerTemplate: "<span></span>",
+      footerTemplate: `
+        <div style="width: 100%; display: flex; flex-direction: column; font-family: sans-serif; padding: 0 15mm; padding-bottom: 5px;">
+           <div style="text-align: center; font-size: 8px; color: #888; margin-bottom: 4px; font-style: italic;">
+             ${getDisclaimerText(lang)}
+           </div>
+           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #555;">
+             <span style="font-weight: bold; font-size: 12px;">
+                www.<span style="color: #b4366f;">vivaha</span><span style="color: #2196f3;">mitra</span>.in
+             </span>
+             <span>Generated On: ${(/* @__PURE__ */ new Date()).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}</span>
+           </div>
+        </div>
+      `,
+      margin: {
+        top: "20mm",
+        right: "15mm",
+        bottom: "25mm",
+        left: "15mm"
+      }
+    });
+    await page.close();
+    const bufferData = Buffer.isBuffer(pdfBuffer) ? pdfBuffer : Buffer.from(pdfBuffer);
+    const base64 = bufferData.toString("base64");
+    return { base64, fileName };
+  }
+  static buildHtmlTemplate(data, lang) {
+    const isTe = lang === "te";
+    const logoPath = path4.join(__dirname2, "..", "..", "api", "logo.png");
+    let logoDataUri = "";
+    if (fs4.existsSync(logoPath)) {
+      const logoBase64 = fs4.readFileSync(logoPath).toString("base64");
+      logoDataUri = `data:image/png;base64,${logoBase64}`;
+    }
+    const langCode = ["en", "te", "hi", "ta", "kn"].includes(lang) ? lang : "en";
+    const loc = LocalizationEngine.getInstance();
+    const L = {};
+    const pdfKeys = ["reportTitle", "horoTitle", "vivahamitra", "name", "gender", "gotram", "dob", "tob", "pob", "latlon", "timezone", "ayanamsa", "nakshatraPada", "rasiLord", "lagnaLord", "tithi", "planetTable", "graha", "rasi", "long", "nakPada", "rasiChart", "navamsaChart", "bhavaChart", "dasaSesham", "dasaTitle", "dasaStart", "dasaEnd", "bhukti", "dasa", "groom", "bride", "overallScore", "matchPercentage", "executiveSummary", "groomHoroscopeDetails", "brideHoroscopeDetails", "ashtaKootaMatching", "koota", "maxPoints", "obtained", "description", "total", "dashavidhaPorutham", "porutham", "status", "meaning", "doshaAnalysis", "groomDoshas", "brideDoshas", "noDoshas", "manglikConflict", "conflictPresent", "yes", "no", "statusLabel", "cancelled", "active", "paapaSamyam", "groomPoints", "bridePoints", "totalPoints", "thematicCompatibility", "children", "health", "finance", "longevity", "finalConclusion", "recommendation", "strengths", "warnings", "mandatoryFailures", "expertNotes", "average", "vara"];
+    pdfKeys.forEach((k) => {
+      L[k] = loc.get(`PDF.${k.toUpperCase()}`, langCode);
+    });
+    const glKeys = [
+      "GLOSSARY_TITLE",
+      "GLOSSARY_DESC",
+      "TITHI_TITLE",
+      "TITHI_DESC",
+      "VARA_TITLE",
+      "VARA_DESC",
+      "NAKSHATRA_TITLE",
+      "NAKSHATRA_DESC",
+      "YOGA_TITLE",
+      "YOGA_DESC",
+      "KARANA_TITLE",
+      "KARANA_DESC",
+      "LAGNA_TITLE",
+      "LAGNA_DESC",
+      "RASI_TITLE",
+      "RASI_DESC"
+    ];
+    glKeys.forEach((k) => {
+      L[k] = loc.get(`GLOSSARY.${k}`, langCode);
+    });
+    const howToKeys = [
+      "TITLE",
+      "SUBTITLE",
+      "SECTION1_TITLE",
+      "SECTION1_DESC",
+      "SECTION2_TITLE",
+      "SECTION2_DESC",
+      "SECTION3_TITLE",
+      "SECTION3_DESC",
+      "SECTION4_TITLE",
+      "SECTION4_DESC",
+      "CHART1_TITLE",
+      "BALANCED_LABEL"
+    ];
+    howToKeys.forEach((k) => {
+      L[`HOWTO_${k}`] = loc.get(`HOW_TO_READ_MATCHING.${k}`, langCode);
+    });
+    const howToHoroKeys = [
+      "TITLE",
+      "SUBTITLE",
+      "SECTION1_TITLE",
+      "SECTION1_DESC",
+      "SECTION2_TITLE",
+      "SECTION2_DESC",
+      "SECTION3_TITLE",
+      "SECTION3_DESC",
+      "SECTION4_TITLE",
+      "SECTION4_DESC",
+      "CHART1_TITLE",
+      "CHART2_TITLE",
+      "LAGNA_LABEL"
+    ];
+    howToHoroKeys.forEach((k) => {
+      L[`HOWTO_HORO_${k}`] = loc.get(`HOW_TO_READ.${k}`, langCode);
+    });
+    const rashiKeys = ["ARIES", "TAURUS", "GEMINI", "CANCER", "LEO", "VIRGO", "LIBRA", "SCORPIO", "SAGITTARIUS", "CAPRICORN", "AQUARIUS", "PISCES"];
+    rashiKeys.forEach((k) => {
+      L[`RASHI_${k}`] = loc.get(`RASHI.${k}`, langCode);
+    });
+    const titleHtml = L.vivahamitra + " " + L.reportTitle;
+    const LAGNA_TEXT = loc.get("PLANET.LAGNA", langCode);
+    const renderChart = (title, chartData) => {
+      let lagnaSign = 1;
+      for (let i = 1; i <= 12; i++) {
+        const p = chartData[i.toString()];
+        if (p && p.includes(LAGNA_TEXT)) {
+          lagnaSign = i;
+          break;
+        }
+      }
+      const getTd = (houseStr) => {
+        const p = chartData[houseStr];
+        const isLagna = p && p.includes(LAGNA_TEXT);
+        const pFiltered = p ? p.filter((item) => item !== LAGNA_TEXT) : [];
+        const content = pFiltered.length > 0 ? pFiltered.join("<br>") : "";
+        const sign = parseInt(houseStr, 10);
+        const houseNo = (sign - lagnaSign + 12) % 12 + 1;
+        return `<td${isLagna ? ' class="lagna-mark"' : ""}><div class="zodiac-bg">${getZodiacIcon2(sign)}</div><div class="cell-content">${content}</div><span class="house-no">${houseNo}</span></td>`;
+      };
+      return `
+        <div class="chart-container">
+          <table class="chart-table">
+            <tr>
+              ${getTd("12")}${getTd("1")}${getTd("2")}${getTd("3")}
+            </tr>
+            <tr>
+              ${getTd("11")}
+              <td colspan="2" rowspan="2" class="chart-center" style="position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #b4366f; opacity: 0.1; font-size: 60px; font-family: serif; z-index: 0; pointer-events: none;">\u0950</div>
+                <div style="position: relative; z-index: 1;">${title.replace(/\s*Chart\s*/gi, "")}</div>
+              </td>
+              ${getTd("4")}
+            </tr>
+            <tr>
+              ${getTd("10")}${getTd("5")}
+            </tr>
+            <tr>
+              ${getTd("9")}${getTd("8")}${getTd("7")}${getTd("6")}
+            </tr>
+          </table>
+        </div>
+      `;
+    };
+    const renderVisualChart = (title, cells) => {
+      return `
+        <div class="chart-container" style="width: 100%; max-width: 250px; margin: 15px auto;">
+          <div class="chart-title" style="text-align:center; font-weight:bold; font-size:12px; margin-bottom:5px;">${title}</div>
+          <table class="chart-table" style="width: 100%; border-collapse: collapse; text-align: center; font-size: 10px; table-layout: fixed;">
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[11]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[0]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[1]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px; width: 25%;">${cells[2]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[10]}</td>
+              <td colspan="2" rowspan="2" class="chart-center" style="border: 1px solid #b4366f; background: #fffafb;">
+                <div style="color:#b4366f; opacity:0.15; font-size:40px;">\u0950</div>
+              </td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[3]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[9]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[4]}</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[8]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[7]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[6]}</td>
+              <td style="border: 1px solid #b4366f; height: 60px;">${cells[5]}</td>
+            </tr>
+          </table>
+        </div>
+      `;
+    };
+    const renderBalanceVisual = (title, leftLabel, rightLabel) => {
+      return `
+        <div style="width: 100%; max-width: 300px; margin: 15px auto; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; font-family: sans-serif;">
+          <div style="background: #b4366f; color: white; text-align: center; font-weight: bold; padding: 4px 0; font-size: 11px;">${title}</div>
+          <div style="display: table; width: 100%; background: #fffafb;">
+            <div style="display: table-cell; width: 50%; padding: 10px; text-align: center; border-right: 1px solid #ddd;">
+               <div style="font-weight: bold; color: #b4366f; font-size: 12px;">${leftLabel}</div>
+               <div style="font-size: 20px; color: #555; margin-top: 5px;">35.5</div>
+            </div>
+            <div style="display: table-cell; width: 50%; padding: 10px; text-align: center;">
+               <div style="font-weight: bold; color: #b4366f; font-size: 12px;">${rightLabel}</div>
+               <div style="font-size: 20px; color: #555; margin-top: 5px;">36.0</div>
+            </div>
+          </div>
+          <div style="background: #eafbea; color: #2e7d32; text-align: center; font-weight: bold; padding: 4px 0; font-size: 10px;">\u2713 ${L.HOWTO_BALANCED_LABEL || "Balanced"}</div>
+        </div>
+      `;
+    };
+    const renderHoroscopePage = (horoscope, title) => {
+      return `
+        <div class="header" style="color:#b4366f">${title}</div>
+        <table class="details-table">
+          <tr><td class="label">${L.name}</td><td class="value">: ${loc.transliterate(horoscope.birthDetails.name, langCode)}</td></tr>
+          <tr><td class="label">${L.gender}</td><td class="value">: ${horoscope.birthDetails.gender}</td></tr>
+          <tr><td class="label">${L.gotram}</td><td class="value">: ${loc.transliterate(horoscope.birthDetails.gotram || "N/A", langCode)}</td></tr>
+          <tr><td class="label">${L.dob}</td><td class="value">: ${horoscope.birthDetails.dateOfBirth} ${horoscope.birthDetails.dayOfWeek}</td></tr>
+          <tr><td class="label">${L.tob}</td><td class="value">: ${horoscope.birthDetails.timeOfBirth} ${horoscope.birthDetails.standardTime}</td></tr>
+          <tr><td class="label">${L.pob}</td><td class="value">: ${loc.transliterate(horoscope.birthDetails.placeOfBirth, langCode)}</td></tr>
+          <tr><td class="label">${L.latlon}</td><td class="value">: ${horoscope.birthDetails.longitude}, ${horoscope.birthDetails.latitude}</td></tr>
+          <tr><td class="label">${L.timezone}</td><td class="value">: ${horoscope.birthDetails.timezone}</td></tr>
+          <tr><td class="label">${L.ayanamsa}</td><td class="value">: ${horoscope.birthDetails.ayanamsa}</td></tr>
+          <tr><td class="label">${L.nakshatraPada}</td><td class="value">: ${horoscope.panchanga.nakshatra} - ${horoscope.panchanga.pada}</td></tr>
+          <tr><td class="label">${L.rasiLord}</td><td class="value">: ${horoscope.panchanga.rasi} - ${horoscope.panchanga.rasiLord}</td></tr>
+          <tr><td class="label">${L.lagnaLord}</td><td class="value">: ${horoscope.panchanga.lagna} - ${horoscope.panchanga.lagnaLord}</td></tr>
+          <tr><td class="label">${L.tithi}</td><td class="value">: ${horoscope.panchanga.tithi}</td></tr>
+          <tr><td class="label">${L.vara}</td><td class="value">: ${horoscope.panchanga.vara}</td></tr>
+        </table>
+        
+        <div class="section-title">${L.planetTable}</div>
+        <table class="planet-table">
+          <tr>
+            <th>${L.graha}</th><th>${L.rasi}</th><th>${L.long}</th><th>${L.nakPada}</th>
+          </tr>
+          ${(() => {
+        let rows = "";
+        const pt = horoscope.planetaryTable;
+        for (let i = 0; i < pt.length; i++) {
+          const p = pt[i];
+          rows += "<tr><td>" + (p ? p.planet : "") + "</td><td>" + (p ? p.sign : "") + "</td><td class='mono'>" + (p ? p.formattedLongitude : "") + "</td><td>" + (p ? p.formattedNakshatra : "") + "</td></tr>";
+        }
+        return rows;
+      })()}
+        </table>
+
+        <div class="page-break"></div>
+
+        ${(() => {
+        const engine = new AstrologyEngine();
+        const analysis = engine.analyze(horoscope, langCode);
+        if (!analysis) {
+          return `<div style="text-align:center; color:red;">Astrological Analysis could not be generated due to insufficient data.</div>`;
+        }
+        const getChartDesc = (key) => {
+          if (langCode === "te") {
+            if (key === "Rasi") return "\u0C30\u0C3E\u0C36\u0C3F \u0C1A\u0C15\u0C4D\u0C30\u0C02 (D-1) \u0C1C\u0C28\u0C4D\u0C2E \u0C38\u0C2E\u0C2F\u0C02\u0C32\u0C4B \u0C17\u0C4D\u0C30\u0C39 \u0C38\u0C4D\u0C25\u0C3F\u0C24\u0C41\u0C32\u0C28\u0C41, \u0C2E\u0C40 \u0C2D\u0C4C\u0C24\u0C3F\u0C15 \u0C09\u0C28\u0C3F\u0C15\u0C3F\u0C28\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C38\u0C3E\u0C27\u0C3E\u0C30\u0C23 \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C2E\u0C3E\u0C30\u0C4D\u0C17\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C38\u0C42\u0C1A\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+            if (key === "Navamsa") return "\u0C28\u0C35\u0C3E\u0C02\u0C36 \u0C1A\u0C15\u0C4D\u0C30\u0C02 (D-9) \u0C2E\u0C40 \u0C05\u0C02\u0C24\u0C30\u0C4D\u0C17\u0C24 \u0C36\u0C15\u0C4D\u0C24\u0C3F\u0C28\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C4D\u0C30\u0C27\u0C3E\u0C28\u0C02\u0C17\u0C3E \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02, \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C3F \u0C32\u0C15\u0C4D\u0C37\u0C23\u0C3E\u0C32\u0C28\u0C41 \u0C24\u0C46\u0C32\u0C3F\u0C2F\u0C1C\u0C47\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+            if (key === "Bhava") return "\u0C2D\u0C3E\u0C35 \u0C1A\u0C15\u0C4D\u0C30\u0C02 (Chalit) \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32\u0C41 \u0C0F \u0C2D\u0C3E\u0C35\u0C02\u0C32\u0C4B \u0C09\u0C28\u0C4D\u0C28\u0C3E\u0C2F\u0C4B \u0C16\u0C1A\u0C4D\u0C1A\u0C3F\u0C24\u0C02\u0C17\u0C3E \u0C24\u0C46\u0C32\u0C3F\u0C2F\u0C1C\u0C47\u0C38\u0C3F \u0C1C\u0C40\u0C35\u0C3F\u0C24 \u0C38\u0C02\u0C18\u0C1F\u0C28\u0C32\u0C28\u0C41 \u0C05\u0C02\u0C1A\u0C28\u0C3E \u0C35\u0C47\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.";
+          } else if (langCode === "hi") {
+            if (key === "Rasi") return "\u0930\u093E\u0936\u093F \u091A\u0915\u094D\u0930 (D-1) \u091C\u0928\u094D\u092E \u0915\u0947 \u0938\u092E\u092F \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u094D\u0925\u093F\u0924\u093F \u0915\u094B \u0926\u0930\u094D\u0936\u093E\u0924\u093E \u0939\u0948 \u091C\u094B \u0906\u092A\u0915\u0947 \u092E\u0941\u0916\u094D\u092F \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935, \u092D\u094C\u0924\u093F\u0915 \u0905\u0938\u094D\u0924\u093F\u0924\u094D\u0935 \u0914\u0930 \u0938\u093E\u092E\u093E\u0928\u094D\u092F \u091C\u0940\u0935\u0928 \u092A\u0925 \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948\u0964";
+            if (key === "Navamsa") return "\u0928\u0935\u093E\u0902\u0936 \u091A\u0915\u094D\u0930 (D-9) \u0906\u092A\u0915\u0947 \u0906\u0902\u0924\u0930\u093F\u0915 \u0938\u094D\u0935\u0930\u0942\u092A \u0914\u0930 \u091B\u093F\u092A\u0940 \u0939\u0941\u0908 \u0915\u094D\u0937\u092E\u0924\u093E \u0915\u094B \u092A\u094D\u0930\u0915\u091F \u0915\u0930\u0924\u093E \u0939\u0948, \u0914\u0930 \u092E\u0941\u0916\u094D\u092F \u0930\u0942\u092A \u0938\u0947 \u0935\u093F\u0935\u093E\u0939 \u0914\u0930 \u091C\u0940\u0935\u0928\u0938\u093E\u0925\u0940 \u0915\u0940 \u0935\u093F\u0936\u0947\u0937\u0924\u093E\u0913\u0902 \u0915\u0947 \u0932\u093F\u090F \u0907\u0938\u0915\u093E \u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923 \u0915\u093F\u092F\u093E \u091C\u093E\u0924\u093E \u0939\u0948\u0964";
+            if (key === "Bhava") return "\u092D\u093E\u0935 \u091A\u0915\u094D\u0930 (Chalit) 12 \u092D\u093E\u0935\u094B\u0902 \u092E\u0947\u0902 \u0917\u094D\u0930\u0939\u094B\u0902 \u0915\u0940 \u0938\u091F\u0940\u0915 \u0938\u094D\u0925\u093F\u0924\u093F \u092A\u0930 \u0915\u0947\u0902\u0926\u094D\u0930\u093F\u0924 \u0939\u0948 \u0924\u093E\u0915\u093F \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u091C\u0940\u0935\u0928 \u0915\u0940 \u0918\u091F\u0928\u093E\u0913\u0902 \u0915\u0940 \u0938\u091F\u0940\u0915 \u092D\u0935\u093F\u0937\u094D\u092F\u0935\u093E\u0923\u0940 \u0915\u0940 \u091C\u093E \u0938\u0915\u0947\u0964";
+          } else if (langCode === "ta") {
+            if (key === "Rasi") return "\u0BB0\u0BBE\u0B9A\u0BBF \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (D-1) \u0BAA\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BBF\u0BA9\u0BCD \u0BAA\u0BCB\u0BA4\u0BC1 \u0B95\u0BBF\u0BB0\u0B95 \u0BA8\u0BBF\u0BB2\u0BC8\u0B95\u0BB3\u0BC8 \u0BB5\u0BB0\u0BC8\u0BAA\u0B9F\u0BAE\u0BBE\u0B95\u0BCD\u0B95\u0BBF, \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8 \u0B86\u0BB3\u0BC1\u0BAE\u0BC8, \u0B89\u0B9F\u0BB2\u0BCD \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BCA\u0BA4\u0BC1\u0BB5\u0BBE\u0BA9 \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BAA\u0BBE\u0BA4\u0BC8\u0BAF\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.";
+            if (key === "Navamsa") return "\u0BA8\u0BB5\u0BBE\u0BAE\u0BCD\u0B9A \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (D-9) \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B89\u0BB3\u0BCD\u0BA8\u0BBF\u0BB2\u0BC8 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAE\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BC8 \u0BB5\u0BC6\u0BB3\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1, \u0BAE\u0BC7\u0BB2\u0BC1\u0BAE\u0BCD \u0B87\u0BA4\u0BC1 \u0BAE\u0BC1\u0B95\u0BCD\u0B95\u0BBF\u0BAF\u0BAE\u0BBE\u0B95 \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8\u0BA4\u0BCD\u0BA4\u0BC1\u0BA3\u0BC8\u0BAF\u0BBF\u0BA9\u0BCD \u0B95\u0BC1\u0BA3\u0BBE\u0BA4\u0BBF\u0B9A\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BBE\u0B95 \u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.";
+            if (key === "Bhava") return "\u0BAA\u0BBE\u0BB5 \u0B9A\u0B95\u0BCD\u0B95\u0BB0\u0BAE\u0BCD (Chalit) \u0B95\u0BC1\u0BB1\u0BBF\u0BAA\u0BCD\u0BAA\u0BBF\u0B9F\u0BCD\u0B9F \u0BB5\u0BBE\u0BB4\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BA8\u0BBF\u0B95\u0BB4\u0BCD\u0BB5\u0BC1\u0B95\u0BB3\u0BC8 \u0BA4\u0BC1\u0BB2\u0BCD\u0BB2\u0BBF\u0BAF\u0BAE\u0BBE\u0B95 \u0B95\u0BA3\u0BBF\u0B95\u0BCD\u0B95 12 \u0BB5\u0BC0\u0B9F\u0BC1\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BB3\u0BCD \u0B95\u0BBF\u0BB0\u0B95\u0B99\u0BCD\u0B95\u0BB3\u0BBF\u0BA9\u0BCD \u0B9A\u0BB0\u0BBF\u0BAF\u0BBE\u0BA9 \u0B87\u0B9F\u0BA4\u0BCD\u0BA4\u0BC8 \u0BAE\u0BC8\u0BAF\u0BAE\u0BBE\u0B95\u0B95\u0BCD \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1.";
+          } else if (langCode === "kn") {
+            if (key === "Rasi") return "\u0CB0\u0CBE\u0CB6\u0CBF \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (D-1) \u0CB9\u0CC1\u0C9F\u0CCD\u0C9F\u0CBF\u0CA6 \u0CB8\u0CAE\u0CAF\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAE\u0CCD\u0CAF\u0CBE\u0CAA\u0CCD \u0CAE\u0CBE\u0CA1\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CC2\u0CB2 \u0CB5\u0CCD\u0CAF\u0C95\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5, \u0CAD\u0CCC\u0CA4\u0CBF\u0C95 \u0C85\u0CB8\u0CCD\u0CA4\u0CBF\u0CA4\u0CCD\u0CB5 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CBE\u0CAE\u0CBE\u0CA8\u0CCD\u0CAF \u0C9C\u0CC0\u0CB5\u0CA8 \u0CAE\u0CBE\u0CB0\u0CCD\u0C97\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+            if (key === "Navamsa") return "\u0CA8\u0CB5\u0CBE\u0C82\u0CB6 \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (D-9) \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0C86\u0C82\u0CA4\u0CB0\u0CBF\u0C95 \u0CB8\u0CCD\u0CB5\u0CB0\u0CC2\u0CAA \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C97\u0CC1\u0CAA\u0CCD\u0CA4 \u0CB8\u0CBE\u0CAE\u0CB0\u0CCD\u0CA5\u0CCD\u0CAF\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAC\u0CB9\u0CBF\u0CB0\u0C82\u0C97\u0CAA\u0CA1\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6, \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C87\u0CA6\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAA\u0CCD\u0CB0\u0CBE\u0CA5\u0CAE\u0CBF\u0C95\u0CB5\u0CBE\u0C97\u0CBF \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0C82\u0C97\u0CBE\u0CA4\u0CBF\u0CAF \u0C97\u0CC1\u0CA3\u0CB2\u0C95\u0CCD\u0CB7\u0CA3\u0C97\u0CB3\u0CBF\u0C97\u0CBE\u0C97\u0CBF \u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+            if (key === "Bhava") return "\u0CAD\u0CBE\u0CB5 \u0C9A\u0C95\u0CCD\u0CB0\u0CB5\u0CC1 (Chalit) \u0CA8\u0CBF\u0CB0\u0CCD\u0CA6\u0CBF\u0CB7\u0CCD\u0C9F \u0C9C\u0CC0\u0CB5\u0CA8\u0CA6 \u0C98\u0C9F\u0CA8\u0CC6\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0C97\u0CBF \u0C8A\u0CB9\u0CBF\u0CB8\u0CB2\u0CC1 12 \u0CAE\u0CA8\u0CC6\u0C97\u0CB3\u0CB2\u0CCD\u0CB2\u0CBF \u0C97\u0CCD\u0CB0\u0CB9\u0C97\u0CB3 \u0CA8\u0CBF\u0C96\u0CB0\u0CB5\u0CBE\u0CA6 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0C95\u0CC7\u0C82\u0CA6\u0CCD\u0CB0\u0CC0\u0C95\u0CB0\u0CBF\u0CB8\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.";
+          }
+          if (key === "Rasi") return "The Rasi Chart (D-1) maps planetary positions at birth to reveal your core personality, physical existence, and general life path.";
+          if (key === "Navamsa") return "The Navamsa Chart (D-9) reveals your inner self and hidden potential, and is primarily analyzed for marriage and spouse characteristics.";
+          if (key === "Bhava") return "The Bhava Chart (Chalit) focuses on the exact placement of planets within the 12 houses to precisely predict specific life events.";
+          return "";
+        };
+        const getLabel = (key) => {
+          if (key === "Confidence") {
+            if (langCode === "te") return "\u0C28\u0C2E\u0C4D\u0C2E\u0C15\u0C02";
+            if (langCode === "ta") return "\u0BA8\u0BAE\u0BCD\u0BAA\u0BBF\u0B95\u0BCD\u0B95\u0BC8";
+            if (langCode === "hi") return "\u0935\u093F\u0936\u094D\u0935\u093E\u0938";
+            if (langCode === "kn") return "\u0CB5\u0CBF\u0CB6\u0CCD\u0CB5\u0CBE\u0CB8";
+            return "Confidence";
+          }
+          if (key === "BasedOn") {
+            if (langCode === "te") return "\u0C06\u0C27\u0C3E\u0C30\u0C02\u0C17\u0C3E";
+            if (langCode === "ta") return "\u0B85\u0B9F\u0BBF\u0BAA\u0BCD\u0BAA\u0B9F\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD";
+            if (langCode === "hi") return "\u0906\u0927\u093E\u0930 \u092A\u0930";
+            if (langCode === "kn") return "\u0C86\u0CA7\u0CBE\u0CB0\u0CA6 \u0CAE\u0CC7\u0CB2\u0CC6";
+            return "Based on";
+          }
+          return key;
+        };
+        const getConfidenceValue = (val) => {
+          if (val === "High") {
+            if (langCode === "te") return "\u0C05\u0C27\u0C3F\u0C15";
+            if (langCode === "ta") return "\u0B89\u0BAF\u0BB0\u0BCD";
+            if (langCode === "hi") return "\u0909\u091A\u094D\u091A";
+            if (langCode === "kn") return "\u0CB9\u0CC6\u0C9A\u0CCD\u0C9A\u0CC1";
+          }
+          if (val === "Moderate") {
+            if (langCode === "te") return "\u0C2E\u0C27\u0C4D\u0C2F\u0C38\u0C4D\u0C25";
+            if (langCode === "ta") return "\u0BAE\u0BBF\u0BA4\u0BAE\u0BBE\u0BA9";
+            if (langCode === "hi") return "\u092E\u0927\u094D\u092F\u092E";
+            if (langCode === "kn") return "\u0CAE\u0CA7\u0CCD\u0CAF\u0CAE";
+          }
+          if (val === "Low") {
+            if (langCode === "te") return "\u0C24\u0C15\u0C4D\u0C15\u0C41\u0C35";
+            if (langCode === "ta") return "\u0B95\u0BC1\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4";
+            if (langCode === "hi") return "\u0928\u093F\u092E\u094D\u0928";
+            if (langCode === "kn") return "\u0C95\u0CA1\u0CBF\u0CAE\u0CC6";
+          }
+          return val;
+        };
+        const renderChartRow = (title2, chartData, section, chartKey) => `
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 30px; margin-bottom: 60px; page-break-inside: avoid; width: 100%; box-sizing: border-box;">
+              ${renderChart(title2, chartData)}
+              <div style="width: 100%; max-width: 800px; font-size: 11pt; color: #444; line-height: 1.6; text-align: left; padding: 0 20px; box-sizing: border-box;">
+                <div style="font-weight: bold; color: #b4366f; font-size: 14pt; margin-bottom: 12px; border-bottom: 2px solid #b4366f; padding-bottom: 5px; display: inline-block;">
+                  ${title2.replace(/\s*Chart\s*/gi, "")} ${langCode === "te" ? "\u0C35\u0C3F\u0C36\u0C4D\u0C32\u0C47\u0C37\u0C23" : langCode === "ta" ? "\u0BAA\u0B95\u0BC1\u0BAA\u0BCD\u0BAA\u0BBE\u0BAF\u0BCD\u0BB5\u0BC1" : langCode === "hi" ? "\u0935\u093F\u0936\u094D\u0932\u0947\u0937\u0923" : langCode === "kn" ? "\u0CB5\u0CBF\u0CB6\u0CCD\u0CB2\u0CC7\u0CB7\u0CA3\u0CC6" : "Analysis"}
+                </div>
+                <div style="margin-bottom: 15px; font-style: italic; color: #666;">${getChartDesc(chartKey)}</div>
+                <div>${section.text}</div>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ddd; font-size: 10pt; color: #555;">
+                  <div style="margin-bottom: 8px;"><strong>${getLabel("Confidence")}:</strong> <span style="color: #b4366f;">${getConfidenceValue(section.confidence)}</span></div>
+                  <div style="margin-bottom: 4px;"><strong>${getLabel("BasedOn")}:</strong></div>
+                  <ul style="margin: 0; padding-left: 22px; color: #666; line-height: 1.5;">
+                    ${section.derivedFrom.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          `;
+        return `
+            <div style="margin: 0 auto 25px auto; width: 96%; padding: 15px; background: #fffafb; border: 2px solid #b4366f; border-radius: 8px; box-sizing: border-box; page-break-inside: avoid;">
+              <h3 style="color: #b4366f; margin-top: 0;">${langCode === "te" ? "\u0C1A\u0C3E\u0C30\u0C4D\u0C1F\u0C4D \u0C39\u0C46\u0C32\u0C4D\u0C24\u0C4D \u0C21\u0C3E\u0C37\u0C4D\u200C\u0C2C\u0C4B\u0C30\u0C4D\u0C21\u0C4D" : langCode === "ta" ? "\u0B9C\u0BBE\u0BA4\u0B95 \u0B9A\u0BC1\u0B95\u0BBE\u0BA4\u0BBE\u0BB0 \u0B9F\u0BBE\u0BB7\u0BCD\u0BAA\u0BCB\u0BB0\u0BCD\u0B9F\u0BC1" : langCode === "hi" ? "\u091A\u093E\u0930\u094D\u091F \u0938\u094D\u0935\u093E\u0938\u094D\u0925\u094D\u092F \u0921\u0948\u0936\u092C\u094B\u0930\u094D\u0921" : langCode === "kn" ? "\u0C9A\u0CBE\u0CB0\u0CCD\u0C9F\u0CCD \u0C86\u0CB0\u0CCB\u0C97\u0CCD\u0CAF \u0CA1\u0CCD\u0CAF\u0CBE\u0CB6\u0CCD\u200C\u0CAC\u0CCB\u0CB0\u0CCD\u0CA1\u0CCD" : "Chart Health Dashboard"}</h3>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 11pt; word-break: break-word;">
+                <div style="flex: 1; min-width: 200px;"><strong>${langCode === "te" ? "\u0C2C\u0C32\u0C2E\u0C48\u0C28 \u0C35\u0C3F\u0C2D\u0C3E\u0C17\u0C3E\u0C32\u0C41" : langCode === "ta" ? "\u0BB5\u0BB2\u0BC1\u0BB5\u0BBE\u0BA9 \u0BAA\u0B95\u0BC1\u0BA4\u0BBF\u0B95\u0BB3\u0BCD" : langCode === "hi" ? "\u092E\u091C\u092C\u0942\u0924 \u0915\u094D\u0937\u0947\u0924\u094D\u0930" : langCode === "kn" ? "\u0CAC\u0CB2\u0CB5\u0CBE\u0CA6 \u0CAA\u0CCD\u0CB0\u0CA6\u0CC7\u0CB6\u0C97\u0CB3\u0CC1" : "Strong Areas"}:</strong> ${analysis.dashboard.strongAreas.join(", ")}</div>
+                <div style="flex: 1; min-width: 200px; text-align: right;"><strong>${langCode === "te" ? "\u0C05\u0C2D\u0C3F\u0C35\u0C43\u0C26\u0C4D\u0C27\u0C3F \u0C1A\u0C46\u0C02\u0C26\u0C41\u0C24\u0C41\u0C28\u0C4D\u0C28\u0C35\u0C3F" : langCode === "ta" ? "\u0BB5\u0BB3\u0BB0\u0BC1\u0BAE\u0BCD \u0BAA\u0B95\u0BC1\u0BA4\u0BBF\u0B95\u0BB3\u0BCD" : langCode === "hi" ? "\u0935\u093F\u0915\u093E\u0938\u0936\u0940\u0932 \u0915\u094D\u0937\u0947\u0924\u094D\u0930" : langCode === "kn" ? "\u0C85\u0CAD\u0CBF\u0CB5\u0CC3\u0CA6\u0CCD\u0CA7\u0CBF\u0CB6\u0CC0\u0CB2 \u0CAA\u0CCD\u0CB0\u0CA6\u0CC7\u0CB6\u0C97\u0CB3\u0CC1" : "Developing"}:</strong> ${analysis.dashboard.developingAreas.join(", ")}</div>
+              </div>
+            </div>
+            <div style="display: block; width: 96%; margin: 20px auto 0 auto;">
+              ${renderChartRow(L.rasiChart, horoscope.rasiChart, analysis.personality, "Rasi")}
+              ${renderChartRow(L.navamsaChart, horoscope.navamsaChart, analysis.marriage, "Navamsa")}
+              ${renderChartRow(L.bhavaChart, horoscope.bhavaChart, analysis.career, "Bhava")}
+            </div>
+          `;
+      })()}
+
+        <div class="dasha-balance-box">
+          <div class="dasha-label">${L.dasaSesham}</div>
+          <div class="dasha-value">${horoscope.dashaTable.janmakalaDasaSesham}</div>
+        </div>
+      `;
+    };
+    const renderDashaPage = (horoscope, title) => {
+      return "<div class='header' style='color:#b4366f'>" + title + " - " + L.dasaTitle + "</div><table class='dasha-table'><tr><th>" + L.dasa + "</th><th>" + L.bhukti + "</th><th>" + L.dasaStart + "</th><th>" + L.dasaEnd + "</th><th>" + L.dasa + "</th><th>" + L.bhukti + "</th><th>" + L.dasaStart + "</th><th>" + L.dasaEnd + "</th></tr>" + (() => {
+        let rows = "";
+        const dashas = horoscope.dashaTable.vimshottari;
+        for (let i = 0; i < Math.ceil(dashas.length / 2); i++) {
+          const d1 = dashas[i * 2];
+          const d2 = dashas[i * 2 + 1];
+          let maxBhuktis = Math.max(d1 ? d1.bhuktis.length : 0, d2 ? d2.bhuktis.length : 0);
+          rows += "<tbody class='mahadasha-group'>";
+          for (let j = 0; j < maxBhuktis; j++) {
+            const b1 = d1 && d1.bhuktis[j] ? d1.bhuktis[j] : null;
+            const b2 = d2 && d2.bhuktis[j] ? d2.bhuktis[j] : null;
+            rows += "<tr><td>" + (j === 0 && d1 ? d1.planet : "") + "</td><td>" + (b1 ? b1.planet : "") + "</td><td>" + (b1 ? b1.startDate : "") + "</td><td>" + (b1 ? b1.endDate : "") + "</td><td>" + (j === 0 && d2 ? d2.planet : "") + "</td><td>" + (b2 ? b2.planet : "") + "</td><td>" + (b2 ? b2.startDate : "") + "</td><td>" + (b2 ? b2.endDate : "") + "</td></tr>";
+          }
+          rows += "</tbody>";
+        }
+        return rows;
+      })() + "</table>";
+    };
+    let recBadgeColor = "#EF4444";
+    if (data.summary.score >= 25 && data.recommendation.mandatoryFailures.length === 0) {
+      recBadgeColor = "#10B981";
+    } else if (data.summary.score >= 18) {
+      recBadgeColor = "#F59E0B";
+    }
+    return `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <style>
+          @page { size: A4; }
+          * { box-sizing: border-box; }
+          body { font-family: 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Devanagari', 'Noto Sans', sans-serif; font-size: 11pt; color: #000; line-height: 1.4; margin: 0; padding: 0 2px; max-width: 100%; overflow-x: hidden; }
+          .header { font-size: 14pt; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+          .title-hero { text-align: center; margin-top: 50px; margin-bottom: 50px; }
+          .title-hero h1 { font-size: 24pt; margin: 0; }
+          .title-hero p { font-size: 14pt; color: #555; margin-top: 10px; }
+          .couple-box { display: flex; justify-content: space-between; margin-bottom: 40px; padding: 20px; border: 2px solid #b4366f; background: #fffafb; border-radius: 8px; page-break-inside: avoid; }
+          .person { width: 45%; text-align: center; font-size: 14pt; font-weight: bold; color: #333; }
+          .score-box { text-align: center; padding: 25px; border: 2px solid #2196f3; border-radius: 12px; margin-bottom: 30px; page-break-inside: avoid; }
+          .score-big { font-size: 28pt; font-weight: bold; color: #2196f3; }
+          .badge { display: inline-block; padding: 6px 14px; border-radius: 20px; color: #fff; font-weight: bold; font-size: 11pt; margin-top: 15px; }
+          
+          .details-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+          .details-table td { padding: 4px 5px; vertical-align: top; }
+          .details-table .label { width: 40%; font-weight: 600; }
+          .details-table .value { width: 60%; font-weight: 600; }
+          
+          .section-title { font-size: 12pt; font-weight: bold; margin: 35px 0 10px 0; text-transform: uppercase; }
+          .planet-table, .data-table { width: 100%; border-collapse: collapse; margin-bottom: 25px; page-break-inside: avoid; }
+          .dasha-table { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
+          .planet-table th, .dasha-table th, .data-table th { border-top: 2px solid #000; border-bottom: 2px solid #000; text-align: left; padding: 6px 4px; font-size: 10pt; }
+          .planet-table td, .dasha-table td, .data-table td { padding: 6px 4px; font-size: 10pt; }
+          .mono { font-family: monospace; font-size: 11pt; letter-spacing: 0.5px; }
+          
+          .charts-row { display: flex; justify-content: space-around; margin-bottom: 30px; }
+          .chart-container { width: 45%; min-width: 320px; max-width: 360px; margin: 0; page-break-inside: avoid; }
+          .chart-title { text-align: center; font-size: 12pt; font-weight: bold; margin-bottom: 8px; }
+          .chart-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+          }
+          .chart-table td {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            width: 25%;
+            height: 75px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 8pt;
+            line-height: 1.2;
+            padding: 2px;
+            word-break: break-word;
+            position: relative;
+          }
+          .house-no { position: absolute; bottom: 2px; right: 4px; font-size: 7pt; color: #888; z-index: 2; }
+          .zodiac-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; opacity: 0.25; z-index: 0; pointer-events: none; }
+          .zodiac-bg img { width: 100%; height: 100%; object-fit: contain; }
+          .cell-content { position: relative; z-index: 1; }
+          .chart-center { font-size: 11pt !important; font-weight: bold; color: #333; }
+          .lagna-mark { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cline x1='0' y1='16' x2='16' y2='0' stroke='black' stroke-width='1.5'/%3E%3Cline x1='0' y1='22' x2='22' y2='0' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: top left; }
+          
+          .dasha-balance-box { border: 2px solid #000; padding: 15px; text-align: center; margin-bottom: 30px; page-break-inside: avoid; }
+          .dasha-label { font-size: 11pt; color: #444; margin-bottom: 5px; }
+          .dasha-value { font-size: 14pt; font-weight: bold; }
+          
+          .mahadasha-group { margin-bottom: 15px; page-break-inside: avoid; }
+          .mahadasha-group tr:first-child td { border-top: 1px solid #000; padding-top: 6px; }
+          .page-break { page-break-before: always; }
+
+          .card { border: 2px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 20px; page-break-inside: avoid; }
+          .card-title { font-size: 12pt; font-weight: bold; color: #b4366f; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+          .status-dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+          .star-rating { color: #F59E0B; font-size: 14pt; letter-spacing: 2px; }
+          .recommendation-box { border: 3px solid #10B981; border-radius: 12px; padding: 25px; margin-top: 20px; background-color: #f0fdf4; page-break-inside: avoid;}
+          .rec-list { margin-left: 20px; margin-bottom: 15px; }
+        </style>
+      </head>
+      <body>
+
+        <!-- PAGE 1: Summary -->
+        <div class="title-hero">
+           <h1>${titleHtml}</h1>
+           <p>${L.reportTitle} ID: V2M-${Date.now().toString().substring(5)}</p>
+        </div>
+
+        <div class="couple-box">
+           <div class="person">
+              <div>\u{1F468} ${L.groom}</div>
+              <div style="color: #b4366f">${loc.transliterate(data.boyHoroscope.birthDetails.name, langCode)}</div>
+           </div>
+           <div style="font-size: 20pt; color: #aaa; margin-top: 10px;">&hearts;</div>
+           <div class="person">
+              <div>\u{1F469} ${L.bride}</div>
+              <div style="color: #2196f3">${loc.transliterate(data.girlHoroscope.birthDetails.name, langCode)}</div>
+           </div>
+        </div>
+
+        <div class="score-box">
+           <div style="font-size: 14pt; font-weight: bold; margin-bottom: 10px;">${L.overallScore}</div>
+           <div class="score-big">${data.summary.score} / ${data.summary.maxScore}</div>
+           <div style="font-size: 12pt; margin-top: 5px; color: #666;">${L.matchPercentage}: ${data.summary.percentage.toFixed(0)}%</div>
+           <div class="badge" style="background-color: ${recBadgeColor};">${data.summary.recommendation.replace(/([A-Z])/g, " $1").trim()}</div>
+        </div>
+
+        <div class="card">
+           <div class="card-title">${L.executiveSummary}</div>
+           <div style="white-space: pre-wrap; line-height: 1.6; font-size: 11pt; padding: 5px;">${data.recommendation.finalRecommendation}</div>
+        </div>
+        
+        <div class="page-break"></div>
+
+        <!-- PAGE 2: Groom Horoscope -->
+        ${renderHoroscopePage(data.boyHoroscope, L.groomHoroscopeDetails)}
+        <div class="page-break"></div>
+
+        <!-- PAGE 3: Groom Dasha -->
+        ${renderDashaPage(data.boyHoroscope, L.groom)}
+        <div class="page-break"></div>
+
+        <!-- PAGE 4: Bride Horoscope -->
+        ${renderHoroscopePage(data.girlHoroscope, L.brideHoroscopeDetails)}
+        <div class="page-break"></div>
+
+        <!-- PAGE 5: Bride Dasha -->
+        ${renderDashaPage(data.girlHoroscope, L.bride)}
+        <div class="page-break"></div>
+
+        <!-- PAGE 6: Ashta Koota -->
+        <div class="header" style="color:#b4366f">${L.ashtaKootaMatching}</div>
+        <table class="data-table">
+          <tr><th style="width: 15%;">${L.koota}</th><th style="width: 15%;">${L.maxPoints}</th><th style="width: 15%;">${L.obtained}</th><th>${L.description}</th></tr>
+          ${data.ashtaKoota.map(
+      (k) => "<tr><td style='font-weight:bold;'>" + (k.localizedKoota || k.koota) + "</td><td>" + k.maxPoints + "</td><td style='font-weight:bold; color:" + (k.obtainedPoints > 0 ? "#10B981" : "#EF4444") + "'>" + k.obtainedPoints + "</td><td>" + k.description + "</td></tr>"
+    ).join("")}
+          <tr style="border-top: 2px solid #000; font-weight: bold; font-size: 12pt;">
+             <td>${L.total}</td>
+             <td>36</td>
+             <td>${data.summary.score}</td>
+             <td></td>
+          </tr>
+        </table>
+        <br>
+
+        <!-- PAGE 7: South Indian Porutham -->
+        <div class="header" style="color:#2196f3">${L.dashavidhaPorutham}</div>
+        <table class="data-table">
+          <tr><th style="width: 25%;">${L.porutham}</th><th style="width: 20%; white-space: nowrap;">${L.status}</th><th>${L.meaning}</th></tr>
+          ${data.porutham.map((p) => {
+      let color = p.status === "Uttama" ? "#10B981" : p.status === "Madhyama" ? "#F59E0B" : "#EF4444";
+      return "<tr><td style='font-weight:bold;'>" + p.localizedName + "</td><td style='white-space: nowrap;'><span class='status-dot' style='background-color: " + color + "'></span>" + (p.localizedStatus || p.status) + "</td><td>" + p.description + "</td></tr>";
+    }).join("")}
+        </table>
+        <div class="page-break"></div>
+
+        <!-- PAGE 8: Dosha Matching -->
+        <div class="header" style="color:#b4366f">${L.doshaAnalysis}</div>
+        
+        <div class="card">
+           <div class="card-title">${L.groomDoshas}</div>
+           <ul>${data.doshaMatching.boyDoshas.length > 0 ? data.doshaMatching.boyDoshas.map((d) => `<li>${d}</li>`).join("") : `<li>${L.noDoshas}</li>`}</ul>
+        </div>
+        
+        <div class="card">
+           <div class="card-title">${L.brideDoshas}</div>
+           <ul>${data.doshaMatching.girlDoshas.length > 0 ? data.doshaMatching.girlDoshas.map((d) => `<li>${d}</li>`).join("") : `<li>${L.noDoshas}</li>`}</ul>
+        </div>
+
+        <div class="card">
+           <div class="card-title">${L.manglikConflict}</div>
+           <p style="font-weight:bold; color: ${data.doshaMatching.hasManglikDoshaConflict ? "#EF4444" : "#10B981"};">
+              ${L.conflictPresent}: ${data.doshaMatching.hasManglikDoshaConflict ? L.yes : L.no}
+           </p>
+           <p>${L.statusLabel}: ${data.doshaMatching.isCancelled ? L.cancelled : L.active}</p>
+           <p>${data.doshaMatching.cancellationDetails || ""}</p>
+        </div>
+
+        <div class="card">
+           <div class="card-title">${L.paapaSamyam}</div>
+           <p><strong>${L.groomPoints}:</strong> ${data.paapaSamyam.boyPoints}</p>
+           <p><strong>${L.bridePoints}:</strong> ${data.paapaSamyam.girlPoints}</p>
+           <p><strong>${L.totalPoints}:</strong> ${data.paapaSamyam.totalPoints}</p>
+           <p>${data.paapaSamyam.description}</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- PAGE 9: Thematic Scores -->
+        <div class="header" style="color:#2196f3">${L.thematicCompatibility}</div>
+
+        ${[
+      { title: L.children, score: data.scores.children },
+      { title: L.health, score: data.scores.health },
+      { title: L.finance, score: data.scores.finance },
+      { title: L.longevity, score: data.scores.longevity }
+    ].map((cat) => {
+      const numStars = cat.score?.confidence ? Math.round(cat.score.confidence * 5) : 3;
+      const stars = "\u2605".repeat(numStars) + "\u2606".repeat(5 - numStars);
+      return "<div class='card'><div class='card-title'>" + cat.title + "</div><div class='star-rating'>" + stars + "</div><p style='font-weight:bold;'>" + (cat.score?.rating || L.average) + "</p><p>" + (cat.score?.description || "") + "</p></div>";
+    }).join("")}
+
+        <div class="page-break"></div>
+
+        <!-- PAGE 10: Final Recommendation -->
+        <div class="header" style="color:#b4366f">${L.finalConclusion}</div>
+        
+        <div class="recommendation-box" style="border-color: ${recBadgeColor}; background-color: ${recBadgeColor === "#10B981" ? "#f0fdf4" : recBadgeColor === "#F59E0B" ? "#fffbeb" : "#fef2f2"};">
+           <h2 style="margin-top:0; color: ${recBadgeColor};">${L.recommendation}: ${data.summary.recommendation}</h2>
+           
+           ${data.recommendation.strengths.length > 0 ? `
+             <h3 style="color:#10B981">${L.strengths}</h3>
+             <ul class="rec-list">${data.recommendation.strengths.map((s) => `<li>${s}</li>`).join("")}</ul>
+           ` : ""}
+
+           ${data.recommendation.warnings.length > 0 ? `
+             <h3 style="color:#F59E0B">${L.warnings}</h3>
+             <ul class="rec-list">${data.recommendation.warnings.map((s) => `<li>${s}</li>`).join("")}</ul>
+           ` : ""}
+
+           ${data.recommendation.mandatoryFailures.length > 0 ? `
+             <h3 style="color:#EF4444">${L.mandatoryFailures}</h3>
+             <ul class="rec-list">${data.recommendation.mandatoryFailures.map((s) => `<li>${s}</li>`).join("")}</ul>
+           ` : ""}
+
+           ${data.recommendation.expertReview.length > 0 ? `
+             <h3 style="color:#8B5CF6">${L.expertNotes}</h3>
+             <ul class="rec-list">${data.recommendation.expertReview.map((s) => `<li>${s}</li>`).join("")}</ul>
+           ` : ""}
+
+           <hr style="border: 1px solid #ccc; margin: 20px 0;">
+           <p style="font-style:italic; text-align:justify;">${data.recommendation.finalRecommendation}</p>
+        </div>
+
+        <div class="page-break"></div>
+        <div class="header" style="color:#b4366f">${L.HOWTO_HORO_TITLE}</div>
+        <p style="font-size: 13px; color: #555; text-align: center; margin-bottom: 20px;">${L.HOWTO_HORO_SUBTITLE}</p>
+
+        <div style="margin-top: 20px;">
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_HORO_SECTION1_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_HORO_SECTION1_DESC}</div>
+            ${renderVisualChart(L.HOWTO_HORO_CHART1_TITLE, [
+      L.RASHI_ARIES,
+      L.RASHI_TAURUS,
+      L.RASHI_GEMINI,
+      L.RASHI_CANCER,
+      L.RASHI_LEO,
+      L.RASHI_VIRGO,
+      L.RASHI_LIBRA,
+      L.RASHI_SCORPIO,
+      L.RASHI_SAGITTARIUS,
+      L.RASHI_CAPRICORN,
+      L.RASHI_AQUARIUS,
+      L.RASHI_PISCES
+    ])}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_HORO_SECTION2_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_HORO_SECTION2_DESC}</div>
+            ${renderVisualChart(L.HOWTO_HORO_CHART2_TITLE, [
+      `1<br><small>(${L.HOWTO_HORO_LAGNA_LABEL})</small>`,
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ])}
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_HORO_SECTION3_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_HORO_SECTION3_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_HORO_SECTION4_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_HORO_SECTION4_DESC}</div>
+          </div>
+        </div>
+
+        <div class="page-break"></div>
+        <div class="header" style="color:#b4366f">${L.HOWTO_TITLE}</div>
+        <p style="font-size: 13px; color: #555; text-align: center; margin-bottom: 20px;">${L.HOWTO_SUBTITLE}</p>
+
+        <div style="margin-top: 20px;">
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION1_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION1_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION2_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION2_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION3_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION3_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.HOWTO_SECTION4_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.HOWTO_SECTION4_DESC}</div>
+            ${renderBalanceVisual(L.HOWTO_CHART1_TITLE, L.groom || "Groom", L.bride || "Bride")}
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+          <div class="section-title" style="margin-top: 0;">${L.GLOSSARY_TITLE}</div>
+          <p style="font-size: 12px; color: #555; margin-bottom: 15px; text-align: center;">${L.GLOSSARY_DESC}</p>
+          
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.TITHI_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.TITHI_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.VARA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.VARA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.NAKSHATRA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.NAKSHATRA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.YOGA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.YOGA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.KARANA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.KARANA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.LAGNA_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.LAGNA_DESC}</div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #b4366f; font-size: 14px; margin-bottom: 4px;">${L.RASI_TITLE}</div>
+            <div style="font-size: 13px; color: #333; line-height: 1.5;">${L.RASI_DESC}</div>
+          </div>
+        </div>
+
+      </body>
+      </html>
+    `;
   }
 };
 
-// src/routes/astrology.ts
-var router = Router();
-router.use((req, res, next) => {
-  const supportedLangs = ["en", "te", "ta", "kn", "hi"];
-  const langQuery = req.query.lang;
-  if (langQuery && !supportedLangs.includes(langQuery)) {
-    return res.status(400).json({
-      success: false,
-      error: `Unsupported language: '${langQuery}'. Supported languages are: ${supportedLangs.join(", ")}`
-    });
-  }
-  if (!langQuery) {
-    req.query.lang = "en";
-  }
-  next();
-});
-function collapseLocalization(obj, lang) {
-  if (Array.isArray(obj)) {
-    return obj.map((item) => collapseLocalization(item, lang));
-  } else if (obj instanceof Date) {
-    return obj;
-  } else if (obj !== null && typeof obj === "object") {
-    if (obj.en !== void 0 && Object.keys(obj).every((k) => ["en", "te", "ta", "kn", "hi", "ml"].includes(k))) {
-      return obj[lang];
-    }
-    const newObj = {};
-    for (const key of Object.keys(obj)) {
-      newObj[key] = collapseLocalization(obj[key], lang);
-    }
-    return newObj;
-  }
-  return obj;
-}
-function sendEnvelope(res, lang, data, ayanamsa = "Lahiri", tzStr = "Asia/Kolkata") {
-  const collapsedData = collapseLocalization(data, lang);
-  const envelope = {
-    success: true,
-    language: lang,
-    data: collapsedData,
-    meta: {
-      calculation_engine: "Swiss Ephemeris",
-      ayanamsa,
-      timezone: tzStr,
-      version: "1.0.0",
-      timestamp: (/* @__PURE__ */ new Date()).toISOString()
-    }
-  };
-  return res.json(envelope);
-}
-var RASHI_NAMES_ENGLISH = [
-  "Mesha (Aries)",
-  "Vrishabha (Taurus)",
-  "Mithuna (Gemini)",
-  "Karka (Cancer)",
-  "Simha (Leo)",
-  "Kanya (Virgo)",
-  "Tula (Libra)",
-  "Vrishchika (Scorpio)",
-  "Dhanu (Sagittarius)",
-  "Makara (Capricorn)",
-  "Kumbha (Aquarius)",
-  "Meena (Pisces)"
-];
-router.post("/chart", async (req, res) => {
+// src/routes/matchingV2.ts
+var matchingV2Router = Router2();
+matchingV2Router.post("/", async (req, res) => {
   try {
     const input = req.body;
-    const lang = req.query.lang;
-    const ayanamsa = input.ayanamsa || "Lahiri";
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
-    const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
-    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
-    const lagnaRasi = Math.floor(lagnaLong / 30);
-    const lagnaRasiName = RASHI_NAMES_ENGLISH[lagnaRasi];
-    let explanation = "";
-    if (input.explain) {
-      explanation = await AiService.explainChart({
-        birthDate: `${input.year}-${input.month}-${input.day} ${input.hour}:${input.minute}`,
-        lagna: lagnaRasiName,
-        planets: panchang.planets.map((p) => ({
-          name: p.name,
-          rasi: p.rasi.name.en,
-          house: p.house,
-          retrograde: p.isRetrograde
-        }))
-      }, lang);
-    }
-    const chartData = {
-      lagna: {
-        name: "Lagna",
-        localizedName: lang === "te" ? "\u0C32\u0C17\u0C4D\u0C28\u0C02 (Lagna)" : lang === "hi" ? "\u0932\u0917\u094D\u0928 (Lagna)" : lang === "ta" ? "\u0BB2\u0B95\u0BCD\u0BA9\u0BAE\u0BCD (Lagnam)" : lang === "kn" ? "\u0CB2\u0C97\u0CCD\u0CA8 (Lagna)" : "Lagna",
-        longitude: lagnaLong,
-        rasiIndex: lagnaRasi,
-        signName: lagnaRasiName,
-        house: 1
-      },
-      planets: panchang.planets,
-      divisionalCharts: generateDivisionalCharts(panchang.planets, lagnaLong, lang),
-      explanation: explanation || void 0
-    };
-    sendEnvelope(res, lang, chartData, ayanamsa);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/horoscope", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const moonPlanet = panchang.planets.find((p) => p.id === "moon");
-    const rasiSign = moonPlanet ? moonPlanet.rasi.name.en : "Mesha (Aries)";
-    const horoscope = await AiService.generateHoroscope(rasiSign, lang);
-    sendEnvelope(res, lang, horoscope);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/panchang", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    sendEnvelope(res, lang, panchang, input.ayanamsa || "Lahiri");
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/charts/divisional", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
-    const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
-    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
-    const divisional = generateDivisionalCharts(panchang.planets, lagnaLong, lang);
-    sendEnvelope(res, lang, divisional, input.ayanamsa || "Lahiri");
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/dasha", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const moon = panchang.planets.find((p) => p.id === "moon");
-    const dasha = AstrologyService.calcVimshottariDasha(moon.longitude, input.year, lang);
-    sendEnvelope(res, lang, dasha, input.ayanamsa || "Lahiri");
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/dosha", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
-    const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
-    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
-    const doshas = AstrologyService.detectDoshas(panchang.planets, lagnaLong, lang);
-    sendEnvelope(res, lang, doshas, input.ayanamsa || "Lahiri");
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/matching", async (req, res) => {
-  try {
-    const matchingInput = req.body;
-    const lang = req.query.lang;
-    if (matchingInput.boy) matchingInput.boy.lang = lang;
-    if (matchingInput.girl) matchingInput.girl.lang = lang;
-    const result = AstrologyService.calculateMatching(matchingInput.boy, matchingInput.girl, lang);
-    sendEnvelope(res, lang, result);
-  } catch (error) {
-    console.error(error.stack);
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/matching/custom", async (req, res) => {
-  try {
-    const matchingInput = req.body;
-    if (!matchingInput.boy || !matchingInput.girl) {
+    if (!input.boy || !input.girl) {
       return res.status(400).json({
         success: false,
-        error: "Both 'boy' and 'girl' birth objects are required in the payload."
+        error: "Missing required 'boy' or 'girl' birth details in payload"
       });
     }
-    const lang = req.query.lang;
-    matchingInput.boy.lang = lang;
-    matchingInput.girl.lang = lang;
-    const resultData = AstrologyService.calculateMatching(matchingInput.boy, matchingInput.girl, lang);
-    const boyPanchang = AstrologyService.calcPanchang(matchingInput.boy);
-    const girlPanchang = AstrologyService.calcPanchang(matchingInput.girl);
-    const bNak = boyPanchang.nakshatra.index;
-    const gNak = girlPanchang.nakshatra.index;
-    const bRasi = boyPanchang.planets.find((p) => p.id === "moon").rasiIndex;
-    const gRasi = girlPanchang.planets.find((p) => p.id === "moon").rasiIndex;
-    const NAKSHATRA_NADIS = [
-      0,
-      1,
-      2,
-      2,
-      1,
-      0,
-      0,
-      1,
-      2,
-      2,
-      1,
-      0,
-      0,
-      1,
-      2,
-      2,
-      1,
-      0,
-      0,
-      1,
-      2,
-      2,
-      1,
-      0,
-      0,
-      1,
-      2
-    ];
-    const RASHI_LORDS = [
-      "Mars",
-      "Venus",
-      "Mercury",
-      "Moon",
-      "Sun",
-      "Mercury",
-      "Venus",
-      "Mars",
-      "Jupiter",
-      "Saturn",
-      "Saturn",
-      "Jupiter"
-    ];
-    const LORD_FRIENDS = {
-      Sun: { friends: ["Moon", "Mars", "Jupiter"] },
-      Moon: { friends: ["Sun", "Mercury"] },
-      Mars: { friends: ["Sun", "Moon", "Jupiter"] },
-      Mercury: { friends: ["Sun", "Venus"] },
-      Jupiter: { friends: ["Sun", "Moon", "Mars"] },
-      Venus: { friends: ["Mercury", "Saturn"] },
-      Saturn: { friends: ["Mercury", "Venus"] }
+    const lang = req.query.lang || "en";
+    const boyHoroscopeResult = AstrologyV2Service.generateHoroscope(input.boy, lang);
+    const girlHoroscopeResult = AstrologyV2Service.generateHoroscope(input.girl, lang);
+    input.boy.lang = lang;
+    input.girl.lang = lang;
+    const matchResult = AstrologyService.calculateMatching(input.boy, input.girl, lang);
+    const summary = {
+      score: matchResult.marriageScore,
+      maxScore: 36,
+      percentage: matchResult.overallPercentage,
+      recommendation: matchResult.summary.recommendation,
+      compatibilityScore: matchResult.compatibilityScore
     };
-    const TRANSLATIONS = {
-      en: {
-        nadi_no_dosha: "No Nadi Dosha detected.",
-        nadi_active_no_cancel: "Nadi Dosha is active. No cancellation conditions were met. Recommended to consult an astrologer for remedies.",
-        nadi_same_rasi_diff_nak: "Cancelled because both partners share the same Moon Sign (Rasi) but have different Nakshatras.",
-        nadi_diff_rasi_same_nak: "Cancelled because both share the same Nakshatra crossing across different Moon Signs (Rasis).",
-        nadi_same_nak_diff_pada: "Cancelled because they have different quarters (Padas) of the same Nakshatra.",
-        nadi_same_nak_lord: "Cancelled because both Nakshatras share the same planetary Lord.",
-        bhakoot_no_dosha: "No Bhakoot Dosha detected.",
-        bhakoot_active_no_cancel: "Bhakoot Dosha is active. No cancellation conditions were met.",
-        bhakoot_same_lord: "Cancelled because both Moon Signs share the same planetary ruler.",
-        bhakoot_friendly_lords: "Cancelled because Moon Sign Lords are mutually friendly.",
-        manglik_non_conflict: "No Manglik Dosha conflict detected.",
-        manglik_both_manglik: "Both partners have Manglik Dosha. The energies neutralize each other perfectly.",
-        manglik_both_non_manglik: "Neither partner has Manglik Dosha. Excellent overall harmony.",
-        manglik_conflict: "Manglik Dosha conflict detected. One partner has Manglik Dosha and the other does not. Remedial measures should be performed before marriage.",
-        recommendation_high: "Excellent match! Highly compatible and recommended for marriage.",
-        recommendation_medium: "Moderate compatibility. Compatibility is acceptable but specific remedies or astrologer consulting is suggested.",
-        recommendation_low: "Low matching score. Marriage requires caution, careful remedial measures, and expert astrological consulting."
-      },
-      hi: {
-        nadi_no_dosha: "\u0915\u094B\u0908 \u0928\u093E\u0921\u093C\u0940 \u0926\u094B\u0937 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u093E\u0964",
-        nadi_active_no_cancel: "\u0928\u093E\u0921\u093C\u0940 \u0926\u094B\u0937 \u0938\u0915\u094D\u0930\u093F\u092F \u0939\u0948\u0964 \u0915\u094B\u0908 \u0928\u093F\u0930\u0938\u094D\u0924\u0940\u0915\u0930\u0923 \u0938\u094D\u0925\u093F\u0924\u093F \u092A\u0942\u0930\u0940 \u0928\u0939\u0940\u0902 \u0939\u0941\u0908\u0964 \u0909\u091A\u093F\u0924 \u092A\u0930\u093F\u0939\u093E\u0930 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u0948\u0964",
-        nadi_same_rasi_diff_nak: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u0926\u094B\u0928\u094B\u0902 \u0938\u093E\u0925\u093F\u092F\u094B\u0902 \u0915\u0940 \u091A\u0902\u0926\u094D\u0930 \u0930\u093E\u0936\u093F \u090F\u0915 \u0939\u0940 \u0939\u0948 \u0932\u0947\u0915\u093F\u0928 \u0928\u0915\u094D\u0937\u0924\u094D\u0930 \u0905\u0932\u0917 \u0939\u0948\u0902\u0964",
-        nadi_diff_rasi_same_nak: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u0926\u094B\u0928\u094B\u0902 \u090F\u0915 \u0939\u0940 \u0928\u0915\u094D\u0937\u0924\u094D\u0930 \u0938\u093E\u091D\u093E \u0915\u0930\u0924\u0947 \u0939\u0948\u0902 \u091C\u094B \u0935\u093F\u092D\u093F\u0928\u094D\u0928 \u091A\u0902\u0926\u094D\u0930 \u0930\u093E\u0936\u093F\u092F\u094B\u0902 \u092E\u0947\u0902 \u092B\u0948\u0932\u093E \u0939\u0941\u0906 \u0939\u0948\u0964",
-        nadi_same_nak_diff_pada: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u0909\u0928\u0915\u0947 \u092A\u093E\u0938 \u090F\u0915 \u0939\u0940 \u0928\u0915\u094D\u0937\u0924\u094D\u0930 \u0915\u0947 \u0935\u093F\u092D\u093F\u0928\u094D\u0928 \u091A\u0930\u0923 (\u092A\u093E\u0926) \u092F\u093E \u0915\u094D\u0935\u093E\u0930\u094D\u091F\u0930 \u0939\u0948\u0902\u0964",
-        nadi_same_nak_lord: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u0926\u094B\u0928\u094B\u0902 \u0928\u0915\u094D\u0937\u0924\u094D\u0930\u094B\u0902 \u0915\u093E \u0938\u094D\u0935\u093E\u092E\u0940 \u0917\u094D\u0930\u0939 \u090F\u0915 \u0939\u0940 \u0939\u0948\u0964",
-        bhakoot_no_dosha: "\u0915\u094B\u0908 \u092D\u0915\u0942\u091F \u0926\u094B\u0937 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u093E\u0964",
-        bhakoot_active_no_cancel: "\u092D\u0915\u0942\u091F \u0926\u094B\u0937 \u0938\u0915\u094D\u0930\u093F\u092F \u0939\u0948\u0964 \u0915\u094B\u0908 \u0928\u093F\u0930\u0938\u094D\u0924\u0940\u0915\u0930\u0923 \u0938\u094D\u0925\u093F\u0924\u093F \u092A\u0942\u0930\u0940 \u0928\u0939\u0940\u0902 \u0939\u0941\u0908\u0964",
-        bhakoot_same_lord: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u0926\u094B\u0928\u094B\u0902 \u091A\u0902\u0926\u094D\u0930 \u0930\u093E\u0936\u093F\u092F\u094B\u0902 \u0915\u093E \u0938\u094D\u0935\u093E\u092E\u0940 \u0917\u094D\u0930\u0939 \u090F\u0915 \u0939\u0940 \u0939\u0948\u0964",
-        bhakoot_friendly_lords: "\u0928\u093F\u0930\u0938\u094D\u0924 \u0915\u094D\u092F\u094B\u0902\u0915\u093F \u091A\u0902\u0926\u094D\u0930 \u0930\u093E\u0936\u093F\u092F\u094B\u0902 \u0915\u0947 \u0938\u094D\u0935\u093E\u092E\u0940 \u0906\u092A\u0938 \u092E\u0947\u0902 \u092E\u093F\u0924\u094D\u0930 \u0939\u0948\u0902\u0964",
-        manglik_non_conflict: "\u0915\u094B\u0908 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u094B\u0937 \u0938\u0902\u0918\u0930\u094D\u0937 \u0928\u0939\u0940\u0902 \u092E\u093F\u0932\u093E\u0964",
-        manglik_both_manglik: "\u0926\u094B\u0928\u094B\u0902 \u0938\u093E\u0925\u0940 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0939\u0948\u0902\u0964 \u0926\u094B\u0937 \u0938\u094D\u0935\u0924\u0903 \u0928\u093F\u0930\u0938\u094D\u0924 \u0939\u094B\u0915\u0930 \u092A\u0930\u0938\u094D\u092A\u0930 \u0938\u0902\u0924\u0941\u0932\u0928 \u092C\u0928\u093E\u0924\u093E \u0939\u0948\u0964",
-        manglik_both_non_manglik: "\u0926\u094B\u0928\u094B\u0902 \u092E\u0947\u0902 \u0938\u0947 \u0915\u094B\u0908 \u092D\u0940 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964 \u0909\u0924\u094D\u0915\u0943\u0937\u094D\u091F \u0936\u093E\u0930\u0940\u0930\u093F\u0915 \u0914\u0930 \u092E\u093E\u0928\u0938\u093F\u0915 \u0938\u093E\u092E\u0902\u091C\u0938\u094D\u092F\u0964",
-        manglik_conflict: "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u094B\u0937 \u0938\u0902\u0918\u0930\u094D\u0937 \u092A\u093E\u092F\u093E \u0917\u092F\u093E\u0964 \u090F\u0915 \u0938\u093E\u0925\u0940 \u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0939\u0948 \u0914\u0930 \u0926\u0942\u0938\u0930\u093E \u0928\u0939\u0940\u0902\u0964 \u0935\u093F\u0935\u093E\u0939 \u092A\u0942\u0930\u094D\u0935 \u0935\u093F\u0936\u0947\u0937 \u0936\u093E\u0902\u0924\u093F \u092A\u0942\u091C\u093E \u0915\u0940 \u0938\u0932\u093E\u0939 \u0926\u0940 \u091C\u093E\u0924\u0940 \u0939\u0948\u0964",
-        recommendation_high: "\u0909\u0924\u094D\u0915\u0943\u0937\u094D\u091F \u092E\u093F\u0932\u093E\u0928! \u0905\u0924\u094D\u092F\u0927\u093F\u0915 \u0905\u0928\u0941\u0915\u0942\u0932 \u0914\u0930 \u0935\u093F\u0935\u093E\u0939 \u0915\u0940 \u0905\u0928\u0941\u0936\u0902\u0938\u093E \u0915\u0940 \u091C\u093E\u0924\u0940 \u0939\u0948\u0964",
-        recommendation_medium: "\u092E\u0927\u094D\u092F\u092E \u092E\u093F\u0932\u093E\u0928\u0964 \u0935\u093F\u0935\u093E\u0939 \u0938\u094D\u0935\u0940\u0915\u093E\u0930\u094D\u092F \u0939\u0948 \u092A\u0930\u0902\u0924\u0941 \u0915\u0941\u091B \u0935\u093F\u0936\u093F\u0937\u094D\u091F \u0909\u092A\u093E\u092F\u094B\u0902 \u092F\u093E \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940 \u0915\u0947 \u092E\u093E\u0930\u094D\u0917\u0926\u0930\u094D\u0936\u0928 \u0915\u0940 \u0938\u0932\u093E\u0939 \u0926\u0940 \u091C\u093E\u0924\u0940 \u0939\u0948\u0964",
-        recommendation_low: "\u0915\u092E \u092E\u093F\u0932\u093E\u0928 \u0905\u0902\u0915\u0964 \u0935\u093F\u0935\u093E\u0939 \u0915\u0947 \u0932\u093F\u090F \u0935\u093F\u0936\u0947\u0937 \u0938\u093E\u0935\u0927\u093E\u0928\u0940, \u0935\u0948\u0926\u093F\u0915 \u0909\u092A\u093E\u092F\u094B\u0902 \u0914\u0930 \u0905\u0928\u0941\u092D\u0935\u0940 \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u0940 \u0938\u0947 \u092A\u0930\u093E\u092E\u0930\u094D\u0936 \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0939\u0948\u0964"
-      },
-      te: {
-        nadi_no_dosha: "\u0C28\u0C3E\u0C21\u0C3F \u0C26\u0C4B\u0C37\u0C02 \u0C0F\u0C26\u0C40 \u0C15\u0C28\u0C41\u0C17\u0C4A\u0C28\u0C2C\u0C21\u0C32\u0C47\u0C26\u0C41.",
-        nadi_active_no_cancel: "\u0C28\u0C3E\u0C21\u0C3F \u0C26\u0C4B\u0C37\u0C02 \u0C1A\u0C41\u0C30\u0C41\u0C15\u0C41\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F. \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C37\u0C30\u0C24\u0C41\u0C32\u0C41 \u0C0F\u0C35\u0C40 \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C3F \u0C15\u0C3E\u0C32\u0C47\u0C26\u0C41. \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C32 \u0C15\u0C4B\u0C38\u0C02 \u0C32\u0C47\u0C26\u0C3E \u0C36\u0C3E\u0C02\u0C24\u0C3F \u0C2A\u0C4D\u0C30\u0C15\u0C4D\u0C30\u0C3F\u0C2F\u0C32 \u0C15\u0C4B\u0C38\u0C02 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C4D\u0C2F\u0C41\u0C21\u0C3F\u0C28\u0C3F \u0C38\u0C02\u0C2A\u0C4D\u0C30\u0C26\u0C3F\u0C02\u0C1A\u0C02\u0C21\u0C3F.",
-        nadi_same_rasi_diff_nak: "\u0C07\u0C26\u0C4D\u0C26\u0C30\u0C41 \u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C41\u0C32\u0C41 \u0C12\u0C15\u0C47 \u0C1A\u0C02\u0C26\u0C4D\u0C30 \u0C30\u0C3E\u0C36\u0C3F\u0C28\u0C3F \u0C2A\u0C02\u0C1A\u0C41\u0C15\u0C41\u0C02\u0C1F\u0C3E\u0C30\u0C41 \u0C15\u0C3E\u0C28\u0C40 \u0C35\u0C47\u0C30\u0C4D\u0C35\u0C47\u0C30\u0C41 \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C3E\u0C32\u0C28\u0C41 \u0C15\u0C32\u0C3F\u0C17\u0C3F \u0C09\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        nadi_diff_rasi_same_nak: "\u0C35\u0C47\u0C30\u0C4D\u0C35\u0C47\u0C30\u0C41 \u0C1A\u0C02\u0C26\u0C4D\u0C30 \u0C30\u0C3E\u0C36\u0C41\u0C32 \u0C17\u0C41\u0C02\u0C21\u0C3E \u0C35\u0C46\u0C33\u0C4D\u0C33\u0C47 \u0C12\u0C15\u0C47 \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C07\u0C26\u0C4D\u0C26\u0C30\u0C42 \u0C2A\u0C02\u0C1A\u0C41\u0C15\u0C41\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        nadi_same_nak_diff_pada: "\u0C12\u0C15\u0C47 \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C02 \u0C2F\u0C4A\u0C15\u0C4D\u0C15 \u0C35\u0C47\u0C30\u0C4D\u0C35\u0C47\u0C30\u0C41 \u0C2A\u0C3E\u0C26\u0C3E\u0C32\u0C41 (\u0C2A\u0C26\u0C2E\u0C41\u0C32\u0C41) \u0C09\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        nadi_same_nak_lord: "\u0C30\u0C46\u0C02\u0C21\u0C41 \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C3E\u0C32\u0C15\u0C41 \u0C12\u0C15\u0C47 \u0C17\u0C4D\u0C30\u0C39 \u0C05\u0C27\u0C3F\u0C2A\u0C24\u0C3F \u0C09\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        bhakoot_no_dosha: "\u0C2D\u0C15\u0C42\u0C1F\u0C4D \u0C26\u0C4B\u0C37\u0C02 \u0C0F\u0C26\u0C40 \u0C15\u0C28\u0C41\u0C17\u0C4A\u0C28\u0C2C\u0C21\u0C32\u0C47\u0C26\u0C41.",
-        bhakoot_active_no_cancel: "\u0C2D\u0C15\u0C42\u0C1F\u0C4D \u0C26\u0C4B\u0C37\u0C02 \u0C1A\u0C41\u0C30\u0C41\u0C15\u0C41\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F. \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C37\u0C30\u0C24\u0C41\u0C32\u0C41 \u0C0F\u0C35\u0C40 \u0C2A\u0C42\u0C30\u0C4D\u0C24\u0C3F \u0C15\u0C3E\u0C32\u0C47\u0C26\u0C41.",
-        bhakoot_same_lord: "\u0C30\u0C46\u0C02\u0C21\u0C41 \u0C1A\u0C02\u0C26\u0C4D\u0C30 \u0C30\u0C3E\u0C36\u0C41\u0C32\u0C41 \u0C12\u0C15\u0C47 \u0C17\u0C4D\u0C30\u0C39 \u0C05\u0C27\u0C3F\u0C2A\u0C24\u0C3F \u0C15\u0C3F\u0C02\u0C26\u0C15\u0C41 \u0C35\u0C38\u0C4D\u0C24\u0C41\u0C28\u0C4D\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        bhakoot_friendly_lords: "\u0C1A\u0C02\u0C26\u0C4D\u0C30 \u0C30\u0C3E\u0C36\u0C3F \u0C05\u0C27\u0C3F\u0C2A\u0C24\u0C41\u0C32\u0C41 \u0C2A\u0C30\u0C38\u0C4D\u0C2A\u0C30\u0C02 \u0C2E\u0C3F\u0C24\u0C4D\u0C30\u0C41\u0C32\u0C41 \u0C05\u0C2F\u0C3F\u0C28\u0C02\u0C26\u0C41\u0C28 \u0C30\u0C26\u0C4D\u0C26\u0C41 \u0C1A\u0C47\u0C2F\u0C2C\u0C21\u0C3F\u0C02\u0C26\u0C3F.",
-        manglik_non_conflict: "\u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37 \u0C38\u0C02\u0C18\u0C30\u0C4D\u0C37\u0C23 \u0C0F\u0C26\u0C40 \u0C15\u0C28\u0C41\u0C17\u0C4A\u0C28\u0C2C\u0C21\u0C32\u0C47\u0C26\u0C41.",
-        manglik_both_manglik: "\u0C2D\u0C3E\u0C17\u0C38\u0C4D\u0C35\u0C3E\u0C2E\u0C41\u0C32\u0C41 \u0C07\u0C26\u0C4D\u0C26\u0C30\u0C3F\u0C15\u0C40 \u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37\u0C02 \u0C09\u0C02\u0C26\u0C3F. \u0C05\u0C02\u0C26\u0C41\u0C35\u0C32\u0C4D\u0C32 \u0C07\u0C26\u0C3F \u0C2A\u0C30\u0C38\u0C4D\u0C2A\u0C30\u0C02 \u0C30\u0C26\u0C4D\u0C26\u0C2F\u0C3F \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C2E\u0C3E\u0C30\u0C41\u0C24\u0C41\u0C02\u0C26\u0C3F.",
-        manglik_both_non_manglik: "\u0C0E\u0C35\u0C30\u0C3F\u0C15\u0C40 \u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37\u0C02 \u0C32\u0C47\u0C26\u0C41. \u0C05\u0C26\u0C4D\u0C2D\u0C41\u0C24\u0C2E\u0C48\u0C28 \u0C35\u0C48\u0C35\u0C3E\u0C39\u0C3F\u0C15 \u0C38\u0C3E\u0C2E\u0C30\u0C38\u0C4D\u0C2F\u0C02 \u0C2A\u0C4A\u0C02\u0C26\u0C41\u0C24\u0C3E\u0C30\u0C41.",
-        manglik_conflict: "\u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37 \u0C38\u0C02\u0C18\u0C30\u0C4D\u0C37\u0C23 \u0C15\u0C28\u0C3F\u0C2A\u0C3F\u0C02\u0C1A\u0C3F\u0C02\u0C26\u0C3F. \u0C12\u0C15\u0C30\u0C3F\u0C15\u0C3F \u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37\u0C02 \u0C09\u0C02\u0C21\u0C17\u0C3E, \u0C2E\u0C30\u0C4A\u0C15\u0C30\u0C3F\u0C15\u0C3F \u0C32\u0C47\u0C26\u0C41. \u0C2A\u0C46\u0C33\u0C4D\u0C32\u0C3F\u0C15\u0C3F \u0C2E\u0C41\u0C02\u0C26\u0C41 \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C32\u0C41 \u0C1A\u0C47\u0C38\u0C41\u0C15\u0C4B\u0C35\u0C21\u0C02 \u0C36\u0C4D\u0C30\u0C47\u0C2F\u0C38\u0C4D\u0C15\u0C30\u0C02.",
-        recommendation_high: "\u0C05\u0C26\u0C4D\u0C2D\u0C41\u0C24\u0C2E\u0C48\u0C28 \u0C2A\u0C4A\u0C02\u0C24\u0C28! \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C0E\u0C02\u0C24\u0C4B \u0C30\u0C3F\u0C15\u0C2E\u0C02\u0C21\u0C4D \u0C1A\u0C47\u0C2F\u0C26\u0C17\u0C3F\u0C28\u0C26\u0C3F.",
-        recommendation_medium: "\u0C2E\u0C27\u0C4D\u0C2F\u0C2E \u0C2A\u0C4A\u0C02\u0C24\u0C28. \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02 \u0C1A\u0C47\u0C38\u0C41\u0C15\u0C4B\u0C35\u0C1A\u0C4D\u0C1A\u0C41 \u0C15\u0C3E\u0C28\u0C40 \u0C24\u0C17\u0C3F\u0C28 \u0C2A\u0C30\u0C3F\u0C39\u0C3E\u0C30\u0C3E\u0C32\u0C41 \u0C32\u0C47\u0C26\u0C3E \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C4D\u0C2F \u0C38\u0C32\u0C39\u0C3E \u0C05\u0C35\u0C38\u0C30\u0C02.",
-        recommendation_low: "\u0C24\u0C15\u0C4D\u0C15\u0C41\u0C35 \u0C2A\u0C4A\u0C02\u0C24\u0C28 \u0C2A\u0C3E\u0C2F\u0C3F\u0C02\u0C1F\u0C4D\u0C32\u0C41. \u0C35\u0C3F\u0C35\u0C3E\u0C39\u0C02 \u0C35\u0C3F\u0C37\u0C2F\u0C02\u0C32\u0C4B \u0C24\u0C17\u0C3F\u0C28 \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C28\u0C3F\u0C2A\u0C41\u0C23\u0C41\u0C32\u0C48\u0C28 \u0C1C\u0C4D\u0C2F\u0C4B\u0C24\u0C3F\u0C37\u0C4D\u0C2F\u0C41\u0C21\u0C3F \u0C38\u0C32\u0C39\u0C3E \u0C24\u0C2A\u0C4D\u0C2A\u0C28\u0C3F\u0C38\u0C30\u0C3F."
-      },
-      ta: {
-        nadi_no_dosha: "\u0BA8\u0BBE\u0B9F\u0BBF \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B8E\u0BA4\u0BC1\u0BB5\u0BC1\u0BAE\u0BCD \u0B95\u0BA3\u0BCD\u0B9F\u0BB1\u0BBF\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BB5\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.",
-        nadi_active_no_cancel: "\u0BA8\u0BBE\u0B9F\u0BBF \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BB2\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BBE\u0BA9 \u0BA8\u0BBF\u0BAA\u0BA8\u0BCD\u0BA4\u0BA9\u0BC8\u0B95\u0BB3\u0BCD \u0B8E\u0BA4\u0BC1\u0BB5\u0BC1\u0BAE\u0BCD \u0BAA\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BBF \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BB5\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.",
-        nadi_same_rasi_diff_nak: "\u0B87\u0BB0\u0BC1 \u0B95\u0BC2\u0B9F\u0BCD\u0B9F\u0BBE\u0BB3\u0BBF\u0B95\u0BB3\u0BC1\u0BAE\u0BCD \u0B92\u0BB0\u0BC7 \u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BBE\u0B9A\u0BBF\u0BAF\u0BC8\u0BAA\u0BCD \u0BAA\u0B95\u0BBF\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4\u0BC1 \u0B95\u0BCA\u0BB3\u0BCD\u0B95\u0BBF\u0BB1\u0BBE\u0BB0\u0BCD\u0B95\u0BB3\u0BCD \u0B86\u0BA9\u0BBE\u0BB2\u0BCD \u0BB5\u0BC6\u0BB5\u0BCD\u0BB5\u0BC7\u0BB1\u0BC1 \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BC8\u0B95\u0BCD \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        nadi_diff_rasi_same_nak: "\u0BB5\u0BC6\u0BB5\u0BCD\u0BB5\u0BC7\u0BB1\u0BC1 \u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BBE\u0B9A\u0BBF\u0B95\u0BB3\u0BBF\u0BB2\u0BCD \u0BAA\u0BB0\u0BB5\u0BBF\u0BAF\u0BBF\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B92\u0BB0\u0BC7 \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0BA4\u0BCD\u0BA4\u0BC8 \u0B87\u0BB0\u0BC1\u0BB5\u0BB0\u0BC1\u0BAE\u0BCD \u0BAA\u0B95\u0BBF\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4\u0BC1 \u0B95\u0BCA\u0BB3\u0BCD\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        nadi_same_nak_diff_pada: "\u0B92\u0BB0\u0BC7 \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0BA4\u0BCD\u0BA4\u0BBF\u0BA9\u0BCD \u0BB5\u0BC6\u0BB5\u0BCD\u0BB5\u0BC7\u0BB1\u0BC1 \u0BAA\u0BBE\u0BA4\u0B99\u0BCD\u0B95\u0BB3\u0BC8 \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        nadi_same_nak_lord: "\u0B87\u0BB0\u0BC1 \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0BAE\u0BCD \u0B92\u0BB0\u0BC7 \u0B95\u0BBF\u0BB0\u0B95 \u0B85\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF\u0BAF\u0BC8\u0BAA\u0BCD \u0BAA\u0B95\u0BBF\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4\u0BC1 \u0B95\u0BCA\u0BB3\u0BCD\u0BB5\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        bhakoot_no_dosha: "\u0BAA\u0B95\u0BC2\u0B9F\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B8E\u0BA4\u0BC1\u0BB5\u0BC1\u0BAE\u0BCD \u0B95\u0BA3\u0BCD\u0B9F\u0BB1\u0BBF\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BB5\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.",
-        bhakoot_active_no_cancel: "\u0BAA\u0B95\u0BC2\u0B9F\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BB2\u0BBF\u0BB2\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BB1\u0BCD\u0B95\u0BBE\u0BA9 \u0BA8\u0BBF\u0BAA\u0BA8\u0BCD\u0BA4\u0BA9\u0BC8\u0B95\u0BB3\u0BCD \u0BAA\u0BC2\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BBF \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BB5\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.",
-        bhakoot_same_lord: "\u0B87\u0BB0\u0BC1 \u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BBE\u0B9A\u0BBF\u0B95\u0BB3\u0BC1\u0BAE\u0BCD \u0B92\u0BB0\u0BC7 \u0B95\u0BBF\u0BB0\u0B95 \u0B85\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF\u0BAF\u0BC8\u0BAA\u0BCD \u0BAA\u0B95\u0BBF\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4\u0BC1 \u0B95\u0BCA\u0BB3\u0BCD\u0BB5\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        bhakoot_friendly_lords: "\u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BBE\u0B9A\u0BBF \u0B85\u0BA4\u0BBF\u0BAA\u0BA4\u0BBF\u0B95\u0BB3\u0BCD \u0BAA\u0BB0\u0BB8\u0BCD\u0BAA\u0BB0\u0BAE\u0BCD \u0BA8\u0B9F\u0BCD\u0BAA\u0BC1 \u0B95\u0BBF\u0BB0\u0B95\u0B99\u0BCD\u0B95\u0BB3\u0BBE\u0B95 \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD \u0BB0\u0BA4\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BCD\u0B9F\u0BA4\u0BC1.",
-        manglik_non_conflict: "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7 \u0BAE\u0BCB\u0BA4\u0BB2\u0BCD \u0B8E\u0BA4\u0BC1\u0BB5\u0BC1\u0BAE\u0BCD \u0B95\u0BA3\u0BCD\u0B9F\u0BB1\u0BBF\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F\u0BB5\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.",
-        manglik_both_manglik: "\u0B87\u0BB0\u0BC1\u0BB5\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0B87\u0BA4\u0BC1 \u0B87\u0BAF\u0BB1\u0BCD\u0B95\u0BC8\u0BAF\u0BBE\u0B95\u0BB5\u0BC7 \u0BA4\u0BCB\u0BB7 \u0BA8\u0BBF\u0BB5\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BBF \u0BAA\u0BC6\u0BB1\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.",
-        manglik_both_non_manglik: "\u0B87\u0BB0\u0BC1\u0BB5\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1\u0BAE\u0BCD \u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8. \u0B9A\u0BBF\u0BB1\u0BA8\u0BCD\u0BA4 \u0B95\u0BC1\u0B9F\u0BC1\u0BAE\u0BCD\u0BAA \u0B85\u0BAE\u0BC8\u0BA4\u0BBF.",
-        manglik_conflict: "\u0B92\u0BB0\u0BC1\u0BB5\u0BB0\u0BC1\u0B95\u0BCD\u0B95\u0BC1 \u0BAE\u0B9F\u0BCD\u0B9F\u0BC1\u0BAE\u0BC7 \u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BA4\u0BCD\u0BA4\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0BAE\u0BC1\u0BA9\u0BCD \u0BA4\u0BCB\u0BB7 \u0BA8\u0BBF\u0BB5\u0BB0\u0BCD\u0BA4\u0BCD\u0BA4\u0BBF \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BAA\u0BCD\u0BAA\u0B9F \u0BB5\u0BC7\u0BA3\u0BCD\u0B9F\u0BC1\u0BAE\u0BCD.",
-        recommendation_high: "\u0B9A\u0BBF\u0BB1\u0BA8\u0BCD\u0BA4 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD! \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BA4\u0BCD\u0BA4\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0B95\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BAA\u0BB0\u0BBF\u0BA8\u0BCD\u0BA4\u0BC1\u0BB0\u0BC8\u0B95\u0BCD\u0B95\u0BAA\u0BCD\u0BAA\u0B9F\u0BC1\u0B95\u0BBF\u0BB1\u0BA4\u0BC1.",
-        recommendation_medium: "\u0BAE\u0BA4\u0BCD\u0BA4\u0BBF\u0BAF\u0BAE \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD. \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8\u0B95\u0BCD\u0B95\u0BC1\u0BAA\u0BCD \u0BAA\u0BBF\u0BA9\u0BCD \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BB2\u0BBE\u0BAE\u0BCD.",
-        recommendation_low: "\u0B95\u0BC1\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD. \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B95\u0BC2\u0B9F\u0BC1\u0BA4\u0BB2\u0BCD \u0B95\u0BB5\u0BA9\u0BAE\u0BCD \u0BA4\u0BC7\u0BB5\u0BC8, \u0B9A\u0BB0\u0BBF\u0BAF\u0BBE\u0BA9 \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9C\u0BCB\u0BA4\u0BBF\u0B9F \u0B86\u0BB2\u0BCB\u0B9A\u0BA9\u0BC8 \u0B85\u0BB5\u0B9A\u0BBF\u0BAF\u0BAE\u0BCD."
-      },
-      kn: {
-        nadi_no_dosha: "\u0CAF\u0CBE\u0CB5\u0CC1\u0CA6\u0CC1 \u0CA8\u0CBE\u0CA1\u0CBF \u0CA6\u0CCB\u0CB7 \u0C95\u0C82\u0CA1\u0CC1\u0CAC\u0C82\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.",
-        nadi_active_no_cancel: "\u0CA8\u0CBE\u0CA1\u0CBF \u0CA6\u0CCB\u0CB7 \u0CB8\u0C95\u0CCD\u0CB0\u0CBF\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CAF\u0CBE\u0CB5\u0CC1\u0CA6\u0CC7 \u0CB0\u0CA6\u0CCD\u0CA6\u0CA4\u0CBF \u0CB7\u0CB0\u0CA4\u0CCD\u0CA4\u0CC1\u0C97\u0CB3\u0CC1 \u0C85\u0CA8\u0CCD\u0CB5\u0CAF\u0CBF\u0CB8\u0CC1\u0CB5\u0CC1\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.",
-        nadi_same_rasi_diff_nak: "\u0C87\u0CAC\u0CCD\u0CAC\u0CB0\u0CC1 \u0CAA\u0CBE\u0CB2\u0CC1\u0CA6\u0CBE\u0CB0\u0CB0\u0CC1 \u0C92\u0C82\u0CA6\u0CC7 \u0C9A\u0C82\u0CA6\u0CCD\u0CB0 \u0CB0\u0CBE\u0CB6\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0C82\u0C9A\u0CBF\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CA4\u0CCD\u0CA4\u0CBE\u0CB0\u0CC6 \u0C86\u0CA6\u0CB0\u0CC6 \u0CB5\u0CBF\u0CAD\u0CBF\u0CA8\u0CCD\u0CA8 \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0CCA\u0C82\u0CA6\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        nadi_diff_rasi_same_nak: "\u0CB5\u0CBF\u0CAD\u0CBF\u0CA8\u0CCD\u0CA8 \u0C9A\u0C82\u0CA6\u0CCD\u0CB0 \u0CB0\u0CBE\u0CB6\u0CBF\u0C97\u0CB3\u0CB2\u0CCD\u0CB2\u0CBF \u0CB9\u0CB0\u0CA1\u0CBF\u0CB0\u0CC1\u0CB5 \u0C92\u0C82\u0CA6\u0CC7 \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0C87\u0CAC\u0CCD\u0CAC\u0CB0\u0CC2 \u0CB9\u0C82\u0C9A\u0CBF\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        nadi_same_nak_diff_pada: "\u0C92\u0C82\u0CA6\u0CC7 \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0\u0CA6 \u0CB5\u0CBF\u0CB5\u0CBF\u0CA7 \u0CAA\u0CBE\u0CA6\u0C97\u0CB3\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0CCA\u0C82\u0CA6\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        nadi_same_nak_lord: "\u0C8E\u0CB0\u0CA1\u0CC2 \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0\u0C97\u0CB3\u0CC1 \u0C92\u0C82\u0CA6\u0CC7 \u0C97\u0CCD\u0CB0\u0CB9 \u0C85\u0CA7\u0CBF\u0CAA\u0CA4\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0C82\u0C9A\u0CBF\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        bhakoot_no_dosha: "\u0CAF\u0CBE\u0CB5\u0CC1\u0CA6\u0CC7 \u0CAD\u0C95\u0CC2\u0C9F\u0CCD \u0CA6\u0CCB\u0CB7 \u0C95\u0C82\u0CA1\u0CC1\u0CAC\u0C82\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.",
-        bhakoot_active_no_cancel: "\u0CAD\u0C95\u0CC2\u0C9F\u0CCD \u0CA6\u0CCB\u0CB7 \u0CB8\u0C95\u0CCD\u0CB0\u0CBF\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CB0\u0CA6\u0CCD\u0CA6\u0CA4\u0CBF \u0CB7\u0CB0\u0CA4\u0CCD\u0CA4\u0CC1\u0C97\u0CB3\u0CC1 \u0C85\u0CA8\u0CCD\u0CB5\u0CAF\u0CBF\u0CB8\u0CC1\u0CB5\u0CC1\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.",
-        bhakoot_same_lord: "\u0C8E\u0CB0\u0CA1\u0CC2 \u0C9A\u0C82\u0CA6\u0CCD\u0CB0 \u0CB0\u0CBE\u0CB6\u0CBF\u0C97\u0CB3\u0CC1 \u0C92\u0C82\u0CA6\u0CC7 \u0C97\u0CCD\u0CB0\u0CB9 \u0C85\u0CA7\u0CBF\u0CAA\u0CA4\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0CCA\u0C82\u0CA6\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        bhakoot_friendly_lords: "\u0C9A\u0C82\u0CA6\u0CCD\u0CB0 \u0CB0\u0CBE\u0CB6\u0CBF\u0CAF \u0C85\u0CA7\u0CBF\u0CAA\u0CA4\u0CBF\u0C97\u0CB3\u0CC1 \u0CAA\u0CB0\u0CB8\u0CCD\u0CAA\u0CB0 \u0CAE\u0CBF\u0CA4\u0CCD\u0CB0\u0CB0\u0CBE\u0C97\u0CBF\u0CB0\u0CC1\u0CB5 \u0C95\u0CBE\u0CB0\u0CA3 \u0CB0\u0CA6\u0CCD\u0CA6\u0CC1\u0C97\u0CCA\u0CB3\u0CBF\u0CB8\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        manglik_non_conflict: "\u0C95\u0CC1\u0C9C \u0CA6\u0CCB\u0CB7 \u0CB8\u0C82\u0C98\u0CB0\u0CCD\u0CB7 \u0C95\u0C82\u0CA1\u0CC1\u0CAC\u0C82\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.",
-        manglik_both_manglik: "\u0C87\u0CAC\u0CCD\u0CAC\u0CB0\u0CBF\u0C97\u0CC2 \u0C95\u0CC1\u0C9C \u0CA6\u0CCB\u0CB7\u0CB5\u0CBF\u0CA6\u0CC6. \u0CA6\u0CCB\u0CB7\u0CB5\u0CC1 \u0CA4\u0CBE\u0CA8\u0CBE\u0C97\u0CBF\u0CAF\u0CC7 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0CB5\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CA6\u0CC6.",
-        manglik_both_non_manglik: "\u0C87\u0CAC\u0CCD\u0CAC\u0CB0\u0CBF\u0C97\u0CC2 \u0C95\u0CC1\u0C9C \u0CA6\u0CCB\u0CB7\u0CB5\u0CBF\u0CB2\u0CCD\u0CB2. \u0C89\u0CA4\u0CCD\u0CA4\u0CAE \u0C95\u0CCC\u0C9F\u0CC1\u0C82\u0CAC\u0CBF\u0C95 \u0CB8\u0CBE\u0CAE\u0CB0\u0CB8\u0CCD\u0CAF.",
-        manglik_conflict: "\u0C92\u0CAC\u0CCD\u0CAC\u0CB0\u0CBF\u0C97\u0CC6 \u0CAE\u0CBE\u0CA4\u0CCD\u0CB0 \u0C95\u0CC1\u0C9C \u0CA6\u0CCB\u0CB7\u0CB5\u0CBF\u0CA6\u0CC6. \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6\u0C97\u0CC6 \u0CAE\u0CCA\u0CA6\u0CB2\u0CC1 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0CB6\u0CBE\u0C82\u0CA4\u0CBF \u0CAA\u0CC2\u0C9C\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF.",
-        recommendation_high: "\u0C89\u0CA4\u0CCD\u0CA4\u0CAE \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6! \u0CAE\u0CA6\u0CC1\u0CB5\u0CC6\u0C97\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB6\u0CBF\u0CAB\u0CBE\u0CB0\u0CB8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CB2\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-        recommendation_medium: "\u0CAE\u0CA7\u0CCD\u0CAF\u0CAE \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6. \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CCD\u0CAF \u0CB8\u0CB2\u0CB9\u0CC6\u0CAF\u0CCA\u0C82\u0CA6\u0CBF\u0C97\u0CC6 \u0CAE\u0CC1\u0C82\u0CA6\u0CC1\u0CB5\u0CB0\u0CC6\u0CAF\u0CAC\u0CB9\u0CC1\u0CA6\u0CC1.",
-        recommendation_low: "\u0C95\u0CA1\u0CBF\u0CAE\u0CC6 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C85\u0C82\u0C95\u0C97\u0CB3\u0CC1. \u0CB5\u0CBF\u0CB5\u0CBE\u0CB9\u0CA6 \u0CAE\u0CCA\u0CA6\u0CB2\u0CC1 \u0CB8\u0CC2\u0C95\u0CCD\u0CA4 \u0CB5\u0CC8\u0CA6\u0CBF\u0C95 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C97\u0CB3\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAA\u0CB0\u0CBF\u0CA3\u0CBF\u0CA4 \u0C9C\u0CCD\u0CAF\u0CCB\u0CA4\u0CBF\u0CB7\u0CBF\u0C97\u0CB3 \u0CB8\u0CB2\u0CB9\u0CC6 \u0C85\u0C97\u0CA4\u0CCD\u0CAF."
-      }
+    const doshaMatching = {
+      boyDoshas: matchResult.doshaMatching.boyDoshas,
+      girlDoshas: matchResult.doshaMatching.girlDoshas,
+      hasManglikDoshaConflict: matchResult.doshaMatching.hasManglikDoshaConflict,
+      isCancelled: matchResult.doshaMatching.isCancelled,
+      cancellationDetails: matchResult.doshaMatching.cancellationDetails
     };
-    const activeT = TRANSLATIONS[lang] || TRANSLATIONS.en;
-    const bNadiIdx = NAKSHATRA_NADIS[bNak];
-    const gNadiIdx = NAKSHATRA_NADIS[gNak];
-    const isNadiDoshaPresent = bNadiIdx === gNadiIdx;
-    let isNadiCancelled = false;
-    let nadiCancellationReason = activeT.nadi_no_dosha;
-    if (isNadiDoshaPresent) {
-      nadiCancellationReason = activeT.nadi_active_no_cancel;
-      if (bRasi === gRasi && bNak !== gNak) {
-        isNadiCancelled = true;
-        nadiCancellationReason = activeT.nadi_same_rasi_diff_nak;
-      } else if (bRasi !== gRasi && bNak === gNak) {
-        isNadiCancelled = true;
-        nadiCancellationReason = activeT.nadi_diff_rasi_same_nak;
-      } else if (bNak === gNak) {
-        const bPada = boyPanchang.planets.find((p) => p.id === "moon")?.pada || 1;
-        const gPada = girlPanchang.planets.find((p) => p.id === "moon")?.pada || 1;
-        if (bPada !== gPada) {
-          isNadiCancelled = true;
-          nadiCancellationReason = activeT.nadi_same_nak_diff_pada;
-        }
-      } else {
-        const bLord = boyPanchang.nakshatra.lord || "Moon";
-        const gLord = girlPanchang.nakshatra.lord || "Moon";
-        if (bLord === gLord) {
-          isNadiCancelled = true;
-          nadiCancellationReason = activeT.nadi_same_nak_lord;
-        }
-      }
-    }
-    const rasiDiff = (gRasi - bRasi + 12) % 12;
-    const isBhakootDoshaPresent = [1, 4, 5, 7, 8, 11].includes(rasiDiff);
-    let isBhakootCancelled = false;
-    let bhakootCancellationReason = activeT.bhakoot_no_dosha;
-    if (isBhakootDoshaPresent) {
-      bhakootCancellationReason = activeT.bhakoot_active_no_cancel;
-      const bLordName = RASHI_LORDS[bRasi];
-      const gLordName = RASHI_LORDS[gRasi];
-      if (bLordName === gLordName) {
-        isBhakootCancelled = true;
-        bhakootCancellationReason = activeT.bhakoot_same_lord;
-      } else {
-        const bFriends = LORD_FRIENDS[bLordName]?.friends || [];
-        const gFriends = LORD_FRIENDS[gLordName]?.friends || [];
-        const bToG_friend = bFriends.includes(gLordName);
-        const gToB_friend = gFriends.includes(bLordName);
-        if (bToG_friend && gToB_friend) {
-          isBhakootCancelled = true;
-          bhakootCancellationReason = activeT.bhakoot_friendly_lords;
-        }
-      }
-    }
-    const ashtaKoota = resultData.ashtaKoota;
-    const varnaScore = ashtaKoota.find((k) => k.koota === "Varna")?.obtainedPoints ?? 0;
-    const vashyaScore = ashtaKoota.find((k) => k.koota === "Vashya")?.obtainedPoints ?? 0;
-    const taraScore = ashtaKoota.find((k) => k.koota === "Tara")?.obtainedPoints ?? 0;
-    const yoniScore = ashtaKoota.find((k) => k.koota === "Yoni")?.obtainedPoints ?? 0;
-    const maitriScore = ashtaKoota.find((k) => k.koota === "GrahaMaitri")?.obtainedPoints ?? 0;
-    const ganaScore = ashtaKoota.find((k) => k.koota === "Gana")?.obtainedPoints ?? 0;
-    const bhakootScore = ashtaKoota.find((k) => k.koota === "Bhakoot")?.obtainedPoints ?? 0;
-    const nadiScore = ashtaKoota.find((k) => k.koota === "Nadi")?.obtainedPoints ?? 0;
-    const boyMoon = boyPanchang.planets.find((p) => p.id === "moon");
-    const girlMoon = girlPanchang.planets.find((p) => p.id === "moon");
-    const boyProfile = {
-      gender: "Male",
-      nakshatra: boyMoon.nakshatra.name.en,
-      nakshatra_localized: boyMoon.nakshatra.name.en,
-      rasi: boyMoon.rasi.name.en,
-      rasi_localized: boyMoon.rasi.name.en,
-      pada: boyMoon.pada,
-      rasi_lord: RASHI_LORDS[bRasi],
-      is_manglik: resultData.doshaMatching.boyDoshas.some((d) => d.includes("Manglik") || d.includes("\u092E\u093E\u0902\u0917\u0932\u093F\u0915") || d.includes("\u0C2E\u0C3E\u0C02\u0C17\u0C33\u0C3F\u0C15"))
+    const paapaSamyam = {
+      boyPoints: matchResult.paapaSamyam?.boyPoints || matchResult.paapa_samyam?.boy_points || 0,
+      girlPoints: matchResult.paapaSamyam?.girlPoints || matchResult.paapa_samyam?.girl_points || 0,
+      totalPoints: matchResult.paapaSamyam?.total_points || matchResult.paapa_samyam?.total_points || 0,
+      description: matchResult.paapaSamyam?.description || matchResult.paapa_samyam?.description || ""
     };
-    const girlProfile = {
-      gender: "Female",
-      nakshatra: girlMoon.nakshatra.name.en,
-      nakshatra_localized: girlMoon.nakshatra.name.en,
-      rasi: girlMoon.rasi.name.en,
-      rasi_localized: girlMoon.rasi.name.en,
-      pada: girlMoon.pada,
-      rasi_lord: RASHI_LORDS[gRasi],
-      is_manglik: resultData.doshaMatching.girlDoshas.some((d) => d.includes("Manglik") || d.includes("\u092E\u093E\u0902\u0917\u0932\u093F\u0915") || d.includes("\u0C2E\u0C3E\u0C02\u0C17\u0C33\u0C3F\u0C15"))
+    const scores = {
+      children: matchResult.childrenScore,
+      health: matchResult.healthScore,
+      finance: matchResult.financeScore,
+      longevity: matchResult.longevityScore
     };
-    let manglikAnalysisText = activeT.manglik_both_non_manglik;
-    if (boyProfile.is_manglik && girlProfile.is_manglik) {
-      manglikAnalysisText = activeT.manglik_both_manglik;
-    } else if (boyProfile.is_manglik || girlProfile.is_manglik) {
-      manglikAnalysisText = activeT.manglik_conflict;
-    }
-    let compatibilityRecommendation = activeT.recommendation_medium;
-    if (resultData.marriageScore >= 22) {
-      compatibilityRecommendation = activeT.recommendation_high;
-    } else if (resultData.marriageScore < 18) {
-      compatibilityRecommendation = activeT.recommendation_low;
-    }
-    const premiumRemedies = [];
-    if (resultData.marriageScore < 20) {
-      if (lang === "te") {
-        premiumRemedies.push("\u0C26\u0C02\u0C2A\u0C24\u0C41\u0C32\u0C41 \u0C28\u0C3F\u0C24\u0C4D\u0C2F\u0C02 \u0C09\u0C2E\u0C3E \u0C2E\u0C39\u0C47\u0C36\u0C4D\u0C35\u0C30 \u0C38\u0C4D\u0C24\u0C4B\u0C24\u0C4D\u0C30\u0C02 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C32\u0C15\u0C4D\u0C37\u0C4D\u0C2E\u0C40 \u0C28\u0C3E\u0C30\u0C3E\u0C2F\u0C23 \u0C1C\u0C2A\u0C02 \u0C1A\u0C47\u0C2F\u0C21\u0C02 \u0C35\u0C3F\u0C36\u0C47\u0C37 \u0C2B\u0C32\u0C3F\u0C24\u0C3E\u0C28\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.");
-      } else if (lang === "hi") {
-        premiumRemedies.push("\u0926\u092E\u094D\u092A\u0924\u093F \u0915\u094B \u0928\u093F\u092F\u092E\u093F\u0924 \u0930\u0942\u092A \u0938\u0947 \u0917\u094C\u0930\u0940-\u0936\u0902\u0915\u0930 \u0924\u0925\u093E \u0909\u092E\u093E-\u092E\u0939\u0947\u0936\u094D\u0935\u0930 \u0938\u094D\u0924\u094B\u0924\u094D\u0930 \u0915\u093E \u092A\u093E\u0920 \u0915\u0930\u0928\u093E \u091A\u093E\u0939\u093F\u090F\u0964");
-      } else if (lang === "ta") {
-        premiumRemedies.push("\u0BA4\u0BAE\u0BCD\u0BAA\u0BA4\u0BBF\u0BAF\u0BBF\u0BA9\u0BB0\u0BCD \u0BA4\u0BBF\u0BA9\u0BAE\u0BC1\u0BAE\u0BCD \u0B89\u0BAE\u0BBE \u0BAE\u0B95\u0BC7\u0BB8\u0BCD\u0BB5\u0BB0 \u0BB8\u0BCD\u0BA4\u0BCB\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB2\u0B9F\u0BCD\u0B9A\u0BC1\u0BAE\u0BBF \u0BA8\u0BBE\u0BB0\u0BBE\u0BAF\u0BA3 \u0BAE\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BC8 \u0BAA\u0BBE\u0BB0\u0BBE\u0BAF\u0BA3\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BC1 \u0B89\u0B95\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1.");
-      } else if (lang === "kn") {
-        premiumRemedies.push("\u0CA6\u0C82\u0CAA\u0CA4\u0CBF\u0C97\u0CB3\u0CC1 \u0CA8\u0CBF\u0CA4\u0CCD\u0CAF\u0CB5\u0CC2 \u0C89\u0CAE\u0CBE \u0CAE\u0CB9\u0CC7\u0CB6\u0CCD\u0CB5\u0CB0 \u0CB8\u0CCD\u0CA4\u0CCB\u0CA4\u0CCD\u0CB0 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB2\u0C95\u0CCD\u0CB7\u0CCD\u0CAE\u0CC0 \u0CA8\u0CBE\u0CB0\u0CBE\u0CAF\u0CA3 \u0C9C\u0CAA\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CAE\u0CBE\u0CA1\u0CC1\u0CB5\u0CC1\u0CA6\u0CC1 \u0C89\u0CA4\u0CCD\u0CA4\u0CAE.");
-      } else {
-        premiumRemedies.push("Couple should regularly chant Uma Maheshwara Stotram and Lakshmi Narayana Mantra for harmony.");
-      }
-    }
-    if (isNadiDoshaPresent && !isNadiCancelled) {
-      if (lang === "te") {
-        premiumRemedies.push("\u0C0F\u0C15\u0C28\u0C3E\u0C21\u0C3F \u0C26\u0C4B\u0C37 \u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C23\u0C15\u0C41 \u0C2E\u0C39\u0C3E \u0C2E\u0C43\u0C24\u0C4D\u0C2F\u0C41\u0C02\u0C1C\u0C2F \u0C39\u0C35\u0C28\u0C02 \u0C32\u0C47\u0C26\u0C3E \u0C36\u0C3F\u0C35\u0C3E\u0C32\u0C2F \u0C1C\u0C32\u0C3E\u0C2D\u0C3F\u0C37\u0C47\u0C15\u0C02 \u0C36\u0C4D\u0C30\u0C47\u0C37\u0C4D\u0C20\u0C2E\u0C48\u0C28\u0C26\u0C3F.");
-        premiumRemedies.push("\u0C2A\u0C47\u0C26 \u0C2A\u0C4D\u0C30\u0C1C\u0C32\u0C15\u0C41 \u0C32\u0C47\u0C26\u0C3E \u0C2C\u0C4D\u0C30\u0C3E\u0C39\u0C4D\u0C2E\u0C23\u0C41\u0C32\u0C15\u0C41 \u0C2A\u0C2A\u0C4D\u0C2A\u0C41 \u0C27\u0C3E\u0C28\u0C4D\u0C2F\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C35\u0C46\u0C02\u0C21\u0C3F \u0C26\u0C3E\u0C28\u0C02 \u0C1A\u0C47\u0C2F\u0C02\u0C21\u0C3F.");
-      } else if (lang === "hi") {
-        premiumRemedies.push("\u090F\u0915\u0928\u093E\u0921\u093C\u0940 \u0926\u094B\u0937 \u0928\u093F\u0935\u093E\u0930\u0923 \u0939\u0947\u0924\u0941 \u092E\u0939\u093E\u092E\u0943\u0924\u094D\u092F\u0941\u0902\u091C\u092F \u092E\u0902\u0924\u094D\u0930 \u0915\u093E \u0938\u0935\u093E \u0932\u093E\u0916 \u091C\u093E\u092A \u0905\u0925\u0935\u093E \u0936\u093F\u0935 \u092E\u0902\u0926\u093F\u0930 \u092E\u0947\u0902 \u0930\u0941\u0926\u094D\u0930\u093E\u092D\u093F\u0937\u0947\u0915 \u0915\u0930\u093E\u090F\u0902\u0964");
-        premiumRemedies.push("\u091C\u0930\u0942\u0930\u0924\u092E\u0902\u0926\u094B\u0902 \u0915\u094B \u0938\u094D\u0935\u0930\u094D\u0923, \u0905\u0928\u094D\u0928 \u0905\u0925\u0935\u093E \u0915\u093E\u0902\u0938\u0947 \u0915\u0947 \u092A\u093E\u0924\u094D\u0930 \u0915\u093E \u0926\u093E\u0928 \u0915\u0930\u0947\u0902\u0964");
-      } else if (lang === "ta") {
-        premiumRemedies.push("\u0BAE\u0B95\u0BBE \u0BAE\u0BBF\u0BB0\u0BC1\u0BA4\u0BCD\u0BAF\u0BC1\u0B9E\u0BCD\u0B9A\u0BAF \u0BB9\u0BCB\u0BAE\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B9A\u0BBF\u0BB5\u0BA9\u0BCD \u0B95\u0BCB\u0BB5\u0BBF\u0BB2\u0BBF\u0BB2\u0BCD \u0BB0\u0BC1\u0BA4\u0BCD\u0BB0\u0BBE\u0BAA\u0BBF\u0BB7\u0BC7\u0B95\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BC1 \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0B89\u0B95\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1.");
-        premiumRemedies.push("\u0B8F\u0BB4\u0BC8\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1 \u0BA4\u0BBE\u0BA9\u0BBF\u0BAF\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BB5\u0BC6\u0BB3\u0BCD\u0BB3\u0BBF\u0BAA\u0BCD \u0BAA\u0BCA\u0BB0\u0BC1\u0B9F\u0BCD\u0B95\u0BB3\u0BC8 \u0BA4\u0BBE\u0BA9\u0BAE\u0BBE\u0B95 \u0BB5\u0BB4\u0B99\u0BCD\u0B95\u0BB5\u0BC1\u0BAE\u0BCD.");
-      } else if (lang === "kn") {
-        premiumRemedies.push("\u0C8F\u0C95\u0CA8\u0CBE\u0CA1\u0CBF \u0CA6\u0CCB\u0CB7 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C95\u0CCD\u0C95\u0CC6 \u0CAE\u0CB9\u0CBE \u0CAE\u0CC3\u0CA4\u0CCD\u0CAF\u0CC1\u0C82\u0C9C\u0CAF \u0CB9\u0CCB\u0CAE \u0C85\u0CA5\u0CB5\u0CBE \u0CB6\u0CBF\u0CB5\u0CA8\u0CBF\u0C97\u0CC6 \u0CB0\u0CC1\u0CA6\u0CCD\u0CB0\u0CBE\u0CAD\u0CBF\u0CB7\u0CC7\u0C95 \u0CAE\u0CBE\u0CA1\u0CBF\u0CB8\u0CC1\u0CB5\u0CC1\u0CA6\u0CC1 \u0CB6\u0CCD\u0CB0\u0CC7\u0CAF\u0CB8\u0CCD\u0C95\u0CB0.");
-        premiumRemedies.push("\u0CAC\u0CA1\u0CB5\u0CB0\u0CBF\u0C97\u0CC6 \u0C85\u0CA5\u0CB5\u0CBE \u0CA8\u0CBF\u0CB0\u0CCD\u0CB5\u0CB9\u0CA3\u0CC6\u0CAF\u0CB2\u0CCD\u0CB2\u0CBF\u0CB0\u0CC1\u0CB5 \u0CA6\u0CC7\u0CB5\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0C97\u0CB3\u0CBF\u0C97\u0CC6 \u0CA7\u0CBE\u0CA8\u0CCD\u0CAF \u0CB9\u0CBE\u0C97\u0CC2 \u0CAC\u0CC6\u0CB3\u0CCD\u0CB3\u0CBF\u0CAF \u0CA6\u0CBE\u0CA8 \u0CAE\u0CBE\u0CA1\u0CBF.");
-      } else {
-        premiumRemedies.push("Perform Maha Mrityunjaya Homa or daily water abhishekam to Lord Shiva to calm biological/genetic polarities.");
-        premiumRemedies.push("Donate silver ornaments, grains, or feed cows on Mondays.");
-      }
-    }
-    if (isBhakootDoshaPresent && !isBhakootCancelled) {
-      if (lang === "te") {
-        premiumRemedies.push("\u0C2D\u0C15\u0C42\u0C1F\u0C4D \u0C26\u0C4B\u0C37 \u0C2A\u0C30\u0C3F\u0C39\u0C3E\u0C30\u0C3E\u0C30\u0C4D\u0C25\u0C02 \u0C26\u0C02\u0C2A\u0C24\u0C41\u0C32\u0C41 \u0C2A\u0C4D\u0C30\u0C24\u0C3F \u0C38\u0C4B\u0C2E\u0C35\u0C3E\u0C30\u0C02 \u0C36\u0C3F\u0C35\u0C3E\u0C30\u0C3E\u0C27\u0C28 \u0C1A\u0C47\u0C38\u0C3F, \u0C2C\u0C3F\u0C2F\u0C4D\u0C2F\u0C02 \u0C26\u0C3E\u0C28\u0C02 \u0C1A\u0C47\u0C2F\u0C3E\u0C32\u0C3F.");
-      } else if (lang === "hi") {
-        premiumRemedies.push("\u092D\u0915\u0942\u091F \u0926\u094B\u0937 \u0915\u0940 \u0936\u093E\u0902\u0924\u093F \u0939\u0947\u0924\u0941 \u091A\u0902\u0926\u094D\u0930 \u0926\u0947\u0935 \u0915\u0940 \u0906\u0930\u093E\u0927\u0928\u093E \u0915\u0930\u0947\u0902 \u0924\u0925\u093E \u092A\u094D\u0930\u0924\u094D\u092F\u0947\u0915 \u0938\u094B\u092E\u0935\u093E\u0930 \u0915\u094B \u0917\u093E\u092F \u0915\u094B \u092E\u0940\u0920\u0940 \u0930\u094B\u091F\u0940 \u0916\u093F\u0932\u093E\u090F\u0902\u0964");
-      } else if (lang === "ta") {
-        premiumRemedies.push("\u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BAA\u0B95\u0BB5\u0BBE\u0BA9\u0BC8 \u0BB5\u0BB4\u0BBF\u0BAA\u0B9F\u0BC1\u0BB5\u0BA4\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0BA4\u0BBF\u0B99\u0BCD\u0B95\u0B9F\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8\u0B95\u0BB3\u0BBF\u0BB2\u0BCD \u0BAA\u0B9A\u0BC1\u0BB5\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0B87\u0BA9\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1\u0B95\u0BB3\u0BCD \u0BB5\u0BB4\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BC1 \u0B9A\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BC1 \u0BB5\u0BBE\u0BAF\u0BCD\u0BA8\u0BCD\u0BA4\u0BA4\u0BC1.");
-      } else if (lang === "kn") {
-        premiumRemedies.push("\u0CAD\u0C95\u0CC2\u0C9F\u0CCD \u0CA6\u0CCB\u0CB7 \u0CA8\u0CBF\u0CB5\u0CBE\u0CB0\u0CA3\u0CC6\u0C97\u0CC6 \u0CB8\u0CCB\u0CAE\u0CB5\u0CBE\u0CB0 \u0CA6\u0CBF\u0CA8\u0CA6\u0C82\u0CA6\u0CC1 \u0CB6\u0CBF\u0CB5\u0CA8 \u0C86\u0CB0\u0CBE\u0CA7\u0CA8\u0CC6 \u0CAE\u0CBE\u0CA1\u0CBF \u0C85\u0C95\u0CCD\u0C95\u0CBF\u0CAF\u0CA8\u0CCD\u0CA8\u0CC1 \u0CA6\u0CBE\u0CA8 \u0CAE\u0CBE\u0CA1\u0CBF.");
-      } else {
-        premiumRemedies.push("Observe fasting on Mondays or chant Chandra Beej Mantra for mental and financial stability.");
-      }
-    }
-    if (boyProfile.is_manglik !== girlProfile.is_manglik) {
-      if (lang === "te") {
-        premiumRemedies.push("\u0C2E\u0C02\u0C17\u0C33\u0C35\u0C3E\u0C30\u0C3E\u0C32\u0C4D\u0C32\u0C4B \u0C26\u0C41\u0C30\u0C4D\u0C17\u0C3E \u0C26\u0C47\u0C35\u0C3F \u0C06\u0C30\u0C3E\u0C27\u0C28 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C39\u0C28\u0C41\u0C2E\u0C3E\u0C28\u0C4D \u0C1A\u0C3E\u0C32\u0C40\u0C38\u0C3E \u0C2A\u0C1F\u0C3F\u0C02\u0C1A\u0C21\u0C02 \u0C2E\u0C02\u0C17\u0C33 \u0C26\u0C4B\u0C37 \u0C2A\u0C4D\u0C30\u0C2D\u0C3E\u0C35\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C24\u0C17\u0C4D\u0C17\u0C3F\u0C38\u0C4D\u0C24\u0C41\u0C02\u0C26\u0C3F.");
-      } else if (lang === "hi") {
-        premiumRemedies.push("\u092E\u0902\u0917\u0932\u0935\u093E\u0930 \u0915\u094B \u0938\u0941\u0902\u0926\u0930\u0915\u093E\u0902\u0921 \u0915\u093E \u092A\u093E\u0920 \u0915\u0930\u0947\u0902 \u0914\u0930 \u0939\u0928\u0941\u092E\u093E\u0928 \u092E\u0902\u0926\u093F\u0930 \u092E\u0947\u0902 \u0932\u093E\u0932 \u0938\u093F\u0902\u0926\u0942\u0930 \u0924\u0925\u093E \u092C\u0942\u0902\u0926\u0940 \u0905\u0930\u094D\u092A\u093F\u0924 \u0915\u0930\u0947\u0902\u0964");
-      } else if (lang === "ta") {
-        premiumRemedies.push("\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8\u0B95\u0BB3\u0BBF\u0BB2\u0BCD \u0BA4\u0BC1\u0BB0\u0BCD\u0B95\u0BCD\u0B95\u0BC8 \u0BB5\u0BB4\u0BBF\u0BAA\u0BBE\u0B9F\u0BC1 \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B85\u0BA9\u0BC1\u0BAE\u0BA9\u0BCD \u0B9A\u0BBE\u0BB2\u0BC0\u0B9A\u0BBE \u0BAA\u0BBE\u0BB0\u0BBE\u0BAF\u0BA3\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BB5\u0BA4\u0BC1 \u0BAA\u0BB2\u0BA9\u0BCD \u0BA4\u0BB0\u0BC1\u0BAE\u0BCD.");
-      } else if (lang === "kn") {
-        premiumRemedies.push("\u0CAE\u0C82\u0C97\u0CB3\u0CB5\u0CBE\u0CB0 \u0CA6\u0CBF\u0CA8\u0C97\u0CB3\u0C82\u0CA6\u0CC1 \u0CA6\u0CC1\u0CB0\u0CCD\u0C97\u0CC6\u0CAF \u0C86\u0CB0\u0CBE\u0CA7\u0CA8\u0CC6 \u0CB9\u0CBE\u0C97\u0CC2 \u0CB9\u0CA8\u0CC1\u0CAE\u0CBE\u0CA8\u0CCD \u0C9A\u0CBE\u0CB2\u0CC0\u0CB8\u0CBE \u0CAA\u0CA0\u0CBF\u0CB8\u0CC1\u0CB5\u0CC1\u0CA6\u0CB0\u0CBF\u0C82\u0CA6 \u0CAE\u0C82\u0C97\u0CB2 \u0CA6\u0CCB\u0CB7 \u0CAA\u0CCD\u0CB0\u0CAD\u0CBE\u0CB5 \u0C95\u0CA1\u0CBF\u0CAE\u0CC6\u0CAF\u0CBE\u0C97\u0CC1\u0CB5\u0CC1\u0CA6\u0CC1.");
-      } else {
-        premiumRemedies.push("Recite Sunderkand and Hanuman Chalisa on Tuesdays. Offer red lentils and saffron at a Hanuman Temple.");
-      }
-    }
-    if (premiumRemedies.length === 0) {
-      if (lang === "te") {
-        premiumRemedies.push("\u0C08 \u0C15\u0C32\u0C2F\u0C3F\u0C15 \u0C36\u0C41\u0C2D\u0C2A\u0C4D\u0C30\u0C26\u0C2E\u0C48\u0C28\u0C26\u0C3F. \u0C07\u0C26\u0C4D\u0C26\u0C30\u0C42 \u0C0E\u0C32\u0C3E\u0C02\u0C1F\u0C3F \u0C2A\u0C4D\u0C30\u0C24\u0C4D\u0C2F\u0C47\u0C15 \u0C2A\u0C30\u0C3F\u0C39\u0C3E\u0C30\u0C3E\u0C32\u0C41 \u0C32\u0C47\u0C15\u0C41\u0C02\u0C21\u0C3E \u0C38\u0C02\u0C24\u0C4B\u0C37\u0C02\u0C17\u0C3E \u0C2E\u0C41\u0C02\u0C26\u0C21\u0C41\u0C17\u0C41 \u0C35\u0C47\u0C2F\u0C35\u0C1A\u0C4D\u0C1A\u0C41.");
-      } else if (lang === "hi") {
-        premiumRemedies.push("\u092F\u0939 \u090F\u0915 \u0936\u0941\u092D \u092E\u093F\u0932\u093E\u0928 \u0939\u0948\u0964 \u0915\u093F\u0938\u0940 \u0935\u093F\u0936\u0947\u0937 \u0935\u0948\u0926\u093F\u0915 \u0936\u093E\u0902\u0924\u093F \u0915\u0940 \u0906\u0935\u0936\u094D\u092F\u0915\u0924\u093E \u0928\u0939\u0940\u0902 \u0939\u0948; \u092A\u094D\u0930\u0938\u0928\u094D\u0928\u091A\u093F\u0924\u094D\u0924 \u0935\u0948\u0935\u093E\u0939\u093F\u0915 \u091C\u0940\u0935\u0928 \u0915\u0940 \u0936\u0941\u092D\u0915\u093E\u092E\u0928\u093E\u090F\u0902\u0964");
-      } else if (lang === "ta") {
-        premiumRemedies.push("\u0B87\u0BA8\u0BCD\u0BA4 \u0BAA\u0BCA\u0BB0\u0BC1\u0BA4\u0BCD\u0BA4\u0BAE\u0BCD \u0B9A\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BBE\u0B95 \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0BA4\u0BBF\u0BB0\u0BC1\u0BAE\u0BA3\u0BA4\u0BCD\u0BA4\u0BBF\u0BB1\u0BCD\u0B95\u0BC1 \u0B8E\u0BA8\u0BCD\u0BA4 \u0BB5\u0BBF\u0BA4\u0BAE\u0BBE\u0BA9 \u0B9A\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BC1 \u0BAA\u0BB0\u0BBF\u0B95\u0BBE\u0BB0\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0BAE\u0BCD \u0BA4\u0BC7\u0BB5\u0BC8\u0BAF\u0BBF\u0BB2\u0BCD\u0BB2\u0BC8.");
-      } else if (lang === "kn") {
-        premiumRemedies.push("\u0C88 \u0CAE\u0CB9\u0CCB\u0CA4\u0CCD\u0CB8\u0CB5 \u0CB9\u0CCA\u0C82\u0CA6\u0CBE\u0CA3\u0CBF\u0C95\u0CC6 \u0C85\u0CA4\u0CCD\u0CAF\u0C82\u0CA4 \u0CB8\u0CC1\u0C82\u0CA6\u0CB0\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CAF\u0CBE\u0CB5\u0CC1\u0CA6\u0CC7 \u0CB5\u0CBF\u0CB6\u0CC7\u0CB7 \u0CA6\u0CCB\u0CB7 \u0CAA\u0CB0\u0CBF\u0CB9\u0CBE\u0CB0\u0C97\u0CB3 \u0C85\u0C97\u0CA4\u0CCD\u0CAF\u0CB5\u0CBF\u0CB0\u0CC1\u0CB5\u0CC1\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2.");
-      } else {
-        premiumRemedies.push("This is an auspicious, highly harmonious match. No special remedies are mathematically required.");
-      }
-    }
-    const responsePayload = {
+    const recommendation = {
+      strengths: [],
+      warnings: matchResult.recommendation?.reasons || [],
+      mandatoryFailures: matchResult.mandatoryFailures || matchResult.mandatory_failures || [],
+      expertReview: matchResult.recommendation?.requiresExpertReview ? [LocalizationEngine.getInstance().get("RECOMMENDATION.EXPERTREVIEW", lang)] : [],
+      finalRecommendation: matchResult.report
+    };
+    const responseData = {
+      boyHoroscope: boyHoroscopeResult.data,
+      girlHoroscope: girlHoroscopeResult.data,
+      summary,
+      ashtaKoota: matchResult.ashtaKoota,
+      porutham: matchResult.southIndianPorutham,
+      doshaMatching,
+      paapaSamyam,
+      scores,
+      recommendation
+    };
+    const response = {
       success: true,
-      match_score: resultData.marriageScore,
-      match_result_data: {
-        "Varna Score": varnaScore,
-        "Vashya Score": vashyaScore,
-        "Tara Score": taraScore,
-        "Yoni Score": yoniScore,
-        "Graha Mairti Score": maitriScore,
-        // Keep legacy typo compatibility
-        "Graha Maitri Score": maitriScore,
-        "Gana Score": ganaScore,
-        "Bhakoot Score": bhakootScore,
-        "Nadi Score": nadiScore,
-        varna_score: varnaScore,
-        vashya_score: vashyaScore,
-        tara_score: taraScore,
-        yoni_score: yoniScore,
-        graha_maitri_score: maitriScore,
-        gana_score: ganaScore,
-        bhakoot_score: bhakootScore,
-        nadi_score: nadiScore,
-        varna: varnaScore,
-        vashya: vashyaScore,
-        tara: taraScore,
-        yoni: yoniScore,
-        graha_maitri: maitriScore,
-        gana: ganaScore,
-        bhakoot: bhakootScore,
-        nadi: nadiScore,
-        dosha_exceptions: {
-          nadi_dosha_cancelled: isNadiCancelled,
-          nadi_cancellation_reason: nadiCancellationReason,
-          bhakoot_dosha_cancelled: isBhakootCancelled,
-          bhakoot_cancellation_reason: bhakootCancellationReason
-        }
+      metadata: {
+        version: "v2",
+        engine: "Swiss Ephemeris",
+        engineVersion: "2.10.03",
+        // standard 
+        generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        language: lang,
+        chartStyle: "SouthIndian",
+        reportType: "MarriageMatching",
+        template: "Classic"
       },
-      premium_data: {
-        language_processed: lang,
-        match_percentage: resultData.overallPercentage,
-        compatibility_recommendation: compatibilityRecommendation,
-        reports_summary: resultData.report,
-        compatibility_score_out_of_100: resultData.compatibilityScore,
-        temperament_score_out_of_36: resultData.marriageScore,
-        astro_profiles: {
-          boy: boyProfile,
-          girl: girlProfile
-        },
-        manglik_analysis: {
-          boy_is_manglik: boyProfile.is_manglik,
-          girl_is_manglik: girlProfile.is_manglik,
-          has_conflict: resultData.doshaMatching.hasManglikDoshaConflict,
-          is_cancelled: resultData.doshaMatching.isCancelled,
-          cancellation_details: resultData.doshaMatching.cancellationDetails || "",
-          detailed_report: manglikAnalysisText
-        },
-        koota_category_ratings: {
-          love_and_intimacy: {
-            rating_score: yoniScore,
-            max_score: 4,
-            status: yoniScore >= 3 ? "Excellent" : yoniScore >= 1.5 ? "Good" : "Average",
-            category: "Yoni Match"
-          },
-          progeny_and_health: {
-            rating_score: nadiScore,
-            max_score: 8,
-            status: nadiScore === 8 ? "Excellent" : isNadiCancelled ? "Good (Deflected)" : "Requires Attention",
-            category: "Nadi Match"
-          },
-          prosperity_and_finance: {
-            rating_score: bhakootScore,
-            max_score: 7,
-            status: bhakootScore === 7 ? "Excellent" : isBhakootCancelled ? "Good (Deflected)" : "Requires Attention",
-            category: "Bhakoot Match"
-          },
-          social_and_cultural: {
-            rating_score: varnaScore + vashyaScore,
-            max_score: 3,
-            status: varnaScore + vashyaScore >= 2 ? "High" : "Moderate",
-            category: "Varna & Vashya"
-          },
-          temperament_harmony: {
-            rating_score: ganaScore + maitriScore,
-            max_score: 11,
-            status: ganaScore + maitriScore >= 8 ? "Exceptional" : ganaScore + maitriScore >= 5 ? "Amicable" : "Adjustments Needed",
-            category: "Gana & Graha Maitri"
-          }
-        },
-        south_indian_10_poruthams: resultData.southIndianPorutham,
-        expert_remedial_measures: premiumRemedies
-      }
+      data: responseData
     };
-    res.json(responsePayload);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/muhurta", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    const activities = [
-      { act: "Marriage" },
-      { act: "House Warming (Gruha Pravesh)" },
-      { act: "Vehicle Purchase" },
-      { act: "Business Opening" },
-      { act: "Travel Timelines" }
-    ];
-    const dataYear = input.year || (/* @__PURE__ */ new Date()).getFullYear();
-    const dataMonth = input.month || (/* @__PURE__ */ new Date()).getMonth() + 1;
-    const dataDay = input.day || (/* @__PURE__ */ new Date()).getDate();
-    const muhurtas = activities.map((a) => ({
-      activity: a.act,
-      localizedActivity: translateMuhurtaActivityName(a.act, lang),
-      isAuspicious: true,
-      score: 87,
-      timeRanges: [`${dataYear}-${dataMonth}-${dataDay} 08:30 AM to 11:45 AM`],
-      description: translateMuhurtaActivityDesc(a.act, lang)
-    }));
-    sendEnvelope(res, lang, muhurtas);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/festivals", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const result = {
-      weekday: translateWeekday(3, lang),
-      festivals: (panchang.festivals.length > 0 ? panchang.festivals : ["Vinayaka Chavithi Puja", "Maha Pradosh Vrat"]).map((f) => translateFestival(f, lang)),
-      lunarMonth: translateLunarMonth(4, lang)
-    };
-    sendEnvelope(res, lang, result);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/numerology", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    const dob = input.dob || { year: 1995, month: 6, day: 15 };
-    const name = input.name || "Aarav";
-    const result = AstrologyService.getNumerology(name, dob, 245.5, lang);
-    sendEnvelope(res, lang, result);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/utils", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    const jd = 2451545 + (input.day || 1);
-    const utilsData = {
-      julian_day: jd,
-      sidereal_time_degrees: 280.46,
-      ayanamsa_lahiri_degrees: 23.85,
-      obliquity_degrees: 23.44,
-      moon_phase_percentage: 67.8,
-      solar_eclipse_potential: false,
-      lunar_eclipse_potential: false
-    };
-    sendEnvelope(res, lang, utilsData);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/batch", async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    input.lang = lang;
-    const panchang = AstrologyService.calcPanchang(input);
-    const moon = panchang.planets.find((p) => p.id === "moon");
-    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
-    const ayanamsaSec = getAyanamsa(jd, input.ayanamsa || "Lahiri");
-    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
-    const dasha = AstrologyService.calcVimshottariDasha(moon.longitude, input.year, lang);
-    const doshas = AstrologyService.detectDoshas(panchang.planets, lagnaLong, lang);
-    const numerology = AstrologyService.getNumerology("Aarav", { year: input.year, month: input.month, day: input.day }, moon.longitude, lang);
-    const horoscopeFlb = await AiService.generateHoroscope(moon.rasi.name.en, lang);
-    const completePackage = {
-      panchang,
-      dasha,
-      doshas,
-      numerology,
-      horoscope: horoscopeFlb
-    };
-    sendEnvelope(res, lang, completePackage);
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-});
-router.post("/consult", async (req, res) => {
-  try {
-    const { message, history, birthInput } = req.body;
-    const selectedLang = req.query.lang;
-    let chartSummary = {};
-    if (birthInput) {
+    if (input.pdfRequested) {
       try {
-        const panchang = AstrologyService.calcPanchang(birthInput);
-        const jd = getJulianDate(birthInput.year, birthInput.month, birthInput.day, birthInput.hour, birthInput.minute, birthInput.timezone || 0);
-        const ayanamsaSec = getAyanamsa(jd, birthInput.ayanamsa || "Lahiri");
-        const lagnaLong = getLagnaSidereal(jd, birthInput.latitude, birthInput.longitude, ayanamsaSec);
-        const lagnaRasi = Math.floor(lagnaLong / 30);
-        const lagnaRasiName = RASHI_NAMES_ENGLISH[lagnaRasi];
-        chartSummary = {
-          nativeName: birthInput.name_input || "Native",
-          birthDetails: `${birthInput.year}-${birthInput.month}-${birthInput.day} ${birthInput.hour}:${birthInput.minute} (UTC offset: ${birthInput.timezone})`,
-          lagna: lagnaRasiName,
-          planets: panchang.planets.map((p) => ({
-            name: p.name,
-            rasi: p.rasi.name.en,
-            degree: p.degree,
-            house: p.house,
-            retrograde: p.isRetrograde,
-            nakshatra: p.nakshatra.name.en
-          }))
+        const pdfData = await PdfMatchingService.generateMatchingPdf(response.data, lang);
+        response.pdf = {
+          generated: true,
+          base64: pdfData.base64,
+          fileName: pdfData.fileName,
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString()
         };
-      } catch (e) {
-        console.warn("Calculations for consultation summary failed, using fallback empty summary", e);
+      } catch (pdfErr) {
+        console.warn("Failed to generate PDF, continuing without it.", pdfErr);
+        response.pdf = {
+          generated: false,
+          base64: "",
+          fileName: "",
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          error: pdfErr.message || String(pdfErr)
+        };
       }
     }
-    const reply = await AiService.consultAstro(message, history || [], chartSummary, selectedLang);
-    res.json({ success: true, reply });
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
+    validateLocalization(response, lang);
+    return res.status(200).json(response);
+  } catch (err) {
+    if (err instanceof UnsupportedLanguageException || err instanceof MissingTranslationException || err.name === "EnglishLeakException") {
+      console.error("[LOCALIZATION ERROR]", err.message);
+      return res.status(400).json({ success: false, error: err.message });
+    }
+    console.error("Matching V2 Error:", err);
+    return res.status(500).json({ success: false, error: err.message });
   }
 });
-function getReportDataHelper(currLang, lagnaR, moonR, nakIdx, pPada, isM) {
-  const lSignLoc = translateRashi(lagnaR, currLang);
-  const mSignLoc = translateRashi(moonR, currLang);
-  const nLoc = translateNakshatra(nakIdx, currLang);
-  const reportTexts = {
-    en: {
-      manglik_yes: "Manglik Dosha is active. Mars is placed in an influential house from your Ascendant, suggesting vibrant, high-energy dynamics that require emotional patience and mindful expression in partnerships.",
-      manglik_no: "Manglik Dosha is not present. Excellent compatibility and planetary harmony are observed in relation to Mars positioning.",
-      verdict: `Your cosmic signature shows a strong alignment with ${lSignLoc} as Lagna and ${mSignLoc} as Moon sign. Born under ${nLoc} nakshatra, pada ${pPada}, you possess a gifted personality combining deep intuition and sharp intellectual faculties. Your path of growth points toward active pursuit of wisdom.`,
-      traits: "You are highly intelligent, intuitive, and dedicated. You seek authenticity in relationships and have an inherent spiritual outlook that supports your professional rise.",
-      remedies: [
-        "Light a ghee lamp in the temple on Thursdays for planetary grace.",
-        "Practice daily meditation for at least 15 minutes to stabilize the moon's energy."
-      ]
-    },
-    hi: {
-      manglik_yes: "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u094B\u0937 \u0938\u0915\u094D\u0930\u093F\u092F \u0939\u0948\u0964 \u0906\u092A\u0915\u0947 \u0932\u0917\u094D\u0928 \u0938\u0947 \u092E\u0902\u0917\u0932 \u090F\u0915 \u092A\u094D\u0930\u092D\u093E\u0935\u0940 \u092D\u093E\u0935 \u092E\u0947\u0902 \u0938\u094D\u0925\u093F\u0924 \u0939\u0948, \u091C\u094B \u091C\u0940\u0935\u0928\u0938\u093E\u0925\u0940 \u0915\u0947 \u0938\u093E\u0925 \u0938\u0902\u092C\u0902\u0927\u094B\u0902 \u092E\u0947\u0902 \u0927\u0948\u0930\u094D\u092F \u0914\u0930 \u0938\u091A\u0947\u0924 \u0935\u094D\u092F\u0935\u0939\u093E\u0930 \u0930\u0916\u0928\u0947 \u0915\u0940 \u0938\u0932\u093E\u0939 \u0926\u0947\u0924\u093E \u0939\u0948\u0964",
-      manglik_no: "\u092E\u093E\u0902\u0917\u0932\u093F\u0915 \u0926\u094B\u0937 \u0909\u092A\u0938\u094D\u0925\u093F\u0924 \u0928\u0939\u0940\u0902 \u0939\u0948\u0964 \u092E\u0902\u0917\u0932 \u0915\u0940 \u0938\u094D\u0925\u093F\u0924\u093F \u0905\u0928\u0941\u0915\u0942\u0932 \u0939\u0948 \u0914\u0930 \u0935\u0948\u0935\u093E\u0939\u093F\u0915 \u091C\u0940\u0935\u0928 \u092E\u0947\u0902 \u0936\u093E\u0902\u0924\u093F \u092A\u094D\u0930\u0926\u093E\u0928 \u0915\u0930\u0947\u0917\u0940\u0964",
-      verdict: `\u0906\u092A\u0915\u0940 \u0915\u0941\u0902\u0921\u0932\u0940 \u092E\u0947\u0902 ${lSignLoc} \u0932\u0917\u094D\u0928 \u0914\u0930 ${mSignLoc} \u091A\u0902\u0926\u094D\u0930 \u0930\u093E\u0936\u093F \u0915\u093E \u0938\u0941\u0902\u0926\u0930 \u0938\u0902\u0930\u0947\u0916\u0923 \u0939\u0948\u0964 ${nLoc} \u0928\u0915\u094D\u0937\u0924\u094D\u0930 \u0915\u0947 ${pPada} \u091A\u0930\u0923 \u092E\u0947\u0902 \u091C\u0928\u094D\u092E \u0932\u0947\u0928\u0947 \u0938\u0947 \u0906\u092A\u0915\u0947 \u0935\u094D\u092F\u0915\u094D\u0924\u093F\u0924\u094D\u0935 \u092E\u0947\u0902 \u0917\u0939\u0930\u0940 \u0938\u092E\u091D \u0914\u0930 \u0924\u093E\u0930\u094D\u0915\u093F\u0915 \u0936\u0915\u094D\u0924\u093F \u0915\u093E \u0905\u0926\u094D\u092D\u0941\u0924 \u092E\u0947\u0932 \u092E\u093F\u0932\u0924\u093E \u0939\u0948\u0964`,
-      traits: "\u0906\u092A \u0905\u0924\u094D\u092F\u0902\u0924 \u092C\u0941\u0926\u094D\u0927\u093F\u092E\u093E\u0928, \u0938\u0902\u0935\u0947\u0926\u0928\u0936\u0940\u0932 \u0914\u0930 \u0928\u093F\u0937\u094D\u0920\u093E\u0935\u093E\u0928 \u0939\u0948\u0902\u0964 \u0906\u092A \u091C\u0940\u0935\u0928 \u092E\u0947\u0902 \u0938\u091A\u094D\u091A\u093E\u0908 \u0915\u0947 \u0916\u094B\u091C\u0940 \u0939\u0948\u0902 \u0914\u0930 \u0906\u092A\u0915\u0940 \u0906\u0927\u094D\u092F\u093E\u0924\u094D\u092E\u093F\u0915 \u092A\u094D\u0930\u0935\u0943\u0924\u094D\u0924\u093F \u0906\u092A\u0915\u094B \u091C\u0940\u0935\u0928 \u092E\u0947\u0902 \u092C\u0939\u0941\u0924 \u0906\u0917\u0947 \u0932\u0947 \u091C\u093E\u090F\u0917\u0940\u0964",
-      remedies: [
-        "\u0917\u0941\u0930\u0941\u0935\u093E\u0930 \u0915\u094B \u092E\u0902\u0926\u093F\u0930 \u092E\u0947\u0902 \u0918\u0940 \u0915\u093E \u0926\u0940\u092A\u0915 \u091C\u0932\u093E\u090F\u0902 \u0914\u0930 \u0917\u0941\u0930\u0941 \u0926\u0947\u0935 \u0915\u0940 \u0906\u0930\u093E\u0927\u0928\u093E \u0915\u0930\u0947\u0902\u0964",
-        "\u092A\u094D\u0930\u0924\u093F\u0926\u093F\u0928 \u0967\u096B \u092E\u093F\u0928\u091F \u0927\u094D\u092F\u093E\u0928 \u0938\u093E\u0927\u0928\u093E \u0935 \u092A\u094D\u0930\u093E\u0923\u093E\u092F\u093E\u092E \u0915\u0930\u0947\u0902 \u091C\u093F\u0938\u0938\u0947 \u091A\u0902\u0926\u094D\u0930 \u0926\u0947\u0935 \u0915\u0940 \u090A\u0930\u094D\u091C\u093E \u092C\u0928\u0940 \u0930\u0939\u0947\u0964"
-      ]
-    },
-    te: {
-      manglik_yes: "\u0C15\u0C41\u0C1C \u0C26\u0C4B\u0C37\u0C02 (\u0C2E\u0C3E\u0C02\u0C17\u0C33\u0C3F\u0C15 \u0C26\u0C4B\u0C37\u0C02) \u0C09\u0C28\u0C4D\u0C28\u0C26\u0C3F. \u0C2E\u0C40 \u0C32\u0C17\u0C4D\u0C28\u0C02 \u0C28\u0C41\u0C02\u0C21\u0C3F \u0C15\u0C41\u0C1C\u0C41\u0C21\u0C41 \u0C12\u0C15 \u0C2E\u0C41\u0C16\u0C4D\u0C2F \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02\u0C32\u0C4B \u0C09\u0C02\u0C21\u0C1F\u0C02 \u0C35\u0C32\u0C4D\u0C32 \u0C09\u0C26\u0C4D\u0C35\u0C47\u0C17\u0C3E\u0C32\u0C41 \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C36\u0C15\u0C4D\u0C24\u0C3F \u0C36\u0C3E\u0C24\u0C02 \u0C0E\u0C15\u0C4D\u0C15\u0C41\u0C35\u0C17\u0C3E \u0C09\u0C02\u0C1F\u0C3E\u0C2F\u0C3F. \u0C38\u0C39\u0C28\u0C02 \u0C05\u0C32\u0C35\u0C30\u0C4D\u0C1A\u0C41\u0C15\u0C4B\u0C35\u0C21\u0C02 \u0C2E\u0C47\u0C32\u0C41.",
-      manglik_no: "\u0C15\u0C41\u0C1C \u0C26\u0C4B\u0C37\u0C02 \u0C32\u0C47\u0C26\u0C41. \u0C2E\u0C40 \u0C1C\u0C3E\u0C24\u0C15\u0C02\u0C32\u0C4B \u0C15\u0C41\u0C1C\u0C41\u0C28\u0C3F \u0C38\u0C4D\u0C25\u0C3E\u0C28\u0C02 \u0C05\u0C28\u0C41\u0C15\u0C42\u0C32\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C26\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C17\u0C4D\u0C30\u0C39\u0C3E\u0C32 \u0C2E\u0C27\u0C4D\u0C2F \u0C1A\u0C15\u0C4D\u0C15\u0C28\u0C3F \u0C38\u0C2E\u0C28\u0C4D\u0C35\u0C2F\u0C3E\u0C28\u0C4D\u0C28\u0C3F \u0C1A\u0C42\u0C2A\u0C3F\u0C38\u0C4D\u0C24\u0C4B\u0C02\u0C26\u0C3F.",
-      verdict: `\u0C2E\u0C40 \u0C1C\u0C3E\u0C24\u0C15 \u0C1A\u0C15\u0C4D\u0C30\u0C02 \u0C2A\u0C4D\u0C30\u0C15\u0C3E\u0C30\u0C02 \u0C32\u0C17\u0C4D\u0C28\u0C02 ${lSignLoc} \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C1A\u0C02\u0C26\u0C4D\u0C30 \u0C30\u0C3E\u0C36\u0C3F ${mSignLoc} \u0C09\u0C28\u0C4D\u0C28\u0C3E\u0C2F\u0C3F. ${nLoc} \u0C28\u0C15\u0C4D\u0C37\u0C24\u0C4D\u0C30\u0C02\u0C2A\u0C26\u0C02\u0C32\u0C4B \u0C1C\u0C28\u0C4D\u0C2E\u0C3F\u0C02\u0C1A\u0C3F\u0C28 \u0C2E\u0C40\u0C15\u0C41 \u0C32\u0C4B\u0C24\u0C48\u0C28 \u0C0A\u0C39\u0C3E\u0C36\u0C15\u0C4D\u0C24\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C2A\u0C26\u0C41\u0C28\u0C48\u0C28 \u0C2C\u0C41\u0C26\u0C4D\u0C27\u0C3F\u0C36\u0C15\u0C4D\u0C24\u0C3F \u0C26\u0C15\u0C4D\u0C15\u0C41\u0C24\u0C3E\u0C2F\u0C3F.`,
-      traits: "\u0C2E\u0C40\u0C30\u0C41 \u0C1A\u0C3E\u0C32\u0C3E \u0C32\u0C4C\u0C15\u0C4D\u0C2F\u0C2E\u0C41\u0C17\u0C32\u0C35\u0C3E\u0C30\u0C41, \u0C06\u0C24\u0C4D\u0C2E\u0C35\u0C3F\u0C36\u0C4D\u0C35\u0C3E\u0C38\u0C02 \u0C15\u0C32\u0C35\u0C3E\u0C30\u0C41. \u0C38\u0C4D\u0C28\u0C47\u0C39 \u0C38\u0C02\u0C2C\u0C02\u0C27\u0C3E\u0C32\u0C32\u0C4B \u0C28\u0C3F\u0C1C\u0C3E\u0C2F\u0C3F\u0C24\u0C40\u0C28\u0C3F \u0C15\u0C4B\u0C30\u0C41\u0C15\u0C41\u0C02\u0C1F\u0C3E\u0C30\u0C41. \u0C2E\u0C40 \u0C06\u0C27\u0C4D\u0C2E\u0C3E\u0C24\u0C4D\u0C2E\u0C3F\u0C15 \u0C06\u0C32\u0C4B\u0C1A\u0C28\u0C32\u0C41 \u0C2E\u0C40\u0C15\u0C41 \u0C0E\u0C2A\u0C4D\u0C2A\u0C41\u0C21\u0C42 \u0C24\u0C4B\u0C21\u0C41\u0C17\u0C3E \u0C28\u0C3F\u0C32\u0C41\u0C38\u0C4D\u0C24\u0C3E\u0C2F\u0C3F.",
-      remedies: [
-        "\u0C17\u0C41\u0C30\u0C41\u0C35\u0C3E\u0C30\u0C02 \u0C26\u0C47\u0C35\u0C3E\u0C32\u0C2F\u0C02\u0C32\u0C4B \u0C28\u0C46\u0C2F\u0C4D\u0C2F\u0C3F \u0C26\u0C40\u0C2A\u0C02 \u0C35\u0C46\u0C32\u0C3F\u0C17\u0C3F\u0C02\u0C1A\u0C02\u0C21\u0C3F \u0C2E\u0C30\u0C3F\u0C2F\u0C41 \u0C26\u0C48\u0C35\u0C26\u0C30\u0C4D\u0C36\u0C28\u0C02 \u0C1A\u0C47\u0C38\u0C41\u0C15\u0C4B\u0C02\u0C21\u0C3F.",
-        "\u0C2E\u0C28\u0C38\u0C41\u0C28\u0C41 \u0C2A\u0C4D\u0C30\u0C36\u0C3E\u0C02\u0C24\u0C02\u0C17\u0C3E \u0C09\u0C02\u0C1A\u0C41\u0C15\u0C4B\u0C35\u0C21\u0C3E\u0C28\u0C3F\u0C15\u0C3F \u0C2A\u0C4D\u0C30\u0C24\u0C3F\u0C30\u0C4B\u0C1C\u0C42 \u0C15\u0C28\u0C40\u0C38\u0C02 15 \u0C28\u0C3F\u0CAE\u0CBF\u0C37\u0C3E\u0C32 \u0C2A\u0C3E\u0C1F\u0C41 \u0C27\u0C4D\u0C2F\u0C3E\u0C28\u0C02 \u0C1A\u0C47\u0C2F\u0C02\u0C21\u0C3F."
-      ]
-    },
-    ta: {
-      manglik_yes: "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD (\u0BAE\u0BBE\u0B99\u0BCD\u0B95\u0BB2\u0BCD\u0BAF \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD) \u0B89\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BB2\u0B95\u0BCD\u0BA9\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BBF\u0BB0\u0BC1\u0BA8\u0BCD\u0BA4\u0BC1 \u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BAA\u0BB2\u0BAE\u0BBE\u0BA9 \u0BB5\u0BC0\u0B9F\u0BCD\u0B9F\u0BBF\u0BB2\u0BCD \u0B85\u0BAE\u0BB0\u0BCD\u0BA8\u0BCD\u0BA4\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BBE\u0BB2\u0BCD, \u0B89\u0BB1\u0BB5\u0BC1\u0B95\u0BB3\u0BBF\u0BB2\u0BCD \u0BAA\u0BCA\u0BB1\u0BC1\u0BAE\u0BC8\u0BAF\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0BAA\u0BC7\u0B9A\u0BCD\u0B9A\u0BBF\u0BB2\u0BCD \u0BA8\u0BBF\u0BA4\u0BBE\u0BA9\u0BA4\u0BCD\u0BA4\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0B95\u0B9F\u0BC8\u0BAA\u0BCD\u0BAA\u0BBF\u0B9F\u0BBF\u0B95\u0BCD\u0B95 \u0BB5\u0BC7\u0BA3\u0BCD\u0B9F\u0BC1\u0BAE\u0BCD.",
-      manglik_no: "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD \u0B87\u0BB2\u0BCD\u0BB2\u0BC8. \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9C\u0BBE\u0BA4\u0B95\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BBF\u0BA9\u0BCD \u0BA8\u0BBF\u0BB2\u0BC8 \u0B9A\u0BBE\u0BA4\u0B95\u0BAE\u0BBE\u0B95 \u0B87\u0BB0\u0BC1\u0BAA\u0BCD\u0BAA\u0BA4\u0BBE\u0BB2\u0BCD \u0B95\u0BC1\u0B9F\u0BC1\u0BAE\u0BCD\u0BAA\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0B85\u0BAE\u0BC8\u0BA4\u0BBF\u0BAF\u0BC1\u0BAE\u0BCD \u0BAE\u0B95\u0BBF\u0BB4\u0BCD\u0B9A\u0BCD\u0B9A\u0BBF\u0BAF\u0BC1\u0BAE\u0BCD \u0BA8\u0BBF\u0BB2\u0BB5\u0BC1\u0BAE\u0BCD.",
-      verdict: `\u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0B9C\u0BBE\u0BA4\u0B95\u0BAE\u0BCD ${lSignLoc} \u0BB2\u0B95\u0BCD\u0BA9\u0BAE\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD ${mSignLoc} \u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0 \u0BB0\u0BBE\u0B9A\u0BBF\u0BAF\u0BC8\u0B95\u0BCD \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BC1\u0BB3\u0BCD\u0BB3\u0BA4\u0BC1. ${nLoc} \u0BA8\u0B9F\u0BCD\u0B9A\u0BA4\u0BCD\u0BA4\u0BBF\u0BB0\u0BAE\u0BCD, ${pPada}-\u0B86\u0BAE\u0BCD \u0BAA\u0BBE\u0BA4\u0BA4\u0BCD\u0BA4\u0BBF\u0BB2\u0BCD \u0BAA\u0BBF\u0BB1\u0BA8\u0BCD\u0BA4 \u0BA8\u0BC0\u0B99\u0BCD\u0B95\u0BB3\u0BCD, \u0BA8\u0BC1\u0BA3\u0BCD\u0BA3\u0BB1\u0BBF\u0BB5\u0BC1\u0BAE\u0BCD \u0B86\u0BB3\u0BC1\u0BAE\u0BC8\u0BAF\u0BC1\u0BAE\u0BCD \u0BA8\u0BBF\u0BB1\u0BC8\u0BA8\u0BCD\u0BA4\u0BB5\u0BB0\u0BCD.`,
-      traits: "\u0BA8\u0BC0\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BAE\u0BBF\u0B95\u0BB5\u0BC1\u0BAE\u0BCD \u0BAA\u0BC1\u0BA4\u0BCD\u0BA4\u0BBF\u0B9A\u0BBE\u0BB2\u0BBF, \u0BA8\u0BC7\u0BB0\u0BCD\u0BAE\u0BC8\u0BAF\u0BBE\u0BA9\u0BB5\u0BB0\u0BCD \u0BAE\u0BB1\u0BCD\u0BB1\u0BC1\u0BAE\u0BCD \u0B85\u0BB0\u0BCD\u0BAA\u0BCD\u0BAA\u0BA3\u0BBF\u0BAA\u0BCD\u0BAA\u0BC1 \u0B89\u0BA3\u0BB0\u0BCD\u0BB5\u0BC1 \u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BB5\u0BB0\u0BCD. \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BA4\u0BC1 \u0B86\u0BA9\u0BCD\u0BAE\u0BC0\u0B95 \u0BA8\u0BBE\u0B9F\u0BCD\u0B9F\u0BAE\u0BCD \u0B89\u0B99\u0BCD\u0B95\u0BB3\u0BC1\u0B95\u0BCD\u0B95\u0BC1 \u0BAA\u0BC6\u0BB0\u0BC1\u0BAE\u0BCD \u0BB5\u0BC6\u0BB1\u0BCD\u0BB1\u0BBF\u0BAF\u0BC8\u0BA4\u0BCD \u0BA4\u0BB0\u0BC1\u0BAE\u0BCD.",
-      remedies: [
-        "\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0B95\u0BCD\u0B95\u0BBF\u0BB4\u0BAE\u0BC8\u0BAF\u0BA9\u0BCD\u0BB1\u0BC1 \u0B95\u0BCB\u0BB5\u0BBF\u0BB2\u0BBF\u0BB2\u0BCD \u0BA8\u0BC6\u0BAF\u0BCD \u0BA4\u0BC0\u0BAA\u0BAE\u0BCD \u0B8F\u0BB1\u0BCD\u0BB1\u0BBF \u0BA8\u0BC6\u0BAF\u0BCD\u0BAA\u0BCD \u0BAA\u0BBF\u0BB0\u0B9A\u0BBE\u0BA4\u0BAE\u0BCD \u0BB5\u0BB4\u0B99\u0BCD\u0B95\u0BC1\u0BB5\u0BA4\u0BC1 \u0B9A\u0BBF\u0BB1\u0BAA\u0BCD\u0BAA\u0BC1.",
-        "\u0B9A\u0BA8\u0BCD\u0BA4\u0BBF\u0BB0\u0BA9\u0BBF\u0BA9\u0BCD \u0B86\u0BB1\u0BCD\u0BB1\u0BB2\u0BC8 \u0B9A\u0BC0\u0BB0\u0BBE\u0B95\u0BCD\u0B95 \u0BA4\u0BBF\u0BA9\u0BAE\u0BC1\u0BAE\u0BCD 15 \u0BA8\u0BBF\u0BAE\u0BBF\u0B9F\u0B99\u0BCD\u0B95\u0BB3\u0BCD \u0BA4\u0BBF\u0BAF\u0BBE\u0BA9\u0BAE\u0BCD \u0B9A\u0BC6\u0BAF\u0BCD\u0BAF\u0BB5\u0BC1\u0BAE\u0BCD."
-      ]
-    },
-    kn: {
-      manglik_yes: "\u0CAE\u0C82\u0C97\u0CB3 \u0CA6\u0CCB\u0CB7 (\u0CAE\u0CBE\u0C82\u0C97\u0CCD\u0CB2\u0CBF\u0C95\u0CCD) \u0CB8\u0C95\u0CCD\u0CB0\u0CBF\u0CAF\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6. \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CB2\u0C97\u0CCD\u0CA8\u0CA6\u0CBF\u0C82\u0CA6 \u0CAE\u0C82\u0C97\u0CB3\u0CA8\u0CC1 \u0CAA\u0CCD\u0CB0\u0CAD\u0CBE\u0CB5\u0CBF \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF\u0CB0\u0CC1\u0CB5\u0CC1\u0CA6\u0CB0\u0CBF\u0C82\u0CA6 \u0C86\u0CA6\u0CB7\u0CCD\u0C9F\u0CC1 \u0CA4\u0CBE\u0CB3\u0CCD\u0CAE\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CCC\u0CAE\u0CCD\u0CAF \u0CB5\u0CB0\u0CCD\u0CA4\u0CA8\u0CC6 \u0C95\u0CBE\u0CAA\u0CBE\u0CA1\u0CBF\u0C95\u0CCA\u0CB3\u0CCD\u0CB3\u0CC1\u0CB5\u0CC1\u0CA6\u0CC1 \u0CA8\u0CC6\u0CAE\u0CCD\u0CAE\u0CA6\u0CBF\u0C97\u0CC6 \u0CB8\u0CB9\u0C95\u0CBE\u0CB0\u0CBF.",
-      manglik_no: "\u0CAE\u0C82\u0C97\u0CB3 \u0CA6\u0CCB\u0CB7 \u0C95\u0C82\u0CA1\u0CC1\u0CAC\u0C82\u0CA6\u0CBF\u0CB2\u0CCD\u0CB2. \u0C9C\u0CBE\u0CA4\u0C95\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CAE\u0C82\u0C97\u0CB3\u0CA8 \u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CB5\u0CC1 \u0CA4\u0CC1\u0C82\u0CAC\u0CBE \u0C85\u0CA8\u0CC1\u0C95\u0CC2\u0CB2\u0C95\u0CB0 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB6\u0CBE\u0C82\u0CA4\u0CBF\u0CAF\u0CC1\u0CA4\u0CB5\u0CBE\u0C97\u0CBF\u0CA6\u0CC6.",
-      verdict: `\u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0 \u0C9C\u0CBE\u0CA4\u0C95\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF ${lSignLoc} \u0CB2\u0C97\u0CCD\u0CA8 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 ${mSignLoc} \u0C9A\u0C82\u0CA6\u0CCD\u0CB0 \u0CB0\u0CBE\u0CB6\u0CBF\u0CAF \u0C85\u0CA4\u0CCD\u0CAF\u0CC1\u0CA4\u0CCD\u0CA4\u0CAE \u0CB8\u0CAE\u0CCD\u0CAE\u0CBF\u0CB2\u0CA8\u0CB5\u0CBF\u0CA6\u0CC6. ${nLoc} \u0CA8\u0C95\u0CCD\u0CB7\u0CA4\u0CCD\u0CB0, ${pPada}-\u0CA8\u0CC7 \u0CAA\u0CBE\u0CA6\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CB9\u0CC1\u0C9F\u0CCD\u0C9F\u0CBF\u0CA6 \u0CA8\u0CBF\u0CAE\u0C97\u0CC6 \u0CA4\u0CC0\u0C95\u0CCD\u0CB7\u0CCD\u0CA3 \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB6\u0C95\u0CCD\u0CA4\u0CBF \u0CA6\u0CCA\u0CB0\u0CC6\u0CA4\u0CBF\u0CA6\u0CC6.`,
-      traits: "\u0CA8\u0CC0\u0CB5\u0CC1 \u0CAC\u0CC1\u0CA6\u0CCD\u0CA7\u0CBF\u0CB5\u0C82\u0CA4\u0CB0\u0CC1, \u0CB6\u0CCD\u0CB0\u0CA6\u0CCD\u0CA7\u0CBE\u0CB5\u0C82\u0CA4\u0CB0\u0CC1 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CB8\u0CCD\u0CB5\u0CBE\u0CB5\u0CB2\u0C82\u0CAC\u0CBF\u0C97\u0CB3\u0CC1. \u0C86\u0CA7\u0CCD\u0CAF\u0CBE\u0CA4\u0CCD\u0CAE\u0CBF\u0C95 \u0C9A\u0CBF\u0C82\u0CA4\u0CA8\u0CC6\u0C97\u0CB3\u0CC1 \u0CA8\u0CBF\u0CAE\u0CCD\u0CAE \u0CAE\u0CA8\u0CB8\u0CCD\u0CB8\u0CBF\u0C97\u0CC6 \u0CA8\u0CC6\u0CAE\u0CCD\u0CAE\u0CA6\u0CBF \u0CA8\u0CC0\u0CA1\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6 \u0CAE\u0CA4\u0CCD\u0CA4\u0CC1 \u0CAA\u0CCD\u0CB0\u0C97\u0CA4\u0CBF\u0C97\u0CC6 \u0C95\u0CBE\u0CB0\u0CA3\u0CB5\u0CBE\u0C97\u0CC1\u0CA4\u0CCD\u0CA4\u0CB5\u0CC6.",
-      remedies: [
-        "\u0C97\u0CC1\u0CB0\u0CC1\u0CB5\u0CBE\u0CB0 \u0CA6\u0CBF\u0CA8\u0CA6\u0C82\u0CA6\u0CC1 \u0CA6\u0CC7\u0CB5\u0CB8\u0CCD\u0CA5\u0CBE\u0CA8\u0CA6\u0CB2\u0CCD\u0CB2\u0CBF \u0CA4\u0CC1\u0CAA\u0CCD\u0CAA\u0CA6 \u0CA6\u0CC0\u0CAA\u0CB5\u0CA8\u0CCD\u0CA8\u0CC1 \u0CB9\u0C9A\u0CCD\u0C9A\u0CBF \u0CA6\u0CB0\u0CCD\u0CB6\u0CA8 \u0CAA\u0CA1\u0CC6\u0CAF\u0CBF\u0CB0\u0CBF.",
-        "\u0CAE\u0CA8\u0CB8\u0CCD\u0CB8\u0CBF\u0CA8 \u0CB6\u0CBE\u0C82\u0CA4\u0CA4\u0CC6\u0C97\u0CBE\u0C97\u0CBF \u0CA8\u0CBF\u0CA4\u0CCD\u0CAF\u0CB5\u0CC2 15 \u0CA8\u0CBF\u0CAE\u0CBF\u0CB7\u0C97\u0CB3 \u0C95\u0CBE\u0CB2 \u0CAA\u0CCD\u0CB0\u0CBE\u0CA3\u0CBE\u0CAF\u0CBE\u0CAE \u0C85\u0CA5\u0CB5\u0CBE \u0CA7\u0CCD\u0CAF\u0CBE\u0CA8 \u0CAE\u0CBE\u0CA1\u0CBF."
-      ]
-    }
-  };
-  const selectedT = reportTexts[currLang] || reportTexts.en;
-  return {
-    manglik_dosha: {
-      has_dosha: isM,
-      name: currLang === "hi" ? "\u092E\u0902\u0917\u0932 \u0926\u094B\u0937" : currLang === "te" ? "\u0C15\u0C41\u0C1C \u0C26\u0C4B\u0C37\u0C02" : currLang === "ta" ? "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD \u0BA4\u0BCB\u0BB7\u0BAE\u0BCD" : currLang === "kn" ? "\u0CAE\u0CC2\u0CA4\u0CCD\u0CB0 \u0CA6\u0CCB\u0CB7 (\u0CAE\u0C82\u0C97\u0CB3 \u0CA6\u0CCB\u0CB7)" : "Manglik Dosha",
-      summary: isM ? selectedT.manglik_yes : selectedT.manglik_no
-    },
-    cosmic_verdict: selectedT.verdict,
-    mental_profile: selectedT.traits,
-    remedies: selectedT.remedies
-  };
-}
-var customDetailsHandler = async (req, res) => {
-  try {
-    const input = req.body;
-    const lang = req.query.lang;
-    const ayanamsa = input.ayanamsa || "Lahiri";
-    const panchang = AstrologyService.calcPanchang(input);
-    const jd = getJulianDate(input.year, input.month, input.day, input.hour, input.minute, input.timezone || 0);
-    const ayanamsaSec = getAyanamsa(jd, ayanamsa);
-    const lagnaLong = getLagnaSidereal(jd, input.latitude, input.longitude, ayanamsaSec);
-    const lagnaRasi = Math.floor(lagnaLong / 30);
-    const moon = panchang.planets.find((p) => p.id === "moon");
-    const doshas = AstrologyService.detectDoshas(panchang.planets, lagnaLong, lang);
-    const lagna = translateRashi(lagnaRasi, lang);
-    const moon_sign = translateRashi(moon.rasiIndex, lang);
-    const nakshatra = translateNakshatra(panchang.nakshatra.index, lang);
-    const pada = moon.pada || 1;
-    const planetsOfInterest = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"];
-    const planet_positions = {};
-    planetsOfInterest.forEach((name) => {
-      const p = panchang.planets.find((item) => item.id === name.toLowerCase());
-      if (p) {
-        planet_positions[name] = {
-          planet: p.name,
-          localized_name: p.name.en,
-          longitude: p.longitude,
-          rasi_index: p.rasiIndex,
-          rasi_name: p.rasi.name.en,
-          rasi_localized: translateRashi(p.rasiIndex, lang),
-          degree: p.degree,
-          sign_degree: p.signDegree,
-          house: p.house,
-          nakshatra_name: p.nakshatra.name.en,
-          nakshatra_localized: translateNakshatra(p.nakshatraIndex, lang),
-          pada: p.pada,
-          is_retrograde: p.isRetrograde
-        };
-      }
-    });
-    const houses = {};
-    for (let i = 0; i < 12; i++) {
-      const houseNum = i + 1;
-      const rasiIdx = (lagnaRasi + i) % 12;
-      const rasiNameEnglish = RASHI_NAMES_ENGLISH[rasiIdx];
-      const rasiNameLocalized = translateRashi(rasiIdx, lang);
-      houses[houseNum.toString()] = {
-        house: houseNum,
-        rasi_index: rasiIdx,
-        sign: rasiNameLocalized,
-        sign_english: rasiNameEnglish
-      };
-    }
-    const dashaTree = AstrologyService.calcVimshottariDasha(moon.longitude, input.year, lang);
-    const dasha_data = {
-      current_mahadasha: dashaTree.mahadasha,
-      current_mahadasha_localized: dashaTree.localizedMahadasha,
-      current_antardasha: dashaTree.antardasha,
-      current_antardasha_localized: dashaTree.localizedAntardasha,
-      time_remaining_years: dashaTree.timeRemainingYears,
-      sequence: dashaTree.timeline.map((node) => ({
-        lord: node.lord,
-        localized_lord: node.localizedLord,
-        start_time: node.startTime,
-        end_time: node.endTime,
-        duration_years: node.durationYears,
-        sub_dashas: node.subDashas ? node.subDashas.map((sub) => ({
-          lord: sub.lord,
-          localized_lord: sub.localizedLord,
-          start_time: sub.startTime,
-          end_time: sub.endTime,
-          duration_years: sub.durationYears
-        })) : []
-      }))
-    };
-    const isM = doshas.some((d) => d.name.toLowerCase().includes("manglik") && d.hasDosha);
-    const report_data = getReportDataHelper(lang, lagnaRasi, moon.rasiIndex, panchang.nakshatra.index, pada, isM);
-    const divisionalCharts = generateDivisionalCharts(panchang.planets, lagnaLong, lang);
-    const d1Chart = divisionalCharts.find((c) => c.code === "D1");
-    const d9Chart = divisionalCharts.find((c) => c.code === "D9");
-    const element = lagnaRasi % 4;
-    let startSign = 0;
-    if (element === 0) startSign = 0;
-    else if (element === 1) startSign = 9;
-    else if (element === 2) startSign = 6;
-    else startSign = 3;
-    const lagnaPart = Math.floor(lagnaLong % 30 / 3.333333);
-    const lagnaNavRasi = (startSign + lagnaPart) % 12;
-    const makeUIChartData = (points, startLagnaRasi) => {
-      const housePlanets = {};
-      const houseSigns = {};
-      for (let h = 1; h <= 12; h++) {
-        housePlanets[h] = [];
-        houseSigns[h] = (startLagnaRasi + h - 1) % 12;
-      }
-      points.forEach((p) => {
-        if (p.house >= 1 && p.house <= 12) {
-          housePlanets[p.house].push(p.planet);
-        }
-      });
-      return {
-        lagna_rasi_index: startLagnaRasi,
-        lagna_sign_name: RASHI_NAMES_ENGLISH[startLagnaRasi],
-        house_planets: housePlanets,
-        house_signs: houseSigns,
-        points
-      };
-    };
-    const d9PointsRecalculated = d9Chart?.points.map((p) => {
-      const calculatedHouse = (p.signIndex - lagnaNavRasi + 12) % 12 + 1;
-      return {
-        planet: p.planet,
-        localized_planet: p.planet.name.en,
-        longitude: p.longitude,
-        rasi_index: p.signIndex,
-        rasi_name: p.sign.name.en,
-        rasi_localized: p.sign.name.en,
-        house: calculatedHouse
-      };
-    }) || [];
-    const chart_data = {
-      D1: makeUIChartData(d1Chart?.points.map((p) => ({
-        planet: p.planet,
-        localized_planet: p.planet.name.en,
-        longitude: p.longitude,
-        rasi_index: p.signIndex,
-        rasi_name: p.sign.name.en,
-        rasi_localized: p.sign.name.en,
-        house: p.house
-      })) || [], lagnaRasi),
-      D9: makeUIChartData(d9PointsRecalculated, lagnaNavRasi),
-      raw_d1: d1Chart,
-      raw_d9: d9Chart
-    };
-    res.json({
-      success: true,
-      lagna,
-      moon_sign,
-      nakshatra,
-      pada,
-      planet_positions,
-      houses,
-      dasha_data,
-      report_data,
-      chart_data,
-      meta: {
-        ayanamsa,
-        lang,
-        timestamp: (/* @__PURE__ */ new Date()).toISOString()
-      }
-    });
-  } catch (error) {
-    res.status(400).json({ success: false, error: error.message });
-  }
-};
-router.post("/horoscope/custom-details", customDetailsHandler);
-router.post("/custom-details", customDetailsHandler);
-var astrology_default = router;
 
 // api-src/index.ts
 dotenv.config();
@@ -5490,7 +16604,8 @@ app.use((req, res, next) => {
   }
   next();
 });
-app.use("/api", astrology_default);
+app.use("/horoscope-v2", horoscopeV2Router);
+app.use("/matching-v2", matchingV2Router);
 app.get("/api/health", (req, res) => {
   res.json({ status: "OK", platform: "Vercel Serverless", timestamp: (/* @__PURE__ */ new Date()).toISOString() });
 });

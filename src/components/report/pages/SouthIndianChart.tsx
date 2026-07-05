@@ -55,8 +55,11 @@ export const SouthIndianChart: React.FC<Props> = ({ title, planets, dataAvailabl
         
         {/* Row 2 */}
         <Box signStr="Aquarius" signNum={11} />
-        <div className="col-span-2 row-span-2 flex items-center justify-center">
-          {!planets && <span className="text-stone-400 text-xs font-semibold">Not Provided</span>}
+        <div className="col-span-2 row-span-2 flex items-center justify-center relative bg-stone-50/50">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span className="text-[#E67E22] opacity-10 text-6xl" style={{ fontFamily: "serif" }}>ॐ</span>
+          </div>
+          {!planets && <span className="text-stone-400 text-xs font-semibold relative z-10">Not Provided</span>}
         </div>
         <Box signStr="Cancer" signNum={4} />
 

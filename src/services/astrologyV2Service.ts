@@ -1,5 +1,6 @@
 import { HoroscopeV2Request, HoroscopeV2Response, HoroscopeV2ResponseData, HoroscopeV2PlanetPosition, HoroscopeV2Chart, HoroscopeV2House, HoroscopeV2Mahadasha, HoroscopeV2Bhukti } from "../types/horoscopeV2";
 import { getJulianDate, getAyanamsa, computePlanetPosition, getHouseData, getLagnaSidereal } from "../utils/astroCalc";
+import { AstrologyEngine } from "../astrology/engine/AstrologyEngine";
 
 import { LocalizationEngine } from "./LocalizationEngine";
 
@@ -354,6 +355,12 @@ export class AstrologyV2Service {
         vimshottari
       }
     };
+
+    const engine = new AstrologyEngine();
+    const analysis = engine.analyze(data, lang);
+    if (analysis) {
+      data.analysis = analysis;
+    }
 
     return {
       success: true,

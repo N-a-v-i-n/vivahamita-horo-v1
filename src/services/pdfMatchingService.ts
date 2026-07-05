@@ -157,7 +157,12 @@ export class PdfMatchingService {
               ${getTd("12")}${getTd("1")}${getTd("2")}${getTd("3")}
             </tr>
             <tr>
-              ${getTd("11")}<td colspan="2" rowspan="2" class="chart-center">${title.replace(/\s*Chart\s*/gi, '')}</td>${getTd("4")}
+              ${getTd("11")}
+              <td colspan="2" rowspan="2" class="chart-center" style="position: relative;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #b4366f; opacity: 0.1; font-size: 60px; font-family: serif; z-index: 0; pointer-events: none;">ॐ</div>
+                <div style="position: relative; z-index: 1;">${title.replace(/\s*Chart\s*/gi, '')}</div>
+              </td>
+              ${getTd("4")}
             </tr>
             <tr>
               ${getTd("10")}${getTd("5")}

@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import { AstrologyService } from "../services/astrologyService";
 import { AstrologyV2Service } from "../services/astrologyV2Service";
 import { PdfMatchingService } from "../services/pdfMatchingService";
-import { MatchingV2Request, MatchingV2Response } from "../types/matchingV2";
+import { MatchingV2Request, MatchingV2Response, MatchingV2ResponseData } from "../types/matchingV2";
 import { LanguageCode } from "../types/astrology";
 import { LocalizationEngine, UnsupportedLanguageException, MissingTranslationException } from "../services/LocalizationEngine";
 import { validateLocalization } from "../utils/localizationValidator";
@@ -69,7 +69,7 @@ matchingV2Router.post("/", async (req: Request, res: Response) => {
       finalRecommendation: matchResult.report
     };
 
-    const responseData = {
+    const responseData: MatchingV2ResponseData = {
       boyHoroscope: boyHoroscopeResult.data,
       girlHoroscope: girlHoroscopeResult.data,
       summary,
