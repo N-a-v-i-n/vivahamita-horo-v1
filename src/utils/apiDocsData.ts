@@ -343,13 +343,15 @@ res = requests.post("https://api.vivahamitra.in/api/dosha", json={
     method: "POST",
     description: "Performs full 36-point Ashta Koota compatibility matching between a bride (girl) and bridegroom (boy). Calculates individual Nakshatras, and audits Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, and Nadi scores, along with Manglik cancellation rules and South Indian 10 Poruthams.",
     params: [
-      { name: "boy", type: "object", required: true, desc: "Boy birth parameters: year, month, day, hour, minute, latitude, longitude, timezone" },
-      { name: "girl", type: "object", required: true, desc: "Girl birth parameters: year, month, day, hour, minute, latitude, longitude, timezone" },
+      { name: "boy", type: "object", required: true, desc: "Boy birth parameters: year, month, day, hour, minute, latitude, longitude, timezone, placeOfBirth, gotram" },
+      { name: "girl", type: "object", required: true, desc: "Girl birth parameters: year, month, day, hour, minute, latitude, longitude, timezone, placeOfBirth, gotram" },
+      { name: "pdfRequested", type: "boolean", required: false, desc: "Request PDF report generation" },
       { name: "lang", type: "string", required: false, desc: "Translation parameter" }
     ],
     exampleRequest: {
-      boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
-      girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.0827, longitude: 80.2707, timezone: 5.5 },
+      boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5, placeOfBirth: "Hyderabad", gotram: "Kashyapa" },
+      girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.0827, longitude: 80.2707, timezone: 5.5, placeOfBirth: "Chennai", gotram: "Bharadwaja" },
+      pdfRequested: true,
       lang: "en"
     },
     exampleResponse: {
@@ -374,19 +376,21 @@ res = requests.post("https://api.vivahamitra.in/api/dosha", json={
     },
     curlSample: `curl -X POST https://api.vivahamitra.in/api/matching \\
   -H "Content-Type: application/json" \\
-  -d '{"boy":{"name":"Sanjay","year":1995,"month":6,"day":15,"hour":8,"minute":30,"latitude":17.385,"longitude":78.486,"timezone":5.5},"girl":{"name":"Neha","year":1997,"month":8,"day":20,"hour":14,"minute":15,"latitude":13.082,"longitude":80.270,"timezone":5.5}}'`,
+  -d '{"boy":{"name":"Sanjay","year":1995,"month":6,"day":15,"hour":8,"minute":30,"latitude":17.385,"longitude":78.486,"timezone":5.5,"placeOfBirth":"Hyderabad","gotram":"Kashyapa"},"girl":{"name":"Neha","year":1997,"month":8,"day":20,"hour":14,"minute":15,"latitude":13.082,"longitude":80.270,"timezone":5.5,"placeOfBirth":"Chennai","gotram":"Bharadwaja"},"pdfRequested":true}'`,
     jsSample: `const matchRes = await fetch('/api/matching', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
-    boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5 },
-    girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.082, longitude: 80.270, timezone: 5.5 }
+    boy: { name: "Sanjay", year: 1995, month: 6, day: 15, hour: 8, minute: 30, latitude: 17.385, longitude: 78.486, timezone: 5.5, placeOfBirth: "Hyderabad", gotram: "Kashyapa" },
+    girl: { name: "Neha", year: 1997, month: 8, day: 20, hour: 14, minute: 15, latitude: 13.082, longitude: 80.270, timezone: 5.5, placeOfBirth: "Chennai", gotram: "Bharadwaja" },
+    pdfRequested: true
   })
 }).then(r => r.json());`,
     pythonSample: `import requests
 payload = {
-    "boy": {"name": "Sanjay", "year": 1995, "month": 6, "day": 15, "hour": 8, "minute": 30, "latitude": 17.385, "longitude": 78.486, "timezone": 5.5},
-    "girl": {"name": "Neha", "year": 1997, "month": 8, "day": 20, "hour": 14, "minute": 15, "latitude": 13.0827, "longitude": 80.2707, "timezone": 5.5}
+    "boy": {"name": "Sanjay", "year": 1995, "month": 6, "day": 15, "hour": 8, "minute": 30, "latitude": 17.385, "longitude": 78.486, "timezone": 5.5, "placeOfBirth": "Hyderabad", "gotram": "Kashyapa"},
+    "girl": {"name": "Neha", "year": 1997, "month": 8, "day": 20, "hour": 14, "minute": 15, "latitude": 13.0827, "longitude": 80.2707, "timezone": 5.5, "placeOfBirth": "Chennai", "gotram": "Bharadwaja"},
+    "pdfRequested": True
 }
 res = requests.post("https://api.vivahamitra.in/api/matching", json=payload)`
   },

@@ -153,7 +153,8 @@ const ENDPOINTS: EndpointDoc[] = [
         latitude: 17.385,
         longitude: 78.486,
         timezone: 5.5,
-        placeOfBirth: "Hyderabad"
+        placeOfBirth: "Hyderabad",
+        gotram: "Kashyapa"
       },
       girl: {
         name: "Neha",
@@ -165,7 +166,8 @@ const ENDPOINTS: EndpointDoc[] = [
         latitude: 13.0827,
         longitude: 80.2707,
         timezone: 5.5,
-        placeOfBirth: "Chennai"
+        placeOfBirth: "Chennai",
+        gotram: "Bharadwaja"
       },
       pdfRequested: true
     }

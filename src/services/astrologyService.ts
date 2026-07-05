@@ -828,7 +828,7 @@ export class AstrologyService {
     };
 
     const NAKSHATRA_GANAS = [
-      0, 1, 2, 1, 0, 1, 0, 0, 2, 2, 1, 1, 0, 0, 0, 2, 0, 2, 2, 1, 1, 0, 2, 2, 1, 1, 0
+      0, 1, 2, 1, 0, 1, 0, 0, 2, 2, 1, 1, 0, 2, 0, 2, 0, 2, 2, 1, 1, 0, 2, 2, 1, 1, 0
     ];
 
     const YONI_NAMES: Record<LanguageCode, string[]> = {
@@ -989,12 +989,13 @@ export class AstrologyService {
       };
 
       let typeCode = 4;
-      if ([0, 1].includes(idx)) typeCode = 0;
+      if ([0, 1, 8].includes(idx)) typeCode = 0;
       else if ([2, 5, 6, 10].includes(idx)) typeCode = 1;
-      else if ([3, 11].includes(idx)) typeCode = 2;
+      else if ([3, 9, 11].includes(idx)) typeCode = 2;
       else if (idx === 4) typeCode = 3;
+      else if (idx === 7) typeCode = 4;
 
-      return { code: typeCode, name: tLabels[typeCode].en, labels: tLabels[typeCode] };
+      return { code: typeCode, name: tLabels[typeCode as keyof typeof tLabels].en, labels: tLabels[typeCode as keyof typeof tLabels] };
     };
 
     const bVashya = getVashyaInfo(bRasi);
@@ -1051,32 +1052,32 @@ export class AstrologyService {
     });
 
     // 3. Tara (max 3 points)
-    // Tara = ((girl_nak - boy_nak + 27) % 27) then map to 1..9 groups
-    // Tara group = ((diff % 27) % 9) with 0 mapping to 9
-    const taraDiffRaw = ((gNak - bNak + 27) % 27);
-    const taraDiffCheck = taraDiffRaw % 9 === 0 ? 9 : taraDiffRaw % 9;
-    // Auspicious taras: 1 (Janma), 2 (Sampat), 4 (Kshema), 6 (Sadhaka), 8 (Mitra)
-    // Inauspicious: 3 (Vipat), 5 (Pratyari), 7 (Vadha), 9 (Ati-Mitra is debated)
+    const boyToGirlTara = ((gNak - bNak + 27) % 27) + 1;
+    const bToGGroup = boyToGirlTara % 9 === 0 ? 9 : boyToGirlTara % 9;
+
+    const girlToBoyTara = ((bNak - gNak + 27) % 27) + 1;
+    const gToBGroup = girlToBoyTara % 9 === 0 ? 9 : girlToBoyTara % 9;
+
     let taraScore = 0;
-    if ([1, 2, 4, 6, 8].includes(taraDiffCheck)) {
+    const auspiciousGroups = [2, 4, 6, 8, 9];
+    if (bNak === gNak) {
       taraScore = 3;
-    } else if ([3, 5, 7].includes(taraDiffCheck)) {
-      taraScore = 1.5;
-    } else { // taraDiffCheck === 9 (Ati-Mitra/Parama Mitra)
-      taraScore = 3;
+    } else {
+      if (auspiciousGroups.includes(bToGGroup)) taraScore += 1.5;
+      if (auspiciousGroups.includes(gToBGroup)) taraScore += 1.5;
     }
 
-    const taraCategoriesEN = ["Ati-Mitra", "Janma", "Sampat", "Vipat", "Kshema (Well-being)", "Pratyari", "Sadhaka", "Vadha", "Mitra"];
-    const taraCategoriesHI = ["अति-मित्र (परम अनुकूल)", "जन्म (सामान्य)", "संपत (धन प्रदायक)", "विपत (अड़चनें)", "क्षेम (कल्याणकारी)", "प्रत्यरी (कठिनाइयां)", "साधक (पूर्णता)", "वध (सावधानी)", "मित्र (सकारात्मक)"];
-    const taraCategoriesTE = ["అతి-మిత్ర (అత్యంత అనుకూల)", "జన్మ (సాధారణం)", "సంపత్ (ఆర్థికం)", "విపత్ (ఆటంకం)", "క్షేమ (శుభకరం)", "ప్రత్యరి (పోరాటం)", "సాధక (విజయం)", "వధ (జాగ్రత్త)", "మిత్ర (స్నేహం)"];
-    const taraCategoriesTA = ["அதி-மித்ரா (மிகவும் நெருக்கமான)", "ஜன்ம (சுய)", "சம்பத் (செல்வம்)", "விபத் (தடைகள்)", "க்ஷேம (நலன்)", "பிரத்யரி (எதிர்ப்பு)", "சாதக (வெற்றி)", "வத (தீவிரம்)", "மித்ரா (நட்பு)"];
-    const taraCategoriesKN = ["ಅತಿ-ಮಿತ್ರ (ಅತ್ಯಂತ ಸ್ನೇಹ)", "ಜನ್ಮ (ಸ್ವಯಂ)", "ಸಂಪತ್ (ಐಶ್ವರಯ)", "ವಿಪತ್ (ಅಡೆತಡೆ)", "ಕ್ಷೇಮ (ಕಲ್ಯಾಣ)", "ಪ್ರತ್ಯರಿ (ಸವಾಲು)", "ಸಾಧಕ (ಯಶಸ್ಸು)", "ವಧ (ಅಪಾಯ)", "ಮಿತ್ರ (ಸ್ನೇಹ)"];
+    const taraCategoriesEN = ["Janma", "Sampat", "Vipat", "Kshema (Well-being)", "Pratyari", "Sadhaka", "Vadha", "Mitra", "Ati-Mitra"];
+    const taraCategoriesHI = ["जन्म (सामान्य)", "संपत (धन प्रदायक)", "विपत (अड़चनें)", "क्षेम (कल्याणकारी)", "प्रत्यरी (कठिनाइयां)", "साधक (पूर्णता)", "वध (सावधानी)", "मित्र (सकारात्मक)", "अति-मित्र (परम अनुकूल)"];
+    const taraCategoriesTE = ["జన్మ (సాధారణం)", "సంపత్ (ఆర్థికం)", "విపత్ (ఆటంకం)", "క్షేమ (శుభకరం)", "ప్రత్యరి (పోరాటం)", "సాధక (విజయం)", "వధ (జాగ్రత్త)", "మిత్ర (స్నేహం)", "అతి-మిత్ర (అత్యంత అనుకూల)"];
+    const taraCategoriesTA = ["ஜன்ம (சுய)", "சம்பத் (செல்வம்)", "விபத் (தடைகள்)", "க்ஷேம (நலன்)", "பிரத்யரி (எதிர்ப்பு)", "சாதக (வெற்றி)", "வத (தீவிரம்)", "மித்ரா (நட்பு)", "அதி-மித்ரா (மிகவும் நெருக்கமான)"];
+    const taraCategoriesKN = ["ಜನ್ಮ (ಸ್ವಯಂ)", "ಸಂಪತ್ (ಐಶ್ವರಯ)", "ವಿಪತ್ (ಅಡೆತಡೆ)", "ಕ್ಷೇಮ (ಕಲ್ಯಾಣ)", "ಪ್ರತ್ಯರಿ (ಸವಾಲು)", "ಸಾಧಕ (ಯಶಸ್ಸು)", "ವಧ (ಅಪಾಯ)", "ಮಿತ್ರ (ಸ್ನೇಹ)", "ಅತಿ-ಮಿತ್ರ (ಅತ್ಯಂತ ಸ್ನೇಹ)"];
 
-    const activeCategoryEN = taraCategoriesEN[taraDiffCheck];
-    const activeCategoryHI = taraCategoriesHI[taraDiffCheck];
-    const activeCategoryTE = taraCategoriesTE[taraDiffCheck];
-    const activeCategoryTA = taraCategoriesTA[taraDiffCheck];
-    const activeCategoryKN = taraCategoriesKN[taraDiffCheck];
+    const activeCategoryEN = taraCategoriesEN[bToGGroup - 1];
+    const activeCategoryHI = taraCategoriesHI[bToGGroup - 1];
+    const activeCategoryTE = taraCategoriesTE[bToGGroup - 1];
+    const activeCategoryTA = taraCategoriesTA[bToGGroup - 1];
+    const activeCategoryKN = taraCategoriesKN[bToGGroup - 1];
 
     let taraDesc = "";
     if (lang === "te") {
@@ -1135,7 +1136,7 @@ export class AstrologyService {
         (bYoniIdx === 7 && gYoniIdx === 9) || (bYoniIdx === 9 && gYoniIdx === 7) || // Cow vs Tiger
         (bYoniIdx === 1 && gYoniIdx === 13) || (bYoniIdx === 13 && gYoniIdx === 1) || // Elephant vs Lion
         (bYoniIdx === 0 && gYoniIdx === 8) || (bYoniIdx === 8 && gYoniIdx === 0) || // Horse vs Buffalo
-        (bYoniIdx === 4 && gYoniIdx === 5) || (bYoniIdx === 5 && gYoniIdx === 4) || // Dog vs Cat
+        (bYoniIdx === 4 && gYoniIdx === 10) || (bYoniIdx === 10 && gYoniIdx === 4) || // Dog vs Hare
         (bYoniIdx === 6 && gYoniIdx === 5) || (bYoniIdx === 5 && gYoniIdx === 6) || // Rat vs Cat
         (bYoniIdx === 2 && gYoniIdx === 11) || (bYoniIdx === 11 && gYoniIdx === 2); // Sheep vs Monkey
 
@@ -1230,8 +1231,10 @@ export class AstrologyService {
         maitriScore = 3;
       } else if (bToG_enemy && gToB_enemy) {
         maitriScore = 0;
+      } else if ((bToG_friend && gToB_enemy) || (gToB_friend && bToG_enemy)) {
+        maitriScore = 1;
       } else {
-        maitriScore = 1.5;
+        maitriScore = 0.5;
       }
     }
 
@@ -1288,7 +1291,7 @@ export class AstrologyService {
       ganaScore = 6;
     } else if ((bGanaIdx === 0 && gGanaIdx === 1) || (bGanaIdx === 1 && gGanaIdx === 0)) {
       ganaScore = 5;
-    } else if ((bGanaIdx === 0 && gGanaIdx === 2) || (bGanaIdx === 2 && gGanaIdx === 0)) {
+    } else if (bGanaIdx === 0 && gGanaIdx === 2) {
       ganaScore = 1;
     } else {
       ganaScore = 0;
@@ -1443,11 +1446,20 @@ export class AstrologyService {
     const bRajju = RAJJU_GROUPS[bNak];
     const gRajju = RAJJU_GROUPS[gNak];
 
-    // Vedha Porutham: Specific Nakshatra pairs that are mutually afflicting
     const VEDHA_PAIRS: [number, number][] = [
-      [0, 17], [1, 16], [2, 15], [3, 14], [4, 23],
-      [5, 22], [6, 21], [7, 20], [8, 19], [9, 18],
-      [10, 26], [11, 25], [12, 24], [13, 13] // Chitra has no Vedha pair
+      [0, 17], // Ashwini - Jyeshtha
+      [1, 16], // Bharani - Anuradha
+      [2, 15], // Krittika - Vishakha
+      [3, 14], // Rohini - Swati
+      [5, 21], // Ardra - Shravana
+      [6, 20], // Punarvasu - Uttara Ashadha
+      [7, 19], // Pushya - Purva Ashadha
+      [8, 18], // Ashlesha - Mula
+      [9, 26], // Magha - Revati
+      [10, 25], // Purva Phalguni - Uttara Bhadrapada
+      [11, 24], // Uttara Phalguni - Purva Bhadrapada
+      [12, 23], // Hasta - Shatabhisha
+      [4, 13], [4, 22], [13, 22] // Mrigashira, Chitra, Dhanishta are mutually afflicting
     ];
     const hasVedha = VEDHA_PAIRS.some(([a, b]) =>
       (bNak === a && gNak === b) || (bNak === b && gNak === a)
@@ -1460,12 +1472,12 @@ export class AstrologyService {
 
     const loc = LocalizationEngine.getInstance();
     const southIndianPorutham = [
-      { name: loc.get('PORUTHAM.DINA', 'en'), localizedName: loc.get('PORUTHAM.DINA', lang), status: taraScore >= 1.5 ? "Uttama" : "Adhama", localizedStatus: taraScore >= 1.5 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.DINA', lang) },
-      { name: loc.get('PORUTHAM.GANA', 'en'), localizedName: loc.get('PORUTHAM.GANA', lang), status: ganaScore >= 5 ? "Uttama" : "Adhama", localizedStatus: ganaScore >= 5 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.GANA', lang) },
-      { name: loc.get('PORUTHAM.MAHENDRA', 'en'), localizedName: loc.get('PORUTHAM.MAHENDRA', lang), status: isMahendraOk ? "Uttama" : "Madhyama", localizedStatus: isMahendraOk ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.MADHYAMA', lang), description: loc.get('PORUTHAM_DESC.MAHENDRA', lang) },
-      { name: loc.get('PORUTHAM.RAJJU', 'en'), localizedName: loc.get('PORUTHAM.RAJJU', lang), status: bRajju !== gRajju ? "Uttama" : "Adhama", localizedStatus: bRajju !== gRajju ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.RAJJU', lang) },
-      { name: loc.get('PORUTHAM.VEDHA', 'en'), localizedName: loc.get('PORUTHAM.VEDHA', lang), status: !hasVedha ? "Uttama" : "Adhama", localizedStatus: !hasVedha ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.ADHAMA', lang), description: loc.get('PORUTHAM_DESC.VEDHA', lang) },
-      { name: loc.get('PORUTHAM.YONI', 'en'), localizedName: loc.get('PORUTHAM.YONI', lang), status: yoniScore >= 2 ? "Uttama" : "Madhyama", localizedStatus: yoniScore >= 2 ? loc.get('STATUS.UTTAMA', lang) : loc.get('STATUS.MADHYAMA', lang), description: loc.get('PORUTHAM_DESC.YONI', lang) }
+      { name: loc.get('PORUTHAM.DINA', 'en'), localizedName: loc.get('PORUTHAM.DINA', lang), status: taraScore >= 1.5 ? "Excellent" : "Poor", localizedStatus: taraScore >= 1.5 ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.POOR', lang), description: loc.get('PORUTHAM_DESC.DINA', lang) },
+      { name: loc.get('PORUTHAM.GANA', 'en'), localizedName: loc.get('PORUTHAM.GANA', lang), status: ganaScore >= 5 ? "Excellent" : "Poor", localizedStatus: ganaScore >= 5 ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.POOR', lang), description: loc.get('PORUTHAM_DESC.GANA', lang) },
+      { name: loc.get('PORUTHAM.MAHENDRA', 'en'), localizedName: loc.get('PORUTHAM.MAHENDRA', lang), status: isMahendraOk ? "Excellent" : "Average", localizedStatus: isMahendraOk ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.AVERAGE', lang), description: loc.get('PORUTHAM_DESC.MAHENDRA', lang) },
+      { name: loc.get('PORUTHAM.RAJJU', 'en'), localizedName: loc.get('PORUTHAM.RAJJU', lang), status: bRajju !== gRajju ? "Excellent" : "Poor", localizedStatus: bRajju !== gRajju ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.POOR', lang), description: loc.get('PORUTHAM_DESC.RAJJU', lang) },
+      { name: loc.get('PORUTHAM.VEDHA', 'en'), localizedName: loc.get('PORUTHAM.VEDHA', lang), status: !hasVedha ? "Excellent" : "Poor", localizedStatus: !hasVedha ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.POOR', lang), description: loc.get('PORUTHAM_DESC.VEDHA', lang) },
+      { name: loc.get('PORUTHAM.YONI', 'en'), localizedName: loc.get('PORUTHAM.YONI', lang), status: yoniScore >= 2 ? "Excellent" : "Average", localizedStatus: yoniScore >= 2 ? loc.get('STATUS.EXCELLENT', lang) : loc.get('STATUS.AVERAGE', lang), description: loc.get('PORUTHAM_DESC.YONI', lang) }
     ];
 
     // Dosha matching
