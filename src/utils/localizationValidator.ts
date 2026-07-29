@@ -8,7 +8,11 @@ export class EnglishLeakException extends Error {
 const IGNORE_KEYS = [
   'name', 'gotram', 'placeOfBirth', 'dateOfBirth', 'timeOfBirth',
   'pdfData', 'url', 'fileName', 'generatedAt', 'reportId', 'engineVersion', 'language', 'planetId', 'id', 'code',
-  'koota', 'status', 'severity', 'strength', 'nature', 'traditionalMeaning'
+  'koota', 'status', 'severity', 'strength', 'nature', 'traditionalMeaning', 'confidence', 'factor', 'impact',
+  'moonSign', 'moonSignLord', 'nakshatra', 'nakshatraLord', 'pada', 'varna', 'vashya', 'yoni', 'gana', 'nadi',
+  'yoga', 'karana', 'tithi', 'tatva', 'nameAlphabet', 'paya', 'sign', 'system', 'ayanamsa', 'houseSystem',
+  'zodiac', 'type', 'aspectingPlanet', 'aspectedPlanet', 'planet', 'zodiacSign', 'ascendant', 'ascendantLord',
+  'meaning', 'gender', 'start', 'animal', 'bird', 'tree', 'rulingDeity'
 ];
 
 // Allowed technical english keywords
@@ -41,7 +45,7 @@ export const validateLocalization = (data: any, lang: string) => {
 
   const traverse = (obj: any, path: string) => {
     if (obj === null || obj === undefined) return;
-    
+
     if (typeof obj === 'string') {
       if (containsEnglish(obj) && !isWhitelisted(obj)) {
         throw new EnglishLeakException(`English text leaked in ${lang} response at ${path}: "${obj}"`);
