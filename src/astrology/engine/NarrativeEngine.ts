@@ -291,38 +291,44 @@ export class NarrativeEngine {
       };
     };
 
-    return {
-      dashboard: {
-        chartStrength: 75,
-        strongAreas: 
-          langCode === 'te' ? ["వ్యక్తిత్వం", "కెరీర్"] :
-          langCode === 'ta' ? ["ஆளுமை", "தொழில்"] :
-          langCode === 'hi' ? ["व्यक्तित्व", "करियर"] :
-          langCode === 'kn' ? ["ವ್ಯಕ್ತಿತ್ವ", "ವೃತ್ತಿ"] :
-          ["Personality", "Career"],
-        developingAreas: 
-          langCode === 'te' ? ["భాగస్వామ్యాలు"] :
-          langCode === 'ta' ? ["கூட்டாண்மைகள்"] :
-          langCode === 'hi' ? ["साझेदारी"] :
-          langCode === 'kn' ? ["ಪಾಲುದಾರಿಕೆಗಳು"] :
-          ["Partnerships"],
-        dominantElements: 
-          langCode === 'te' ? ["అగ్ని"] :
-          langCode === 'ta' ? ["நெருப்பு"] :
-          langCode === 'hi' ? ["अग्नि"] :
-          langCode === 'kn' ? ["ಬೆಂಕಿ"] :
-          ["Fire"],
-        dominantModes: 
-          langCode === 'te' ? ["స్థిరమైన"] :
-          langCode === 'ta' ? ["நிலையான"] :
-          langCode === 'hi' ? ["स्थिर"] :
-          langCode === 'kn' ? ["ಸ್ಥಿರ"] :
-          ["Fixed"]
-      },
-      personality: buildPersonality(),
-      career: buildCareer(),
-      marriage: buildMarriage(),
-      spirituality: { text: "Spiritual analysis pending.", confidence: "Low", derivedFrom: [] }
-    };
-  }
+      let spiritualityText = "Spiritual analysis pending.";
+      if (langCode === 'te') spiritualityText = "ఆధ్యాత్మిక విశ్లేషణ పెండింగ్‌లో ఉంది.";
+      else if (langCode === 'hi') spiritualityText = "आध्यात्मिक विश्लेषण लंबित है।";
+      else if (langCode === 'ta') spiritualityText = "ஆன்மீக பகுப்பாய்வு நிலுவையில் உள்ளது.";
+      else if (langCode === 'kn') spiritualityText = "ಆಧ್ಯಾತ್ಮಿಕ ವಿಶ್ಲೇಷಣೆ ಬಾಕಿಯಿದೆ.";
+
+      return {
+        dashboard: {
+          chartStrength: 75,
+          strongAreas: 
+            langCode === 'te' ? ["వ్యక్తిత్వం", "కెరీర్"] :
+            langCode === 'ta' ? ["ஆளுமை", "தொழில்"] :
+            langCode === 'hi' ? ["व्यक्तित्व", "करियर"] :
+            langCode === 'kn' ? ["ವ್ಯಕ್ತಿತ್ವ", "ವೃತ್ತಿ"] :
+            ["Personality", "Career"],
+          developingAreas: 
+            langCode === 'te' ? ["భాగస్వామ్యాలు"] :
+            langCode === 'ta' ? ["கூட்டாண்மைகள்"] :
+            langCode === 'hi' ? ["साझेदारी"] :
+            langCode === 'kn' ? ["ಪಾಲುದಾರಿಕೆಗಳು"] :
+            ["Partnerships"],
+          dominantElements: 
+            langCode === 'te' ? ["అగ్ని"] :
+            langCode === 'ta' ? ["நெருப்பு"] :
+            langCode === 'hi' ? ["अग्नि"] :
+            langCode === 'kn' ? ["ಬೆಂಕಿ"] :
+            ["Fire"],
+          dominantModes: 
+            langCode === 'te' ? ["స్థిరమైన"] :
+            langCode === 'ta' ? ["நிலையான"] :
+            langCode === 'hi' ? ["स्थिर"] :
+            langCode === 'kn' ? ["ಸ್ಥಿರ"] :
+            ["Fixed"]
+        },
+        personality: buildPersonality(),
+        career: buildCareer(),
+        marriage: buildMarriage(),
+        spirituality: { text: spiritualityText, confidence: "Low", derivedFrom: [] }
+      };
+    }
 }

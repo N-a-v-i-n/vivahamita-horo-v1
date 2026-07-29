@@ -22,7 +22,8 @@ const WHITELIST = [
   'REP-', // Report ID prefix
   'http', 'https', '.com', '.in', '.org',
   'SouthIndian', 'classic', 'Classic', 'MarriageMatching',
-  'pdf', 'fileName', 'url', 'AM', 'PM' // Metadata keys that might slip through as values in weird edge cases
+  'pdf', 'fileName', 'url', 'AM', 'PM', // Metadata keys that might slip through as values in weird edge cases
+  'D1', 'D9' // Astrological chart divisions often used in localized text
 ];
 
 const containsEnglish = (text: string): boolean => {
